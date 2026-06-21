@@ -1,0 +1,41 @@
+name: Deploy na Wedos (data.strelicnik.cz)
+
+# Při každém pushi do main se vezmou statické HTML stránky portálu
+# a nahrají přes FTP na Wedos hosting. Spustit lze i ručně (workflow_dispatch).
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-wedos
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Sestavit složku k nasazení (portálové HTML)
+        run: |
+          mkdir -p public
+          # všechny portálové stránky v kořeni kromě dočasných "_*.html"
+          find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
+          echo "Nasazované soubory:"
+          ls -la public/
+
+      - name: Deploy přes FTP na Wedos
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}     # např. wfilesXX.wedos.net  nebo  ftp.strelicnik.cz
+          username: ${{ secrets.FTP_USERNAME }}    # FTP login z Wedosu
+          password: ${{ secrets.FTP_PASSWORD }}    # FTP heslo z Wedosu
+          protocol: ftps                           # Wedos podporuje FTPS (když nepojede, zkus "ftp")
+          port: 21
+          server-dir: ${{ secrets.FTP_DIR }}       # docroot subdomény, MUSÍ končit lomítkem, např. /  nebo  /data.strelicnik.cz/www/
+          local-dir: ./public/
+          # pozn.: akce dělá inkrementální sync (stav drží v souboru .ftp-deploy-sync-state.json na serveru).
+          # Docroot subdomény by měl být VYHRAZEN jen tomuto webu (sync může mazat cizí soubory).

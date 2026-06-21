@@ -1,0 +1,24 @@
+# surová a velká data (stahovaná / regenerovatelná) — do repa nepatří
+data/
+zapisy_RO/
+zastupitelstvo_ZO/
+txt/
+txt_zo/
+_work/
+
+# build cache / náhled / scratch
+.preview/
+__pycache__/
+*.pyc
+_*.html
+_*.txt
+*.zip
+.ftp-deploy-sync-state.json
+.DS_Store
+Thumbs.db
+
+# generované datasety nech verzované (jsou malé a jsou „source of truth" pro RO/ZO stránky):
+#   dataset_RO.json, dataset_ZO.json, dataset_*_body.csv  → NEignorováno schválně
+
+# lokální konfig Claude Code
+.claude/
