@@ -132,6 +132,10 @@ _FAV_SVG = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>"
     "<circle cx='27' cy='21' r='3' fill='#fff'/></svg>")
 FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote(_FAV_SVG) + '">'
 
+# Cloudflare Web Analytics (bez cookies) — beacon přes JS snippet, web zůstává na Wedosu
+ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
+             ' data-cf-beacon=\'{"token": "362b46820b6e4b55aa1af4a087703cf7"}\'></script>')
+
 def topbar(active):
     links = "".join(
         f'<a href="{href}"{" class=\"active\"" if name==active else ""}>{name}</a>'
@@ -164,6 +168,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
 {FAVICON_LINK}
+{ANALYTICS}
 <style>{SHARED_CSS}</style>
 {head_scripts}
 </head>

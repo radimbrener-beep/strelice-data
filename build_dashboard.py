@@ -67,6 +67,7 @@ HTML = r"""<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Rozpočet — Jak žijí Střelice</title>
 /*FAVICON*/
+/*ANALYTICS*/
 <style>
 :root{
   --bg1:#eef2f9; --bg2:#f8fafc;
@@ -615,6 +616,7 @@ nav_links = "".join(
     f'<a href="{href}"{" class=\"active\"" if label == "Rozpočet" else ""}>{label}</a>'
     for href, label in pc.SECTIONS)
 HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
-        .replace("/*FAVICON*/", pc.FAVICON_LINK).replace("<!--NAV-->", nav_links))
+        .replace("/*FAVICON*/", pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
+        .replace("/*ANALYTICS*/", pc.ANALYTICS))
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")
