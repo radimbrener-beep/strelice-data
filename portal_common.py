@@ -4,7 +4,7 @@
 mezi sekcemi, přepínač světlý/tmavý režim, patička. Každá stránka je
 samostatný HTML soubor (data + Chart.js vložené) → funguje po dvojkliku
 i odděleně; navigace mezi sekcemi funguje, leží-li soubory ve stejné složce."""
-import urllib.parse
+import urllib.parse, base64, os
 
 SECTIONS = [
     ("index.html",    "Přehled"),
@@ -139,12 +139,17 @@ FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote
 ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
              ' data-cf-beacon=\'{"token": "362b46820b6e4b55aa1af4a087703cf7"}\'></script>')
 
-# logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz; soubor v assets/
+# logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz.
+# Vkládáme jako data-URI přímo do HTML → stránka je samostatná, deploy je jen
+# ploché HTML (žádná FTP podsložka, žádný extra soubor k nahrání).
+_logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "strelicnik_ruce.png")
+with open(_logo_path, "rb") as _f:
+    LOGO_URI = "data:image/png;base64," + base64.b64encode(_f.read()).decode("ascii")
 BRANDFOOT = ('<div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center">'
              '<a href="https://www.strelicnik.cz" target="_blank" rel="noopener" '
              'title="Součást webu Střeličník — strelicnik.cz" '
              'style="display:inline-block;transition:transform .2s" onmouseover="this.style.transform=\'translateY(-2px)\'" onmouseout="this.style.transform=\'\'">'
-             '<img src="assets/strelicnik_ruce.png" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>')
+             '<img src="' + LOGO_URI + '" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>')
 
 def topbar(active):
     links = "".join(

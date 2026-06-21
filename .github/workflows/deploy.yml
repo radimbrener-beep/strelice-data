@@ -23,11 +23,10 @@ jobs:
         run: |
           mkdir -p public
           # všechny portálové stránky v kořeni kromě dočasných "_*.html"
+          # (loga apod. jsou vložená přímo v HTML jako data-URI → žádné přílohy)
           find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
-          # statické přílohy (loga apod.)
-          [ -d assets ] && cp -r assets public/ || true
           echo "Nasazované soubory:"
-          ls -laR public/
+          ls -la public/
 
       - name: Deploy přes FTP na Wedos
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
