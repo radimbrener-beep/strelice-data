@@ -608,6 +608,7 @@ document.getElementById('modalBd').onclick=closeModal;
 document.addEventListener('keydown',e=>{if(e.key=='Escape')closeModal();});
 
 </script>
+<!--BRANDFOOT-->
 <footer class="footer">Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
 </body>
 </html>"""
@@ -617,6 +618,6 @@ nav_links = "".join(
     for href, label in pc.SECTIONS)
 HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
         .replace("/*FAVICON*/", pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
-        .replace("/*ANALYTICS*/", pc.ANALYTICS))
+        .replace("/*ANALYTICS*/", pc.ANALYTICS).replace("<!--BRANDFOOT-->", pc.BRANDFOOT))
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")

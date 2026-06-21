@@ -88,7 +88,10 @@ section{margin-top:30px;scroll-margin-top:74px}
 .chartbox{position:relative;width:100%;height:330px;margin-top:6px}
 .chartbox.sm{height:280px}
 .note{font-size:12px;color:var(--faint);margin-top:12px;line-height:1.6}
-.footer{margin-top:18px;color:var(--faint);font-size:11.5px;text-align:center;line-height:1.4;padding-bottom:6px}
+.footer{margin-top:10px;color:var(--faint);font-size:11.5px;text-align:center;line-height:1.4;padding-bottom:6px}
+.brandfoot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
+.brandfoot img{height:46px;width:auto;opacity:.9;transition:opacity .2s, transform .2s}
+.brandfoot a:hover img{opacity:1;transform:translateY(-2px)}
 /* rozcestník */
 .tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:8px}
 .tile{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
@@ -136,6 +139,13 @@ FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote
 ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
              ' data-cf-beacon=\'{"token": "362b46820b6e4b55aa1af4a087703cf7"}\'></script>')
 
+# logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz; soubor v assets/
+BRANDFOOT = ('<div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center">'
+             '<a href="https://www.strelicnik.cz" target="_blank" rel="noopener" '
+             'title="Součást webu Střeličník — strelicnik.cz" '
+             'style="display:inline-block;transition:transform .2s" onmouseover="this.style.transform=\'translateY(-2px)\'" onmouseout="this.style.transform=\'\'">'
+             '<img src="assets/strelicnik_ruce.png" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>')
+
 def topbar(active):
     links = "".join(
         f'<a href="{href}"{" class=\"active\"" if name==active else ""}>{name}</a>'
@@ -176,6 +186,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 {topbar(active)}
 <div class="wrap">
 {body}
+{BRANDFOOT}
 {footer}
 </div>
 <script>{THEME_JS}</script>
