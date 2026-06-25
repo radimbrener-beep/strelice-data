@@ -1,0 +1,17 @@
+{
+  "_comment": "Doplnění hlasování pro zasedání, jejichž obecní výpis usnesení je nečitelný sken (OCR). Zdroj: čistý přetisk výpisu ve Střelickém zpravodaji. default = počet pro/proti/zdržel pro jednomyslná hlasování; items = výjimky podle klíčového slova v textu usnesení (vote = [pro,proti,zdržel], names = [pro_jména, proti_jména, zdržel_jména]).",
+  "27": {
+    "default": [15, 0, 0],
+    "items": [
+      {
+        "match": "Recovera",
+        "vote": [14, 1, 0],
+        "names": [
+          ["Bartoňová", "Brener", "Dlapka", "Dvořák", "Fialová", "Hloušková", "A. Liška", "V. Liška", "Pernikář", "Smištík", "Ströbinger", "Tichý", "Vašulín", "Zoubková"],
+          ["Rozsíval"],
+          []
+        ]
+      }
+    ]
+  }
+}

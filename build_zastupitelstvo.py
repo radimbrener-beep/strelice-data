@@ -46,12 +46,28 @@ def _fold(s):
 def _vt(s):
     return set(re.findall(r'[a-z0-9]{4,}', _fold(s)))
 
+
+def override_vote(cislo, text):
+    """Doplnění hlasování z Zpravodaje pro zasedání s nečitelným skenem výpisu.
+    Vrací (počty [pro,proti,zdržel], dissent [pro,proti,zdržel jména] nebo None)."""
+    ov = VOTE_OVR.get(str(cislo))
+    if not ov:
+        return None, None
+    f = _fold(text)
+    for it in ov.get("items", []):
+        if _fold(it["match"]) in f:
+            nm = it.get("names")
+            return it["vote"], (nm if nm and any(nm) else None)
+    return ov.get("default"), None
+
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
 src = json.load(open("dataset_ZO.json", encoding="utf-8"))
 GEO_PATH = os.path.join("data", "parcely_geo.json")
 parcely_geo = json.load(open(GEO_PATH, encoding="utf-8")) if os.path.exists(GEO_PATH) else {}
 # časové kotvy záznamů zasedání (z YouTube titulků) — viz build_video_casy.py
 VCAS = json.load(open("video_casy.json", encoding="utf-8")) if os.path.exists("video_casy.json") else {}
+# doplnění hlasování tam, kde je obecní výpis nečitelný sken (zdroj: Zpravodaj)
+VOTE_OVR = json.load(open("zo_votes_override.json", encoding="utf-8")) if os.path.exists("zo_votes_override.json") else {}
 
 cats = []
 def ci(c):
@@ -96,9 +112,16 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
             if parent is not None:
                 parent[5] = 1   # k rodiči přidáme „pověřen k podpisu"
             continue
+        hl = b.get("hlasovani")
+        dis = dissent_for(b["text"], hl)
+        if not hl:   # chybí počty (nečitelný sken výpisu) → doplň z Zpravodaje
+            ov_vote, ov_dis = override_vote(r["cislo_zasedani"], b["text"])
+            if ov_vote:
+                hl = ov_vote
+                if ov_dis:
+                    dis = ov_dis
         it = [ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)],
-              b.get("castka"), b.get("hlasovani"), b["text"], 0, bt.get(str(ix)),
-              dissent_for(b["text"], b.get("hlasovani"))]
+              b.get("castka"), hl, b["text"], 0, bt.get(str(ix)), dis]
         items.append(it)
         parent = it
     meet.append({
@@ -182,13 +205,11 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .zvote.contested b{color:var(--accent)}
 .zsign{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);
   background:var(--inset);border:1px dashed var(--line);padding:2px 9px;border-radius:999px}
-.zvote.hasnames{cursor:default}
-.vseg{border:0;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0 1px;
-  text-decoration:underline dotted;text-underline-offset:3px}
-.vseg b{font-variant-numeric:tabular-nums}
-.vseg:hover,.vseg.on{text-decoration:underline}
-.vseg0{padding:0 1px}
-.vpop{margin-top:8px;font-size:12px;color:var(--muted);line-height:1.55}
+.zvote.vbtn{cursor:pointer;font-family:inherit}
+.zvote.vbtn:hover{border-color:var(--accent)}
+.vchev{font-size:9px;opacity:.7;transition:transform .15s;display:inline-block;margin-left:1px}
+.zvote.vbtn.open .vchev{transform:rotate(180deg)}
+.vpop{margin-top:8px;font-size:12px;color:var(--muted);line-height:1.6}
 .vpop b{color:var(--text);font-weight:600}
 .zct2{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--accent);
   background:var(--accent-soft);border:1px solid var(--line);padding:2px 9px;border-radius:999px;
@@ -402,14 +423,15 @@ function voteBadge(v, nm){
   if(!v) return '';
   const pr=v[0]??0, pt=v[1]??0, zd=v[2]??0;
   const cls = (pt>0||zd>0) ? ' contested' : '';
+  const base=`pro <b>${pr}</b> · proti <b>${pt}</b> · zdržel <b>${zd}</b>`;
   if(!nm)
-    return `<span class="zvote${cls}" title="Hlasování: pro ${pr}, proti ${pt}, zdržel se ${zd}">`+
-           `pro <b>${pr}</b> · proti <b>${pt}</b> · zdržel <b>${zd}</b></span>`;
-  const seg=(lab,n,names)=> (names&&names.length)
-    ? `<button type="button" class="vseg" data-lab="${lab}" data-names="${esc(names.join(', '))}">${lab} <b>${n}</b></button>`
-    : `<span class="vseg0">${lab} <b>${n}</b></span>`;
-  return `<span class="zvote${cls} hasnames" title="Klikni na číslo pro jména">`+
-         `${seg('pro',pr,nm[0])} · ${seg('proti',pt,nm[1])} · ${seg('zdržel',zd,nm[2])}</span>`;
+    return `<span class="zvote${cls}" title="Hlasování: pro ${pr}, proti ${pt}, zdržel se ${zd}">${base}</span>`;
+  return `<button type="button" class="zvote${cls} vbtn" title="Klikni – kdo byl pro, proti a zdržel se">${base} <span class="vchev">&#9662;</span></button>`;
+}
+function votePanel(v, nm){
+  if(!nm) return '<div class="vpop" hidden></div>';
+  const line=(lab,n,names)=>`<div><b>${lab} (${n}):</b> ${(names&&names.length)?esc(names.join(', ')):'—'}</div>`;
+  return `<div class="vpop" hidden>${line('Pro',v[0]??0,nm[0])}${line('Proti',v[1]??0,nm[1])}${line('Zdržel se',v[2]??0,nm[2])}</div>`;
 }
 
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
@@ -451,7 +473,7 @@ function cardHTML(m,items,open,qf){
       const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
       const cat=`<span class="zcat" style="--cc:${col}">${esc(c)}</span>`;
       return `<div class="zitem${SUB[c]?' zsub':''}" style="--ic:${col}"><div>${txt}</div>`+
-             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div><div class="vpop" hidden></div></div>`;
+             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}</div>`;
     }).join('');
     bodyHTML='<div class="zmt-body">'+recHTML(m)+rows+'</div>';
   }
@@ -488,15 +510,11 @@ function render(){
   });
   feed.querySelectorAll('.ztag').forEach(tg=>tg.onclick=(e)=>{e.stopPropagation(); setTema(tg.dataset.t);});
   feed.querySelectorAll('.zmoney').forEach(mo=>mo.onclick=(e)=>{e.stopPropagation(); setVyd(mo.dataset.v);});
-  const VLAB={pro:'Pro',proti:'Proti','zdržel':'Zdržel se'};
-  feed.querySelectorAll('.vseg').forEach(seg=>seg.onclick=(e)=>{
+  feed.querySelectorAll('.vbtn').forEach(btn=>btn.onclick=(e)=>{
     e.stopPropagation();
-    const item=seg.closest('.zitem'), pop=item.querySelector('.vpop'), cur=seg.dataset.lab;
-    if(!pop.hidden && pop.dataset.cur===cur){ pop.hidden=true; pop.dataset.cur=''; seg.classList.remove('on'); return; }
-    item.querySelectorAll('.vseg.on').forEach(s=>s.classList.remove('on'));
-    seg.classList.add('on');
-    pop.innerHTML=`<b>${VLAB[cur]||cur} (${seg.querySelector('b').textContent}):</b> ${esc(seg.dataset.names)}`;
-    pop.hidden=false; pop.dataset.cur=cur;
+    const pop=btn.closest('.zitem').querySelector('.vpop');
+    pop.hidden=!pop.hidden;
+    btn.classList.toggle('open', !pop.hidden);
   });
 }
 
