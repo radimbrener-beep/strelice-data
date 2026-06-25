@@ -2,6 +2,11 @@
   "_comment": "Doplnění hlasování pro zasedání, jejichž obecní výpis usnesení je nečitelný sken (OCR). Zdroj: čistý přetisk výpisu ve Střelickém zpravodaji. default = počet pro/proti/zdržel pro jednomyslná hlasování; items = výjimky podle klíčového slova v textu usnesení (vote = [pro,proti,zdržel], names = [pro_jména, proti_jména, zdržel_jména]).",
   "27": {
     "default": [15, 0, 0],
+    "prepend": [
+      {"kat": "schvaluje", "text": "Zastupitelstvo schválilo program jednání 27. Zastupitelstva obce Střelice.", "vote": [15, 0, 0]},
+      {"kat": "volí", "text": "Za ověřovatele zápisu zvolilo zastupitelstvo paní Mgr. Petru Zoubkovou a pana Mgr. Ing. Davida Dvořáka."},
+      {"kat": "volí", "text": "Do návrhové komise zvolilo pana Vojtěcha Lišku a paní Evu Bartoňovou."}
+    ],
     "items": [
       {
         "match": "Recovera",

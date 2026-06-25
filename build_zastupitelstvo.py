@@ -175,6 +175,14 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
     if not has_komise and proc.get("komise") and ov_pos is not None:
         kom = [ci("volí"), ti_index.get(temata.OSTATNI, 0), None, None, proc["komise"], 0, None, None]
         items.insert(ov_pos + 1, kom)
+
+    # zasedání s nečitelným skenem (ZO27) nemají úvodní procedurální body vůbec —
+    # doplň je na začátek z override (zdroj: Zpravodaj)
+    _ovr = VOTE_OVR.get(str(r["cislo_zasedani"]))
+    if _ovr and _ovr.get("prepend") and not any("zvolilo" in it[4].lower() for it in items):
+        pre = [[ci(p["kat"]), ti_index.get(temata.OSTATNI, 0), None, p.get("vote"), p["text"], 0, None, None]
+               for p in _ovr["prepend"]]
+        items = pre + items
     meet.append({
         "n": r["cislo_zasedani"], "d": r["datum"], "y": r["rok"],
         "u": r["url"] or "", "p": r.get("pritomno"),
@@ -238,8 +246,6 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .zcat{display:inline-flex;align-items:center;font-size:10.5px;font-weight:700;letter-spacing:.03em;
   text-transform:uppercase;color:var(--cc);background:var(--inset);border:1px solid var(--line);
   padding:2px 9px;border-radius:999px}
-.zitem.zsub{margin-left:30px}
-@media(max-width:680px){.zitem.zsub{margin-left:16px}}
 .ztag{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);
   background:var(--inset);border:1px solid var(--line);padding:2px 9px 2px 8px;border-radius:999px;cursor:pointer}
 .ztag:hover{color:var(--text);border-color:var(--accent)}
@@ -512,9 +518,7 @@ function cardHTML(m,items,open,qf){
   const cnt=items.length;
   let bodyHTML='';
   if(open){
-    // usnesení v pořadí, jak na zasedání šla (program), ne sdružená podle druhu;
-    // navazující pověření/uložení se lehce odsadí pod předchozí bod
-    const SUB={'pověřuje':1,'ukládá':1};
+    // usnesení v pořadí, jak na zasedání šla (program), ne sdružená podle druhu
     const rows=items.map(it=>{
       const c=CATS[it[0]], col=catVar(c);
       const th=TEMATA[it[1]], amt=it[2], vts=it[3];
@@ -523,7 +527,7 @@ function cardHTML(m,items,open,qf){
       const sign=it[5]?`<span class="zsign" title="Zastupitelstvo zároveň pověřilo starostu/radu podpisem příslušné smlouvy">&#10003; pověřeno k podpisu</span>`:'';
       const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
       const cat=`<span class="zcat" style="--cc:${col}">${esc(c)}</span>`;
-      return `<div class="zitem${SUB[c]?' zsub':''}" style="--ic:${col}"><div>${txt}</div>`+
+      return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
              `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}</div>`;
     }).join('');
     bodyHTML='<div class="zmt-body">'+recHTML(m)+rows+'</div>';
