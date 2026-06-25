@@ -431,7 +431,7 @@ function recHTML(m){
   }
   const sub = (m.ch&&m.ch.length)?` <span class="sub">· ${m.ch.length} ${plurKap(m.ch.length)}, klikni na čas a skoč ve videu</span>`:'';
   return `<div class="zrec"><div class="zrec-h"><span class="yt">&#9654;</span>Záznam jednání`+
-         ` · <a href="${full}" target="_blank" rel="noopener" onclick="event.stopPropagation()">otevřít celé video &#8599;</a>${sub}`+
+         ` · <a href="${full}?t=0" target="_blank" rel="noopener" onclick="event.stopPropagation()">otevřít celé video &#8599;</a>${sub}`+
          `</div>${inner}</div>`;
 }
 
@@ -457,7 +457,7 @@ function cardHTML(m,items,open,qf){
     }).join('')+'</div>';
   }
   const pdf=m.u?`<a class="zpdf" href="${esc(m.u)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF&nbsp;&#8599;</a>`:'';
-  const yt=m.v?`<a class="zyt" href="https://youtu.be/${m.v}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Záznam jednání na YouTube">&#9654;&nbsp;záznam</a>`:'';
+  const yt=m.v?`<a class="zyt" href="https://youtu.be/${m.v}?t=0" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Záznam jednání na YouTube (od začátku)">&#9654;&nbsp;záznam</a>`:'';
   const pres=m.p?` · ${m.p} přít.`:'';
   return `<div class="zmt${open?' open':''}">
     <button class="zmt-h" data-n="${m.n}">
