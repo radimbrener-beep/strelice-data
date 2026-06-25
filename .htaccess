@@ -1,11 +1,13 @@
 # Čisté URL bez .html  (např. /zastupitelstvo naservíruje zastupitelstvo.html)
 # Wedos (Apache/LiteSpeed) respektuje .htaccess. Bez mod_rewrite se blok přeskočí
-# a web jede dál na .html adresách. Záměrně BEZ 301 .html->čistá (to působilo
-# smyčku); kanonickou (čistou) adresu určuje <link rel="canonical"> ve stránkách.
+# a web jede dál na .html adresách. Kanonickou (čistou) adresu určuje
+# <link rel="canonical"> ve stránkách.
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
+  # Spustit jen u PŘÍMÉHO požadavku prohlížeče (ne u interního přepisu) → bez smyčky.
+  RewriteCond %{ENV:REDIRECT_STATUS} ^$
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1.html -f
