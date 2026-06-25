@@ -38,7 +38,7 @@ tiles = [
      "Zápisy z jednání Rady obce 2022–2026 — fulltextové hledání v usneseních, filtr podle roku a druhu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.",
      "Procházet zápisy →", None),
     ("zastupitelstvo.html", "Zastupitelstvo", "zo", True,
-     "Usnesení zastupitelstva 2022–2026 — výsledky hlasování, témata, výdaje, účast a prokliky parcel do katastru.",
+     "Usnesení zastupitelstva 2022–2026 — výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
      "Procházet usnesení →", None),
     ("#", "Další sekce", "pl", False,
      "Připravujeme — např. hospodaření a zadluženost, životní prostředí a odpadové hospodářství.",
