@@ -5,11 +5,46 @@ usnesení Zastupitelstva obce Střelice 2022–2026. Stejné jako sekce Rada obc
 hledání, filtr roku/tématu/objemu výdaje, témata, částky, prokliky parcel do
 katastru. Navíc u každého usnesení VÝSLEDEK HLASOVÁNÍ (pro–proti–zdržel) a
 účast na zasedání. Data z dataset_ZO.json, vše inlinované → funguje offline."""
-import sys, json, os, re
+import sys, json, os, re, unicodedata
 import portal_common as pc
 import temata
 import vydaje
 sys.stdout.reconfigure(encoding="utf-8")
+
+# --- jmenovité hlasování z výpisu usnesení (raw_text) ---
+# Formát: "Pro – 13 (Bartoňová, Brener, …)  Proti – 0  Zdržel se – 1 (Hloušková)"
+VOTE_RE = re.compile(
+    r'Pro\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?\s*'
+    r'Proti\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?\s*'
+    r'Zdržel\s*se\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?', re.S)
+
+
+def _names(s):
+    s = re.sub(r'\s+', ' ', (s or '')).strip()
+    if not s or 'všichni' in s.lower():
+        return []
+    return [x.strip() for x in s.split(',') if x.strip()]
+
+
+def parse_votes(rt):
+    """Vrať seznam bloků hlasování z raw_textu: text + počty a jména proti/zdržel."""
+    blocks, last = [], 0
+    for m in VOTE_RE.finditer(rt or ""):
+        text = re.sub(r'\s+', ' ', (rt[last:m.start()])).strip().lstrip('• ').strip()
+        last = m.end()
+        blocks.append({"text": text, "pro": _names(m.group(2)),
+                       "pn": int(m.group(3)), "proti": _names(m.group(4)),
+                       "zn": int(m.group(5)), "zdrzel": _names(m.group(6))})
+    return blocks
+
+
+def _fold(s):
+    return ''.join(c for c in unicodedata.normalize('NFD', (s or '').lower())
+                   if unicodedata.category(c) != 'Mn')
+
+
+def _vt(s):
+    return set(re.findall(r'[a-z0-9]{4,}', _fold(s)))
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
 src = json.load(open("dataset_ZO.json", encoding="utf-8"))
@@ -35,7 +70,25 @@ SIGN_RE = re.compile(r'pověřuje\b.*\bpodpis', re.I)
 for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
     vc = VCAS.get(str(r["cislo_zasedani"]))
     bt = (vc.get("bodytimes") or {}) if vc else {}
-    # polozka: [druh_idx, tema_idx, castka|null, hlasovani|null, text, sign(0/1), cas|null]
+    blocks = parse_votes(r.get("raw_text", ""))
+    bt_toks = [(_vt(bk["text"]), bk) for bk in blocks]
+
+    def dissent_for(text, hl):
+        """Jména proti/zdržel pro nejednomyslné hlasování — blok se shodnými počty a textem."""
+        if not hl or ((hl[1] or 0) == 0 and (hl[2] or 0) == 0):
+            return None
+        it_t = _vt(text)
+        best, bestsc = None, -1
+        for tk, bk in bt_toks:
+            if bk["pn"] == (hl[1] or 0) and bk["zn"] == (hl[2] or 0):
+                sc = len(it_t & tk)
+                if sc > bestsc:
+                    bestsc, best = sc, bk
+        if best and bestsc >= 3 and (best["proti"] or best["zdrzel"]):
+            return [best.get("pro", []), best["proti"], best["zdrzel"]]
+        return None
+
+    # polozka: [druh_idx, tema_idx, castka|null, hlasovani|null, text, sign(0/1), cas|null, dissent|null]
     items = []
     parent = None
     for ix, b in enumerate(r["body"]):
@@ -44,7 +97,8 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
                 parent[5] = 1   # k rodiči přidáme „pověřen k podpisu"
             continue
         it = [ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)],
-              b.get("castka"), b.get("hlasovani"), b["text"], 0, bt.get(str(ix))]
+              b.get("castka"), b.get("hlasovani"), b["text"], 0, bt.get(str(ix)),
+              dissent_for(b["text"], b.get("hlasovani"))]
         items.append(it)
         parent = it
     meet.append({
@@ -107,6 +161,11 @@ PAGE_CSS = r"""<style>
 .zitem mark{background:rgba(250,204,21,.45);color:inherit;border-radius:3px;padding:0 1px}
 html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .ztags{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.zcat{display:inline-flex;align-items:center;font-size:10.5px;font-weight:700;letter-spacing:.03em;
+  text-transform:uppercase;color:var(--cc);background:var(--inset);border:1px solid var(--line);
+  padding:2px 9px;border-radius:999px}
+.zitem.zsub{margin-left:30px}
+@media(max-width:680px){.zitem.zsub{margin-left:16px}}
 .ztag{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);
   background:var(--inset);border:1px solid var(--line);padding:2px 9px 2px 8px;border-radius:999px;cursor:pointer}
 .ztag:hover{color:var(--text);border-color:var(--accent)}
@@ -119,10 +178,18 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .zvote{display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--muted);
   background:var(--inset);border:1px solid var(--line);padding:2px 9px;border-radius:999px;font-variant-numeric:tabular-nums}
 .zvote b{color:var(--text);font-weight:700}
-.zvote.contested{color:var(--neg);border-color:var(--neg)}
-.zvote.contested b{color:var(--neg)}
+.zvote.contested{color:var(--accent);border-color:var(--accent)}
+.zvote.contested b{color:var(--accent)}
 .zsign{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);
   background:var(--inset);border:1px dashed var(--line);padding:2px 9px;border-radius:999px}
+.zvote.hasnames{cursor:default}
+.vseg{border:0;background:transparent;font:inherit;color:inherit;cursor:pointer;padding:0 1px;
+  text-decoration:underline dotted;text-underline-offset:3px}
+.vseg b{font-variant-numeric:tabular-nums}
+.vseg:hover,.vseg.on{text-decoration:underline}
+.vseg0{padding:0 1px}
+.vpop{margin-top:8px;font-size:12px;color:var(--muted);line-height:1.55}
+.vpop b{color:var(--text);font-weight:600}
 .zct2{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--accent);
   background:var(--accent-soft);border:1px solid var(--line);padding:2px 9px;border-radius:999px;
   text-decoration:none;font-variant-numeric:tabular-nums}
@@ -331,12 +398,18 @@ function filtered(){
   return {res,itemMode,qf};
 }
 
-function voteBadge(v){
+function voteBadge(v, nm){
   if(!v) return '';
   const pr=v[0]??0, pt=v[1]??0, zd=v[2]??0;
   const cls = (pt>0||zd>0) ? ' contested' : '';
-  return `<span class="zvote${cls}" title="Hlasování: pro ${pr}, proti ${pt}, zdržel se ${zd}">`+
-         `pro <b>${pr}</b> · proti <b>${pt}</b> · zdržel <b>${zd}</b></span>`;
+  if(!nm)
+    return `<span class="zvote${cls}" title="Hlasování: pro ${pr}, proti ${pt}, zdržel se ${zd}">`+
+           `pro <b>${pr}</b> · proti <b>${pt}</b> · zdržel <b>${zd}</b></span>`;
+  const seg=(lab,n,names)=> (names&&names.length)
+    ? `<button type="button" class="vseg" data-lab="${lab}" data-names="${esc(names.join(', '))}">${lab} <b>${n}</b></button>`
+    : `<span class="vseg0">${lab} <b>${n}</b></span>`;
+  return `<span class="zvote${cls} hasnames" title="Klikni na číslo pro jména">`+
+         `${seg('pro',pr,nm[0])} · ${seg('proti',pt,nm[1])} · ${seg('zdržel',zd,nm[2])}</span>`;
 }
 
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
@@ -366,22 +439,21 @@ function cardHTML(m,items,open,qf){
   const cnt=items.length;
   let bodyHTML='';
   if(open){
-    const byCat={};
-    for(const it of items){(byCat[CATS[it[0]]]=byCat[CATS[it[0]]]||[]).push(it);}
-    const groups=Object.keys(byCat).sort((a,b)=>catOrd(a)-catOrd(b));
-    bodyHTML='<div class="zmt-body">'+recHTML(m)+groups.map(c=>{
-      const col=catVar(c);
-      const rows=byCat[c].map(it=>{
-        const th=TEMATA[it[1]], amt=it[2], vts=it[3];
-        const money=amt!=null?`<span class="zmoney" data-v="${esc(vbucket(amt))}" title="Objem: ${esc(vbucket(amt))}"><i style="background:${vbVar(vbucket(amt))}"></i>${fmtKc(amt)}</span>`:'';
-        const txt=linkifyParc(hl(it[4],qf), !OTHER_KU.test(it[4]));
-        const sign=it[5]?`<span class="zsign" title="Zastupitelstvo zároveň pověřilo starostu/radu podpisem příslušné smlouvy">&#10003; pověřeno k podpisu</span>`:'';
-        const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
-        return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
-               `<div class="ztags"><span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts)}${sign}${tl}</div></div>`;
-      }).join('');
-      return `<div class="zgrp"><div class="zgrp-h"><span class="dotc" style="background:${col}"></span>Zastupitelstvo ${esc(c)} · ${byCat[c].length}</div>${rows}</div>`;
-    }).join('')+'</div>';
+    // usnesení v pořadí, jak na zasedání šla (program), ne sdružená podle druhu;
+    // navazující pověření/uložení se lehce odsadí pod předchozí bod
+    const SUB={'pověřuje':1,'ukládá':1};
+    const rows=items.map(it=>{
+      const c=CATS[it[0]], col=catVar(c);
+      const th=TEMATA[it[1]], amt=it[2], vts=it[3];
+      const money=amt!=null?`<span class="zmoney" data-v="${esc(vbucket(amt))}" title="Objem: ${esc(vbucket(amt))}"><i style="background:${vbVar(vbucket(amt))}"></i>${fmtKc(amt)}</span>`:'';
+      const txt=linkifyParc(hl(it[4],qf), !OTHER_KU.test(it[4]));
+      const sign=it[5]?`<span class="zsign" title="Zastupitelstvo zároveň pověřilo starostu/radu podpisem příslušné smlouvy">&#10003; pověřeno k podpisu</span>`:'';
+      const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
+      const cat=`<span class="zcat" style="--cc:${col}">${esc(c)}</span>`;
+      return `<div class="zitem${SUB[c]?' zsub':''}" style="--ic:${col}"><div>${txt}</div>`+
+             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div><div class="vpop" hidden></div></div>`;
+    }).join('');
+    bodyHTML='<div class="zmt-body">'+recHTML(m)+rows+'</div>';
   }
   const pdf=m.u?`<a class="zpdf" href="${esc(m.u)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF&nbsp;&#8599;</a>`:'';
   const yt=m.v?`<a class="zyt" href="https://youtu.be/${m.v}?t=0" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Záznam jednání na YouTube (od začátku)">&#9654;&nbsp;záznam</a>`:'';
@@ -416,6 +488,16 @@ function render(){
   });
   feed.querySelectorAll('.ztag').forEach(tg=>tg.onclick=(e)=>{e.stopPropagation(); setTema(tg.dataset.t);});
   feed.querySelectorAll('.zmoney').forEach(mo=>mo.onclick=(e)=>{e.stopPropagation(); setVyd(mo.dataset.v);});
+  const VLAB={pro:'Pro',proti:'Proti','zdržel':'Zdržel se'};
+  feed.querySelectorAll('.vseg').forEach(seg=>seg.onclick=(e)=>{
+    e.stopPropagation();
+    const item=seg.closest('.zitem'), pop=item.querySelector('.vpop'), cur=seg.dataset.lab;
+    if(!pop.hidden && pop.dataset.cur===cur){ pop.hidden=true; pop.dataset.cur=''; seg.classList.remove('on'); return; }
+    item.querySelectorAll('.vseg.on').forEach(s=>s.classList.remove('on'));
+    seg.classList.add('on');
+    pop.innerHTML=`<b>${VLAB[cur]||cur} (${seg.querySelector('b').textContent}):</b> ${esc(seg.dataset.names)}`;
+    pop.hidden=false; pop.dataset.cur=cur;
+  });
 }
 
 function temaChart(){
