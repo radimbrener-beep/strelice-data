@@ -1,9 +1,2 @@
-# Čisté URL bez .html  (např. /zastupitelstvo naservíruje zastupitelstvo.html)
-# Bez mod_rewrite se blok přeskočí a web jede dál na .html adresách.
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.+?)/?$ $1.html [L]
-</IfModule>
+# Záměrně prázdné — Wedos nepodporoval interní přepis na čisté URL (vracelo 500).
+# Web běží na .html adresách. Tento prázdný soubor přepíše dřívější chybové pravidlo.
