@@ -182,10 +182,11 @@ OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, inve
 def og_meta(active, title):
     """Meta značky pro hezký náhled při sdílení (obrázek og-image.png je plochý soubor v kořeni)."""
     fn = next((f for f, n in SECTIONS if n == active), "index.html")
-    url = SITE + "/" + ("" if fn == "index.html" else fn)
+    url = SITE + "/" + ("" if fn == "index.html" else fn[:-5])  # čistá URL bez .html
     t = (title or "Jak žijí Střelice").replace('"', '&quot;')
     img = SITE + "/og-image.png"
     return (
+        f'<link rel="canonical" href="{url}">'
         '<meta property="og:type" content="website">'
         '<meta property="og:site_name" content="Jak žijí Střelice">'
         f'<meta property="og:title" content="{t}">'

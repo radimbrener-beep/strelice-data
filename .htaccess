@@ -1,0 +1,21 @@
+# Čisté URL bez .html  (např. /zastupitelstvo místo /zastupitelstvo.html)
+# Wedos (Apache/LiteSpeed) respektuje .htaccess. Pokud by mod_rewrite chyběl,
+# blok se přeskočí a web funguje dál na .html adresách.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # index.html  ->  /   (kanonická domovská adresa)
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # libovolná /stranka.html  ->  /stranka   (301, čistá adresa je ta pravá)
+  RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # /stranka  ->  interně naservíruj /stranka.html (existuje-li)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^([^.]+?)/?$ $1.html [L]
+</IfModule>
