@@ -5,7 +5,7 @@ usnesení Zastupitelstva obce Střelice 2022–2026. Stejné jako sekce Rada obc
 hledání, filtr roku/tématu/objemu výdaje, témata, částky, prokliky parcel do
 katastru. Navíc u každého usnesení VÝSLEDEK HLASOVÁNÍ (pro–proti–zdržel) a
 účast na zasedání. Data z dataset_ZO.json, vše inlinované → funguje offline."""
-import sys, json, os
+import sys, json, os, re
 import portal_common as pc
 import temata
 import vydaje
@@ -15,6 +15,8 @@ CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
 src = json.load(open("dataset_ZO.json", encoding="utf-8"))
 GEO_PATH = os.path.join("data", "parcely_geo.json")
 parcely_geo = json.load(open(GEO_PATH, encoding="utf-8")) if os.path.exists(GEO_PATH) else {}
+# časové kotvy záznamů zasedání (z YouTube titulků) — viz build_video_casy.py
+VCAS = json.load(open("video_casy.json", encoding="utf-8")) if os.path.exists("video_casy.json") else {}
 
 cats = []
 def ci(c):
@@ -27,13 +29,30 @@ tlist = [t for t in temata.ORDER if t in present]
 ti_index = {t: i for i, t in enumerate(tlist)}
 
 meet = []
+# procedurální "pověřuje ... podpisem (smlouvy)" = jen přívažek k předchozímu
+# věcnému usnesení; nezobrazujeme jako samostatný řádek, jen jako štítek u rodiče.
+SIGN_RE = re.compile(r'pověřuje\b.*\bpodpis', re.I)
 for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
+    vc = VCAS.get(str(r["cislo_zasedani"]))
+    # polozka: [druh_idx, tema_idx, castka|null, hlasovani|null, text, sign(0/1)]
+    items = []
+    parent = None
+    for b in r["body"]:
+        if b["kategorie"] == "pověřuje" and SIGN_RE.search(b["text"]):
+            if parent is not None:
+                parent[5] = 1   # k rodiči přidáme „pověřen k podpisu"
+            continue
+        it = [ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)],
+              b.get("castka"), b.get("hlasovani"), b["text"], 0]
+        items.append(it)
+        parent = it
     meet.append({
         "n": r["cislo_zasedani"], "d": r["datum"], "y": r["rok"],
         "u": r["url"] or "", "p": r.get("pritomno"),
-        # polozka: [druh_idx, tema_idx, castka|null, hlasovani|null, text]
-        "b": [[ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)],
-               b.get("castka"), b.get("hlasovani"), b["text"]] for b in r["body"]],
+        "b": items,
+        # záznam jednání: video id + kapitoly [čas_s, čísloBodu, popisek]
+        "v": (vc["vid"] if vc else None),
+        "ch": ([[c["t"], c["bod"], c["label"]] for c in vc["chapters"]] if vc else []),
     })
 
 DATA = {"cats": cats, "temata": tlist, "vbuckets": vydaje.ORDER, "meet": meet, "pgeo": parcely_geo}
@@ -73,8 +92,7 @@ PAGE_CSS = r"""<style>
 .zmt-num{font-weight:700;font-size:14.5px;letter-spacing:-.01em;min-width:60px;color:var(--accent)}
 .zmt-date{color:var(--text);font-size:13.5px;min-width:104px;font-variant-numeric:tabular-nums}
 .zmt-count{color:var(--faint);font-size:12.5px;white-space:nowrap}
-.zmt-dots{display:inline-flex;gap:4px;margin-left:auto}
-.zmt-dots i{width:8px;height:8px;border-radius:2px;display:inline-block}
+.zmt-sp{margin-left:auto}
 .zmt-arrow{color:var(--faint);font-size:12px;transition:transform .18s;margin-left:6px}
 .zmt.open .zmt-arrow{transform:rotate(90deg)}
 .zmt-body{padding:4px 16px 16px;border-top:1px solid var(--line)}
@@ -102,6 +120,8 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .zvote b{color:var(--text);font-weight:700}
 .zvote.contested{color:var(--neg);border-color:var(--neg)}
 .zvote.contested b{color:var(--neg)}
+.zsign{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);
+  background:var(--inset);border:1px dashed var(--line);padding:2px 9px;border-radius:999px}
 .parc{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent);
   white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer}
 .parc:hover{background:var(--accent-soft);border-bottom-style:solid}
@@ -109,6 +129,28 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .zpdf{font-size:12px;color:var(--accent);text-decoration:none;font-weight:600;white-space:nowrap;
   padding:3px 8px;border-radius:8px;border:1px solid var(--line)}
 .zpdf:hover{border-color:var(--accent);background:var(--accent-soft)}
+.zyt{font-size:12px;color:#e23b2e;text-decoration:none;font-weight:600;white-space:nowrap;
+  padding:3px 8px;border-radius:8px;border:1px solid var(--line);display:inline-flex;align-items:center;gap:5px}
+.zyt:hover{border-color:#e23b2e;background:rgba(226,59,46,.08)}
+.zrec{margin-top:16px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--surface);overflow:hidden}
+.zrec-h{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:11px 14px;border-bottom:1px solid var(--line);
+  font-size:12.5px;font-weight:700;color:var(--text)}
+.zrec-h .yt{color:#e23b2e;font-size:15px}
+.zrec-h a{color:var(--accent);text-decoration:none;font-weight:600}
+.zrec-h a:hover{text-decoration:underline}
+.zrec-h .sub{color:var(--faint);font-weight:500;font-size:11.5px}
+.zchaps{display:flex;flex-direction:column}
+.zchap{display:flex;align-items:baseline;gap:11px;padding:7px 14px;text-decoration:none;color:var(--text);
+  border-bottom:1px solid var(--line);transition:background .12s}
+.zchaps .zchap:last-child{border-bottom:0}
+.zchap:hover{background:var(--accent-soft)}
+.zchap .ct{color:var(--accent);font-weight:700;font-size:12.5px;font-variant-numeric:tabular-nums;
+  min-width:50px;display:inline-flex;align-items:center;gap:4px}
+.zchap .ct::before{content:"\25B6";font-size:9px}
+.zchap .cb{color:var(--faint);font-size:11px;min-width:46px;white-space:nowrap}
+.zchap .cl{color:var(--muted);font-size:12.5px;line-height:1.4}
+.zchap:hover .cl{color:var(--text)}
+.znote{font-size:11px;color:var(--faint);padding:8px 14px 10px;margin:0;line-height:1.5}
 .empty{text-align:center;color:var(--muted);padding:42px 14px;font-size:14.5px}
 .zmore{margin:16px auto 0;display:block;padding:10px 20px;border:1px solid var(--line);background:var(--surface);
   border-radius:12px;color:var(--accent);font-weight:600;cursor:pointer;font:inherit;font-size:13.5px}
@@ -292,36 +334,59 @@ function voteBadge(v){
          `pro <b>${pr}</b> · proti <b>${pt}</b> · zdržel <b>${zd}</b></span>`;
 }
 
+function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
+function plurKap(n){return (n>=2&&n<=4)?'kapitoly':'kapitol';}
+function recHTML(m){
+  if(!m.v) return '';
+  const full='https://youtu.be/'+m.v;
+  let inner;
+  if(m.ch && m.ch.length){
+    inner='<div class="zchaps">'+m.ch.map(c=>{
+      const bod=c[1]?`bod ${c[1]}`:'';
+      return `<a class="zchap" href="${full}?t=${c[0]}" target="_blank" rel="noopener" onclick="event.stopPropagation()">`+
+             `<span class="ct">${fmtT(c[0])}</span><span class="cb">${bod}</span>`+
+             `<span class="cl">${esc(c[2])}</span></a>`;
+    }).join('')+'</div>'+
+    '<p class="znote">Časy i popisky bodů jsou odvozené z automatického přepisu (titulků YouTube) — orientační, mohou se o pár vteřin lišit; popisek je útržek řečeného při otevření bodu.</p>';
+  } else {
+    inner='<p class="znote">Pro toto zasedání nejsou k dispozici titulky pro rozpad na body — k dispozici je celý záznam.</p>';
+  }
+  const sub = (m.ch&&m.ch.length)?` <span class="sub">· ${m.ch.length} ${plurKap(m.ch.length)}, klikni na čas a skoč ve videu</span>`:'';
+  return `<div class="zrec"><div class="zrec-h"><span class="yt">&#9654;</span>Záznam jednání`+
+         ` · <a href="${full}" target="_blank" rel="noopener" onclick="event.stopPropagation()">otevřít celé video &#8599;</a>${sub}`+
+         `</div>${inner}</div>`;
+}
+
 function cardHTML(m,items,open,qf){
-  const present=[...new Set(items.map(it=>CATS[it[0]]))].sort((a,b)=>catOrd(a)-catOrd(b));
-  const dots=present.map(c=>`<i style="background:${catVar(c)}" title="${esc(c)}"></i>`).join('');
   const cnt=items.length;
   let bodyHTML='';
   if(open){
     const byCat={};
     for(const it of items){(byCat[CATS[it[0]]]=byCat[CATS[it[0]]]||[]).push(it);}
     const groups=Object.keys(byCat).sort((a,b)=>catOrd(a)-catOrd(b));
-    bodyHTML='<div class="zmt-body">'+groups.map(c=>{
+    bodyHTML='<div class="zmt-body">'+recHTML(m)+groups.map(c=>{
       const col=catVar(c);
       const rows=byCat[c].map(it=>{
         const th=TEMATA[it[1]], amt=it[2], vts=it[3];
         const money=amt!=null?`<span class="zmoney" data-v="${esc(vbucket(amt))}" title="Objem: ${esc(vbucket(amt))}"><i style="background:${vbVar(vbucket(amt))}"></i>${fmtKc(amt)}</span>`:'';
         const txt=linkifyParc(hl(it[4],qf), !OTHER_KU.test(it[4]));
+        const sign=it[5]?`<span class="zsign" title="Zastupitelstvo zároveň pověřilo starostu/radu podpisem příslušné smlouvy">&#10003; pověřeno k podpisu</span>`:'';
         return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
-               `<div class="ztags"><span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts)}</div></div>`;
+               `<div class="ztags"><span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts)}${sign}</div></div>`;
       }).join('');
       return `<div class="zgrp"><div class="zgrp-h"><span class="dotc" style="background:${col}"></span>Zastupitelstvo ${esc(c)} · ${byCat[c].length}</div>${rows}</div>`;
     }).join('')+'</div>';
   }
   const pdf=m.u?`<a class="zpdf" href="${esc(m.u)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF&nbsp;&#8599;</a>`:'';
+  const yt=m.v?`<a class="zyt" href="https://youtu.be/${m.v}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Záznam jednání na YouTube">&#9654;&nbsp;záznam</a>`:'';
   const pres=m.p?` · ${m.p} přít.`:'';
   return `<div class="zmt${open?' open':''}">
     <button class="zmt-h" data-n="${m.n}">
       <span class="zmt-num">ZO ${m.n}</span>
       <span class="zmt-date">${fmtDate(m.d)}</span>
       <span class="zmt-count">${cnt} ${plurBod(cnt)}${pres}</span>
-      <span class="zmt-dots">${dots}</span>
-      ${pdf}
+      <span class="zmt-sp"></span>
+      ${yt}${pdf}
       <span class="zmt-arrow">&#9654;</span>
     </button>${bodyHTML}</div>`;
 }

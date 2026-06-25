@@ -80,8 +80,7 @@ PAGE_CSS = r"""<style>
 .zmt-num{font-weight:700;font-size:14.5px;letter-spacing:-.01em;min-width:60px;color:var(--accent)}
 .zmt-date{color:var(--text);font-size:13.5px;min-width:104px;font-variant-numeric:tabular-nums}
 .zmt-count{color:var(--faint);font-size:12.5px;white-space:nowrap}
-.zmt-dots{display:inline-flex;gap:4px;margin-left:auto}
-.zmt-dots i{width:8px;height:8px;border-radius:2px;display:inline-block}
+.zmt-sp{margin-left:auto}
 .zmt-arrow{color:var(--faint);font-size:12px;transition:transform .18s;margin-left:6px}
 .zmt.open .zmt-arrow{transform:rotate(90deg)}
 .zmt-body{padding:4px 16px 16px;border-top:1px solid var(--line)}
@@ -291,8 +290,6 @@ function filtered(){
 }
 
 function cardHTML(m,items,open,qf){
-  const present=[...new Set(items.map(it=>CATS[it[0]]))].sort((a,b)=>catOrd(a)-catOrd(b));
-  const dots=present.map(c=>`<i style="background:${catVar(c)}" title="${esc(c)}"></i>`).join('');
   const cnt=items.length;
   let bodyHTML='';
   if(open){
@@ -317,7 +314,7 @@ function cardHTML(m,items,open,qf){
       <span class="zmt-num">RO ${m.n}</span>
       <span class="zmt-date">${fmtDate(m.d)}</span>
       <span class="zmt-count">${cnt} ${plurBod(cnt)}</span>
-      <span class="zmt-dots">${dots}</span>
+      <span class="zmt-sp"></span>
       ${pdf}
       <span class="zmt-arrow">&#9654;</span>
     </button>${bodyHTML}</div>`;
