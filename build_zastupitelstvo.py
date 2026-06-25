@@ -47,6 +47,38 @@ def _vt(s):
     return set(re.findall(r'[a-z0-9]{4,}', _fold(s)))
 
 
+def _join_no_votes(seg):
+    """Z úseku raw_textu poskládá text mimo hlasovací bloky (spojí jména přes 'a pan X')."""
+    parts, last = [], 0
+    for m in VOTE_RE.finditer(seg):
+        parts.append(seg[last:m.start()]); last = m.end()
+    parts.append(seg[last:])
+    t = re.sub(r'\s+', ' ', ' '.join(parts)).strip().lstrip('•').strip()
+    # tečka na konci jména před "a pan(í)" (artefakt konce řádku); "Ph.D." zachovat
+    t = re.sub(r'(?<=[a-záčďéěíňóřšťúůýž])\.\s+(a pan[íi]?)', r' \1', t)
+    return t
+
+
+def _next_boundary(rt, start):
+    """Začátek dalšího usnesení (odrážka '•' nebo věcné 'Zastupitelstvo …')."""
+    cands = [p for p in (rt.find('•', start), rt.find('Zastupitelstvo', start)) if p >= 0]
+    return min(cands) if cands else len(rt)
+
+
+def reconstruct_proc(rt):
+    """Z raw_textu zrekonstruuje úplné znění voleb ověřovatelů a návrhové komise
+    (dataset u nich zahazuje druhého zvoleného). Vrací {'overovatel':..., 'komise':...}."""
+    res = {}
+    io = rt.find("Za ověřovatele zápisu zvolilo")
+    ik = rt.find("Do návrhové komise")
+    if io >= 0:
+        end = ik if ik > io else _next_boundary(rt, io + 12)
+        res['overovatel'] = _join_no_votes(rt[io:end])
+    if ik >= 0:
+        res['komise'] = _join_no_votes(rt[ik:_next_boundary(rt, ik + 12)])
+    return res
+
+
 def override_vote(cislo, text):
     """Doplnění hlasování z Zpravodaje pro zasedání s nečitelným skenem výpisu.
     Vrací (počty [pro,proti,zdržel], dissent [pro,proti,zdržel jména] nebo None)."""
@@ -124,6 +156,25 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
               b.get("castka"), hl, b["text"], 0, bt.get(str(ix)), dis]
         items.append(it)
         parent = it
+
+    # oprava procedurálních bodů: dataset u voleb ověřovatelů/komise zahazuje
+    # druhého zvoleného (a komisi občas celou) → zrekonstruuj z raw_textu
+    proc = reconstruct_proc(r.get("raw_text", ""))
+    items = [it for it in items if not re.match(r'^a pan[íi]?\b', it[4], re.I)]  # zahoď útržky "a pan X"
+    ov_pos, has_komise = None, False
+    for n, it in enumerate(items):
+        f = _fold(it[4])
+        if "overovatele zapisu zvolilo" in f:
+            if proc.get("overovatel"):
+                it[4] = proc["overovatel"]
+            it[3] = None; it[7] = None; ov_pos = n
+        elif "navrhove komise zvolilo" in f or "navrhove komize zvolilo" in f:
+            if proc.get("komise"):
+                it[4] = proc["komise"]
+            it[3] = None; it[7] = None; has_komise = True
+    if not has_komise and proc.get("komise") and ov_pos is not None:
+        kom = [ci("volí"), ti_index.get(temata.OSTATNI, 0), None, None, proc["komise"], 0, None, None]
+        items.insert(ov_pos + 1, kom)
     meet.append({
         "n": r["cislo_zasedani"], "d": r["datum"], "y": r["rok"],
         "u": r["url"] or "", "p": r.get("pritomno"),
