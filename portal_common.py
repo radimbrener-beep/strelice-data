@@ -173,6 +173,34 @@ function cssv(n){return getComputedStyle(document.documentElement).getPropertyVa
 function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
 """
 
+# --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
+SITE = "https://data.strelicnik.cz"
+OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, "
+           "dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.")
+
+
+def og_meta(active, title):
+    """Meta značky pro hezký náhled při sdílení (obrázek og-image.png je plochý soubor v kořeni)."""
+    fn = next((f for f, n in SECTIONS if n == active), "index.html")
+    url = SITE + "/" + ("" if fn == "index.html" else fn)
+    t = (title or "Jak žijí Střelice").replace('"', '&quot;')
+    img = SITE + "/og-image.png"
+    return (
+        '<meta property="og:type" content="website">'
+        '<meta property="og:site_name" content="Jak žijí Střelice">'
+        f'<meta property="og:title" content="{t}">'
+        f'<meta property="og:description" content="{OG_DESC}">'
+        f'<meta property="og:image" content="{img}">'
+        '<meta property="og:image:width" content="1200">'
+        '<meta property="og:image:height" content="630">'
+        f'<meta property="og:url" content="{url}">'
+        '<meta name="twitter:card" content="summary_large_image">'
+        f'<meta name="twitter:title" content="{t}">'
+        f'<meta name="twitter:description" content="{OG_DESC}">'
+        f'<meta name="twitter:image" content="{img}">'
+        f'<meta name="description" content="{OG_DESC}">')
+
+
 def page(active, title, body, head_scripts="", body_scripts=""):
     footer = '<footer class="footer">Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>'
     return f'''<!DOCTYPE html>
@@ -182,6 +210,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title>
+{og_meta(active, title)}
 {FAVICON_LINK}
 {ANALYTICS}
 <style>{SHARED_CSS}</style>

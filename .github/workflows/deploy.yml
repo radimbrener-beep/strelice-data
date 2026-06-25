@@ -25,6 +25,8 @@ jobs:
           # všechny portálové stránky v kořeni kromě dočasných "_*.html"
           # (loga apod. jsou vložená přímo v HTML jako data-URI → žádné přílohy)
           find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
+          # sdílecí obrázek pro náhled odkazu (plochý soubor v kořeni, ne podsložka)
+          cp og-image.png public/ 2>/dev/null || true
           echo "Nasazované soubory:"
           ls -la public/
 
