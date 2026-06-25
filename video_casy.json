@@ -223,13 +223,13 @@
    },
    {
     "t": 3212,
-    "bod": 20,
+    "bod": null,
     "label": "Podnět A. H., k zařazení pozemků p. č. 5563/1 a p. č. 5563/2, do plochy…",
     "src": "fill"
    },
    {
     "t": 3622,
-    "bod": 23,
+    "bod": null,
     "label": "Smlouvu o vzájemných vztazích při realizaci stavby „Rozšíření ČOV Střelice“…",
     "src": "prog"
    },
@@ -391,12 +391,6 @@
     "src": "fill"
    },
    {
-    "t": 3134,
-    "bod": 19,
-    "src": "snip",
-    "label": "Pozemku parcelní číslo 3419/29 parcelní číslo 3441/60 KU Střelice u…"
-   },
-   {
     "t": 3138,
     "bod": 24,
     "label": "Nákup pozemků p. č. 3419/29, výměra 117 m2 a p. č. 3441/60, výměra 1957 m2, k. ú.…",
@@ -404,25 +398,25 @@
    },
    {
     "t": 3411,
-    "bod": 20,
+    "bod": null,
     "src": "snip",
     "label": "A se věnovat dalším pozemkům. o bezúlatném převodu práva k nemovité…"
    },
    {
     "t": 3556,
-    "bod": 21,
+    "bod": null,
     "src": "snip",
     "label": "Pro zastupování státu ve věcech předkládá smlouvu o převodu vlastnického"
    },
    {
     "t": 3663,
-    "bod": 22,
+    "bod": null,
     "src": "snip",
     "label": "Opět smlouva o převodu vlastnického práva k věci pozemek 3466/14…"
    },
    {
     "t": 3808,
-    "bod": 23,
+    "bod": null,
     "src": "snip",
     "label": "Smlouva o bezúplatném převodu práva k nemovité věci. se o pozemek…"
    },
@@ -707,7 +701,7 @@
    },
    {
     "t": 1050,
-    "bod": 10,
+    "bod": null,
     "label": "Předání kamerového systému v hodnotě 105 350,71 Kč vč. DPH do majetku ZŠ a MŠ…",
     "src": "fill"
    },
@@ -766,12 +760,6 @@
     "src": "prog"
    },
    {
-    "t": 3798,
-    "bod": 20,
-    "src": "snip",
-    "label": "Závěr a poděkování"
-   },
-   {
     "t": 3815,
     "bod": 20,
     "label": "V rámci participativního rozpočtu realizaci projektů: Přírodní hřiště Skalka 2.…",
@@ -828,7 +816,7 @@
    },
    {
     "t": 913,
-    "bod": 6,
+    "bod": null,
     "label": "Rozpočtové opatření č. 3/2025, které schválila rada obce č. 66 dne 31. 3. 2025",
     "src": "fill"
    },
@@ -907,7 +895,7 @@
    },
    {
     "t": 895,
-    "bod": 6,
+    "bod": null,
     "label": "Rozpočtové opatření č. 1/2025, které schválila rada obce č. 61 dne 29. 1. 2025",
     "src": "fill"
    },
@@ -1136,7 +1124,7 @@
    },
    {
     "t": 4649,
-    "bod": 21,
+    "bod": null,
     "label": "Vyřazení manipulační plošiny pro invalidy (Výtah u zdravotního střediska) v ceně…",
     "src": "fill"
    },
@@ -1282,7 +1270,7 @@
    },
    {
     "t": 687,
-    "bod": 5,
+    "bod": null,
     "src": "snip",
     "label": "Ové opatření číslo Dobrý předkládáme podrobně rozpočto"
    },
@@ -1294,7 +1282,7 @@
    },
    {
     "t": 760,
-    "bod": 6,
+    "bod": null,
     "label": "Rozpočtové opatření č. 5/2024, které schválila rada obce č. 46 dne 29. 5. 2024",
     "src": "fill"
    },
@@ -1363,12 +1351,6 @@
     "bod": 17,
     "label": "Smlouvu o bezúplatném převodu, pozemek p.č. 1449/4 o výměře 30 m2, k.ú. Střelice…",
     "src": "prog"
-   },
-   {
-    "t": 2706,
-    "bod": 18,
-    "src": "snip",
-    "label": "Výsledky rozpočtu Tento bod by se spíš měl výsledky hlasování rozpočtu…"
    },
    {
     "t": 2710,
@@ -1451,7 +1433,7 @@
    },
    {
     "t": 1716,
-    "bod": 10,
+    "bod": null,
     "label": "Návrh Směnné smlouvy mezi obcí Střelice a paní Mgr. A. S. a panem P. K., kteří…",
     "src": "fill"
    },
@@ -1481,7 +1463,7 @@
    },
    {
     "t": 2821,
-    "bod": 14,
+    "bod": null,
     "label": "Žádost o výjimku z nočního klidu na kulturní akci Kácení máje na prostranství u…",
     "src": "fill"
    }
@@ -1518,7 +1500,7 @@
    },
    {
     "t": 782,
-    "bod": 5,
+    "bod": null,
     "src": "snip",
     "label": "Rozpočtové číslo rozpočtové číslo reaguje na reálný vývoj finančních v…"
    },
@@ -1530,7 +1512,7 @@
    },
    {
     "t": 855,
-    "bod": 6,
+    "bod": null,
     "label": "Rozpočtové opatření č. 11/2023, které schválila rada obce č. 33 dne 29. 11. 2023",
     "src": "fill"
    },
@@ -1596,7 +1578,7 @@
    },
    {
     "t": 2234,
-    "bod": 17,
+    "bod": null,
     "label": "Uzavřením Plánovací smlouvy se spol. Win plus, a.s., IČO: 26234351, se sídlem…",
     "src": "fill"
    },
@@ -1614,7 +1596,7 @@
    },
    {
     "t": 3588,
-    "bod": 19,
+    "bod": null,
     "label": "Předávací protokoly se ZUŠ Střelice. Obec Střelice na základě předávacího…",
     "src": "fill"
    },
@@ -1776,12 +1758,6 @@
     "src": "prog"
    },
    {
-    "t": 1560,
-    "bod": 13,
-    "src": "snip",
-    "label": "A tím pravidla pro získání dotace já místostarosty aby se ujal Dobrý na…"
-   },
-   {
     "t": 1562,
     "bod": 13,
     "label": "Předložená Pravidla pro poskytování dotací z rozpočtu obce Střelice",
@@ -1840,12 +1816,6 @@
     "bod": 22,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a Stavební firmou MATYÁŠ…",
     "src": "fill"
-   },
-   {
-    "t": 5147,
-    "bod": 23,
-    "src": "snip",
-    "label": "A je založení nového spolku leby T na základě dotazů majitelů pozemků…"
    },
    {
     "t": 5151,

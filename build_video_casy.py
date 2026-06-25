@@ -290,6 +290,31 @@ def build_chapters(W, groups):
                              "src": "fill"})
             last_t = t
     chapters.sort(key=lambda c: c["t"])
+
+    # útržkové (snip) kapitoly z přeslechnutého „bod číslo X" často jen duplikují
+    # programovou kapitolu poblíž — takové zahodíme
+    prog_t = [c["t"] for c in chapters if c["src"] in ("prog", "fill", "fix")]
+    chapters = [c for c in chapters
+                if c["src"] != "snip" or all(abs(c["t"] - p) > 22 for p in prog_t)]
+
+    # čísla bodů MUSÍ jít vzestupně: ponech nejdelší striktně rostoucí posloupnost,
+    # u ostatních číslo skryj (zobrazí se jen čas + téma)
+    idx = [i for i, c in enumerate(chapters) if c.get("bod")]
+    vals = [chapters[i]["bod"] for i in idx]
+    nb = len(vals)
+    if nb:
+        best = [1] * nb; prv = [-1] * nb
+        for i in range(nb):
+            for j in range(i):
+                if vals[j] < vals[i] and best[j] + 1 > best[i]:
+                    best[i] = best[j] + 1; prv[i] = j
+        e = max(range(nb), key=lambda i: best[i])
+        keep = set()
+        while e != -1:
+            keep.add(idx[e]); e = prv[e]
+        for i, c in enumerate(chapters):
+            if c.get("bod") and i not in keep:
+                c["bod"] = None
     return chapters, dur
 
 
