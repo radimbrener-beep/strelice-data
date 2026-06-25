@@ -26,61 +26,71 @@
     "t": 481,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 26. zastupitelstva obce",
-    "src": "prog"
+    "src": "prog",
+    "gi": 0
    },
    {
     "t": 775,
     "bod": 5,
     "label": "Rozpočtové opatření č. 2/2026, které schválila rada obce č. 88 dne 27. 2. 2026",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 847,
     "bod": 6,
     "label": "Rozpočtové opatření č. 3/2026, které schválila rada obce č. 90 dne 25. 3. 2026",
-    "src": "prog"
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 920,
     "bod": 7,
     "label": "Smlouvu o dílo se společností BS - IMEX, spol. s r.o., Zvonařka 408/16, 617 00…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1201,
     "bod": 8,
     "label": "Kupní smlouvu na nákup pozemků p. č. 3419/29 a p. č. 3441/60, k. ú. Střelice u…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1380,
     "bod": 9,
     "label": "Návrh Směnné a kupní smlouvy, část nově oddělených pozemků p. č. 1261/1 v majetku…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 5
    },
    {
     "t": 1586,
     "bod": 10,
     "label": "Návrh Kupní smlouvy na nákup pozemku p. č. 391/8, k. ú. Střelice u Brna, pod…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 1757,
     "bod": 11,
     "label": "Smlouvu o poskytnutí podpory ze Státního fondu životního prostředí České…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 7
    },
    {
     "t": 1994,
     "bod": 12,
     "label": "Smlouvu o dílo se společností IMOS Brno, a. s., Olomoucká 704/174, 627 00 Brno,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 2232,
     "bod": 13,
     "label": "Žádost společnosti Recovera Využití zdrojů a. s.. Radlická 364/152, 158 00 Praha…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 9
    },
    {
     "t": 2621,
@@ -92,15 +102,37 @@
     "t": 3476,
     "bod": 15,
     "label": "Anonymní stížnost na vedení ZŠ Střelice. Stížnost bude předána řediteli ZŠ…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 3598,
     "bod": 16,
     "label": "Zápis č. 14 z jednání kontrolního výboru",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    }
-  ]
+  ],
+  "bodytimes": {
+   "0": 481,
+   "1": 775,
+   "2": 847,
+   "3": 920,
+   "4": 920,
+   "5": 1201,
+   "6": 1201,
+   "7": 1380,
+   "8": 1380,
+   "9": 1586,
+   "10": 1586,
+   "11": 1757,
+   "12": 1757,
+   "13": 1994,
+   "14": 1994,
+   "15": 2232,
+   "16": 3476,
+   "17": 3598
+  }
  },
  "26": {
   "vid": "bgB-xUlAB9E",
@@ -129,129 +161,173 @@
     "t": 594,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 24. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 933,
     "bod": 5,
     "label": "Rozpočtové opatření č. 1/2026, které schválila rada obce č. 86 dne 28. 1. 2026",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 1009,
     "bod": 6,
     "label": "Návrh směnné smlouvy na směnu nově oddělených pozemků p. č. 3412/8 v majetku…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 1057,
     "bod": 7,
     "label": "Návrh směnné smlouvy na směnu podílového vlastnictví 8/80 k pozemku p. č. 1488, v…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 3
    },
    {
     "t": 1389,
     "bod": 8,
     "label": "Doplněný účetní odpisový plán za období od 01/2025 do 12/2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1459,
     "bod": 9,
     "label": "Odměny neuvolněným členům ZO podle novely zákona č. 128/2000 Sb. o obcích s…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 5
    },
    {
     "t": 1577,
     "bod": 10,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 55 000 Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 1682,
     "bod": 11,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 150 000 Kč z rozpočtu obce…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 7
    },
    {
     "t": 1894,
     "bod": 13,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 700 000 Kč z rozpočtu obce…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 9
    },
    {
     "t": 1986,
     "bod": 14,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 450 000 Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 2128,
     "bod": 15,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 200 000 Kč z rozpočtu obce…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 11
    },
    {
     "t": 2212,
     "bod": 16,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 80 000 Kč z rozpočtu obce…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 12
    },
    {
     "t": 2314,
     "bod": 17,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace z rozpočtu obce Střelice pro neziskovou…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 13
    },
    {
     "t": 2429,
     "bod": 18,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 55 000 Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 14
    },
    {
     "t": 2523,
     "bod": 19,
     "label": "Návrh Smlouvy o zajištění služeb pro Českou poštu, s.p., Politických vězňů 909/4,…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 15
    },
    {
     "t": 2951,
     "bod": 20,
     "label": "Návrh smlouvy o spolupráci na opravu silnice III/3945 Střelice, ul. Ant. Smutného…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 16
    },
    {
     "t": 3212,
     "bod": null,
     "label": "Podnět A. H., k zařazení pozemků p. č. 5563/1 a p. č. 5563/2, do plochy…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 17
    },
    {
     "t": 3622,
     "bod": null,
     "label": "Smlouvu o vzájemných vztazích při realizaci stavby „Rozšíření ČOV Střelice“…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 20
    },
    {
     "t": 3639,
     "bod": 21,
     "label": "Vzalo na vědomí dosavadní průběh jednání s manželi H. a skutečnost, že souhlas s…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 18
    },
    {
     "t": 3816,
     "bod": 23,
     "label": "Smlouvu o úpravě vzájemných vztahů mezi ručitelem a bankou č. RD/18/26/LGL…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 21
    },
    {
     "t": 4995,
     "bod": 24,
     "label": "Předloženou nabídku na poskytnutí úvěru na financování investiční akce „Rozšíření…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 22
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 594,
+   "3": 933,
+   "4": 1009,
+   "5": 1057,
+   "6": 1389,
+   "7": 1459,
+   "8": 1577,
+   "9": 1682,
+   "11": 1894,
+   "12": 1986,
+   "13": 2128,
+   "14": 2212,
+   "15": 2314,
+   "16": 2429,
+   "17": 2523,
+   "18": 2951,
+   "19": 3212,
+   "22": 3622,
+   "20": 3639,
+   "23": 3816,
+   "24": 4995
+  }
  },
  "24": {
   "vid": "wncd1lLB84M",
@@ -280,37 +356,43 @@
     "t": 640,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 23. zastupitelstva obce",
-    "src": "prog"
+    "src": "prog",
+    "gi": 0
    },
    {
     "t": 703,
     "bod": 5,
     "label": "Rozpočtové opatření č. 10/2025, které schválila rada obce č. 80 dne 30. 10. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 823,
     "bod": 6,
     "label": "Rozpočtové opatření č. 11/2025, které schválila rada obce č. 82 dne 26. 11. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 883,
     "bod": 7,
     "label": "Rozpočet obce Střelice na rok 2026",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1644,
     "bod": 8,
     "label": "Střednědobý výhled rozpočtu obce Střelice pro roky 2027 - 2028",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1734,
     "bod": 9,
     "label": "Individuální dotaci na základě žádosti Junák – český skaut, středisko Wahinkpe…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 5
    },
    {
     "t": 1892,
@@ -322,13 +404,15 @@
     "t": 1989,
     "bod": 11,
     "label": "Individuální dotaci na základě žádosti Tělocvičné jednoty Sokol Střelice z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 2131,
     "bod": 12,
     "label": "Individuální dotaci na základě žádosti Sboru dobrovolných hasičů obce Střelice z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 2292,
@@ -340,7 +424,8 @@
     "t": 2395,
     "bod": 14,
     "label": "Individuální dotaci na základě žádosti Včelařského spolku ve Střelicích u Brna z…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 10
    },
    {
     "t": 2510,
@@ -352,49 +437,57 @@
     "t": 2609,
     "bod": 16,
     "label": "Individuální dotaci na základě žádosti Sdružení rodičů a přátel Základní školy…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 12
    },
    {
     "t": 2748,
     "bod": 17,
     "label": "Individuální dotaci na základě žádosti neziskové organizace Diecézní charita Brno…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 13
    },
    {
     "t": 2873,
     "bod": 18,
     "label": "Pečovatelská služba ve Střelicích – Oblastní charita Rajhrad ve výši 97 780 Kč",
-    "src": "fill"
+    "src": "fill",
+    "gi": 14
    },
    {
     "t": 2878,
     "bod": 19,
     "label": "Chráněné bydlení – Oblastní charita Blansko ve výši 35 000 Kč",
-    "src": "fill"
+    "src": "fill",
+    "gi": 15
    },
    {
     "t": 2935,
     "bod": 20,
     "label": "Předávací protokol se ZŠ a MŠ Střelice. Obec Střelice na základě předávacího…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 16
    },
    {
     "t": 3035,
     "bod": 21,
     "label": "Jiný drobný dlouhodobý hmotný majetek na podrozvahovém účtu 902 umístěný v budově…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 17
    },
    {
     "t": 3091,
     "bod": 23,
     "label": "Dlouhodobý hmotný majetek (022) umístěný v budově ZŠ v hodnotě 489 659 Kč. ZŠ a…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 19
    },
    {
     "t": 3138,
     "bod": 24,
     "label": "Nákup pozemků p. č. 3419/29, výměra 117 m2 a p. č. 3441/60, výměra 1957 m2, k. ú.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 20
    },
    {
     "t": 3411,
@@ -424,39 +517,71 @@
     "t": 3931,
     "bod": 29,
     "label": "Obecně závaznou vyhlášku obce Střelice o stanovení obecního systému odpadového…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 25
    },
    {
     "t": 4092,
     "bod": 30,
     "label": "Dodatek č. 1 ke Smlouvě o dílo mezi obcí Střelice a společností PORR a. s., IČ…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 26
    },
    {
     "t": 4180,
     "bod": 31,
     "label": "Dodatek č. 12 a 17 ke Smlouvě na svoz, odstranění komunálního odpadu a využití…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 27
    },
    {
     "t": 4556,
     "bod": 32,
     "label": "Směrnici č. 3/2025 pro tvorbu a používání sociálního fondu obce Střelice",
-    "src": "fill"
+    "src": "fill",
+    "gi": 28
    },
    {
     "t": 4683,
     "bod": 33,
     "label": "Obecně závaznou vyhlášku obce o zákazu odpalování pyrotechnických výrobků a…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 29
    },
    {
     "t": 5244,
     "bod": 34,
     "label": "Zápis č. 12 a 13 z jednání kontrolního výboru",
-    "src": "fill"
+    "src": "fill",
+    "gi": 30
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 640,
+   "3": 703,
+   "4": 823,
+   "5": 883,
+   "6": 1644,
+   "7": 1734,
+   "9": 1989,
+   "10": 2131,
+   "12": 2395,
+   "14": 2609,
+   "15": 2748,
+   "16": 2873,
+   "17": 2878,
+   "18": 2935,
+   "19": 3035,
+   "21": 3091,
+   "22": 3138,
+   "27": 3931,
+   "28": 4092,
+   "29": 4180,
+   "30": 4556,
+   "31": 4683,
+   "32": 5244,
+   "33": 5244
+  }
  },
  "22": {
   "vid": "LsJM35aIf_I",
@@ -485,85 +610,99 @@
     "t": 603,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 20. zastupitelstva obce",
-    "src": "prog"
+    "src": "prog",
+    "gi": 0
    },
    {
     "t": 813,
     "bod": 5,
     "label": "Rozpočtové opatření č. 6/2025, které schválila rada obce č. 72 dne 25. 6. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 873,
     "bod": 6,
     "label": "Rozpočtové opatření č. 7/2025, které schválila rada obce č. 74 dne 30. 7. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 933,
     "bod": 7,
     "label": "Rozpočtové opatření č. 8/2025, které schválila rada obce č. 76 dne 25. 8. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1000,
     "bod": 8,
     "label": "Smlouvu o bezúplatném převodu vlastnického práva mezi obcí Střelice a státní…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1137,
     "bod": 9,
     "label": "Technické podmínky prodeje k pozemku p. č. 3465/15, k. ú. Střelice u Brna, které…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 5
    },
    {
     "t": 1240,
     "bod": 10,
     "label": "Obecně závaznou vyhlášku obce Střelice o místním poplatku za odkládání…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 4480,
     "bod": 11,
     "label": "Smlouvu o bezúplatném převodu vlastnického práva k nemovité věci, pozemek p. č.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 7
    },
    {
     "t": 4518,
     "bod": 12,
     "label": "Smlouvu o bezúplatném převodu vlastnického práva k nemovité věci, pozemek p. č.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 8
    },
    {
     "t": 4718,
     "bod": 13,
     "label": "Kupní smlouvu na nákup nádob na tříděný odpad se společností NAODPAD s.r.o.,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 9
    },
    {
     "t": 5153,
     "bod": 14,
     "label": "Kupní smlouvu na nákup kompostérů se společností MEVA-TEC s.r.o., Chelčického…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 5413,
     "bod": 15,
     "label": "Smlouvu o spolupráci a financování projektu: Cyklostezka Střelice – Troubsko.…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 5790,
     "bod": 16,
     "label": "Studii obytného souboru Žleby Ib Střelice",
-    "src": "prog"
+    "src": "prog",
+    "gi": 12
    },
    {
     "t": 7971,
     "bod": 17,
     "label": "Smlouvu o převodu vlastnického práva nového tepelného zdroje pro vytápění obecní…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 13
    },
    {
     "t": 8113,
@@ -575,9 +714,28 @@
     "t": 8648,
     "bod": 19,
     "label": "Vyřazení z majetku obce starého a nepotřebného přístřešku na autobusové zastávce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 14
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 603,
+   "3": 813,
+   "4": 873,
+   "5": 933,
+   "6": 1000,
+   "7": 1137,
+   "8": 1240,
+   "9": 4480,
+   "10": 4518,
+   "11": 4718,
+   "12": 5153,
+   "13": 5413,
+   "14": 5790,
+   "15": 7971,
+   "16": 7971,
+   "17": 8648
+  }
  },
  "21": {
   "vid": "jPThyI2Quyc",
@@ -588,7 +746,8 @@
     "t": 169,
     "bod": null,
     "label": "Proslov starosty obce k 650. výročí založení obce Střelice",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 217,
@@ -618,7 +777,8 @@
     "t": 1251,
     "bod": null,
     "label": "Ocenit u příležitosti výročí obce bývalé starosty a místostarosty obce:…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 1
    },
    {
     "t": 1364,
@@ -630,9 +790,15 @@
     "t": 1405,
     "bod": null,
     "label": "Ocenit tyto zasloužilé zastupitele (3 a více volebních období): Ing. Vojtěch…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 2
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 169,
+   "3": 1251,
+   "4": 1405
+  }
  },
  "20": {
   "vid": "Yk200ThaPgs",
@@ -661,37 +827,43 @@
     "t": 469,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 19. zastupitelstva obce",
-    "src": "prog"
+    "src": "prog",
+    "gi": 0
    },
    {
     "t": 646,
     "bod": 5,
     "label": "Rozpočtové opatření č. 4/2025, které schválila rada obce č. 68 dne 30. 4. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 703,
     "bod": 6,
     "label": "Rozpočtové opatření č. 5/2025, které schválila rada obce č. 70 dne 26. 5. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 773,
     "bod": 7,
     "label": "Závěrečný účet obce Střelice za rok 2024 v souladu s § 17 odst. 7 písm. a) zákona…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 876,
     "bod": 8,
     "label": "Účetní závěrku obce Střelice za rok 2024. Zastupitelstvo obce pověřilo starostu…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 948,
     "bod": 9,
     "label": "Účetní odpisový plán za období od 01/2025 do 12/2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 5
    },
    {
     "t": 1020,
@@ -703,73 +875,85 @@
     "t": 1050,
     "bod": null,
     "label": "Předání kamerového systému v hodnotě 105 350,71 Kč vč. DPH do majetku ZŠ a MŠ…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 6
    },
    {
     "t": 1113,
     "bod": 11,
     "label": "Smlouvu o dílo, na zakázku: Polní cesta C20, s firmou PORR a.s., Dubečská 3…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 1474,
     "bod": 12,
     "label": "Dodatek č. 1 ke smlouvě o nájmu prostor sloužících k podnikání se společností…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 1604,
     "bod": 13,
     "label": "Obecně závaznou vyhlášku obce Střelice o nočním klidu",
-    "src": "prog"
+    "src": "prog",
+    "gi": 9
    },
    {
     "t": 1626,
     "bod": 14,
     "label": "Obecně závaznou vyhlášku obce Střelice o místním poplatku za užívání veřejného…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 10
    },
    {
     "t": 1860,
     "bod": 15,
     "label": "Vyhodnocení projednání územního plánu obce Střelice",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 2901,
     "bod": 16,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a společností ZEMAKO, s. r. o.,…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 12
    },
    {
     "t": 3080,
     "bod": 17,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a společností STAVOS…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 13
    },
    {
     "t": 3234,
     "bod": 18,
     "label": "Veřejnoprávní smlouvu o zajištění činnosti Městské policie Modřice v obci…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 14
    },
    {
     "t": 3654,
     "bod": 19,
     "label": "Smlouvu o bezúplatném převodu, pozemek p. č. 7547/2 o výměře 33 m2, k. ú.…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 15
    },
    {
     "t": 3815,
     "bod": 20,
     "label": "V rámci participativního rozpočtu realizaci projektů: Přírodní hřiště Skalka 2.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 16
    },
    {
     "t": 4023,
     "bod": 21,
     "label": "Kupní smlouvu na nákup pozemku p. č. 3441/49, k. ú. Střelice u Brna, za cenu 118…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 17
    },
    {
     "t": 4152,
@@ -777,7 +961,28 @@
     "src": "snip",
     "label": "A jak jsme si v programu, ta výpověď smlouvy s městskou policií jsem už…"
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 469,
+   "3": 646,
+   "4": 703,
+   "5": 773,
+   "6": 876,
+   "7": 948,
+   "8": 1050,
+   "9": 1113,
+   "10": 1474,
+   "11": 1604,
+   "12": 1626,
+   "13": 1860,
+   "14": 2901,
+   "15": 3080,
+   "16": 3234,
+   "17": 3654,
+   "18": 3815,
+   "19": 4023,
+   "20": 4023
+  }
  },
  "19": {
   "vid": "7lTI6P6zK2Y",
@@ -806,63 +1011,85 @@
     "t": 141,
     "bod": 5,
     "label": "Zprávu o činnosti Rady obce Střelice od 18. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 910,
     "bod": 6,
     "label": "Rozpočtové opatření č. 2/2025, které schválila rada obce č. 64 dne 28. 2. 2025",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 913,
     "bod": null,
     "label": "Rozpočtové opatření č. 3/2025, které schválila rada obce č. 66 dne 31. 3. 2025",
-    "src": "fill"
+    "src": "fill",
+    "gi": 2
    },
    {
     "t": 960,
     "bod": 7,
     "label": "Smlouvu o poskytnutí podpory č. 7221400109 ze Státního fondu životního prostředí…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1168,
     "bod": 8,
     "label": "Technické podmínky k bezúplatnému převodu od Správy železnic, státní organizace,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1432,
     "bod": 9,
     "label": "Kupní smlouvu na prodej pozemků p. č. 1328/2, p. č. 1449/1, p. č. 1450, k. ú.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 5
    },
    {
     "t": 1706,
     "bod": 10,
     "label": "Finanční dar ve výši 330 000,– Kč. Dar bude využit na opravu mostu u Spáleného…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 1875,
     "bod": 11,
     "label": "Smlouvu o dílo na realizaci vstupní vchodové sestavy v obchodním domě, ul. Ant.…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 2164,
     "bod": 12,
     "label": "Předložené podmínky České pošty: 1. Podmínka: S provozovatelem bude uzavřena…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 2725,
     "bod": 13,
     "label": "Zápisy č. 10 a 11 z jednání kontrolního výboru. Zapsala: Ivana Pešková",
-    "src": "fill"
+    "src": "fill",
+    "gi": 9
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 141,
+   "3": 910,
+   "4": 913,
+   "5": 960,
+   "6": 1168,
+   "7": 1432,
+   "8": 1706,
+   "9": 1875,
+   "10": 2164,
+   "11": 2725
+  }
  },
  "18": {
   "vid": "pWmbwgEHfsE",
@@ -885,91 +1112,106 @@
     "t": 615,
     "bod": 5,
     "label": "Zprávu o činnosti Rady obce Střelice od 17. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 892,
     "bod": 6,
     "label": "Rozpočtové opatření č. 12/2024, které schválila rada obce č. 59 dne 18. 12. 2024",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 895,
     "bod": null,
     "label": "Rozpočtové opatření č. 1/2025, které schválila rada obce č. 61 dne 29. 1. 2025",
-    "src": "fill"
+    "src": "fill",
+    "gi": 2
    },
    {
     "t": 1083,
     "bod": 7,
     "label": "Smlouvu o dílo se společností ZEMAKO, s.r.o., Bohunická cesta 501/9, 664 48…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1955,
     "bod": 8,
     "label": "Smlouvu o dílo se společností STAVOS PROFESSIONAL s.r.o., Pražákova 1008/69, 639…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 2256,
     "bod": 9,
     "label": "Nerealizované studie v ceně 194 064,– Kč zařadit do účetnictví jako zmařenou…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 5
    },
    {
     "t": 2418,
     "bod": 10,
     "label": "Obecně závaznou vyhlášku o nočním klidu",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 2505,
     "bod": 11,
     "label": "Obecně závaznou vyhlášku o místním poplatku za užívání veřejného prostranství v…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 2636,
     "bod": 12,
     "label": "Doplněný účetní odpisový plán za období od 01/2024 do 12/2024",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 2718,
     "bod": 13,
     "label": "Odměny neuvolněným členům ZO podle novely zákona č. 128/2000 Sb. o obcích s…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 9
    },
    {
     "t": 2844,
     "bod": 14,
     "label": "Technické podmínky k bezúplatnému převodu od Správy železnic, státní organizace,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 3098,
     "bod": 15,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 55 000,– Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 3239,
     "bod": 16,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 200 000,- Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 12
    },
    {
     "t": 3340,
     "bod": 17,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 80 000,– Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 17
    },
    {
     "t": 3442,
     "bod": 18,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 100 000,– Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 18
    },
    {
     "t": 3562,
@@ -981,27 +1223,52 @@
     "t": 4184,
     "bod": 23,
     "label": "Předávací protokoly se ZŠ a MŠ Střelice. Obec Střelice na základě předávacího…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 19
    },
    {
     "t": 4195,
     "bod": 24,
     "label": "Předávací protokoly se ZUŠ Střelice. Obec Střelice na základě předávacího…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 20
    },
    {
     "t": 4581,
     "bod": 25,
     "label": "Smlouvu o výstavbě technické infrastruktury – realizace vodovodního řadu – s…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 21
    },
    {
     "t": 4626,
     "bod": 26,
     "label": "Smlouvu o smlouvě budoucí směnné mezi obcí Střelice, vlastník nově oddělených…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 22
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 615,
+   "3": 892,
+   "4": 895,
+   "5": 1083,
+   "6": 1955,
+   "7": 2256,
+   "8": 2418,
+   "9": 2505,
+   "10": 2636,
+   "11": 2718,
+   "12": 2844,
+   "13": 3098,
+   "14": 3239,
+   "19": 3340,
+   "20": 3442,
+   "21": 4184,
+   "22": 4195,
+   "23": 4581,
+   "24": 4626
+  }
  },
  "17": {
   "vid": "oUAMh13Cji8",
@@ -1030,13 +1297,15 @@
     "t": 642,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 16. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 1004,
     "bod": 5,
     "label": "Rozpočtové opatření č. 11/2024, které schválila rada obce č. 58 dne 27. 11. 2024",
-    "src": "fill"
+    "src": "fill",
+    "gi": 1
    },
    {
     "t": 1063,
@@ -1048,37 +1317,43 @@
     "t": 1665,
     "bod": 7,
     "label": "Střednědobý výhled rozpočtu pro rok 2026- 2027",
-    "src": "fill"
+    "src": "fill",
+    "gi": 3
    },
    {
     "t": 1760,
     "bod": 8,
     "label": "Individuální dotaci na základě žádosti Junák – český skaut, středisko Wahinkpe…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 2101,
     "bod": 10,
     "label": "Individuální dotaci na základě žádosti Tělocvičné jednoty Sokol Střelice z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 5
    },
    {
     "t": 2197,
     "bod": 11,
     "label": "Individuální dotaci na základě žádosti Sboru dobrovolných hasičů obce Střelice z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 2380,
     "bod": 12,
     "label": "Individuální dotaci na základě žádosti Římskokatolické farnosti Střelice u Brna z…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 7
    },
    {
     "t": 2411,
     "bod": 13,
     "label": "Individuální dotaci na základě žádosti Včelařského spolku ve Střelicích u Brna z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 2500,
@@ -1090,75 +1365,110 @@
     "t": 2587,
     "bod": 15,
     "label": "Individuální dotaci na základě žádosti neziskové organizace Diecézní charita Brno…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 2667,
     "bod": 16,
     "label": "Smlouvu o budoucí smlouvě darovací, kterou budoucí dárce, obec Střelice,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 2678,
     "bod": 17,
     "label": "Návrh Směnné smlouvy mezi obcí Střelice a paní A. S. a panem P. K., kteří vlastní…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 12
    },
    {
     "t": 3081,
     "bod": 18,
     "label": "Nabídku od společnosti KEEO4DESIGN s.r.o., Malinovského náměstí 4, 602 00 Brno na…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 13
    },
    {
     "t": 3380,
     "bod": 19,
     "label": "Dodatek č. 2 ke Smlouvě o dílo mezi obcí Střelice a společností BS-IMEX, s.r.o.,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 14
    },
    {
     "t": 4291,
     "bod": 21,
     "label": "Zřizovací listinu pro Základní školu a Mateřskou školu Střelice, Komenského…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 15
    },
    {
     "t": 4649,
     "bod": null,
     "label": "Vyřazení manipulační plošiny pro invalidy (Výtah u zdravotního střediska) v ceně…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 16
    },
    {
     "t": 4906,
     "bod": 22,
     "label": "Dodatek č. 12 ke Smlouvě na svoz a využití recyklovaných složek komunálního…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 17
    },
    {
     "t": 5048,
     "bod": 23,
     "label": "Dodatek č. 16 ke Smlouvě o sběru, svozu a odstraňování odpadu včetně ceníku č. 1,…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 18
    },
    {
     "t": 5183,
     "bod": 24,
     "label": "Převod části obecních financí 20 000 000,- Kč z běžného účtu na termínovaný vklad…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 19
    },
    {
     "t": 5285,
     "bod": 25,
     "label": "Smlouvu o spolupráci mezi obcí Střelice a Správou a údržbou silnic Jihomoravského…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 20
    },
    {
     "t": 5707,
     "bod": 26,
     "label": "Zápis č. 9 z jednání kontrolního výboru. Zapsala: Ivana Pešková",
-    "src": "fill"
+    "src": "fill",
+    "gi": 21
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 642,
+   "3": 1004,
+   "5": 1665,
+   "6": 1760,
+   "7": 2101,
+   "8": 2197,
+   "9": 2380,
+   "10": 2411,
+   "12": 2587,
+   "13": 2667,
+   "14": 2678,
+   "15": 3081,
+   "16": 3380,
+   "17": 3380,
+   "18": 4291,
+   "19": 4649,
+   "20": 4906,
+   "21": 5048,
+   "22": 5183,
+   "23": 5285,
+   "24": 5707
+  }
  },
  "15": {
   "vid": "w2AhtLV1Vtw",
@@ -1187,49 +1497,57 @@
     "t": 168,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 14. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 176,
     "bod": 5,
     "label": "Rozpočtové opatření č. 8/2024, které schválila rada obce č. 52 dne 28. 8. 2024",
-    "src": "fill"
+    "src": "fill",
+    "gi": 1
    },
    {
     "t": 184,
     "bod": 6,
     "label": "Smlouvu o poskytnutí dotace z rozpočtu Jihomoravského kraje na akci – Lesní…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 2
    },
    {
     "t": 1690,
     "bod": 7,
     "label": "Souhlas s podmínkami prodeje (tzv. technické podmínky) k pozemku p. č. 3419/41,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1861,
     "bod": 8,
     "label": "Dodatek č. 1 ke Smlouvě o dílo na akci Oprava chodníku nám. Svobody, ul.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 4
    },
    {
     "t": 1880,
     "bod": 9,
     "label": "Návrh Dodatku č. 2 ke smlouvě o dílo mezi obcí Střelice a společností…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 5
    },
    {
     "t": 2494,
     "bod": 10,
     "label": "Navýšit o 40 000,– Kč příspěvek na dorovnání mezd a odvodů pro nepedagogické…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 6
    },
    {
     "t": 2610,
     "bod": 11,
     "label": "Smlouvu o vypořádání spoluvlastnického práva k nemovitostem se smlouvou o zřízení…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 7
    },
    {
     "t": 2945,
@@ -1241,9 +1559,21 @@
     "t": 3139,
     "bod": 13,
     "label": "Změnu Obecně závazné vyhlášky o místním poplatku za obecní systém odpadového…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 9
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 168,
+   "3": 176,
+   "4": 184,
+   "5": 1690,
+   "6": 1861,
+   "7": 1880,
+   "8": 2494,
+   "9": 2610,
+   "11": 3139
+  }
  },
  "13": {
   "vid": "j1aWDDATXgA",
@@ -1266,7 +1596,8 @@
     "t": 151,
     "bod": 5,
     "label": "Zprávu o činnosti Rady obce Střelice od 12. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 687,
@@ -1278,109 +1609,127 @@
     "t": 757,
     "bod": 6,
     "label": "Rozpočtové opatření č. 4/2024, které schválila rada obce č. 44 dne 29. 4. 2024",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 760,
     "bod": null,
     "label": "Rozpočtové opatření č. 5/2024, které schválila rada obce č. 46 dne 29. 5. 2024",
-    "src": "fill"
+    "src": "fill",
+    "gi": 2
    },
    {
     "t": 826,
     "bod": 7,
     "label": "Závěrečný účet Obce Střelice za rok 2023 v souladu s § 17 odst. 7 písm. a) zákona…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 920,
     "bod": 8,
     "label": "Účetní odpisový plán za období od 01/2024 do 12/2024",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1011,
     "bod": 9,
     "label": "Zprávu starosty obce o průběhu a výsledku veřejné zakázky: Dodávka vybavení ZUŠ…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 5
    },
    {
     "t": 1088,
     "bod": 10,
     "label": "Smlouvu o dílo, na zakázku – Lesní cyklotrasa Lotrůvka – stavební práce, s firmou…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 1396,
     "bod": 11,
     "label": "Smlouvu o dílo na zakázku: Venkovní úpravy u hasičské zbrojnice, III. etapa, se…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 1541,
     "bod": 12,
     "label": "Smlouvu o dílo, na zakázku – Úsekové měření, ul. Tetčická, ul. Ant. Smutného, se…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 1718,
     "bod": 13,
     "label": "Stanovy Dobrovolného svazku obcí Šlapanicko",
-    "src": "fill"
+    "src": "fill",
+    "gi": 9
    },
    {
     "t": 1829,
     "bod": 14,
     "label": "Memorandum se Svazkem vodovodů a kanalizací Ivančice, kterým se stvrdí vzájemná…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 2082,
     "bod": 15,
     "label": "Dodatek č. 24 ke Smlouvě o vkladu majetku do hospodaření Svazku vodovodů a…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 2185,
     "bod": 16,
     "label": "Kupní smlouvu na nákup části pozemků pro realizaci cyklostezky, chodníku a…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 12
    },
    {
     "t": 2599,
     "bod": 17,
     "label": "Smlouvu o bezúplatném převodu, pozemek p.č. 1449/4 o výměře 30 m2, k.ú. Střelice…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 13
    },
    {
     "t": 2710,
     "bod": 18,
     "label": "V rámci participativního rozpočtu realizaci projektů Pumptrack Pod Lesem – 2.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 14
    },
    {
     "t": 3016,
     "bod": 19,
     "label": "Účetní závěrku Obce Střelice za rok 2023. Zastupitelstvo obce pověřilo starostu…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 15
    },
    {
     "t": 3097,
     "bod": 21,
     "label": "Smlouvu o provozování služby SENIOR TAXI, provozovatelem je Místní akční skupina…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 16
    },
    {
     "t": 3283,
     "bod": 22,
     "label": "Opatření obecné povahy o stanovení místního koeficientu 5,0 pro následující…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 17
    },
    {
     "t": 4163,
     "bod": 23,
     "label": "Zápis č. 7 a č. 8 z jednání kontrolního výboru",
-    "src": "prog"
+    "src": "prog",
+    "gi": 18
    },
    {
     "t": 4322,
@@ -1388,7 +1737,29 @@
     "src": "snip",
     "label": "Pokud má někdo ze zastupitelů něco máte pan brener a pan Klíma Tak…"
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 151,
+   "3": 757,
+   "4": 760,
+   "5": 826,
+   "6": 920,
+   "7": 1011,
+   "8": 1088,
+   "9": 1396,
+   "10": 1541,
+   "11": 1718,
+   "12": 1829,
+   "13": 2082,
+   "14": 2185,
+   "15": 2599,
+   "16": 2710,
+   "17": 3016,
+   "18": 3097,
+   "19": 3283,
+   "20": 4163,
+   "21": 4163
+  }
  },
  "12": {
   "vid": "6SYy0aqnqYM",
@@ -1417,43 +1788,50 @@
     "t": 112,
     "bod": 8,
     "label": "Zprávu o činnosti Rady obce Střelice od 11. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 120,
     "bod": 9,
     "label": "Rozpočtové opatření č. 3/2024, které schválila rada obce č. 42 dne 27. 3. 2024",
-    "src": "fill"
+    "src": "fill",
+    "gi": 1
    },
    {
     "t": 1713,
     "bod": 10,
     "label": "Návrh Kupní smlouvy na nákup pozemku p. č. 1947/5, k. ú. Střelice u Brna – výměra…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 1716,
     "bod": null,
     "label": "Návrh Směnné smlouvy mezi obcí Střelice a paní Mgr. A. S. a panem P. K., kteří…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 6
    },
    {
     "t": 1911,
     "bod": 11,
     "label": "Kupní smlouvu na nákup části pozemků za 250,Kč/m2 pro realizaci cyklostezky,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 2208,
     "bod": 12,
     "label": "Memorandum mezi obcí Střelice a Svazkem vodovodů a kanalizací Ivančice. Pověřilo…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 2482,
     "bod": 13,
     "label": "Kupní smlouvu na nákup nábytku pro novostavbu MŠ Střelice, dodavatel MAKRA…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 9
    },
    {
     "t": 2634,
@@ -1465,9 +1843,21 @@
     "t": 2821,
     "bod": null,
     "label": "Žádost o výjimku z nočního klidu na kulturní akci Kácení máje na prostranství u…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 10
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 112,
+   "3": 120,
+   "4": 1713,
+   "8": 1716,
+   "9": 1911,
+   "10": 2208,
+   "11": 2482,
+   "12": 2482,
+   "13": 2821
+  }
  },
  "10": {
   "vid": "70gnzPywGLs",
@@ -1496,7 +1886,8 @@
     "t": 145,
     "bod": 5,
     "label": "Zprávu o činnosti Rady obce Střelice od 8. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 782,
@@ -1508,25 +1899,29 @@
     "t": 852,
     "bod": 6,
     "label": "Rozpočtové opatření č. 10/2023, které schválila rada obce č. 31 dne 30. 10. 2023",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 855,
     "bod": null,
     "label": "Rozpočtové opatření č. 11/2023, které schválila rada obce č. 33 dne 29. 11. 2023",
-    "src": "fill"
+    "src": "fill",
+    "gi": 2
    },
    {
     "t": 1007,
     "bod": 8,
     "label": "Střednědobý výhled rozpočtu pro roky 2025- 2026",
-    "src": "prog"
+    "src": "prog",
+    "gi": 4
    },
    {
     "t": 1186,
     "bod": 9,
     "label": "Individuální dotaci na základě žádosti Junák – český skaut, středisko Wahinkpe…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 5
    },
    {
     "t": 1278,
@@ -1538,19 +1933,22 @@
     "t": 1476,
     "bod": 11,
     "label": "Individuální dotaci na základě žádosti Tělocvičné jednoty Sokol Střelice z…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 7
    },
    {
     "t": 1512,
     "bod": 12,
     "label": "Individuální dotaci na základě žádosti Sboru dobrovolných hasičů obce Střelice z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 1632,
     "bod": 13,
     "label": "Individuální dotaci na základě žádosti Včelařského spolku ve Střelicích u Brna z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 1722,
@@ -1562,141 +1960,197 @@
     "t": 1811,
     "bod": 15,
     "label": "Individuální dotaci na základě žádosti Mysliveckého spolku Výrovka z rozpočtu…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 1902,
     "bod": 16,
     "label": "Individuální dotaci na základě žádosti SRPZŠ z rozpočtu obce Střelice pro rok…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 12
    },
    {
     "t": 2007,
     "bod": 17,
     "label": "Individuální dotaci na základě žádosti neziskové organizaci Generace Care z.ú. z…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 13
    },
    {
     "t": 2234,
     "bod": null,
     "label": "Uzavřením Plánovací smlouvy se spol. Win plus, a.s., IČO: 26234351, se sídlem…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 14
    },
    {
     "t": 3439,
     "bod": 18,
     "label": "Smlouvu o výpůjčce pro ZUŠ Střelice. Obec Střelice přenechává Základní umělecké…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 15
    },
    {
     "t": 3586,
     "bod": 20,
     "label": "Předávací protokol se ZŠ a MŠ Střelice. Obec Střelice na základě předávacího…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 17
    },
    {
     "t": 3588,
     "bod": null,
     "label": "Předávací protokoly se ZUŠ Střelice. Obec Střelice na základě předávacího…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 16
    },
    {
     "t": 3720,
     "bod": 22,
     "label": "Zřizovací listinu pro Základní uměleckou školu Střelice, nám. Svobody 116/17, 664…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 18
    },
    {
     "t": 4078,
     "bod": 23,
     "label": "Program rozvoje obce Střelice na období 2024- 2030",
-    "src": "fill"
+    "src": "fill",
+    "gi": 19
    },
    {
     "t": 4382,
     "bod": 24,
     "label": "Nákup pozemku p. č. 3441/49, k. ú. Střelice u Brna, ul. Úvoz, za celkovou cenu…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 20
    },
    {
     "t": 4517,
     "bod": 25,
     "label": "Smlouvu o bezúplatném převodu k pozemku p. č. 3466/38 v k. ú. Střelice u Brna,…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 21
    },
    {
     "t": 4652,
     "bod": 26,
     "label": "Darovací smlouvu k pozemku p. č. 375/7, ostatní plocha o výměře 9 m² v k. ú.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 22
    },
    {
     "t": 4836,
     "bod": 27,
     "label": "Kupní smlouvu na nákup pozemku p. č. 1220/5, ostatní plocha o výměře 48 m² v k.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 23
    },
    {
     "t": 4840,
     "bod": 28,
     "label": "Kupní smlouvu na nákup pozemku p. č. 5090, orná půda o výměře 1828 m² v k. ú.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 24
    },
    {
     "t": 5246,
     "bod": 29,
     "label": "Návrh Obecně závazné vyhlášky o místním poplatku za obecní systém odpadového…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 25
    },
    {
     "t": 5248,
     "bod": 30,
     "label": "Návrh Obecně závazné vyhlášky o místním poplatku ze psů. Sazba poplatku za…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 26
    },
    {
     "t": 5503,
     "bod": 31,
     "label": "Vyřazení starých a nepotřebných přístřešků autobusových zastávek v obci Střelice…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 27
    },
    {
     "t": 5724,
     "bod": 32,
     "label": "Dodatek č. 11 ke Smlouvě na svoz a využití recyklovaných složek komunálního…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 28
    },
    {
     "t": 5733,
     "bod": 33,
     "label": "Dodatek č. 15 ke Smlouvě o sběru, svozu a odstraňování odpadu č.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 29
    },
    {
     "t": 6102,
     "bod": 34,
     "label": "Vyčlenění částky pro projekty Participativního rozpočtu na rok 2024 ve výši 400…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 30
    },
    {
     "t": 6503,
     "bod": 35,
     "label": "Nákup pozemku p. č. 3441/50, k. ú. Střelice u Brna, ul. Nádražní, za celkovou…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 31
    },
    {
     "t": 6562,
     "bod": 36,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a společností Brixton Group,…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 32
    },
    {
     "t": 6675,
     "bod": 37,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a společností NiTraM–projekt,…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 33
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 145,
+   "3": 852,
+   "4": 855,
+   "6": 1007,
+   "7": 1186,
+   "9": 1476,
+   "10": 1512,
+   "12": 1632,
+   "13": 1811,
+   "14": 1902,
+   "15": 2007,
+   "16": 2234,
+   "17": 3439,
+   "19": 3586,
+   "18": 3588,
+   "20": 3720,
+   "21": 4078,
+   "22": 4382,
+   "23": 4517,
+   "24": 4652,
+   "25": 4836,
+   "26": 4840,
+   "27": 5246,
+   "28": 5248,
+   "29": 5503,
+   "30": 5724,
+   "31": 5733,
+   "32": 6102,
+   "33": 6503,
+   "34": 6562,
+   "35": 6675
+  }
  },
  "8": {
   "vid": "J6WiW-Y5Wqg",
@@ -1725,171 +2179,229 @@
     "t": 161,
     "bod": 4,
     "label": "Zprávu o činnosti Rady obce Střelice od 7. zastupitelstva obce",
-    "src": "fill"
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 779,
     "bod": 5,
     "label": "Rozpočtové opatření č. 6/2023, které schválila rada obce č. 22 dne 28. 6. 2023",
-    "src": "prog"
+    "src": "prog",
+    "gi": 1
    },
    {
     "t": 1139,
     "bod": 9,
     "label": "Žádost o poskytnutí individuální dotace z rozpočtu obce Střelice pro rok 2023 pro…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 5
    },
    {
     "t": 1264,
     "bod": 10,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 30.000,- Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 6
    },
    {
     "t": 1339,
     "bod": 11,
     "label": "Žádost o poskytnutí individuální dotace z rozpočtu obce Střelice pro rok 2023 pro…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 7
    },
    {
     "t": 1459,
     "bod": 12,
     "label": "Veřejnoprávní smlouvu o poskytnutí dotace ve výši 100.000,- Kč z rozpočtu obce…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 8
    },
    {
     "t": 1562,
     "bod": 13,
     "label": "Předložená Pravidla pro poskytování dotací z rozpočtu obce Střelice",
-    "src": "fill"
+    "src": "fill",
+    "gi": 9
    },
    {
     "t": 1779,
     "bod": 14,
     "label": "Nájemní smlouvu na pronájem komerčních prostor pro obchod se smíšeným zbožím, ul.…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 2490,
     "bod": 15,
     "label": "Kupní smlouvu a Smlouvu o převodu vlastnického práva ke komunikaci a veřejnému…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 2835,
     "bod": 16,
     "label": "Darovací smlouvu mezi obcí Střelice a Jihomoravským krajem k pozemkům p. č.…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 12
    },
    {
     "t": 2841,
     "bod": 17,
     "label": "Darovací smlouvu mezi obcí Střelice a Jihomoravským krajem k pozemkům p. č.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 13
    },
    {
     "t": 3223,
     "bod": 18,
     "label": "Smlouvu o dílo na zhotovení projektové dokumentace ke stavebnímu povolení na…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 14
    },
    {
     "t": 3542,
     "bod": 19,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a společností PORR, a.s.,…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 15
    },
    {
     "t": 3837,
     "bod": 20,
     "label": "Smlouvu o dílo na dodávku autobusových přístřešků mezi obcí Střelice a…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 16
    },
    {
     "t": 4617,
     "bod": 21,
     "label": "Smlouvu o převodu vlastnického práva mezi obcí Střelice a společností Brixton…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 17
    },
    {
     "t": 4871,
     "bod": 22,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a Stavební firmou MATYÁŠ…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 18
    },
    {
     "t": 5151,
     "bod": 23,
     "label": "Vstup obce Střelice do navrhovaného spolku Žleby III. Zastupitelstvo obce…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 19
    },
    {
     "t": 5414,
     "bod": 24,
     "label": "Vstup obce Střelice do Společenství vlastníků jednotek (SVJ), ul. Ant. Smutného…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 20
    },
    {
     "t": 5567,
     "bod": 25,
     "label": "Předloženou nabídku Českých drah, a.s., nábřeží Ludvíka Svobody 1222/12, 110 15…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 21
    },
    {
     "t": 5767,
     "bod": 26,
     "label": "Smlouvu o dílo se společností Brixton Group, s.r.o., Lužánecká 1887/8, 602 000…",
-    "src": "prog"
+    "src": "prog",
+    "gi": 22
    },
    {
     "t": 6106,
     "bod": 27,
     "label": "Dodatek č. 1 ke smlouvě o dílo mezi obcí Střelice a společností PORR, a.s.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 23
    },
    {
     "t": 6346,
     "bod": 28,
     "label": "Smlouvu o dílo mezi obcí Střelice a společností A+K úpravy zeleně s.r.o., Záříčí…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 24
    },
    {
     "t": 6513,
     "bod": 29,
     "label": "Kupní smlouvu na nákup pozemků pro realizaci Cyklostezky na Brno, ul.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 25
    },
    {
     "t": 6955,
     "bod": 30,
     "label": "Dodatek č. 1 ke kupní smlouvě na nákup gastro vybavení pro novou kuchyni v MŠ…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 26
    },
    {
     "t": 7398,
     "bod": 31,
     "label": "Návrh Obecně závazné vyhlášky o místním poplatku za obecní systém odpadového…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 27
    },
    {
     "t": 7828,
     "bod": 32,
     "label": "Návrh smlouvy o zřízení služebnosti k pozemku p. č. 1109 a p. č. 1108/5, k. ú.…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 28
    },
    {
     "t": 8031,
     "bod": 33,
     "label": "Zápis č. 6 z jednání kontrolního výboru",
-    "src": "fill"
+    "src": "fill",
+    "gi": 29
    },
    {
     "t": 8088,
     "bod": 34,
     "label": "Převod 25 milionů Kč z běžného účtu na terminovaný vklad u Komerční banky s…",
-    "src": "fill"
+    "src": "fill",
+    "gi": 30
    }
-  ]
+  ],
+  "bodytimes": {
+   "2": 161,
+   "3": 779,
+   "7": 1139,
+   "8": 1264,
+   "9": 1339,
+   "10": 1459,
+   "11": 1562,
+   "12": 1779,
+   "13": 2490,
+   "14": 2835,
+   "15": 2841,
+   "16": 3223,
+   "17": 3542,
+   "18": 3837,
+   "19": 4617,
+   "20": 4871,
+   "21": 5151,
+   "22": 5414,
+   "23": 5567,
+   "24": 5767,
+   "25": 6106,
+   "26": 6346,
+   "27": 6513,
+   "28": 6955,
+   "29": 7398,
+   "30": 7828,
+   "31": 8031,
+   "32": 8088
+  }
  },
  "4": {
   "vid": "q56ClqwJysQ",

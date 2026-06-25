@@ -129,14 +129,15 @@ def build_groups(body):
     Procedurální usnesení (schválení programu, volba ověřovatelů) se vynechají —
     nejsou to věcné body programu a kazila by zarovnání."""
     groups = []
-    for b in body:
+    for ix, b in enumerate(body):
         s = strip(b["text"])
         if 'program jednani' in s or 'overovatel' in s or 'navrhove komis' in s:
             continue
         if b["kategorie"] in ('pověřuje', 'ukládá') and groups:
             groups[-1]["txt"] += " " + b["text"]
+            groups[-1]["idx"].append(ix)
         else:
-            groups.append({"label": clean_usn_label(b["text"]), "txt": b["text"]})
+            groups.append({"label": clean_usn_label(b["text"]), "txt": b["text"], "idx": [ix]})
     for g in groups:
         g["toks"] = toks(g["txt"])
     return groups
@@ -264,7 +265,7 @@ def build_chapters(W, groups):
     for gi in range(len(groups)):
         if gi in anchored:
             chapters.append({"t": anchored[gi], "bod": g_time[gi][1],
-                             "label": groups[gi]["label"], "src": "prog"})
+                             "label": groups[gi]["label"], "src": "prog", "gi": gi})
             last_t = anchored[gi]; continue
         if first is not None and gi < first:
             if disc_start <= 0:
@@ -287,7 +288,7 @@ def build_chapters(W, groups):
             elif ba:
                 bodN = ba + (gi - a)
             chapters.append({"t": round(t), "bod": bodN, "label": groups[gi]["label"],
-                             "src": "fill"})
+                             "src": "fill", "gi": gi})
             last_t = t
     chapters.sort(key=lambda c: c["t"])
 
@@ -315,7 +316,15 @@ def build_chapters(W, groups):
         for i, c in enumerate(chapters):
             if c.get("bod") and i not in keep:
                 c["bod"] = None
-    return chapters, dur
+
+    # mapa: index usnesení v body -> čas v záznamu (pro prokliky u jednotlivých usnesení)
+    idx_time = {}
+    for c in chapters:
+        gi = c.get("gi")
+        if gi is not None:
+            for ix in groups[gi]["idx"]:
+                idx_time[ix] = c["t"]
+    return chapters, dur, idx_time
 
 
 def main():
@@ -340,8 +349,9 @@ def main():
             continue
         W = parse_vtt(cap)
         groups = build_groups(z["body"]) if z else []
-        chapters, dur = build_chapters(W, groups)
-        out[str(cislo)] = {"vid": vid, "dur": dur, "has_caps": True, "chapters": chapters}
+        chapters, dur, idx_time = build_chapters(W, groups)
+        out[str(cislo)] = {"vid": vid, "dur": dur, "has_caps": True,
+                           "chapters": chapters, "bodytimes": idx_time}
         report.append((cislo, vid, dur, len(chapters), chapters))
 
     json.dump(out, open("video_casy.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)

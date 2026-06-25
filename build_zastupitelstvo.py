@@ -34,16 +34,17 @@ meet = []
 SIGN_RE = re.compile(r'pověřuje\b.*\bpodpis', re.I)
 for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
     vc = VCAS.get(str(r["cislo_zasedani"]))
-    # polozka: [druh_idx, tema_idx, castka|null, hlasovani|null, text, sign(0/1)]
+    bt = (vc.get("bodytimes") or {}) if vc else {}
+    # polozka: [druh_idx, tema_idx, castka|null, hlasovani|null, text, sign(0/1), cas|null]
     items = []
     parent = None
-    for b in r["body"]:
+    for ix, b in enumerate(r["body"]):
         if b["kategorie"] == "pověřuje" and SIGN_RE.search(b["text"]):
             if parent is not None:
                 parent[5] = 1   # k rodiči přidáme „pověřen k podpisu"
             continue
         it = [ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)],
-              b.get("castka"), b.get("hlasovani"), b["text"], 0]
+              b.get("castka"), b.get("hlasovani"), b["text"], 0, bt.get(str(ix))]
         items.append(it)
         parent = it
     meet.append({
@@ -122,6 +123,10 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .zvote.contested b{color:var(--neg)}
 .zsign{display:inline-flex;align-items:center;gap:5px;font-size:11px;color:var(--muted);
   background:var(--inset);border:1px dashed var(--line);padding:2px 9px;border-radius:999px}
+.zct2{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;color:var(--accent);
+  background:var(--accent-soft);border:1px solid var(--line);padding:2px 9px;border-radius:999px;
+  text-decoration:none;font-variant-numeric:tabular-nums}
+.zct2:hover{border-color:var(--accent)}
 .parc{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent);
   white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer}
 .parc:hover{background:var(--accent-soft);border-bottom-style:solid}
@@ -371,8 +376,9 @@ function cardHTML(m,items,open,qf){
         const money=amt!=null?`<span class="zmoney" data-v="${esc(vbucket(amt))}" title="Objem: ${esc(vbucket(amt))}"><i style="background:${vbVar(vbucket(amt))}"></i>${fmtKc(amt)}</span>`:'';
         const txt=linkifyParc(hl(it[4],qf), !OTHER_KU.test(it[4]));
         const sign=it[5]?`<span class="zsign" title="Zastupitelstvo zároveň pověřilo starostu/radu podpisem příslušné smlouvy">&#10003; pověřeno k podpisu</span>`:'';
+        const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
         return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
-               `<div class="ztags"><span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts)}${sign}</div></div>`;
+               `<div class="ztags"><span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts)}${sign}${tl}</div></div>`;
       }).join('');
       return `<div class="zgrp"><div class="zgrp-h"><span class="dotc" style="background:${col}"></span>Zastupitelstvo ${esc(c)} · ${byCat[c].length}</div>${rows}</div>`;
     }).join('')+'</div>';
