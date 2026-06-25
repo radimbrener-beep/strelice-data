@@ -4,7 +4,7 @@
 Kapitálové výdaje obce z FIN 2-12 M (vývoj v čase, podle oblasti) propojené
 s konkrétními investičními rozhodnutími z usnesení Rady obce a Zastupitelstva
 (téma Stavby/investice a Doprava, s uvedenou částkou)."""
-import sys, csv, json, re
+import sys, csv, json, re, os
 from datetime import date
 import portal_common as pc
 sys.stdout.reconfigure(encoding="utf-8")
@@ -57,6 +57,18 @@ THEMES = {"Stavby, investice a územní rozvoj", "Doprava a sítě",
 MIN_AKCE = 100_000   # práh: investiční akce, ne drobné nákupy
 ro = json.load(open("dataset_RO.json", encoding="utf-8"))
 zo = json.load(open("dataset_ZO.json", encoding="utf-8"))
+
+# časy v záznamu jednání (jen ZO mají video): {číslo_ZO: {text_usnesení: čas_s}}, {číslo_ZO: video_id}
+VCAS = json.load(open("video_casy.json", encoding="utf-8")) if os.path.exists("video_casy.json") else {}
+zo_text_time, zo_vid = {}, {}
+for _m in zo:
+    _c = _m.get("cislo_zasedani")
+    _vc = VCAS.get(str(_c))
+    if not _vc:
+        continue
+    zo_vid[_c] = _vc.get("vid")
+    _bt = _vc.get("bodytimes") or {}
+    zo_text_time[_c] = {b["text"]: _bt[str(ix)] for ix, b in enumerate(_m["body"]) if str(ix) in _bt}
 
 
 # zjevné ne-investice (i když spadají do tématu): pojištění, dluhy, nájmy
@@ -191,6 +203,9 @@ def _skupina(text):
 for a in akce:
     a.append(_firm(a[4]))        # index 6 = zhotovitel (název firmy, jinak "")
     a.append(_skupina(a[4]))     # index 7 = tematická skupina
+    # index 8 = čas v záznamu (s) a index 9 = video id (jen ZO se záznamem a napárovaným bodem)
+    a.append(zo_text_time.get(a[3], {}).get(a[4]) if a[2] == "ZO" else None)
+    a.append(zo_vid.get(a[3], "") if a[2] == "ZO" else "")
 
 # --- KPI ---
 last = max(years)
@@ -269,6 +284,9 @@ scripts = '<style>' + '''
 #tbl td.dt{white-space:nowrap;color:var(--muted);font-size:12.5px}
 .zsrc{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--inset);color:var(--muted);text-decoration:none;border:1px solid var(--line);white-space:nowrap}
 .zsrc:hover{color:var(--accent);border-color:var(--accent)}
+.srccell{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
+.zsrc.vid{color:var(--accent);font-weight:600;font-variant-numeric:tabular-nums}
+.zsrc.vid:hover{background:var(--accent-soft);border-color:var(--accent)}
 .tablewrap{overflow-x:auto}
 .morebtn{margin:14px auto 0;display:block;background:var(--inset);border:1px solid var(--line);color:var(--text);
   font:inherit;font-size:13px;font-weight:500;padding:9px 20px;border-radius:10px;cursor:pointer;transition:.16s}
@@ -352,10 +370,16 @@ function filtered(){
   return a;
 }
 function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return p[2]+'. '+(+p[1])+'. '+p[0];}
+function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
 function renderTbl(){
   const a=filtered(), slice=a.slice(0,shown);
   document.getElementById('tbody').innerHTML=slice.map(x=>{
-    const src=x[5]?`<a class="zsrc" href="${x[5]}" target="_blank" rel="noopener" title="Otevřít originální zápis (PDF)">${x[2]} č.&nbsp;${x[3]}</a>`:`<span class="zsrc">${x[2]} č.&nbsp;${x[3]}</span>`;
+    const secUrl=(x[2]==='ZO'?'zastupitelstvo.html?zo=':'zapisy.html?ro=')+x[3];
+    const secTit=x[2]==='ZO'?'Zobrazit usnesení tohoto zasedání v sekci Zastupitelstvo':'Zobrazit usnesení tohoto jednání v sekci Rada obce';
+    let srcParts=[`<a class="zsrc" href="${secUrl}" title="${secTit}">${x[2]} č.&nbsp;${x[3]}</a>`];
+    if(x[5]) srcParts.push(`<a class="zsrc" href="${x[5]}" target="_blank" rel="noopener" title="Originální zápis (PDF)">PDF&nbsp;&#8599;</a>`);
+    if(x[8]&&x[9]) srcParts.push(`<a class="zsrc vid" href="https://youtu.be/${x[9]}?t=${x[8]}" target="_blank" rel="noopener" title="Skočit na projednávání bodu v záznamu jednání">&#9654;&nbsp;${fmtT(x[8])}</a>`);
+    const src=`<div class="srccell">${srcParts.join('')}</div>`;
     const firma=x[6]?`<span class="firma">${x[6]}</span>`:'<span class="nofirm">—</span>';
     const sk=`<span class="skup" style="--sc:var(--c${SKUP_COLOR[x[7]]??8})">${x[7]}</span>`;
     return `<tr><td class="dt">${fmtDate(x[0])}</td><td class="skupc">${sk}</td><td>${linkifyMap(x[4])}</td><td class="firmac">${firma}</td><td class="r">${castka(x[1])}</td><td>${src}</td></tr>`;

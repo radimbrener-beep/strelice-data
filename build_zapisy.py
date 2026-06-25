@@ -397,6 +397,18 @@ document.getElementById('more').onclick=()=>{shown+=PAGE; render();};
 function redraw(){temaChart(); vydChart();}
 q=qIn.value||''; clr.style.display=q?'block':'none';   // sync po pripadnem obnoveni formulare prohlizecem
 buildTemaChips(); buildVydChips(); render(); temaChart(); vydChart();
+// otevření konkrétního jednání přes URL (?ro=N) — proklik z jiných sekcí (Investice)
+(function openFromUrl(){
+  const p=new URLSearchParams(location.search).get('ro'); if(!p) return;
+  const n=+p; if(!MEET.some(m=>m.n===n)) return;
+  openSet.add(n); year='all'; shown=MEET.length;
+  document.querySelectorAll('#yearSeg button').forEach(b=>b.classList.toggle('on',b.dataset.k==='all'));
+  render();
+  setTimeout(()=>{const h=document.querySelector('.zmt-h[data-n="'+n+'"]'); if(!h) return;
+    const c=h.closest('.zmt'); c.scrollIntoView({behavior:'smooth',block:'center'});
+    c.style.transition='box-shadow .3s'; c.style.boxShadow='0 0 0 2px var(--accent)';
+    setTimeout(()=>{c.style.boxShadow='';},2600);},160);
+})();
 bindTheme(redraw);
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
 </script>'''.replace("DATA_JSON", data_json)
