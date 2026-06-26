@@ -139,6 +139,12 @@ FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote
 ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
              ' data-cf-beacon=\'{"token": "c6b572a87a11472db1d63e8281478708"}\'></script>')
 
+# Google Analytics 4 (gtag.js) — pozn.: používá cookies (případnou cookie lištu lze doplnit)
+GA = ('<!-- Google tag (gtag.js) -->'
+      '<script async src="https://www.googletagmanager.com/gtag/js?id=G-L77N0PH5L6"></script>'
+      '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
+      "gtag('js',new Date());gtag('config','G-L77N0PH5L6');</script>")
+
 # logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz.
 # Vkládáme jako data-URI přímo do HTML → stránka je samostatná, deploy je jen
 # ploché HTML (žádná FTP podsložka, žádný extra soubor k nahrání).
@@ -214,6 +220,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 {og_meta(active, title)}
 {FAVICON_LINK}
 {ANALYTICS}
+{GA}
 <style>{SHARED_CSS}</style>
 {head_scripts}
 </head>

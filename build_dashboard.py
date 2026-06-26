@@ -635,6 +635,6 @@ nav_links = "".join(
     for href, label in pc.SECTIONS)
 HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
         .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — Jak žijí Střelice") + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
-        .replace("/*ANALYTICS*/", pc.ANALYTICS).replace("<!--BRANDFOOT-->", pc.BRANDFOOT))
+        .replace("/*ANALYTICS*/", pc.ANALYTICS + pc.GA).replace("<!--BRANDFOOT-->", pc.BRANDFOOT))
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")
