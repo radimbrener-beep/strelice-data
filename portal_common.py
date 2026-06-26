@@ -137,7 +137,7 @@ FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote
 
 # Cloudflare Web Analytics (bez cookies) — beacon přes JS snippet, web zůstává na Wedosu
 ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
-             ' data-cf-beacon=\'{"token": "362b46820b6e4b55aa1af4a087703cf7"}\'></script>')
+             ' data-cf-beacon=\'{"token": "c6b572a87a11472db1d63e8281478708"}\'></script>')
 
 # logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz.
 # Vkládáme jako data-URI přímo do HTML → stránka je samostatná, deploy je jen
