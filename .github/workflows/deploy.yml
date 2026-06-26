@@ -1,4 +1,4 @@
-name: Deploy na Wedos (data.strelicnik.cz)
+name: Deploy na Wedos (jakzijistrelice.cz + data.strelicnik.cz)
 
 # Při každém pushi do main se vezmou statické HTML stránky portálu
 # a nahrají přes FTP na Wedos hosting. Spustit lze i ručně (workflow_dispatch).
@@ -44,3 +44,14 @@ jobs:
           local-dir: ./public/
           # pozn.: akce dělá inkrementální sync (stav drží v souboru .ftp-deploy-sync-state.json na serveru).
           # Docroot subdomény by měl být VYHRAZEN jen tomuto webu (sync může mazat cizí soubory).
+
+      - name: Deploy přes FTP na Wedos (alias jakzijistrelice.cz)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: /www/domains/jakzijistrelice.cz/   # docroot aliasu (Wedos konvence /www/domains/<doména>/)
+          local-dir: ./public/

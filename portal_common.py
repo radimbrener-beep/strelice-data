@@ -174,7 +174,7 @@ function isDark(){return document.documentElement.getAttribute('data-theme')==='
 """
 
 # --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
-SITE = "https://data.strelicnik.cz"
+SITE = "https://jakzijistrelice.cz"
 OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, "
            "dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.")
 

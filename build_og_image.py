@@ -59,7 +59,7 @@ center(d, 388, "Otevřená data obce Střelice u Brna", font(38), MUTED)
 center(d, 452, "rozpočet · investice · dotace · zastupitelstvo · školství", font(31), ACCENT)
 
 # adresa v patičce (na akcentním pruhu prostor nad ním)
-center(d, 540, "data.strelicnik.cz", font(40, bold=True), TEXT)
+center(d, 540, "jakzijistrelice.cz", font(40, bold=True), TEXT)
 
 img.save("og-image.png", optimize=True)
 import os
