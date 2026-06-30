@@ -53,12 +53,83 @@ for href, name, ic, active, desc, go, badge in tiles:
     tile_html += f'''<a class="{cls}" href="{href}">{badge_html}
       <span class="ic">{icon}</span><h3>{name}</h3><p>{desc}</p>{go_html}</a>'''
 
+# --- panel "Co je noveho" — naposledy pridane zapisy ze ZO a RO (automaticky z dat) ---
+# Zobrazene datum = kdy se zapis objevil na portalu (published.json), ne datum zasedani.
+# Backlog ma datum spusteni portalu; nove zapisy build orazitkuje dnem sestaveni.
+import datetime
+_PUB_PATH = "published.json"
+try:
+    _pub = json.load(open(_PUB_PATH, encoding="utf-8"))
+except FileNotFoundError:
+    _pub = {}
+_pub.setdefault("ZO", {})
+_pub.setdefault("RO", {})
+_today = datetime.date.today().isoformat()
+_dirty = False
+
+def _fmt_d(iso):
+    p = iso.split("-")
+    return f"{int(p[2])}. {int(p[1])}. {p[0]}"
+
+def _pubdate(grp, cislo):
+    global _dirty
+    k = str(cislo)
+    if k not in _pub[grp]:
+        _pub[grp][k] = _today
+        _dirty = True
+    return _pub[grp][k]
+
+_feed = []
+for _m in json.load(open("dataset_ZO.json", encoding="utf-8")):
+    _c = _m["cislo_zasedani"]
+    _feed.append((_pubdate("ZO", _c), _m["datum"], "Zastupitelstvo", "#e0a458",
+                  f'Zápis z {_c}. zasedání zastupitelstva',
+                  f'zastupitelstvo.html?zo={_c}'))
+for _m in json.load(open("dataset_RO.json", encoding="utf-8")):
+    _c = _m["cislo_zasedani"]
+    _feed.append((_pubdate("RO", _c), _m["datum"], "Rada obce", "#85b7eb",
+                  f'Zápis z {_c}. jednání rady obce',
+                  f'zapisy.html?ro={_c}'))
+if _dirty:
+    json.dump(_pub, open(_PUB_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+# jen nejnovejsi zaznam z kazde sekce (jeden ZO + jeden RO)
+_best = {}
+for _row in _feed:
+    _s = _row[2]
+    if _s not in _best or (_row[0], _row[1]) > (_best[_s][0], _best[_s][1]):
+        _best[_s] = _row
+# vysledne radky razeny podle data publikace (pri shode podle data zasedani), sestupne
+_shown = sorted(_best.values(), key=lambda x: (x[0], x[1]), reverse=True)
+updlist = "".join(
+    f'<a class="updrow" href="{lnk}"><span class="upddate">{_fmt_d(pubd)}</span>'
+    f'<span class="updsec"><i style="background:{col}"></i>{sec}</span>'
+    f'<span class="updtxt">{txt}</span><span class="updarr">&#8594;</span></a>'
+    for pubd, _md, sec, col, txt, lnk in _shown)
+upd_panel = ('<section><div class="panel">'
+             '<div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2>'
+             '<span class="hint">poslední zápis z každé sekce</span></div>'
+             f'<div class="updlist">{updlist}</div></div></section>')
+
+UPD_CSS = '''<style>
+.updlist{display:flex;flex-direction:column}
+.updrow{display:flex;align-items:center;gap:12px;padding:10px 6px;border-radius:10px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line)}
+.updlist .updrow:last-child{border-bottom:0}
+.updrow:hover{background:var(--inset)}
+.upddate{color:var(--muted);font-size:12.5px;min-width:88px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.updsec{display:inline-flex;align-items:center;font-size:11px;font-weight:600;color:var(--muted);background:var(--inset);border:1px solid var(--line);padding:2px 9px;border-radius:999px;white-space:nowrap}
+.updsec i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:6px}
+.updtxt{font-size:13.5px;flex:1}
+.updarr{color:var(--faint);font-size:14px}
+@media(max-width:560px){.updrow{flex-wrap:wrap;gap:6px 10px}.updtxt{flex-basis:100%;order:3;font-size:13px}.updarr{display:none}}
+</style>'''
+
 pop_fmt = f'{last["stav"]:,}'.replace(",", " ")
 index_body = f'''<header class="hero">
   <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· obec v datech</span></h1>
   <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ {pop_fmt} obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
 </header>
+{upd_panel}
 <section>
   <div class="tiles">{tile_html}</div>
 </section>
@@ -70,7 +141,7 @@ index_body = f'''<header class="hero">
 </section>'''
 
 open("index.html", "w", encoding="utf-8").write(
-    pc.page("Přehled", "Jak žijí Střelice — data obce", index_body,
+    pc.page("Přehled", "Jak žijí Střelice — data obce", index_body, head_scripts=UPD_CSS,
             body_scripts='<script>bindTheme();</script>'))
 
 # ================= ŠKOLSTVÍ =================
