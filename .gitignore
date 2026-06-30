@@ -1,5 +1,9 @@
 # surová a velká data (stahovaná / regenerovatelná) — do repa nepatří
-data/
+# Poznámka: data/* místo data/ – aby šlo odignorovat data/video/map.txt
+data/*
+!data/video/
+data/video/*
+!data/video/map.txt
 zapisy_RO/
 zastupitelstvo_ZO/
 txt/

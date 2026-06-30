@@ -131,43 +131,47 @@ def known_ro():
 # YouTube – hledání videa pro ZO zasedání
 # ──────────────────────────────────────────────
 
-def find_video_for_zo(cislo, datum_iso):
+def fetch_yt_channel_videos():
     """
-    Hledá video na kanálu @tvstreliceubrna odpovídající zasedání číslo `cislo`.
-    Vrátí video_id nebo None.
-    Strategie: titulek videa obsahuje číslo zasedání nebo datum.
+    Stáhne seznam videí z kanálu @tvstreliceubrna (jednou, výsledek cachujeme v paměti).
+    Vrátí list [(vid_id, title, upload_date)] nebo [] při chybě.
     """
-    print(f"  Hledám video pro ZO {cislo} ({datum_iso})...")
+    print(f"  Stahuji seznam videí z YouTube kanálu...")
     try:
         result = run([
-            'yt-dlp', '--flat-playlist', '--print', '%(id)s\t%(title)s\t%(upload_date)s',
-            '--playlist-end', '30',  # posledních 30 videí kanálu
+            'yt-dlp', '--flat-playlist',
+            '--print', '%(id)s\t%(title)s\t%(upload_date)s',
+            '--playlist-end', '50',
             '--no-warnings',
             YT_CHANNEL,
         ], capture=True, check=False)
         lines = (result.stdout or '').strip().splitlines()
     except FileNotFoundError:
         print("  WARN: yt-dlp není nainstalováno")
-        return None
+        return []
     except Exception as e:
         print(f"  WARN: yt-dlp selhalo: {e}")
-        return None
+        return []
 
+    videos = []
+    for line in lines:
+        parts = line.split('\t', 2)
+        if len(parts) >= 2:
+            videos.append((parts[0], parts[1], parts[2] if len(parts) > 2 else ''))
+    print(f"  Nalezeno {len(videos)} videí na kanálu.")
+    return videos
+
+
+def match_video_for_zo(cislo, datum_iso, videos):
+    """Vybere nejlepší video ze seznamu `videos` pro ZO zasedání číslo `cislo`."""
+    if not datum_iso:
+        return None
     date_nodash = datum_iso.replace('-', '')
-    year = datum_iso[:4]
-    month = datum_iso[5:7]
-    day = datum_iso[8:10]
+    day, month, year = datum_iso[8:10], datum_iso[5:7], datum_iso[:4]
     date_cz = f"{int(day)}.{int(month)}.{year}"
 
     candidates = []
-    for line in lines:
-        parts = line.split('\t', 2)
-        if len(parts) < 2:
-            continue
-        vid_id, title = parts[0], parts[1]
-        upload = parts[2] if len(parts) > 2 else ''
-
-        # skóre shody
+    for vid_id, title, upload in videos:
         score = 0
         if re.search(r'\bzastupitelstvo\b', title, re.I):
             score += 2
@@ -179,12 +183,10 @@ def find_video_for_zo(cislo, datum_iso):
             candidates.append((score, vid_id, title))
 
     if not candidates:
-        print(f"  Video pro ZO {cislo} nenalezeno.")
         return None
-
     candidates.sort(reverse=True)
     best_score, best_id, best_title = candidates[0]
-    print(f"  Nalezeno video: {best_id} – {best_title!r} (skóre {best_score})")
+    print(f"  ZO {cislo}: video {best_id} – {best_title!r} (skóre {best_score})")
     return best_id
 
 
@@ -230,10 +232,11 @@ def mapped_videos():
                 pass
     return mapped
 
-def check_missing_videos(dry_run=False):
+def check_missing_videos(dry_run=False, videos=None):
     """
     Pro ZO zasedání v datasetu, která ještě nemají video v map.txt,
     zkusí najít video na YouTube kanálu.
+    `videos` – předvyplněný seznam z fetch_yt_channel_videos() (sdílíme fetch z main).
     Vrátí seznam (cislo, video_id) nově nalezených videí.
     """
     print("\n[VIDEO] Kontrola chybějících videí pro ZO...")
@@ -246,9 +249,11 @@ def check_missing_videos(dry_run=False):
         return []
 
     print(f"  ZO bez videa: {[m['cislo_zasedani'] for m in without_video]}")
+    if videos is None:
+        videos = fetch_yt_channel_videos()
     found = []
     for m in without_video:
-        vid = find_video_for_zo(m['cislo_zasedani'], m.get('datum', ''))
+        vid = match_video_for_zo(m['cislo_zasedani'], m.get('datum', ''), videos)
         if vid and not dry_run:
             add_video_to_map(m['cislo_zasedani'], vid)
             found.append((m['cislo_zasedani'], vid))
@@ -302,6 +307,13 @@ def main():
     new_zo = []
     new_ro = []
     summary_lines = []
+    _yt_videos = None   # lazy: stáhneme kanál jen pokud budeme potřebovat
+
+    def yt_videos():
+        nonlocal _yt_videos
+        if _yt_videos is None:
+            _yt_videos = fetch_yt_channel_videos()
+        return _yt_videos
 
     # ── ZO ──────────────────────────────────────
     print("\n[ZO] Kontrola usnesení...")
@@ -330,7 +342,7 @@ def main():
             continue
 
         # video
-        video_id = find_video_for_zo(cislo, entry.get('datum', ''))
+        video_id = match_video_for_zo(cislo, entry.get('datum', ''), yt_videos())
         if video_id:
             add_video_to_map(cislo, video_id)
 
@@ -376,7 +388,8 @@ def main():
         )
 
     # ── Chybějící videa pro existující ZO ────────
-    new_videos = check_missing_videos(dry_run=args.dry_run)
+    # Předáme sdílený seznam videí — kanál se stáhne max. jednou za běh.
+    new_videos = check_missing_videos(dry_run=args.dry_run, videos=yt_videos() if not args.dry_run else None)
     for cislo, vid in new_videos:
         summary_lines.append(f"- **Video ZO {cislo}**: přidáno {vid} → timestamps přegenerovány")
 
