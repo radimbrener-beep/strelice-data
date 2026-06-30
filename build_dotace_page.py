@@ -65,6 +65,17 @@ body = '''<header class="hero">
 #tbl tr.total td{font-weight:680;border-top:2px solid var(--text);background:var(--surface2);padding-top:12px;padding-bottom:12px}
 #tbl tbody tr.clk{cursor:pointer;transition:background .12s}
 #tbl tbody tr.clk:hover{background:var(--inset)}
+@media(max-width:640px){
+  #tbl thead{display:none}
+  #tbl,#tbl tbody{display:block}
+  #tbl tbody tr{display:block;padding:11px 0;border-bottom:1px solid var(--line)}
+  #tbl tbody td{display:block;padding:2px 0;border:none;width:auto;min-width:0;text-align:left}
+  #tbl td:first-child,#tbl th:first-child{width:auto;min-width:0;padding-right:0}
+  #tbl td:first-child,#tbl td:nth-child(2){display:inline-block;vertical-align:middle}
+  #tbl td:nth-child(2){margin-left:10px;text-align:left;width:auto;padding-right:0}
+  #tbl td:nth-child(3){margin-top:4px;font-size:13px}
+  #tbl tr.total td:first-child,#tbl tr.total td:nth-child(2){display:inline-block}
+}
 </style>'''
 
 scripts = '<script>' + CHARTJS + '''</script>

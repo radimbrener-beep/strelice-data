@@ -214,6 +214,20 @@ function isDark(){return document.documentElement.getAttribute('data-theme')==='
 .oblsel{font:inherit;font-size:13px;padding:6px 10px;border-radius:9px;border:1px solid var(--line);
   background:var(--surface);color:var(--text);cursor:pointer;max-width:280px}
 .oblsel:hover{border-color:var(--accent)}
+@media(max-width:640px){
+  .tablewrap{overflow:visible}
+  #tbl thead{display:none}
+  #tbl,#tbl tbody{display:block}
+  #tbl tbody tr{display:block;padding:12px 4px;border-bottom:1px solid var(--line)}
+  #tbl tbody td{display:block;padding:2px 0;border:none;text-align:left}
+  #tbl td.dt,#tbl td.skupc{display:inline-block;vertical-align:middle}
+  #tbl td.dt{font-size:11.5px;margin-bottom:0}
+  #tbl td.skupc{margin-left:6px}
+  #tbl tbody td:nth-child(3){margin:5px 0}
+  #tbl td.firmac,#tbl td.r{display:inline-block;vertical-align:middle}
+  #tbl td.r{margin-left:8px}
+  #tbl tbody td:nth-child(6){margin-top:4px}
+}
 </style>
 <script>/*!
  * Chart.js v4.4.1
