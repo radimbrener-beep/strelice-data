@@ -208,6 +208,53 @@ def add_video_to_map(cislo, video_id):
 
 
 # ──────────────────────────────────────────────
+# Kontrola chybějících videí pro existující ZO
+# ──────────────────────────────────────────────
+
+def mapped_videos():
+    """Vrátí set čísel ZO zasedání, která už mají video v map.txt."""
+    map_path = ROOT / 'data' / 'video' / 'map.txt'
+    if not map_path.exists():
+        return set()
+    mapped = set()
+    for line in map_path.read_text(encoding='utf-8').splitlines():
+        parts = line.strip().split()
+        if parts:
+            try:
+                mapped.add(int(parts[0]))
+            except ValueError:
+                pass
+    return mapped
+
+def check_missing_videos(dry_run=False):
+    """
+    Pro ZO zasedání v datasetu, která ještě nemají video v map.txt,
+    zkusí najít video na YouTube kanálu.
+    Vrátí seznam (cislo, video_id) nově nalezených videí.
+    """
+    print("\n[VIDEO] Kontrola chybějících videí pro ZO...")
+    zo_data = json.loads((ROOT / 'dataset_ZO.json').read_text(encoding='utf-8'))
+    mapped = mapped_videos()
+    without_video = [m for m in zo_data if m['cislo_zasedani'] not in mapped]
+
+    if not without_video:
+        print("  Všechna ZO zasedání mají video.")
+        return []
+
+    print(f"  ZO bez videa: {[m['cislo_zasedani'] for m in without_video]}")
+    found = []
+    for m in without_video:
+        vid = find_video_for_zo(m['cislo_zasedani'], m.get('datum', ''))
+        if vid and not dry_run:
+            add_video_to_map(m['cislo_zasedani'], vid)
+            found.append((m['cislo_zasedani'], vid))
+        elif vid:
+            found.append((m['cislo_zasedani'], vid))
+
+    return found
+
+
+# ──────────────────────────────────────────────
 # Rebuild HTML stránek
 # ──────────────────────────────────────────────
 
@@ -324,9 +371,13 @@ def main():
             f"{entry.get('pocet_bodu', 0)} usnesení"
         )
 
-    if not new_zo and not new_ro:
-        print("\nŽádné nové dokumenty.")
-        # signál pro workflow: nic k deploynutí
+    # ── Chybějící videa pro existující ZO ────────
+    new_videos = check_missing_videos(dry_run=args.dry_run)
+    for cislo, vid in new_videos:
+        summary_lines.append(f"- **Video ZO {cislo}**: přidáno {vid} → timestamps přegenerovány")
+
+    if not new_zo and not new_ro and not new_videos:
+        print("\nŽádné nové dokumenty ani videa.")
         Path(ROOT / '.no_update').write_text('ok')
         return
 
@@ -338,17 +389,15 @@ def main():
 
     # ── Rebuild ──────────────────────────────────
     print("\n[BUILD] Přegenerovávám HTML...")
-    to_rebuild = ['build_portal.py']  # index.html vždy (Co je nového)
-    if new_zo:
-        if any(v for _, _, _, v in new_zo):  # alespoň jedno video
-            to_rebuild.append('build_video_casy.py')
+    to_rebuild = ['build_portal.py']
+    if new_zo or new_videos:
+        to_rebuild.append('build_video_casy.py')
         to_rebuild.append('build_zastupitelstvo.py')
         to_rebuild.append('build_investice.py')
     if new_ro:
         to_rebuild.append('build_zapisy.py')
         to_rebuild.append('build_investice.py')
 
-    # deduplikuj zachovávaje pořadí
     seen = set()
     to_rebuild = [s for s in to_rebuild if not (s in seen or seen.add(s))]
     rebuild(to_rebuild)
@@ -357,12 +406,12 @@ def main():
     print("\n[GIT] Commit a push...")
     parts = []
     if new_zo:
-        nums = ', '.join(str(c) for c, *_ in new_zo)
-        parts.append(f"ZO {nums}")
+        parts.append("ZO " + ', '.join(str(c) for c, *_ in new_zo))
     if new_ro:
-        nums = ', '.join(str(c) for c, *_ in new_ro)
-        parts.append(f"RO {nums}")
-    msg = f"Auto: nové zápisy — {', '.join(parts)}\n\nAutomaticky zpracováno scriptem update_portal.py.\n"
+        parts.append("RO " + ', '.join(str(c) for c, *_ in new_ro))
+    if new_videos:
+        parts.append("video ZO " + ', '.join(str(c) for c, _ in new_videos))
+    msg = f"Auto: {', '.join(parts)}\n\nAutomaticky zpracováno scriptem update_portal.py.\n"
     committed = git_commit(msg)
 
     # ── Souhrn ───────────────────────────────────
@@ -370,10 +419,9 @@ def main():
     for l in summary_lines:
         print(" ", l)
 
-    # zápis souhrnu do souboru → přečte ho workflow pro GitHub Issue
     summary_path = ROOT / '.update_summary.md'
     summary_path.write_text(
-        "## Nové dokumenty na portálu\n\n"
+        "## Nové dokumenty a videa na portálu\n\n"
         + "\n".join(summary_lines)
         + "\n\n_Automaticky zpracováno, commitnuto a nasazeno._",
         encoding='utf-8'
