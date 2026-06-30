@@ -51,6 +51,22 @@ jobs:
         run: python scripts/update_portal.py
         env:
           PYTHONIOENCODING: utf-8
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        # continue-on-error: umožní dalším krokům (Souhrn) proběhnout a zobrazit logy
+        continue-on-error: false
+
+      - name: Commitnout a pushnout změny (pokud existují)
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Žádné změny k pushnutí."
+            echo "new=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "Auto: aktualizace portálu [skip ci]"
+            git push origin main
+            echo "new=true" >> $GITHUB_OUTPUT
+          fi
+        id: push
 
       - name: Zkontrolovat jestli bylo něco přidáno
         id: check
@@ -58,8 +74,10 @@ jobs:
           if [ -f .no_update ]; then
             echo "new=false" >> $GITHUB_OUTPUT
             rm -f .no_update
-          else
+          elif [ "${{ steps.push.outputs.new }}" = "true" ]; then
             echo "new=true" >> $GITHUB_OUTPUT
+          else
+            echo "new=false" >> $GITHUB_OUTPUT
           fi
 
       # ── Notifikace přes GitHub Issue (→ email) ───────────────────────────
@@ -80,7 +98,6 @@ jobs:
               repo: context.repo.repo,
               title: '📋 Portál aktualizován — nové zápisy',
               body: body + '\n\n---\n_Workflow: check_web.yml_',
-              labels: ['auto-update'],
             });
 
       # ── Trigger deploy (push už proběhl v update_portal.py) ───────────────

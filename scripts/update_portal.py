@@ -142,11 +142,15 @@ def find_video_for_zo(cislo, datum_iso):
         result = run([
             'yt-dlp', '--flat-playlist', '--print', '%(id)s\t%(title)s\t%(upload_date)s',
             '--playlist-end', '30',  # posledních 30 videí kanálu
+            '--no-warnings',
             YT_CHANNEL,
         ], capture=True, check=False)
         lines = (result.stdout or '').strip().splitlines()
     except FileNotFoundError:
         print("  WARN: yt-dlp není nainstalováno")
+        return None
+    except Exception as e:
+        print(f"  WARN: yt-dlp selhalo: {e}")
         return None
 
     date_nodash = datum_iso.replace('-', '')
@@ -269,17 +273,17 @@ def rebuild(scripts):
 # ──────────────────────────────────────────────
 
 def git_commit(message, files=None):
+    """Připraví commit — push řeší workflow (aby mělo správné credentials)."""
     if files:
         run(['git', 'add'] + [str(f) for f in files])
     else:
         run(['git', 'add', '-A'])
-    # zkontroluj jestli je co commitovat
     r = run(['git', 'diff', '--cached', '--quiet'], check=False)
     if r.returncode == 0:
         print("  Žádné změny k commitu.")
         return False
     run(['git', 'commit', '-m', message])
-    run(['git', 'push', 'origin', 'main'])
+    # push záměrně vynecháme — provede ho krok v check_web.yml
     return True
 
 
