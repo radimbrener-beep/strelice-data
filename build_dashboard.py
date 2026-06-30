@@ -115,6 +115,9 @@ body{margin:0;color:var(--text);
   font-weight:500;transition:.18s;white-space:nowrap}
 .nav a:hover{color:var(--text);background:var(--inset)}
 .nav a.active{color:var(--accent);background:var(--accent-soft)}
+.navtoggle{display:none;width:40px;height:34px;border:1px solid var(--line);background:var(--surface);
+  border-radius:10px;cursor:pointer;color:var(--text);font-size:17px;place-items:center;margin-left:auto}
+.navtoggle:hover{border-color:var(--accent)}
 .iconbtn{width:38px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:10px;
   cursor:pointer;color:var(--muted);display:grid;place-items:center;transition:.18s;font-size:15px}
 .iconbtn:hover{color:var(--text);border-color:var(--accent);transform:translateY(-1px)}
@@ -148,7 +151,14 @@ section{margin-top:30px;scroll-margin-top:74px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}
-@media(max-width:820px){.grid2{grid-template-columns:1fr}.nav a{padding:7px 9px}}
+@media(max-width:820px){
+  .grid2{grid-template-columns:1fr}
+  .navtoggle{display:grid}
+  .nav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
+    background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}
+  .nav.open{display:flex}
+  .nav a{padding:12px;font-size:15px}
+}
 
 /* controls */
 .ctrls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-bottom:6px}
@@ -243,6 +253,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 <div class="topbar"><div class="inner">
   <a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="dot"><svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="27" cy="21" r="15"/><circle cx="27" cy="21" r="8"/><circle cx="27" cy="21" r="3.4" fill="#fff" stroke="none"/><line x1="5" y1="43" x2="27" y2="21"/><path d="M5 43 l7 -1.4 M5 43 l1.4 -7"/></svg></span>
     <span id="brand">Jak žijí Střelice<small>otevřená data obce</small></span></a>
+  <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   <nav class="nav" id="nav"><!--NAV--></nav>
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>
@@ -597,6 +608,9 @@ const yr=document.getElementById('yearR'); yr.min=FY;yr.max=LY;yr.value=focusYea
 function setSlider(){const p=(focusYear-FY)/(LY-FY)*100;yr.style.setProperty('--p',p+'%');document.getElementById('yearV').textContent=focusYear;}
 setSlider();
 kpis(); rebuild(); drill();
+(function(){var t=document.getElementById('navToggle'),n=document.getElementById('nav');
+ if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+ n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}})();
 
 document.getElementById('themeBtn').onclick=()=>{
   const d=isDark(); document.documentElement.setAttribute('data-theme',d?'light':'dark');

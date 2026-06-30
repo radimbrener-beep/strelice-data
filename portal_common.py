@@ -57,6 +57,9 @@ body{margin:0;color:var(--text);
 .pnav a.active{color:var(--accent);background:var(--accent-soft)}
 .iconbtn{width:38px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:10px;cursor:pointer;color:var(--muted);display:grid;place-items:center;transition:.18s;font-size:15px}
 .iconbtn:hover{color:var(--text);border-color:var(--accent)}
+.navtoggle{display:none;width:40px;height:34px;border:1px solid var(--line);background:var(--surface);
+  border-radius:10px;cursor:pointer;color:var(--text);font-size:17px;place-items:center;margin-left:auto}
+.navtoggle:hover{border-color:var(--accent)}
 .hero{padding:34px 0 8px}
 .hero h1{font-size:30px;font-weight:680;letter-spacing:-.02em;margin:0 0 6px;color:var(--text)}
 .hero p{color:var(--muted);margin:0;font-size:14.5px}
@@ -76,7 +79,14 @@ section{margin-top:30px;scroll-margin-top:74px}
 .sec-h .hint{color:var(--faint);font-size:12.5px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:820px){.grid2{grid-template-columns:1fr}.pnav a{padding:7px 9px}}
+@media(max-width:820px){
+  .grid2{grid-template-columns:1fr}
+  .navtoggle{display:grid}
+  .pnav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
+    background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}
+  .pnav.open{display:flex}
+  .pnav a{padding:12px;font-size:15px;border-radius:10px}
+}
 .ctrls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-bottom:6px}
 .seg{display:inline-flex;background:var(--inset);border-radius:11px;padding:3px;gap:2px}
 .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:500;padding:6px 13px;border-radius:8px;cursor:pointer;transition:.16s}
@@ -163,7 +173,8 @@ def topbar(active):
         for href, name in SECTIONS)
     return f'''<div class="ptop"><div class="in">
   <a class="brand" href="index.html"><span class="dot">{TARGET_SVG}</span><span>Jak žijí Střelice<small>otevřená data obce</small></span></a>
-  <nav class="pnav">{links}</nav>
+  <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+  <nav class="pnav" id="pnav">{links}</nav>
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>'''
 
@@ -177,6 +188,9 @@ function bindTheme(after){var b=document.getElementById('themeBtn');if(!b)return
     if(after)after();};}
 function cssv(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
 function isDark(){return document.documentElement.getAttribute('data-theme')==='dark';}
+(function(){var t=document.getElementById('navToggle'),n=document.getElementById('pnav');
+ if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
+ n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}})();
 """
 
 # --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
