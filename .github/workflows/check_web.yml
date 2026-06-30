@@ -1,0 +1,95 @@
+name: Automatická aktualizace portálu (nové ZO/RO)
+
+# Spouští se každý den v 6:00 UTC (= 7:00 nebo 8:00 SEČ/SELČ)
+# a lze spustit ručně přes GitHub UI (workflow_dispatch).
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: update-portal
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write   # pro git push
+      issues: write     # pro vytvoření GitHub Issue
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # celá historie (pro git push)
+
+      - name: Nastavit Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Instalace závislostí
+        run: |
+          pip install --quiet \
+            requests \
+            beautifulsoup4 \
+            pdfplumber \
+            yt-dlp \
+            Pillow
+
+      - name: Nastavit git identitu
+        run: |
+          git config user.name  "portal-bot"
+          git config user.email "portal-bot@users.noreply.github.com"
+
+      - name: Spustit aktualizaci portálu
+        id: update
+        run: python scripts/update_portal.py
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: Zkontrolovat jestli bylo něco přidáno
+        id: check
+        run: |
+          if [ -f .no_update ]; then
+            echo "new=false" >> $GITHUB_OUTPUT
+            rm -f .no_update
+          else
+            echo "new=true" >> $GITHUB_OUTPUT
+          fi
+
+      # ── Notifikace přes GitHub Issue (→ email) ───────────────────────────
+      - name: Vytvořit GitHub Issue s souhrnem
+        if: steps.check.outputs.new == 'true'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            let body = '';
+            try {
+              body = fs.readFileSync('.update_summary.md', 'utf8');
+            } catch(e) {
+              body = 'Portál byl automaticky aktualizován o nové zápisy.';
+            }
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '📋 Portál aktualizován — nové zápisy',
+              body: body + '\n\n---\n_Workflow: check_web.yml_',
+              labels: ['auto-update'],
+            });
+
+      # ── Trigger deploy (push už proběhl v update_portal.py) ───────────────
+      # Deploy workflow (deploy.yml) se spustí automaticky při push do main.
+      # Zde jen logujeme výsledek.
+      - name: Souhrn
+        if: always()
+        run: |
+          echo "=== Výsledek ==="
+          if [ -f .update_summary.md ]; then
+            cat .update_summary.md
+          else
+            echo "Žádné nové dokumenty."
+          fi
