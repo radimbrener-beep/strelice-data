@@ -6,7 +6,7 @@ a částkou — žebříček dodavatelů, vývoj po letech, tabulka zakázek.
 Stejný styl jako dotace.html (Komu obec přispívá)."""
 import sys, json, re
 import portal_common as pc
-from firmy import firm, firm_key, dedup_projects
+from firmy import firm, firm_key, dedup_projects, INCOME_RE
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -22,8 +22,8 @@ for src, mid in (("RO", ro), ("ZO", zo)):
     for m in mid:
         for b in m["body"]:
             c = b.get("castka")
-            if not c or _SKIP.search(b["text"]):
-                continue
+            if not c or _SKIP.search(b["text"]) or INCOME_RE.search(b["text"]):
+                continue   # ne-zakázky a platby SMĚREM K obci (developerské smlouvy)
             f = firm(b["text"])
             if not f:
                 continue

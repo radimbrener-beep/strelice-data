@@ -47,6 +47,14 @@ def firm_key(name):
     return re.sub(r"\s+(spol\. s r\.o\.|s\.r\.o\.|a\.s\.|v\.o\.s\.)$", "", name).upper()
 
 
+# PŘÍJMY OBCE / developerské smlouvy: firma platí OBCI (příspěvek na občanskou
+# vybavenost, plánovací smlouva, symbolický převod infrastruktury) — není to
+# zakázka ani investiční výdaj obce, i když text obsahuje firmu a částku.
+INCOME_RE = re.compile(
+    r"příspěv\w*\s+obci|ve prospěch obce|plánovací smlouv|převodu stav\w* veřejné infrastruktury",
+    re.IGNORECASE)
+
+
 # --- deduplikace záznamů téže akce/projektu ---
 def _date(iso):
     try:

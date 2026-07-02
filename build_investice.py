@@ -7,7 +7,7 @@ s konkrétními investičními rozhodnutími z usnesení Rady obce a Zastupitels
 import sys, csv, json, re, os
 from datetime import date
 import portal_common as pc
-from firmy import firm as _firm, dedup_projects
+from firmy import firm as _firm, dedup_projects, INCOME_RE
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -81,7 +81,8 @@ _NONINVEST = re.compile(r"pojist|uznání dluhu|splátkov|náj(?:em|mu)", re.IGN
 def is_invest(b):
     if not (b.get("castka") and b["castka"] >= MIN_AKCE and b.get("tema") in THEMES):
         return False
-    return not _NONINVEST.search(b["text"])
+    # INCOME_RE: platby SMĚREM K obci (developerské plánovací smlouvy apod.) nejsou výdaj
+    return not _NONINVEST.search(b["text"]) and not INCOME_RE.search(b["text"])
 
 
 akce = []
