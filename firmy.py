@@ -3,7 +3,7 @@
 """Sdílená extrakce zhotovitele/firmy z textů usnesení + deduplikace
 záznamů téže akce (rada → zastupitelstvo). Používá build_investice.py
 (feed + mapa investic) a build_zakazky.py (žebříček dodavatelů)."""
-import re
+import re, os, json, unicodedata
 from datetime import date
 
 # --- zhotovitel / firma u akce ---
@@ -42,9 +42,33 @@ def firm(text):
 
 
 def firm_key(name):
-    """Klíč pro agregaci: bez právní formy a velikosti písmen — tatáž firma
-    zapsaná jednou jako 'spol. s r.o.' a jindy 's.r.o.' se sčítá dohromady."""
-    return re.sub(r"\s+(spol\. s r\.o\.|s\.r\.o\.|a\.s\.|v\.o\.s\.)$", "", name).upper()
+    """Klíč pro agregaci: bez právní formy, diakritiky, mezer a velikosti písmen —
+    'Dräger Safety s.r.o.' = 'DRAGER SAFETY s.r.o.', 'Deratizace 4D' = 'Deratizace4D'."""
+    base = re.sub(r"\s+(spol\. s r\.o\.|s\.r\.o\.|a\.s\.|v\.o\.s\.)$", "", name)
+    base = unicodedata.normalize("NFD", base)
+    base = "".join(c for c in base if not unicodedata.combining(c))
+    return re.sub(r"[^A-Za-z0-9]+", "", base).upper()
+
+
+# ruční aliasy pro překlepy a přívlastky, které normalizace nesloučí
+# (Outsorcing/Outsourcing, ASPHA/ASHPA, DIMENSE architects/DIMENSE);
+# data/firmy_aliasy.json = seznam skupin, PRVNÍ položka = kanonický název (dle ARES)
+_ALIAS = None
+
+
+def canon_name(name):
+    """Kanonický název firmy dle data/firmy_aliasy.json (jinak beze změny)."""
+    global _ALIAS
+    if _ALIAS is None:
+        _ALIAS = {}
+        path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "firmy_aliasy.json")
+        try:
+            for g in json.load(open(path, encoding="utf-8")):
+                for v in g:
+                    _ALIAS[firm_key(v)] = g[0]
+        except FileNotFoundError:
+            pass
+    return _ALIAS.get(firm_key(name), name)
 
 
 # PŘÍJMY OBCE / developerské smlouvy: firma platí OBCI (příspěvek na občanskou

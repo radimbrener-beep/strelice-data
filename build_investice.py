@@ -7,7 +7,7 @@ s konkrétními investičními rozhodnutími z usnesení Rady obce a Zastupitels
 import sys, csv, json, re, os
 from datetime import date
 import portal_common as pc
-from firmy import firm as _firm, dedup_projects, INCOME_RE
+from firmy import firm as _firm, canon_name, dedup_projects, INCOME_RE
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -121,7 +121,8 @@ def _skupina(text):
 
 
 for a in akce:
-    a.append(_firm(a[4]))        # index 6 = zhotovitel (název firmy, jinak "")
+    f6 = _firm(a[4])
+    a.append(canon_name(f6) if f6 else "")   # index 6 = zhotovitel (kanonický název, jinak "")
     a.append(_skupina(a[4]))     # index 7 = tematická skupina
     # index 8 = čas v záznamu (s) a index 9 = video id (jen ZO se záznamem a napárovaným bodem)
     a.append(zo_text_time.get(a[3], {}).get(a[4]) if a[2] == "ZO" else None)

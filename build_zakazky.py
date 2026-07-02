@@ -6,7 +6,7 @@ a částkou — žebříček dodavatelů, vývoj po letech, tabulka zakázek.
 Stejný styl jako dotace.html (Komu obec přispívá)."""
 import sys, json, re
 import portal_common as pc
-from firmy import firm, firm_key, dedup_projects, INCOME_RE
+from firmy import firm, firm_key, canon_name, dedup_projects, INCOME_RE
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -32,9 +32,11 @@ for src, mid in (("RO", ro), ("ZO", zo)):
 
 items = dedup_projects(items)   # RO vyhodnocení ↔ ZO smlouva = jedna zakázka
 
-# kanonizace názvu firmy (VS-build s.r.o. / VS-Build spol. s r.o. apod.):
-# klíč bez právní formy a velikosti písmen, zobrazuje se nejčastější varianta
+# kanonizace názvu firmy: nejdřív ruční aliasy (překlepy — data/firmy_aliasy.json),
+# pak nejčastější psaná varianta v rámci normalizovaného klíče
 from collections import Counter, defaultdict
+for it in items:
+    it[6] = canon_name(it[6])
 variants = defaultdict(Counter)
 for it in items:
     variants[firm_key(it[6])][it[6]] += 1
