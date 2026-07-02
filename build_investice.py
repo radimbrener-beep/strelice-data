@@ -549,8 +549,9 @@ function renderMap(){
     if(g&&g.f){g=g.f;fb=true;fallback++;}
     if(!g){missed++;return;}
     placed++;skupSeen.add(x[7]);
+    // překrývající se body rozestoupit po malém kruhu (~10 m), ať jdou rozkliknout
     const key=g[0]+','+g[1], n=(seen[key]=(seen[key]||0)+1);
-    const lat=g[0]+(n>1?(Math.cos(n*2.4)*0.00022*n):0), lon=g[1]+(n>1?(Math.sin(n*2.4)*0.00033*n):0);
+    const lat=g[0]+(n>1?Math.cos(n*2.4)*0.00009:0), lon=g[1]+(n>1?Math.sin(n*2.4)*0.00013:0);
     const clr=cssv('--c'+(SKUP_COLOR[x[7]]??8));
     const r=Math.min(24,5+Math.sqrt(x[1]/1e6)*3.4);
     const secUrl=(x[2]==='ZO'?'zastupitelstvo.html?zo=':'zapisy.html?ro=')+x[3];
