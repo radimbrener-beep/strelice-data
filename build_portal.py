@@ -140,6 +140,7 @@ index_body = f'''<header class="hero">
   <div class="panel">
     <div class="sec-h" style="margin:0 0 6px"><h2 style="font-size:16px">O portálu</h2></div>
     <p style="color:var(--muted);font-size:13.5px;margin:0;line-height:1.6">Portál zpracovává <b>veřejná data</b> o obci do přehledných interaktivních vizualizací. Hodnoty pocházejí z oficiálních zdrojů (MONITOR Státní pokladny, Český statistický úřad, MŠMT) a z webu obce <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">streliceubrna.cz</a> (zápisy rady a zastupitelstva, smlouvy o dotacích). Zdroj je u každé sekce uveden.</p>
+    <p style="color:var(--muted);font-size:13.5px;margin:10px 0 0;line-height:1.6"><b>Kontakt:</b> Radim Brener · ''' + pc.MAIL_LINK + ''' — připomínky, náměty i upozornění na chyby vítány.</p>
   </div>
 </section>'''
 

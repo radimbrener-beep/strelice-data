@@ -17,7 +17,7 @@ body = '''<header class="hero">
   <div class="sec-h"><h2>O portálu</h2></div>
   <div class="panel">
     <p>„Jak žijí Střelice" je <b>nezávislý občanský projekt</b> — není to oficiální web obce Střelice. Všechna data pocházejí z veřejných zdrojů (státní pokladna, ČSÚ, úřední dokumenty obce) a u každé sekce je uveden zdroj i odkaz na originál. Portál data nijak neupravuje ani nehodnotí — jen je skládá dohromady a vizualizuje, aby byla srozumitelná bez účetního vzdělání.</p>
-    <p class="note">Našli jste chybu nebo nesoulad? Napište — kontakt najdete na <a href="https://www.strelicnik.cz" target="_blank" rel="noopener" style="color:var(--accent)">strelicnik.cz</a>. Rozhoduje vždy originální dokument, ne tento portál.</p>
+    <p class="note"><b>Kontakt:</b> Radim Brener · ''' + pc.MAIL_LINK + '''. Našli jste chybu nebo nesoulad? Napište — rozhoduje vždy originální dokument, ne tento portál.</p>
   </div>
 </section>
 

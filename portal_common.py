@@ -22,6 +22,11 @@ SECTIONS = [
 _d = date.today()
 UPDATED = f"{_d.day}. {_d.month}. {_d.year}"
 
+# kontaktní e-mail chráněný před roboty: v HTML je jen base64 OTOČENÉHO řetězce,
+# adresu sestaví až JS v prohlížeči (mailme skript v THEME_JS)
+MAIL_LINK = ('<a class="mailme" data-m="emMubWFuemVzQHJlbmVyYg==" '
+             'style="color:var(--accent)">e-mail (zapněte si JavaScript)</a>')
+
 SHARED_CSS = r"""
 :root{
   --bg1:#eef2f9; --bg2:#f8fafc; --surface:#fff; --surface2:#f8fafc; --inset:#f1f5f9;
@@ -202,6 +207,10 @@ function isDark(){return document.documentElement.getAttribute('data-theme')==='
 (function(){var t=document.getElementById('navToggle'),n=document.getElementById('pnav');
  if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
  n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}})();
+(function(){var els=document.querySelectorAll('.mailme');
+ for(var i=0;i<els.length;i++){var a=els[i],
+   m=atob(a.getAttribute('data-m')).split('').reverse().join('');
+   a.href='mailto:'+m;a.textContent=m;}})();
 function dlCSV(name,header,rows){
   var esc=function(c){c=(c==null?'':String(c));return /[";\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;};
   var csv=[header].concat(rows).map(function(r){return r.map(esc).join(';');}).join('\r\n');

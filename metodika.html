@@ -147,7 +147,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   <div class="sec-h"><h2>O portálu</h2></div>
   <div class="panel">
     <p>„Jak žijí Střelice" je <b>nezávislý občanský projekt</b> — není to oficiální web obce Střelice. Všechna data pocházejí z veřejných zdrojů (státní pokladna, ČSÚ, úřední dokumenty obce) a u každé sekce je uveden zdroj i odkaz na originál. Portál data nijak neupravuje ani nehodnotí — jen je skládá dohromady a vizualizuje, aby byla srozumitelná bez účetního vzdělání.</p>
-    <p class="note">Našli jste chybu nebo nesoulad? Napište — kontakt najdete na <a href="https://www.strelicnik.cz" target="_blank" rel="noopener" style="color:var(--accent)">strelicnik.cz</a>. Rozhoduje vždy originální dokument, ne tento portál.</p>
+    <p class="note"><b>Kontakt:</b> Radim Brener · <a class="mailme" data-m="emMubWFuemVzQHJlbmVyYg==" style="color:var(--accent)">e-mail (zapněte si JavaScript)</a>. Našli jste chybu nebo nesoulad? Napište — rozhoduje vždy originální dokument, ne tento portál.</p>
   </div>
 </section>
 
@@ -247,6 +247,10 @@ function isDark(){return document.documentElement.getAttribute('data-theme')==='
 (function(){var t=document.getElementById('navToggle'),n=document.getElementById('pnav');
  if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
  n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}})();
+(function(){var els=document.querySelectorAll('.mailme');
+ for(var i=0;i<els.length;i++){var a=els[i],
+   m=atob(a.getAttribute('data-m')).split('').reverse().join('');
+   a.href='mailto:'+m;a.textContent=m;}})();
 function dlCSV(name,header,rows){
   var esc=function(c){c=(c==null?'':String(c));return /[";\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;};
   var csv=[header].concat(rows).map(function(r){return r.map(esc).join(';');}).join('\r\n');
