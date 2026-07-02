@@ -39,14 +39,15 @@ _OCR_L = re.compile(r"(?<![0-9A-Za-zÀ-ž])l(?=\s?\d)")
 _PRICE_CHANGE = re.compile(r"dodat\w*|nav[ýy]š\w*|sn[íi]ž\w*|pon[íi]ž\w*|v[íi]cepr\w*|m[ée]n[ěe]pr\w*",
                            re.IGNORECASE)
 _NUM = r"(\d{1,3}(?:[\s.]\d{3})+|\d+)(?:,(\d+))?"   # \s chyta i nedelitelne mezery
+_KC = r"(?:\s*,?\s*[-–—−])?\s*Kč"                    # pripousti i zapis "4.748,- Kč"
 _INC = re.compile(
     r"(?:nav[ýy]š\w*|zv[ýy]š\w*|sn[íi]ž\w*|pon[íi]ž\w*|zvyšuj\w*|snižuj\w*|v[íi]cepr\w*|m[ée]n[ěe]pr\w*)"
-    r"[^.;:]{0,40}?(?:\bo|ve\s+výši|v\s+hodnotě)\s+" + _NUM + r"\s*Kč", re.IGNORECASE)
+    r"[^.;:]{0,40}?(?:\bo|ve\s+výši|v\s+hodnotě)\s+" + _NUM + _KC, re.IGNORECASE)
 
 # NABIDKA: schvaluje se "cena nabidky X" (cena te nabidky), ne uvedena velikost
 # projektu. Napr. nabidka dotacni kancelare: "uznatelne vydaje 14 mil ... cena
 # nabidky 445 000 Kc" -> rozhodujicich je 445 000.
-_OFFER = re.compile(r"(?:cena\s+nabídky|nabídkov\w*\s+cena)[^.;:]{0,20}?" + _NUM + r"\s*Kč",
+_OFFER = re.compile(r"(?:cena\s+nabídky|nabídkov\w*\s+cena)[^.;:]{0,20}?" + _NUM + _KC,
                     re.IGNORECASE)
 # PROJEKTOVE ODHADY (uznatelne/odhadovane vydaje, naklady projektu/akce, hodnota
 # projektu) = velikost projektu pro zadost o dotaci, ne primy vydaj tohoto
