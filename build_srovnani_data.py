@@ -26,6 +26,7 @@ OBCE = {  # IČO -> název (ARES, právní forma 801, okres Brno-venkov)
     "00282278": "Ořechov",
     "00282120": "Moravany",
     "00282952": "Želešice",
+    "00282405": "Prštice",
 }
 # syntetické účty tvořící "dluh" dle pravidel rozpočtové odpovědnosti
 # (úvěry, dluhopisy, návratné finanční výpomoci, směnky; zákon č. 23/2017 Sb.)
