@@ -78,6 +78,11 @@ INCOME_RE = re.compile(
     r"příspěv\w*\s+obci|ve prospěch obce|plánovací smlouv|převodu stav\w* veřejné infrastruktury",
     re.IGNORECASE)
 
+# DARY: darovací smlouvy (firma → obec i obec → spolek) nejsou zakázka za
+# dodávku/službu — do žebříčku dodavatelů nepatří (např. dar Čepro a.s. obci).
+GIFT_RE = re.compile(r"darovac\w*\s+smlouv|finanční\s+dar|peněžit\w*\s+dar|věcn\w*\s+dar|\bdar\b|\bdaru\b",
+                     re.IGNORECASE)
+
 
 # --- deduplikace záznamů téže akce/projektu ---
 def _date(iso):
