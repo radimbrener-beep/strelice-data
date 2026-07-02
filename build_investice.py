@@ -332,6 +332,11 @@ scripts = '<style>' + '''
   background:var(--surface);color:var(--text);cursor:pointer;max-width:280px}
 .oblsel:hover{border-color:var(--accent)}
 #map{height:460px;border-radius:12px;z-index:1}
+/* !important: Leaflet si na kontejner píše position:relative inline stylem */
+body.map-full #map{position:fixed!important;inset:0;height:auto;z-index:250;border-radius:0}
+.mapfull-btn{display:block;width:34px;height:34px;background:var(--surface);color:var(--text);
+  border:2px solid rgba(0,0,0,.25);border-radius:4px;cursor:pointer;font-size:17px;line-height:30px;padding:0;text-align:center}
+.mapfull-btn:hover{background:var(--inset)}
 html[data-theme="dark"] .leaflet-tile{filter:brightness(.6) invert(1) contrast(3.2) hue-rotate(200deg) saturate(.25) brightness(.75)}
 html[data-theme="dark"] .leaflet-container{background:#0d1424}
 .leaflet-container{font-family:inherit}
@@ -537,6 +542,13 @@ function renderMap(){
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
       {maxZoom:19,attribution:'&copy; přispěvatelé OpenStreetMap'}).addTo(map);
     map.setView([49.1525,16.4965],15);
+    // tlačítko zvětšení na celou obrazovku (Esc = zpět)
+    const FullCtl=L.Control.extend({options:{position:'topleft'},onAdd(){
+      const b=L.DomUtil.create('button','mapfull-btn');
+      b.innerHTML='⛶';b.title='Zvětšit mapu na celou obrazovku';
+      L.DomEvent.on(b,'click',e=>{L.DomEvent.stop(e);toggleMapFull();});
+      return b;}});
+    map.addControl(new FullCtl());
   }
   if(mapLayer)mapLayer.remove();
   mapLayer=L.layerGroup().addTo(map);
@@ -570,6 +582,16 @@ function renderMap(){
   document.getElementById('mapMiss').textContent = fallback
     ? `${fallback} akcí bez konkrétního místa (nákupy, dokumentace, příspěvky…) je zobrazeno čárkovaně u obecního úřadu.` : '';
 }
+function toggleMapFull(){
+  const on=document.body.classList.toggle('map-full');
+  const b=document.querySelector('.mapfull-btn');
+  if(b){b.innerHTML=on?'✕':'⛶';b.title=on?'Zavřít celoobrazovkovou mapu (Esc)':'Zvětšit mapu na celou obrazovku';}
+  map.options.scrollWheelZoom=on;   // na celé obrazovce dává zoom kolečkem smysl
+  if(on)map.scrollWheelZoom.enable();else map.scrollWheelZoom.disable();
+  setTimeout(()=>map.invalidateSize(),80);
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'&&document.body.classList.contains('map-full'))toggleMapFull();});
 function buildMapYrSeg(){
   const seg=document.getElementById('mapYrSeg'); if(!seg)return;
   seg.innerHTML='<button class="on" data-y="vse">Vše</button>'+D.akceYears.map(y=>`<button data-y="${y}">${y}</button>`).join('');
