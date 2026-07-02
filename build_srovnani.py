@@ -85,11 +85,13 @@ body = f'''<header class="hero">
 </section>
 
 <section>
-  <div class="sec-h"><h2>Střelice vs. sousedé</h2><span class="hint">na obyvatele · klikni na obec pro detail</span></div>
+  <div class="sec-h"><h2>Střelice vs. sousedé</h2><span class="hint">na obyvatele i celkem · přepínač platí pro grafy i tabulku</span></div>
   <div class="ctrls">
     <span class="lbl">Ukazatel</span><span class="seg" id="metSeg"></span>
     <span class="lbl" style="margin-left:8px">Období</span>
     <span class="seg" id="perSeg"><button class="on" data-p="ly">{LY}</button><button data-p="avg5">Ø {YEARS[-5]}–{LY}</button></span>
+    <span class="lbl" style="margin-left:8px">Hodnoty</span>
+    <span class="seg" id="pcSeg"><button class="on" data-c="1">na obyvatele</button><button data-c="0">celkem</button></span>
   </div>
   <div class="panel">
     <div class="chartbox" id="cmpBox"><canvas id="cmpChart"></canvas></div>
@@ -107,7 +109,7 @@ body = f'''<header class="hero">
 </section>
 
 <section>
-  <div class="sec-h"><h2>Přehledová tabulka</h2><span class="hint">rok {LY}, Kč na obyvatele</span></div>
+  <div class="sec-h"><h2>Přehledová tabulka</h2><span class="hint" id="tblHint">rok {LY}</span></div>
   <div class="panel">
     <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="dlbtn" id="dlCmp" title="Stáhnout tabulku jako CSV">⬇ Stáhnout CSV</button></div>
     <div class="tablewrap"><table id="cmpTbl"><thead></thead><tbody></tbody></table></div>
@@ -146,25 +148,31 @@ const MET=[
  ['majetek','Majetek','účetní hodnota majetku obce (aktiva netto) — budovy, sítě, pozemky'],
  ['saldo','Saldo','příjmy − výdaje; záporné saldo hrazené z rezerv není dluh'],
 ];
-let met='prijmy', per='ly';
+let met='prijmy', per='ly', perCap=true;
 const hidden=new Set();
 
 function valOf(o,m,mode){
-  if(mode==='ly') return o[m][LYI]/o.pop[LYI];
+  if(mode==='ly') return perCap ? o[m][LYI]/o.pop[LYI] : o[m][LYI];
   let v=0,p=0; for(let i=YRS.length-5;i<YRS.length;i++){v+=o[m][i];p+=o.pop[i];}
-  return v/(p/5)/5;
+  return perCap ? v/(p/5)/5 : v/5;
 }
-function tisK(v){return nf.format(Math.round(v/100)/10)+' tis. Kč';}
+// hodnota do grafu (Kč/obyv. celé, celkem v mil.) + formátování
+function chVal(v){return perCap ? Math.round(v) : +(v/1e6).toFixed(1);}
+function fmtVal(v){return perCap ? nf.format(Math.round(v))+' Kč/obyv.'
+  : (v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil. Kč';}
+function unit(){return perCap ? 'Kč/obyv.' : 'mil. Kč';}
 
 function cmpChart(){
   const mode=per, arr=OB.map(o=>({n:o.n,v:valOf(o,met,mode)})).sort((a,b)=>b.v-a.v);
   const mrec=MET.find(x=>x[0]===met);
   document.getElementById('cmpBox').style.height=Math.max(240,arr.length*34+60)+'px';
-  document.getElementById('cmpNote').innerHTML='<b>'+mrec[1]+' na obyvatele:</b> '+mrec[2]+'.'+(met==='dluh'?' Nulový sloupec = obec bez dluhu.':'');
-  mk('cmpChart',{type:'bar',data:{labels:arr.map(x=>x.n),datasets:[{data:arr.map(x=>Math.round(x.v)),
+  document.getElementById('cmpNote').innerHTML='<b>'+mrec[1]+(perCap?' na obyvatele:':' celkem:')+'</b> '+mrec[2]+'.'
+    +(met==='dluh'?' Nulový sloupec = obec bez dluhu.':'')
+    +(perCap?'':' Pozor: v absolutních číslech větší obec „vyhrává" skoro vždy — férovější srovnání je na obyvatele.');
+  mk('cmpChart',{type:'bar',data:{labels:arr.map(x=>x.n),datasets:[{data:arr.map(x=>chVal(x.v)),
     backgroundColor:arr.map(x=>x.n==='Střelice'?cssv('--accent'):cssv('--c8')),borderRadius:5}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,animation:{duration:450},
-      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>nf.format(c.parsed.x)+' Kč/obyv.'+(per==='avg5'?' (Ø 5 let)':'')}}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>nf.format(c.parsed.x)+' '+unit()+(per==='avg5'?' (Ø 5 let)':'')}}},
       scales:{x:Object.assign(axis(),{ticks:{color:cssv('--muted'),callback:v=>nf.format(v)}}),
         y:{ticks:{color:cssv('--text'),font:{size:12.5}},grid:{display:false}}}}});
 }
@@ -186,7 +194,7 @@ const endLabels={id:'endLabels',afterDatasetsDraw(ch){
 }};
 function trChart(){
   const PALS=['--accent','--c1','--c2','--c3','--c4','--c5','--c6','--c7','--c9'];
-  const ds=OB.map((o,i)=>({label:o.n,data:YRS.map((y,j)=>Math.round(o[met][j]/o.pop[j])),
+  const ds=OB.map((o,i)=>({label:o.n,data:YRS.map((y,j)=>chVal(perCap?o[met][j]/o.pop[j]:o[met][j])),
     borderColor:cssv(PALS[i%PALS.length]),backgroundColor:'transparent',
     borderWidth:o.n==='Střelice'?3.2:1.6,pointRadius:o.n==='Střelice'?2.5:0,pointHitRadius:8,
     hidden:hidden.has(o.n),tension:.25}));
@@ -198,19 +206,22 @@ function trChart(){
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:450},
       layout:{padding:{right:80}},
       plugins:{legend:{display:false},tooltip:{itemSort:(a,b)=>b.parsed.y-a.parsed.y,
-        callbacks:{label:c=>' '+c.dataset.label+': '+nf.format(c.parsed.y)+' Kč/obyv.'}}},
+        callbacks:{label:c=>' '+c.dataset.label+': '+nf.format(c.parsed.y)+' '+unit()}}},
       scales:{x:axis(),y:Object.assign(axis(),{ticks:{color:cssv('--muted'),callback:v=>nf.format(v)}})}},
     plugins:[endLabels]});
 }
 function tbl(){
   const H=['Obec','Obyvatel','Příjmy','Výdaje','Investice','Dluh','Rezervy','Majetek'];
-  document.querySelector('#cmpTbl thead').innerHTML='<tr>'+H.map((h,i)=>'<th>'+h+(i>1?' <span style="font-weight:400">Kč/ob.</span>':'')+'</th>').join('')+'</tr>';
+  const u=perCap?'Kč/ob.':'mil. Kč';
+  document.querySelector('#cmpTbl thead').innerHTML='<tr>'+H.map((h,i)=>'<th>'+h+(i>1?' <span style="font-weight:400">'+u+'</span>':'')+'</th>').join('')+'</tr>';
+  document.getElementById('tblHint').textContent='rok '+YRS[LYI]+(perCap?', Kč na obyvatele':', mil. Kč celkem');
+  const fv=v=>perCap?nf.format(Math.round(v)):(v/1e6).toLocaleString('cs-CZ',{minimumFractionDigits:1,maximumFractionDigits:1});
   const rows=OB.map(o=>({n:o.n,pop:o.pop[LYI],
-    vals:['prijmy','vydaje','kap','dluh','ucty','majetek'].map(m=>Math.round(o[m][LYI]/o.pop[LYI]))}))
+    vals:['prijmy','vydaje','kap','dluh','ucty','majetek'].map(m=>perCap?o[m][LYI]/o.pop[LYI]:o[m][LYI])}))
     .sort((a,b)=>b.pop-a.pop);
   document.querySelector('#cmpTbl tbody').innerHTML=rows.map(r=>
     `<tr${r.n==='Střelice'?' class="hl"':''}><td>${r.n}</td><td>${nf.format(r.pop)}</td>`+
-    r.vals.map(v=>'<td>'+nf.format(v)+'</td>').join('')+'</tr>').join('');
+    r.vals.map(v=>'<td>'+fv(v)+'</td>').join('')+'</tr>').join('');
   tbl._rows=rows;
 }
 document.getElementById('metSeg').innerHTML=MET.map((m,i)=>`<button${i==0?' class="on"':''} data-m="${m[0]}">${m[1]}</button>`).join('');
@@ -220,9 +231,14 @@ document.querySelectorAll('#metSeg button').forEach(b=>b.onclick=()=>{
 document.querySelectorAll('#perSeg button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('#perSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
   per=b.dataset.p;cmpChart();});
-document.getElementById('dlCmp').onclick=()=>dlCSV('strelice_srovnani_obci.csv',
-  ['obec','obyvatel','prijmy_kc_ob','vydaje_kc_ob','investice_kc_ob','dluh_kc_ob','rezervy_kc_ob','majetek_kc_ob'],
-  (tbl._rows||[]).map(r=>[r.n,r.pop].concat(r.vals)));
+document.querySelectorAll('#pcSeg button').forEach(b=>b.onclick=()=>{
+  document.querySelectorAll('#pcSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');
+  perCap=b.dataset.c==='1';cmpChart();trChart();tbl();});
+document.getElementById('dlCmp').onclick=()=>{
+  const suf=perCap?'_kc_ob':'_kc';
+  dlCSV('strelice_srovnani_obci'+(perCap?'_na_obyvatele':'_celkem')+'.csv',
+    ['obec','obyvatel','prijmy'+suf,'vydaje'+suf,'investice'+suf,'dluh'+suf,'rezervy'+suf,'majetek'+suf],
+    (tbl._rows||[]).map(r=>[r.n,r.pop].concat(r.vals.map(v=>Math.round(v)))));};
 function redraw(){cmpChart();trChart();}
 cmpChart();trChart();tbl();
 bindTheme(redraw);
