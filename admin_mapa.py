@@ -200,10 +200,14 @@ function renderList(){
 function showAll(){
   if(allMarkers)allMarkers.remove();
   allMarkers=L.layerGroup().addTo(map);
+  // stejné rozestoupení překrývajících se bodů jako na webu (build_investice.py)
+  const seen={};
   D.akce.forEach(x=>{
     const r=geoOf(x[4]); if(!r)return;
+    const key=r.g[0]+','+r.g[1], n=(seen[key]=(seen[key]||0)+1);
+    const lat=r.g[0]+(n>1?Math.cos(n*2.4)*0.00009:0), lon=r.g[1]+(n>1?Math.sin(n*2.4)*0.00013:0);
     const man=!!manual(x[4]);
-    L.circleMarker(r.g,{radius:4,color:man?'#16a34a':(r.fb?'#dc2626':'#3d6c9e'),weight:1.4,fillOpacity:.45})
+    L.circleMarker([lat,lon],{radius:4,color:man?'#16a34a':(r.fb?'#dc2626':'#3d6c9e'),weight:1.4,fillOpacity:.45})
       .bindTooltip(x[4].slice(0,90),{direction:'top'}).addTo(allMarkers);
   });
 }
