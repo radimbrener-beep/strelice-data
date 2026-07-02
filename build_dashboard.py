@@ -197,6 +197,9 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.15)}
 
 /* table */
 .tbar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12px;font-weight:500;color:var(--muted);
+  background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:5px 11px;cursor:pointer;transition:.16s;white-space:nowrap}
+.dlbtn:hover{color:var(--accent);border-color:var(--accent)}
 .search{flex:1;min-width:180px;position:relative}
 .search i{position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:15px}
 .search input{width:100%;padding-left:34px}
@@ -226,6 +229,8 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 .fade{animation:fade .35s ease}
 @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 .footer{margin-top:18px;color:var(--faint);font-size:11.5px;text-align:center;line-height:1.4;padding-bottom:6px}
+.footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--faint)}
+.footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
 /* modal */
 .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
 .modal[hidden]{display:none}
@@ -339,6 +344,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
       </div>
       <div class="tbar">
         <span class="search"><i class="">⌕</i><input type="text" id="dSearch" placeholder="hledat položku / oblast…"></span>
+        <button class="dlbtn" id="dlDrill" title="Stáhnout aktuální pohled tabulky jako CSV">⬇ Stáhnout CSV</button>
       </div>
       <div class="tablewrap"><table id="drill"><thead></thead><tbody></tbody></table></div>
       <p class="note">Klik na řádek (u oblasti/třídy) rozbalí konkrétní položky. „% plnění" = skutečnost ÷ upravený rozpočet.</p>
@@ -565,6 +571,7 @@ function drill(){
   let arr=Object.entries(agg).map(([k,v])=>[k,v[0],v[1],v[2],v[1]?v[2]/v[1]*100:0]);
   if(dQ)arr=arr.filter(r=>r[0].toLowerCase().includes(dQ));
   const [sc,desc]=dSort; arr.sort((a,b)=>(desc?-1:1)*(typeof a[sc]=='string'?a[sc].localeCompare(b[sc]):a[sc]-b[sc]));
+  drill._arr=arr;
   const tot=arr.reduce((a,r)=>[a[0]+r[1],a[1]+r[2],a[2]+r[3]],[0,0,0]);
   const maxv=Math.max(1,...arr.map(r=>r[3]));
   const H=['Položka / oblast','Schválený','Upravený','Skutečnost','% plnění','podíl'];
@@ -633,6 +640,20 @@ function resizeAll(){Object.values(charts).forEach(c=>{try{c.resize();}catch(e){
 let rzT; window.addEventListener('resize',()=>{clearTimeout(rzT);rzT=setTimeout(resizeAll,120);});
 window.addEventListener('load',()=>{resizeAll();setTimeout(resizeAll,80);});
 
+/* export aktuálního pohledu tabulky do CSV */
+function dlCSV(name,header,rows){
+  const esc=c=>{c=(c==null?'':String(c));return /[";\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;};
+  const csv=[header].concat(rows).map(r=>r.map(esc).join(';')).join('\r\n');
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([String.fromCharCode(0xFEFF)+csv],{type:'text/csv;charset=utf-8'}));
+  a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),500);}
+document.getElementById('dlDrill').onclick=()=>{
+  const yr=document.getElementById('dYear').value;
+  dlCSV('strelice_rozpocet_'+dSide.toLowerCase()+'_'+(yr=='*'?'vse':yr)+'.csv',
+    ['polozka_oblast','schvaleny_kc','upraveny_kc','skutecnost_kc','plneni_pct'],
+    (drill._arr||[]).map(r=>[r[0],r[1],r[2],r[3],r[4].toFixed(1)]));};
+
 /* modal – zavírání */
 document.getElementById('modalX').onclick=closeModal;
 document.getElementById('modalBd').onclick=closeModal;
@@ -640,15 +661,18 @@ document.addEventListener('keydown',e=>{if(e.key=='Escape')closeModal();});
 
 </script>
 <!--BRANDFOOT-->
-<footer class="footer">Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
+<footer class="footer"><!--UPDATED-->Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
 </body>
 </html>"""
 
 nav_links = "".join(
     f'<a href="{href}"{" class=\"active\"" if label == "Rozpočet" else ""}>{label}</a>'
     for href, label in pc.SECTIONS)
+updated = ('Data aktualizována k <b style="color:var(--muted)">' + pc.UPDATED + '</b>'
+           ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>')
 HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
         .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — Jak žijí Střelice") + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
-        .replace("/*ANALYTICS*/", pc.ANALYTICS + pc.GA).replace("<!--BRANDFOOT-->", pc.BRANDFOOT))
+        .replace("/*ANALYTICS*/", pc.ANALYTICS + pc.GA).replace("<!--BRANDFOOT-->", pc.BRANDFOOT)
+        .replace("<!--UPDATED-->", updated))
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")

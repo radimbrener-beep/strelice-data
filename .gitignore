@@ -4,6 +4,14 @@ data/*
 !data/video/
 data/video/*
 !data/video/map.txt
+# malé vstupy buildů — verzované (vendor JS, geokódování z admin_mapa.py,
+# agregáty FIN/ČSÚ); bez nich neproběhne rebuild stránek v CI
+!data/vendor/
+!data/skolstvi/
+data/skolstvi/*
+!data/skolstvi/strelice_demografie.csv
+!data/*.json
+!data/*.csv
 zapisy_RO/
 zastupitelstvo_ZO/
 txt/

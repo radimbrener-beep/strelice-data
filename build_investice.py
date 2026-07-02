@@ -10,6 +10,8 @@ import portal_common as pc
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
+LEAFLET_JS = open("data/vendor/leaflet.js", encoding="utf-8").read()
+LEAFLET_CSS = open("data/vendor/leaflet.css", encoding="utf-8").read()
 FIN = "data/strelice_finm201_2013_2025.csv"
 POP = 3258  # obyvatel (2023) pro přepočet na obyvatele
 
@@ -221,6 +223,16 @@ try:                                  # parcela -> [lat, lon] (k.ú. Střelice u
 except FileNotFoundError:
     parcely_geo = {}
 
+def _load_geo(path):
+    try:
+        return json.load(open(path, encoding="utf-8"))
+    except FileNotFoundError:
+        return {}
+
+ulice_geo = _load_geo("data/ulice_geo.json")   # název ulice -> [lat, lon] (OSM)
+mista_geo = _load_geo("data/mista_geo.json")   # klíč místa (zs, ms, ou...) -> [lat, lon]
+akce_geo = _load_geo("data/akce_geo.json") or []   # ruční opravy: podřetězec textu akce -> [lat, lon]
+
 DATA = {
     "years": years,
     "kap": [kap_by_year[y] for y in years],
@@ -229,6 +241,9 @@ DATA = {
     "akce": akce,
     "akceYears": akce_years,
     "pgeo": parcely_geo,
+    "ugeo": ulice_geo,
+    "mgeo": mista_geo,
+    "ageo": akce_geo,
     "pop": POP,
     "minAkce": MIN_AKCE,
 }
@@ -258,11 +273,24 @@ body = f'''<header class="hero">
 </section>
 
 <section>
+  <div class="sec-h"><h2>Mapa investic</h2><span class="hint">kde se stavělo a opravovalo · klikni na bod</span></div>
+  <div class="ctrls">
+    <span class="lbl">Rok</span><span class="seg" id="mapYrSeg"></span>
+  </div>
+  <div class="panel" style="padding:10px">
+    <div id="map"></div>
+    <div class="legend" id="mapLeg" style="margin:10px 8px 4px"></div>
+    <p class="note" style="margin:6px 8px 4px">Poloha akce se určuje automaticky — z čísla parcely v usnesení, názvu ulice nebo známého místa (škola, úřad, hřbitov…). Velikost bodu odpovídá částce. <span id="mapMiss"></span> Mapové podklady © přispěvatelé <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener" style="color:var(--accent)">OpenStreetMap</a> (vyžadují připojení k internetu).</p>
+  </div>
+</section>
+
+<section>
   <div class="sec-h"><h2>Konkrétní akce a rozhodnutí</h2><span class="hint">z usnesení rady a zastupitelstva · od {MIN_AKCE//1000} tis. Kč výše</span></div>
   <div class="ctrls">
     <span class="lbl">Rok</span><span class="seg" id="yrSeg"></span>
     <span class="lbl" style="margin-left:8px">Skupina</span><select id="skupSel" class="oblsel"></select>
     <span class="lbl" style="margin-left:8px">Řadit</span><span class="seg" id="sortSeg"><button class="on" data-k="amount">Podle částky</button><button data-k="date">Podle data</button></span>
+    <button class="dlbtn" id="dlAkce" style="margin-left:auto" title="Stáhnout aktuální výběr akcí jako CSV">⬇ Stáhnout CSV</button>
   </div>
   <div class="panel">
     <div class="tablewrap"><table id="tbl"><thead><tr><th>Datum</th><th>Skupina</th><th>Investiční akce</th><th>Zhotovitel</th><th class="r">Částka</th><th>Zdroj</th></tr></thead><tbody id="tbody"></tbody></table></div>
@@ -303,6 +331,16 @@ scripts = '<style>' + '''
 .oblsel{font:inherit;font-size:13px;padding:6px 10px;border-radius:9px;border:1px solid var(--line);
   background:var(--surface);color:var(--text);cursor:pointer;max-width:280px}
 .oblsel:hover{border-color:var(--accent)}
+#map{height:460px;border-radius:12px;z-index:1}
+html[data-theme="dark"] .leaflet-tile{filter:brightness(.6) invert(1) contrast(3.2) hue-rotate(200deg) saturate(.25) brightness(.75)}
+html[data-theme="dark"] .leaflet-container{background:#0d1424}
+.leaflet-container{font-family:inherit}
+.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:var(--surface);color:var(--text);box-shadow:var(--shadow-h)}
+.leaflet-popup-content{font-size:12.5px;line-height:1.5;margin:12px 14px;max-width:270px}
+.mpop .amt{font-size:14px;font-weight:680;font-variant-numeric:tabular-nums}
+.mpop .dt{color:var(--muted);font-size:11.5px}
+.mpop p{margin:6px 0}
+@media(max-width:640px){#map{height:340px}}
 @media(max-width:640px){
   .tablewrap{overflow:visible}
   #tbl thead{display:none}
@@ -318,7 +356,9 @@ scripts = '<style>' + '''
   #tbl tbody td:nth-child(6){margin-top:4px}
 }
 </style>
+<style>''' + LEAFLET_CSS + '''</style>
 <script>''' + CHARTJS + '''</script>
+<script>''' + LEAFLET_JS + '''</script>
 <script>
 const D=DATA_JSON;
 const nf=new Intl.NumberFormat('cs-CZ');
@@ -445,13 +485,109 @@ function yearModal(y){
   const g=document.getElementById('goAkce');
   if(g)g.onclick=()=>{closeModal();setYear(''+y);document.getElementById('tbl').scrollIntoView({behavior:'smooth',block:'center'});};
 }
-function redraw(){yearChart();}
+// ---- mapa investic ----
+const MGEO=D.mgeo||{}, UGEO=D.ugeo||{};
+// pozor: JS \\b nefunguje po znacích s diakritikou ("Školní\\b" nikdy nematchne)
+// -> hranice slova řešíme unicode lookaround (?<!\\p{L}) ... (?!\\p{L}) s flagem 'u'
+const MISTA_RX=[
+  [/mateřsk|(?<!\\p{L})MŠ(?!\\p{L})/u,'ms'],[/základní škol|(?<!\\p{L})ZŠ(?!\\p{L})/u,'zs'],
+  [/(?<!\\p{L})ZUŠ(?!\\p{L})|uměleck/u,'zus'],
+  [/obecní(?:ho)?\\s+úřad|radnic/,'ou'],[/hřbitov|pohřeb/,'hrbitov'],[/koupališt/,'koupaliste'],
+  [/sokolovn/,'sokolovna'],[/pečovatel|(?<!\\p{L})DPS(?!\\p{L})/u,'dps'],
+  [/KESI/,'kesi'],[/hasič|zbrojnic/i,'hasici'],
+  [/u Trnků/i,'trnky'],[/nádraž/i,'nadrazi'],
+  [/(?<!\\p{L})ČOV(?!\\p{L})|čistírn/u,'cov'],[/kostel/,'kostel'],
+  [/Lotrůvk/,'lotruvka'],[/Bobrav/,'bobrava'],[/Březeč/,'brezeci']];  // liniové stavby -> střed trasy
+const GEN_RX=[[/škol/,'zs']];   // obecné "škola/školou" až jako poslední záchrana (až po ulicích)
+const _rxesc=s=>s.replace(/[.*+?^${}()|[\\]\\\\]/g,'\\\\$&');
+const UL_RX=Object.keys(UGEO).map(nm=>{
+  // skloňování názvů ulic: Brněnská -> Brněnské/Brněnskou, Školní -> Školního/Školním
+  let rx;
+  if(nm==='Nová ulice') rx='(Nová ulice|Nové ulici|ulic\\\\w* Nová|ul\\\\. Nová)';
+  else if(/á$/.test(nm)) rx=_rxesc(nm.slice(0,-1))+'(á|é|ou)(?!\\\\p{L})';
+  else if(/í$/.test(nm)) rx=_rxesc(nm)+'(ho|mu|m|ch)?(?!\\\\p{L})';
+  else rx=_rxesc(nm)+'(?!\\\\p{L})';
+  return [new RegExp(rx,'u'),nm];
+});
+const OD_RX=/obchodn\\p{L}*\\s+d[oů]m\\p{L}*|SATOV/iu;   // obchodní dům = vždy budova SATOV
+function geoOf(text){
+  // ruční opravy mají přednost přede vším (data/akce_geo.json):
+  // {match, geo:[lat,lon]} = pevné souřadnice; {match, misto:"zs"} = odkaz na místo
+  for(const o of (D.ageo||[])){if(text.includes(o.match)){
+    const g=o.geo||(o.misto&&MGEO[o.misto]); if(g)return g; break;}}
+  if(OTHER_KU.test(text))return null;
+  // obchodní dům SATOV má přednost i před parcelami (smlouvy k němu
+  // často uvádějí čísla okolních pozemků, bod by uskočil vedle)
+  if(OD_RX.test(text)&&MGEO.od)return MGEO.od;
+  const onp=text.match(ONP_RE); if(onp&&PGEO[onp[1]])return PGEO[onp[1]];
+  for(const mm of text.matchAll(PARC_RE)){const g=PGEO[mm[2]];if(g)return g;}
+  // konkrétní budova/místo (MŠ, ZŠ, ČOV…) je přesnější než střed ulice
+  for(const [rx,k] of MISTA_RX){if(rx.test(text)&&MGEO[k])return MGEO[k];}
+  for(const [rx,nm] of UL_RX){if(rx.test(text))return UGEO[nm];}
+  for(const [rx,k] of GEN_RX){if(rx.test(text)&&MGEO[k])return MGEO[k];}
+  // fallback: akce bez místa (nákupy, dokumentace, příspěvky, akce po celé obci)
+  // se zobrazí u obecního úřadu s poznámkou v popupu
+  return MGEO.ou?{f:MGEO.ou}:null;
+}
+let map=null,mapLayer=null,mapYear='vse';
+function renderMap(){
+  if(typeof L==='undefined'||!document.getElementById('map'))return;
+  if(!map){
+    map=L.map('map',{scrollWheelZoom:false});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {maxZoom:19,attribution:'&copy; přispěvatelé OpenStreetMap'}).addTo(map);
+    map.setView([49.1525,16.4965],15);
+  }
+  if(mapLayer)mapLayer.remove();
+  mapLayer=L.layerGroup().addTo(map);
+  let placed=0,missed=0,fallback=0;const pts=[],skupSeen=new Set();
+  // mírný rozptyl bodů na témže místě, ať se nepřekrývají úplně
+  const seen={};
+  D.akce.forEach(x=>{
+    if(mapYear!=='vse'&&x[0].slice(0,4)!==mapYear)return;
+    let g=geoOf(x[4]), fb=false;
+    if(g&&g.f){g=g.f;fb=true;fallback++;}
+    if(!g){missed++;return;}
+    placed++;skupSeen.add(x[7]);
+    const key=g[0]+','+g[1], n=(seen[key]=(seen[key]||0)+1);
+    const lat=g[0]+(n>1?(Math.cos(n*2.4)*0.00022*n):0), lon=g[1]+(n>1?(Math.sin(n*2.4)*0.00033*n):0);
+    const clr=cssv('--c'+(SKUP_COLOR[x[7]]??8));
+    const r=Math.min(24,5+Math.sqrt(x[1]/1e6)*3.4);
+    const secUrl=(x[2]==='ZO'?'zastupitelstvo.html?zo=':'zapisy.html?ro=')+x[3];
+    const txt=_esc(x[4].length>190?x[4].slice(0,187)+'…':x[4]);
+    const pop=`<div class="mpop"><div class="dt">${fmtDate(x[0])} · ${x[7]}${x[6]?' · '+_esc(x[6]):''}</div>
+      <p>${txt}</p><div class="amt">${castka(x[1])}</div>
+      ${fb?'<div class="dt">📌 akce bez konkrétního místa — zobrazena u obecního úřadu</div>':''}
+      <p><a href="${secUrl}" style="color:var(--accent)">${x[2]} č. ${x[3]} →</a>${x[5]?` · <a href="${x[5]}" target="_blank" rel="noopener" style="color:var(--accent)">PDF ↗</a>`:''}</p></div>`;
+    L.circleMarker([lat,lon],{radius:r,color:clr,weight:1.6,fillColor:clr,fillOpacity:fb?.22:.5,dashArray:fb?'4 4':null})
+      .bindPopup(pop).addTo(mapLayer);
+    pts.push([lat,lon]);
+  });
+  if(pts.length)map.fitBounds(pts,{padding:[28,28],maxZoom:16});
+  document.getElementById('mapLeg').innerHTML=[...skupSeen].sort()
+    .map(nm=>`<span><i class="sw" style="background:${cssv('--c'+(SKUP_COLOR[nm]??8))}"></i>${nm}</span>`).join('');
+  document.getElementById('mapMiss').textContent = fallback
+    ? `${fallback} akcí bez konkrétního místa (nákupy, dokumentace, příspěvky…) je zobrazeno čárkovaně u obecního úřadu.` : '';
+}
+function buildMapYrSeg(){
+  const seg=document.getElementById('mapYrSeg'); if(!seg)return;
+  seg.innerHTML='<button class="on" data-y="vse">Vše</button>'+D.akceYears.map(y=>`<button data-y="${y}">${y}</button>`).join('');
+  seg.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    seg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));
+    mapYear=b.dataset.y;renderMap();});
+}
+
+function redraw(){yearChart();renderMap();}
+document.getElementById('dlAkce').onclick=()=>{
+  dlCSV('strelice_investicni_akce.csv',
+    ['datum','skupina','akce','zhotovitel','castka_kc','zdroj','zasedani','pdf_url'],
+    filtered().map(x=>[x[0],x[7],x[4],x[6],x[1],x[2],x[3],x[5]]));};
 buildYrSeg();
 document.querySelectorAll('#sortSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sortSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');sortK=b.dataset.k;shown=PAGE;renderTbl();});
 document.getElementById('modalX').onclick=closeModal;
 document.getElementById('modalBd').onclick=closeModal;
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
-yearChart();buildSkupSel();renderTbl();
+yearChart();buildSkupSel();renderTbl();buildMapYrSeg();renderMap();
 bindTheme(redraw);
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
 </script>'''.replace("DATA_JSON", data_json)

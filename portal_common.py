@@ -5,16 +5,22 @@ mezi sekcemi, přepínač světlý/tmavý režim, patička. Každá stránka je
 samostatný HTML soubor (data + Chart.js vložené) → funguje po dvojkliku
 i odděleně; navigace mezi sekcemi funguje, leží-li soubory ve stejné složce."""
 import urllib.parse, base64, os
+from datetime import date
 
 SECTIONS = [
     ("index.html",    "Přehled"),
     ("rozpocet.html", "Rozpočet"),
+    ("srovnani.html", "Srovnání"),
     ("investice.html", "Investice"),
     ("dotace.html",   "Dotace spolkům"),
     ("skolstvi.html", "Školství"),
     ("zapisy.html",   "Rada obce"),
     ("zastupitelstvo.html", "Zastupitelstvo"),
 ]
+
+# datum sestavení = datum aktualizace dat (stránky se generují po každé změně dat)
+_d = date.today()
+UPDATED = f"{_d.day}. {_d.month}. {_d.year}"
 
 SHARED_CSS = r"""
 :root{
@@ -99,6 +105,11 @@ section{margin-top:30px;scroll-margin-top:74px}
 .chartbox.sm{height:280px}
 .note{font-size:12px;color:var(--faint);margin-top:12px;line-height:1.6}
 .footer{margin-top:10px;color:var(--faint);font-size:11.5px;text-align:center;line-height:1.4;padding-bottom:6px}
+.footer a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--faint)}
+.footer a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.dlbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12px;font-weight:500;color:var(--muted);
+  background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:5px 11px;cursor:pointer;transition:.16s;white-space:nowrap}
+.dlbtn:hover{color:var(--accent);border-color:var(--accent)}
 .brandfoot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
 .brandfoot img{height:46px;width:auto;opacity:.9;transition:opacity .2s, transform .2s}
 .brandfoot a:hover img{opacity:1;transform:translateY(-2px)}
@@ -191,6 +202,13 @@ function isDark(){return document.documentElement.getAttribute('data-theme')==='
 (function(){var t=document.getElementById('navToggle'),n=document.getElementById('pnav');
  if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
  n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}})();
+function dlCSV(name,header,rows){
+  var esc=function(c){c=(c==null?'':String(c));return /[";\n]/.test(c)?'"'+c.replace(/"/g,'""')+'"':c;};
+  var csv=[header].concat(rows).map(function(r){return r.map(esc).join(';');}).join('\r\n');
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(new Blob([String.fromCharCode(0xFEFF)+csv],{type:'text/csv;charset=utf-8'}));
+  a.download=name;document.body.appendChild(a);a.click();a.remove();
+  setTimeout(function(){URL.revokeObjectURL(a.href);},500);}
 """
 
 # --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
@@ -223,7 +241,9 @@ def og_meta(active, title):
 
 
 def page(active, title, body, head_scripts="", body_scripts=""):
-    footer = '<footer class="footer">Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>'
+    footer = ('<footer class="footer">Data aktualizována k <b style="color:var(--muted)">' + UPDATED + '</b>'
+              ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>'
+              'Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>')
     return f'''<!DOCTYPE html>
 <html lang="cs" data-theme="dark">
 <head>

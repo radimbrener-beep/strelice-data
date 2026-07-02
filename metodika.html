@@ -4,8 +4,8 @@
 <script>(function(){try{var t=localStorage.getItem('strelice-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jak žijí Střelice — data obce</title>
-<link rel="canonical" href="https://jakzijistrelice.cz/"><meta property="og:type" content="website"><meta property="og:site_name" content="Jak žijí Střelice"><meta property="og:title" content="Jak žijí Střelice — data obce"><meta property="og:description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého."><meta property="og:image" content="https://jakzijistrelice.cz/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://jakzijistrelice.cz/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Jak žijí Střelice — data obce"><meta name="twitter:description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého."><meta name="twitter:image" content="https://jakzijistrelice.cz/og-image.png"><meta name="description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.">
+<title>Metodika a zdroje dat — Jak žijí Střelice</title>
+<link rel="canonical" href="https://jakzijistrelice.cz/"><meta property="og:type" content="website"><meta property="og:site_name" content="Jak žijí Střelice"><meta property="og:title" content="Metodika a zdroje dat — Jak žijí Střelice"><meta property="og:description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého."><meta property="og:image" content="https://jakzijistrelice.cz/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://jakzijistrelice.cz/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Metodika a zdroje dat — Jak žijí Střelice"><meta name="twitter:description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého."><meta name="twitter:image" content="https://jakzijistrelice.cz/og-image.png"><meta name="description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20rx%3D%2711%27%20fill%3D%27%233d6c9e%27/%3E%3Ccircle%20cx%3D%2727%27%20cy%3D%2721%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27/%3E%3Ccircle%20cx%3D%2727%27%20cy%3D%2721%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27/%3E%3Cline%20x1%3D%276%27%20y1%3D%2742%27%20x2%3D%2727%27%20y2%3D%2721%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27%20stroke-linecap%3D%27round%27/%3E%3Ccircle%20cx%3D%2727%27%20cy%3D%2721%27%20r%3D%273%27%20fill%3D%27%23fff%27/%3E%3C/svg%3E">
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c6b572a87a11472db1d63e8281478708"}'></script>
 <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-L77N0PH5L6"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L77N0PH5L6');</script>
@@ -127,50 +127,112 @@ section{margin-top:30px;scroll-margin-top:74px}
 .mtab th{color:var(--muted);font-weight:600;font-size:11.5px}
 .mtab tr.total td{font-weight:680;border-top:2px solid var(--text);background:var(--surface2)}
 </style>
-<style>
-.updlist{display:flex;flex-direction:column}
-.updrow{display:flex;align-items:center;gap:12px;padding:10px 6px;border-radius:10px;text-decoration:none;color:var(--text);border-bottom:1px solid var(--line)}
-.updlist .updrow:last-child{border-bottom:0}
-.updrow:hover{background:var(--inset)}
-.upddate{color:var(--muted);font-size:12.5px;min-width:88px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.updsec{display:inline-flex;align-items:center;font-size:11px;font-weight:600;color:var(--muted);background:var(--inset);border:1px solid var(--line);padding:2px 9px;border-radius:999px;white-space:nowrap}
-.updsec i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:6px}
-.updtxt{font-size:13.5px;flex:1}
-.updarr{color:var(--faint);font-size:14px}
-@media(max-width:560px){.updrow{flex-wrap:wrap;gap:6px 10px}.updtxt{flex-basis:100%;order:3;font-size:13px}.updarr{display:none}}
-</style>
+
 </head>
 <body>
 <div class="ptop"><div class="in">
   <a class="brand" href="index.html"><span class="dot"><svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="27" cy="21" r="15"/><circle cx="27" cy="21" r="8"/><circle cx="27" cy="21" r="3.4" fill="#fff" stroke="none"/><line x1="5" y1="43" x2="27" y2="21"/><path d="M5 43 l7 -1.4 M5 43 l1.4 -7"/></svg></span><span>Jak žijí Střelice<small>otevřená data obce</small></span></a>
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
-  <nav class="pnav" id="pnav"><a href="index.html" class="active">Přehled</a><a href="rozpocet.html">Rozpočet</a><a href="srovnani.html">Srovnání</a><a href="investice.html">Investice</a><a href="dotace.html">Dotace spolkům</a><a href="skolstvi.html">Školství</a><a href="zapisy.html">Rada obce</a><a href="zastupitelstvo.html">Zastupitelstvo</a></nav>
+  <nav class="pnav" id="pnav"><a href="index.html">Přehled</a><a href="rozpocet.html">Rozpočet</a><a href="srovnani.html">Srovnání</a><a href="investice.html">Investice</a><a href="dotace.html">Dotace spolkům</a><a href="skolstvi.html">Školství</a><a href="zapisy.html">Rada obce</a><a href="zastupitelstvo.html">Zastupitelstvo</a></nav>
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>
 <div class="wrap">
 <header class="hero">
-  <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· obec v datech</span></h1>
-  <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
-  <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ 3 283 obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
+  <h1>Metodika a zdroje dat</h1>
+  <p>Jak číst data na tomto portálu: odkud pocházejí, jak se zpracovávají, jak často se aktualizují a jaká mají omezení. Když si nejste jistí, co které číslo znamená, odpověď je tady.</p>
+  <div class="chips"><span class="chip">nezávislý projekt</span><span class="chip">otevřené zdroje</span><span class="chip">vše ověřitelné v originálech</span></div>
 </header>
-<section><div class="panel"><div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2><span class="hint">poslední zápis z každé sekce</span></div><div class="updlist"><a class="updrow" href="zapisy.html?ro=94"><span class="upddate">21. 6. 2026</span><span class="updsec"><i style="background:#85b7eb"></i>Rada obce</span><span class="updtxt">Zápis z 94. jednání rady obce</span><span class="updarr">&#8594;</span></a><a class="updrow" href="zastupitelstvo.html?zo=27"><span class="upddate">21. 6. 2026</span><span class="updsec"><i style="background:#e0a458"></i>Zastupitelstvo</span><span class="updtxt">Zápis z 27. zasedání zastupitelstva</span><span class="updarr">&#8594;</span></a></div></div></section>
+
 <section>
-  <div class="tiles"><a class="tile" href="rozpocet.html">
-      <span class="ic">Kč</span><h3>Rozpočet</h3><p>Příjmy, výdaje a saldo 2013–2025, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail.</p><span class="go">Otevřít rozpočet →</span></a><a class="tile" href="srovnani.html">
-      <span class="ic">⚖</span><h3>Srovnání se sousedy</h3><p>Jak si Střelice vedou vedle okolních obcí — příjmy, investice, dluh a rezervy na obyvatele. A karty finančního zdraví obce podle metodiky MF.</p><span class="go">Otevřít srovnání →</span></a><a class="tile" href="investice.html">
-      <span class="ic">🏗</span><h3>Investice</h3><p>Co se v obci staví a opravuje — kapitálové výdaje v čase a podle oblasti, propojené s konkrétními zakázkami a smlouvami z usnesení rady a zastupitelstva.</p><span class="go">Otevřít investice →</span></a><a class="tile" href="dotace.html">
-      <span class="ic">🤝</span><h3>Komu obec přispívá</h3><p>Dotace spolkům a organizacím 2022–2026 — kolik, komu a na co. Žebříček příjemců a vývoj objemu v čase.</p><span class="go">Otevřít dotace →</span></a><a class="tile" href="skolstvi.html">
-      <span class="ic">🎓</span><h3>Školství</h3><p>Demografický vývoj obce a poptávka po vzdělávání — mateřská a základní škola, ZUŠ, kapacity.</p><span class="go">Otevřít školství →</span></a><a class="tile" href="zapisy.html">
-      <span class="ic">📋</span><h3>Rada obce</h3><p>Zápisy z jednání Rady obce 2022–2026 — fulltextové hledání v usneseních, filtr podle roku a druhu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.</p><span class="go">Procházet zápisy →</span></a><a class="tile" href="zastupitelstvo.html">
-      <span class="ic">🏛</span><h3>Zastupitelstvo</h3><p>Usnesení zastupitelstva 2022–2026 — výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.</p><span class="go">Procházet usnesení →</span></a><a class="tile soon" href="#"><span class="badge">připravujeme</span>
-      <span class="ic">+</span><h3>Další sekce</h3><p>Připravujeme — např. volby ve Střelicích, životní prostředí a odpadové hospodářství.</p></a></div>
-</section>
-<section>
+  <div class="sec-h"><h2>O portálu</h2></div>
   <div class="panel">
-    <div class="sec-h" style="margin:0 0 6px"><h2 style="font-size:16px">O portálu</h2></div>
-    <p style="color:var(--muted);font-size:13.5px;margin:0;line-height:1.6">Portál zpracovává <b>veřejná data</b> o obci do přehledných interaktivních vizualizací. Hodnoty pocházejí z oficiálních zdrojů (MONITOR Státní pokladny, Český statistický úřad, MŠMT) a z webu obce <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">streliceubrna.cz</a> (zápisy rady a zastupitelstva, smlouvy o dotacích). Zdroj je u každé sekce uveden.</p>
+    <p>„Jak žijí Střelice" je <b>nezávislý občanský projekt</b> — není to oficiální web obce Střelice. Všechna data pocházejí z veřejných zdrojů (státní pokladna, ČSÚ, úřední dokumenty obce) a u každé sekce je uveden zdroj i odkaz na originál. Portál data nijak neupravuje ani nehodnotí — jen je skládá dohromady a vizualizuje, aby byla srozumitelná bez účetního vzdělání.</p>
+    <p class="note">Našli jste chybu nebo nesoulad? Napište — kontakt najdete na <a href="https://www.strelicnik.cz" target="_blank" rel="noopener" style="color:var(--accent)">strelicnik.cz</a>. Rozhoduje vždy originální dokument, ne tento portál.</p>
   </div>
 </section>
+
+<section>
+  <div class="sec-h"><h2>Aktualizace dat</h2></div>
+  <div class="panel">
+    <p>Datum poslední aktualizace je v patičce každé stránky. Jednotlivé sekce se obnovují různým tempem podle toho, kdy jejich zdroj zveřejní nová data:</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku</td></tr>
+      <tr><td><b>Zápisy rady, Zastupitelstvo</b></td><td>průběžně — automatická kontrola nových zápisů na webu obce několikrát denně</td></tr>
+      <tr><td><b>Dotace spolkům</b></td><td>průběžně — po zveřejnění veřejnoprávních smluv obcí</td></tr>
+      <tr><td><b>Školství</b></td><td>ročně — po zveřejnění výročních zpráv škol a dat ČSÚ</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Rozpočet</h2><span class="hint">sekce Rozpočet a Srovnání</span></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618.</p>
+    <p><b>Tři varianty čísel</b>, které v grafech přepínáte:</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Schválený rozpočet</b></td><td>plán, který zastupitelstvo schválilo na začátku roku</td></tr>
+      <tr><td><b>Upravený rozpočet</b></td><td>plán po rozpočtových opatřeních v průběhu roku (přesuny mezi kapitolami, zapojení dotací a rezerv)</td></tr>
+      <tr><td><b>Skutečnost</b></td><td>co se opravdu přijalo a utratilo — pokud není uvedeno jinak, grafy ukazují skutečnost</td></tr>
+    </tbody></table>
+    <p><b>Třídění:</b> příjmy podle tříd (daňové, nedaňové, kapitálové, transfery), výdaje podle odvětví (paragrafy — „na co") i druhu (položky — „za co"). „%&nbsp;plnění" = skutečnost ÷ upravený rozpočet.</p>
+    <p class="note">Přepočty na obyvatele používají počet obyvatel obce dle ČSÚ. Hodnoty jsou v běžných cenách (bez očištění o inflaci).</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Srovnání s okolními obcemi</h2></div>
+  <div class="panel">
+    <p>Finanční data všech obcí pocházejí ze stejného zdroje (MONITOR, FIN 2-12 M) a stejného výpočtu jako data Střelic — čísla jsou tedy plně srovnatelná. Počty obyvatel pro přepočet na hlavu jsou z ČSÚ. Vybrány jsou sousední a blízké obce okresu Brno-venkov; menší obec může mít přepočet na obyvatele „rozkmitaný" jednou velkou investicí — proto grafy ukazují i víceleté průměry.</p>
+    <p><b>Ukazatele finančního zdraví</b> vycházejí z metodiky monitoringu MF ČR (tzv. fiskální pravidlo): dlouhodobě záporné saldo, vysoký dluh vůči průměru příjmů (limit 60&nbsp;%) nebo nízká likvidita signalizují riziko. Podrobná metodika: <a href="https://monitor.statnipokladna.gov.cz/metodika" target="_blank" rel="noopener" style="color:var(--accent)">monitor.statnipokladna.gov.cz/metodika</a>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Investice</h2></div>
+  <div class="panel">
+    <p><b>Kapitálové výdaje</b> (grafy) jsou z výkazu FIN 2-12 M — jde o výdaje na pořízení a zhodnocení majetku (stavby, pozemky, projekty), na rozdíl od běžných provozních výdajů.</p>
+    <p><b>Konkrétní akce</b> (tabulka a mapa) jsou automaticky vytažené z textů usnesení rady a zastupitelstva: bereme body s uvedenou částkou od 100&nbsp;tis.&nbsp;Kč v tématech stavby, doprava a pozemky. Z toho plynou omezení:</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Částka je orientační</b></td><td>je z textu usnesení (cena smlouvy o dílo, kupní cena…), ne z účetnictví — skutečně proplacená částka se může lišit o dodatky a vícepráce</td></tr>
+      <tr><td><b>Deduplikace</b></td><td>tatáž stavba prochází radou i zastupitelstvem; záznamy se stejnou částkou v okně 90 dnů nebo se stejnou parcelou slučujeme do jednoho</td></tr>
+      <tr><td><b>Úplnost</b></td><td>akce bez částky v usnesení (nebo pod prahem) v tabulce nejsou — souhrnné roční investice v grafu ale úplné jsou</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Dotace spolkům</h2></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> veřejnoprávní smlouvy o poskytnutí dotace zveřejněné obcí na <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">streliceubrna.cz</a> (roky 2022–2026). Sekce zachycuje <b>jen dotace poskytnuté přes veřejnoprávní smlouvy</b> — tedy hlavně příspěvky spolkům a organizacím. Neobsahuje drobné dary pod limitem povinného zveřejnění ani transfery příspěvkovým organizacím obce (škola, školka) — ty jsou v sekci Rozpočet jako transfery. Účel dotace je zkrácený výtah ze smlouvy.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Školství</h2></div>
+  <div class="panel">
+    <p><b>Zdroje:</b> demografie obce z ČSÚ, počty žáků a tříd z výročních zpráv ZŠ a MŠ Střelice a ZUŠ, kapacity z rejstříku škol MŠMT. <b>Kapacita</b> znamená maximální počet žáků zapsaný v rejstříku — ne aktuální prostorové možnosti. Údaj „žáci podle obce bydliště" je z výroční zprávy školy za daný školní rok.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Rada obce a Zastupitelstvo</h2></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> oficiální zápisy (PDF) z webu obce. Texty usnesení se z PDF vytahují automaticky, proto se mohou ojediněle objevit drobné chyby převodu. U každého usnesení je odkaz na originální PDF — to je vždy rozhodující verze. Zápisy anonymizuje obec (GDPR) ještě před zveřejněním.</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Témata</b></td><td>přiřazují se automaticky podle klíčových slov v textu — orientační pomůcka pro filtrování, ne úřední kategorizace</td></tr>
+      <tr><td><b>Částky</b></td><td>vytažené z textu usnesení, orientační (viz Investice)</td></tr>
+      <tr><td><b>Parcely 📍</b></td><td>čísla parcel v k.ú. Střelice u Brna jsou proklikávací do katastrální mapy (ikatastr.cz)</td></tr>
+      <tr><td><b>Video ▶</b></td><td>u zasedání zastupitelstva se záznamem vede odkaz na přesný čas projednávání bodu na YouTube</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Stažení dat</h2></div>
+  <div class="panel">
+    <p>U hlavních tabulek najdete tlačítko <span class="dlbtn" style="cursor:default">⬇ Stáhnout CSV</span> — stáhne právě zobrazená data (oddělovač středník, kódování UTF-8, otevře se přímo v Excelu). Surová zdrojová data jsou k dispozici v původních zdrojích: <a href="https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR open data</a>, <a href="https://data.csu.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">ČSÚ</a>, <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">web obce</a>.</p>
+  </div>
+</section><style>.mtab th,.mtab td{text-align:left;white-space:normal}.mtab td:first-child{width:32%}</style>
 <div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center"><a href="https://www.strelicnik.cz" target="_blank" rel="noopener" title="Součást webu Střeličník — strelicnik.cz" style="display:inline-block;transition:transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''"><img src="data:image/png;base64,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" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>
 <footer class="footer">Data aktualizována k <b style="color:var(--muted)">2. 7. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
 </div>
@@ -193,6 +255,6 @@ function dlCSV(name,header,rows){
   a.download=name;document.body.appendChild(a);a.click();a.remove();
   setTimeout(function(){URL.revokeObjectURL(a.href);},500);}
 </script>
-<script>bindTheme();</script>
+
 </body>
 </html>

@@ -25,6 +25,9 @@ tiles = [
     ("rozpocet.html", "Rozpočet", "ti", True,
      "Příjmy, výdaje a saldo 2013–2025, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail.",
      "Otevřít rozpočet →", None),
+    ("srovnani.html", "Srovnání se sousedy", "sr", True,
+     "Jak si Střelice vedou vedle okolních obcí — příjmy, investice, dluh a rezervy na obyvatele. A karty finančního zdraví obce podle metodiky MF.",
+     "Otevřít srovnání →", None),
     ("investice.html", "Investice", "in", True,
      "Co se v obci staví a opravuje — kapitálové výdaje v čase a podle oblasti, propojené s konkrétními zakázkami a smlouvami z usnesení rady a zastupitelstva.",
      "Otevřít investice →", None),
@@ -41,7 +44,7 @@ tiles = [
      "Usnesení zastupitelstva 2022–2026 — výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
      "Procházet usnesení →", None),
     ("#", "Další sekce", "pl", False,
-     "Připravujeme — např. hospodaření a zadluženost, životní prostředí a odpadové hospodářství.",
+     "Připravujeme — např. volby ve Střelicích, životní prostředí a odpadové hospodářství.",
      "", "připravujeme"),
 ]
 tile_html = ""
@@ -49,7 +52,7 @@ for href, name, ic, active, desc, go, badge in tiles:
     cls = "tile" + ("" if active else " soon")
     badge_html = f'<span class="badge">{badge}</span>' if badge else ""
     go_html = f'<span class="go">{go}</span>' if go else ""
-    icon = {"ti": "Kč", "in": "🏗", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+"}.get(ic, "•")
+    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+"}.get(ic, "•")
     tile_html += f'''<a class="{cls}" href="{href}">{badge_html}
       <span class="ic">{icon}</span><h3>{name}</h3><p>{desc}</p>{go_html}</a>'''
 

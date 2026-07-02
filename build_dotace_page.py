@@ -41,7 +41,8 @@ body = '''<header class="hero">
     <div class="chartbox" id="recBox"><canvas id="recChart"></canvas></div>
   </div>
   <div class="panel" style="margin-top:18px">
-    <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Všechny dotace ve vybraném roce</h2></div>
+    <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Všechny dotace ve vybraném roce</h2>
+      <button class="dlbtn" id="dlBtn" style="margin-left:auto" title="Stáhnout všechny dotace za všechny roky jako CSV">⬇ Stáhnout vše (CSV)</button></div>
     <div class="tablewrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
     <p class="note">Částka a účel jsou ze smlouvy o poskytnutí dotace. U několika smluv (zejm. SRPZŠ) není účel ve smlouvě jednotně uveden. <b>Klikni na příjemce</b> (ve žebříčku i v tabulce) pro jeho celou historii dotací.</p>
   </div>
@@ -170,6 +171,7 @@ render();
 if(typeof bindTheme==='function')bindTheme(render);
 document.querySelectorAll('#yearSeg button').forEach(b=>b.onclick=()=>selectYear(+b.dataset.y));
 document.querySelector('#tbl tbody').addEventListener('click',e=>{const tr=e.target.closest('tr.clk[data-r]');if(tr)recDetail(tr.dataset.r);});
+document.getElementById('dlBtn').onclick=()=>dlCSV('strelice_dotace_spolkum.csv',['rok','prijemce','castka_kc','ucel'],R);
 document.getElementById('modalX').onclick=()=>document.getElementById('modal').hidden=true;
 document.getElementById('modalBd').onclick=()=>document.getElementById('modal').hidden=true;
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').hidden=true;});
