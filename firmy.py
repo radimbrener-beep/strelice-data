@@ -83,6 +83,17 @@ INCOME_RE = re.compile(
 GIFT_RE = re.compile(r"darovac\w*\s+smlouv|finanční\s+dar|peněžit\w*\s+dar|věcn\w*\s+dar|\bdar\b|\bdaru\b",
                      re.IGNORECASE)
 
+# DODATEK / vícepráce: úprava už existující zakázky, ne nová zakázka. Do POČTU
+# zakázek se nezapočítává (ale zůstává v seznamu i v součtu Kč — navýšení je
+# reálný výdaj). "dodatek/dodatku/…", "navýšení ceny", "vícepráce/méněpráce".
+_DOD_RE = re.compile(r"\bdodat(?:ek|k\w+)|navýšen\w*\s+cen|vícepr\w*|méněpr\w*", re.IGNORECASE)
+
+
+def is_dodatek(text):
+    # "případné vícepráce nad rámec" v NOVÉ smlouvě není dodatek — vypustit
+    t = re.sub(r"[Pp]řípadn\w*\s+vícepr\w*", "", text)
+    return bool(_DOD_RE.search(t))
+
 
 # --- deduplikace záznamů téže akce/projektu ---
 def _date(iso):

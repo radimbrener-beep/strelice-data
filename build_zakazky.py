@@ -6,7 +6,7 @@ a částkou — žebříček dodavatelů, vývoj po letech, tabulka zakázek.
 Stejný styl jako dotace.html (Komu obec přispívá)."""
 import sys, json, re
 import portal_common as pc
-from firmy import firm, firm_key, canon_name, dedup_projects, INCOME_RE, GIFT_RE
+from firmy import firm, firm_key, canon_name, dedup_projects, INCOME_RE, GIFT_RE, is_dodatek
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -45,21 +45,23 @@ for it in items:
     it[6] = canon[firm_key(it[6])]
 
 years = sorted({int(it[0][:4]) for it in items if it[0]})
-# řádky pro JS: [rok, firma, castka, datum, zdroj, cislo, url, text]
+# řádky pro JS: [rok, firma, castka, datum, zdroj, cislo, url, text, is_dodatek]
 rows = [[int(it[0][:4]) if it[0] else 0, it[6], it[1], it[0], it[2], it[3], it[5],
-         it[4][:300] + ("…" if len(it[4]) > 300 else "")] for it in items if it[0]]
+         it[4][:300] + ("…" if len(it[4]) > 300 else ""), 1 if is_dodatek(it[4]) else 0]
+        for it in items if it[0]]
 rows.sort(key=lambda r: -r[2])
 
 DATA = {"years": years, "rows": rows}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
 n_firem = len({r[1] for r in rows})
+n_zak = sum(1 for r in rows if not r[8])   # počet zakázek bez dodatků
 total = sum(r[2] for r in rows)
 
 body = '''<header class="hero">
   <h1>Zakázky obce <span style="font-size:17px;font-weight:500;color:var(--muted)">· komu obec platí</span></h1>
   <p>Firmy, které od obce Střelice získávají zakázky — stavby, opravy, projekty, dodávky i služby. Vytaženo z usnesení rady a zastupitelstva ''' + f"{years[0]}–{years[-1]}" + ''': kdo, kolik a za co. Doplňuje sekci <a href="investice.html" style="color:var(--accent)">Investice</a> (jen stavby) o kompletní pohled podle dodavatelů.</p>
-  <div class="chips"><span class="chip">''' + str(len(rows)) + ''' zakázek</span><span class="chip">''' + str(n_firem) + ''' firem</span><span class="chip">zdroj: usnesení RO a ZO</span><span class="chip">částky orientační z textů usnesení</span></div>
+  <div class="chips"><span class="chip">''' + str(n_zak) + ''' zakázek</span><span class="chip">''' + str(n_firem) + ''' firem</span><span class="chip">zdroj: usnesení RO a ZO</span><span class="chip">částky orientační z textů usnesení</span></div>
 </header>
 
 <div class="cards" id="kpis"></div>
@@ -108,6 +110,8 @@ tr.grow td.fn{font-weight:600;white-space:nowrap}
 tr.grow .car{display:inline-block;width:18px;color:var(--faint);font-size:11px;transition:transform .15s}
 tr.grow.open .car{transform:rotate(90deg)}
 .cnt{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:var(--inset);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
+.cnt.dod{margin-left:5px;background:transparent;color:var(--faint)}
+.dodtag{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:999px;background:var(--inset);color:var(--faint);border:1px solid var(--line);vertical-align:middle;margin-right:2px}
 #tbl tr.sub td{background:var(--surface2);font-size:12.5px}
 #tbl tr.sub td:first-child{padding-left:30px}
 .zsrc{display:inline-block;font-size:11.5px;padding:2px 8px;border-radius:999px;background:var(--inset);color:var(--muted);text-decoration:none;border:1px solid var(--line);white-space:nowrap}
@@ -161,11 +165,12 @@ function totChart(){
 }
 function kpis(){
   const rr=sel(), tot=rr.reduce((a,r)=>a+r[2],0);
+  const nz=rr.filter(r=>!r[8]).length, nd=rr.length-nz;
   const byf={}; rr.forEach(r=>byf[r[1]]=(byf[r[1]]||0)+r[2]);
   const ent=Object.entries(byf).sort((a,b)=>b[1]-a[1]); const top=ent[0]||['—',0];
   const lab=year==='vse'?YRS[0]+'–'+YRS[YRS.length-1]:year;
   const C=[
-    ['Objem zakázek '+lab, castka(tot), rr.length+' zakázek','var(--c0)'],
+    ['Objem zakázek '+lab, castka(tot), nz+' zakázek'+(nd?' + '+nd+' dodatků':''),'var(--c0)'],
     ['Největší dodavatel', top[0].length>20?top[0].slice(0,18)+'…':top[0], castka(top[1])+' · '+(tot?Math.round(top[1]/tot*100):0)+' % objemu','var(--c3)'],
     ['Počet firem', String(ent.length), 'dodavatelů se zakázkou','var(--c1)'],
     ['Medián zakázky', castka(rr.length?rr.map(r=>r[2]).sort((a,b)=>a-b)[Math.floor(rr.length/2)]:0), 'polovina zakázek je menší','var(--c4)'],
@@ -200,7 +205,8 @@ function table(){
   // seskupit po firmách, seřadit podle celkové částky za vybrané období
   const g={};
   sel().forEach(r=>{(g[r[1]]=g[r[1]]||[]).push(r);});
-  const groups=Object.entries(g).map(([f,rs])=>({f,n:rs.length,tot:rs.reduce((a,r)=>a+r[2],0),
+  const groups=Object.entries(g).map(([f,rs])=>({f,n:rs.filter(r=>!r[8]).length,nd:rs.filter(r=>r[8]).length,
+      tot:rs.reduce((a,r)=>a+r[2],0),
       rows:rs.slice().sort((a,b)=>(b[3]||'').localeCompare(a[3]||''))}));
   const [sk,sd]=gSort;
   groups.sort((a,b)=>{const A=a[sk],B=b[sk];
@@ -215,15 +221,16 @@ function table(){
     table();});
   document.querySelector('#tbl tbody').innerHTML=slice.map(gr=>{
     const open=expanded.has(gr.f);
-    const n=gr.rows.length, pl=n===1?'zakázka':(n<5?'zakázky':'zakázek');
+    const n=gr.n, pl=n===1?'zakázka':(n<5?'zakázky':'zakázek');
+    const dbadge=gr.nd?`<span class="cnt dod">+${gr.nd} ${gr.nd<5?'dodatky':'dodatků'}</span>`:'';
     let h=`<tr class="grow${open?' open':''}" data-f="${gr.f.replace(/"/g,'&quot;')}">
       <td class="fn"><span class="car">▶</span>${gr.f}</td>
-      <td><span class="cnt">${n} ${pl}</span></td>
+      <td><span class="cnt">${n} ${pl}</span>${dbadge}</td>
       <td class="r">${castka(gr.tot)}</td>
       <td>${year!=='vse'?`<a class="zsrc" href="#" data-hist="${gr.f.replace(/"/g,'&quot;')}">celá historie</a>`:''}</td></tr>`;
     if(open)h+=gr.rows.map(r=>
       `<tr class="sub"><td class="dt">${fmtDate(r[3])}</td>`+
-      `<td class="ucel" colspan="1">${r[7]}</td><td class="r">${castka(r[2])}</td><td>${srcLinks(r)}</td></tr>`).join('');
+      `<td class="ucel" colspan="1">${r[8]?'<span class="dodtag">dodatek</span> ':''}${r[7]}</td><td class="r">${castka(r[2])}</td><td>${srcLinks(r)}</td></tr>`).join('');
     return h;
   }).join('');
   const wrap=document.getElementById('moreWrap');
@@ -262,8 +269,8 @@ document.querySelector('#tbl tbody').addEventListener('click',e=>{
   if(tr){const f=tr.dataset.f;expanded.has(f)?expanded.delete(f):expanded.add(f);table();}
 });
 document.getElementById('dlBtn').onclick=()=>dlCSV('strelice_zakazky_firmy.csv',
-  ['rok','datum','firma','castka_kc','zdroj','zasedani','predmet'],
-  R.map(r=>[r[0],r[3],r[1],r[2],r[4],r[5],r[7]]));
+  ['rok','datum','firma','castka_kc','zdroj','zasedani','typ','predmet'],
+  R.map(r=>[r[0],r[3],r[1],r[2],r[4],r[5],r[8]?'dodatek':'zakázka',r[7]]));
 document.getElementById('modalX').onclick=()=>document.getElementById('modal').hidden=true;
 document.getElementById('modalBd').onclick=()=>document.getElementById('modal').hidden=true;
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').hidden=true;});
