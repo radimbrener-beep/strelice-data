@@ -12,6 +12,7 @@ SECTIONS = [
     ("rozpocet.html", "Rozpočet"),
     ("srovnani.html", "Srovnání"),
     ("investice.html", "Investice"),
+    ("zakazky.html",  "Zakázky"),
     ("dotace.html",   "Dotace spolkům"),
     ("skolstvi.html", "Školství"),
     ("zapisy.html",   "Rada obce"),
@@ -115,6 +116,10 @@ section{margin-top:30px;scroll-margin-top:74px}
 .dlbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12px;font-weight:500;color:var(--muted);
   background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:5px 11px;cursor:pointer;transition:.16s;white-space:nowrap}
 .dlbtn:hover{color:var(--accent);border-color:var(--accent)}
+/* řaditelné hlavičky tabulek */
+.thsort{cursor:pointer;user-select:none;white-space:nowrap;transition:color .14s}
+.thsort:hover{color:var(--text)}
+.thsort .ar{font-size:9px;opacity:.65;margin-left:3px}
 .brandfoot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
 .brandfoot img{height:46px;width:auto;opacity:.9;transition:opacity .2s, transform .2s}
 .brandfoot a:hover img{opacity:1;transform:translateY(-2px)}

@@ -7,6 +7,7 @@ s konkrétními investičními rozhodnutími z usnesení Rady obce a Zastupitels
 import sys, csv, json, re, os
 from datetime import date
 import portal_common as pc
+from firmy import firm as _firm, dedup_projects
 sys.stdout.reconfigure(encoding="utf-8")
 
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -92,94 +93,10 @@ for src, mid in (("RO", ro), ("ZO", zo)):
                              m.get("cislo_zasedani"), b["text"], m.get("url") or ""])
 
 
-def _date(iso):
-    try:
-        return date.fromisoformat(iso)
-    except (ValueError, TypeError):
-        return None
-
-
-_PARC = re.compile(r"p\.?\s*č\.?\s*(\d+(?:/\d+)?)", re.IGNORECASE)
-
-
-def _parcels(text):
-    """Čísla parcel v textu — identita pozemkové akce (různé parcely se stejnou
-    částkou jsou různé akce; tatáž parcela napříč fázemi je jedna akce)."""
-    return set(_PARC.findall(text))
-
-
-_KEEP_STRONG = re.compile(r"kupní smlouv|nákup|koup|smlouvu o dílo", re.IGNORECASE)
-
-
-def _score(it):
-    """Která z duplicit nejlépe reprezentuje akci (pro zobrazení)."""
-    t = it[4]
-    s = 2 if it[2] == "ZO" else 0                       # ZO = závazné schválení
-    if _KEEP_STRONG.search(t):
-        s += 3
-    elif re.search(r"schvál", t, re.IGNORECASE):
-        s += 1
-    if re.search(r"na vědomí|vzal", t, re.IGNORECASE):
-        s -= 3                                          # "bere na vědomí" = slabý záznam
-    if re.search(r"úschov", t, re.IGNORECASE):
-        s -= 1                                          # smlouva o úschově = vedlejší k nákupu
-    return s
-
-
-def dedup_projects(items):
-    """Tentýž projekt/akvizice se ve feedu investic objeví jen JEDNOU. Dvě položky
-    se shodnou částkou splývají, jsou-li: a) z téhož jednání (např. kupní smlouva +
-    smlouva o úschově), b) z různých zdrojů (RO vyhodnocení ↔ ZO schválení) v okně
-    90 dnů, nebo c) velká specifická částka ≥ 4 mil (tatáž stavba/nemovitost napříč
-    časem). Ponechá se nejvýstižnější záznam (_score). Různé projekty s náhodně
-    shodnou menší částkou z různých jednání zůstanou oba."""
-    kept = []
-    for it in sorted(items, key=lambda x: x[0]):
-        idx = None
-        for i, k in enumerate(kept):
-            if k[1] != it[1]:                          # různá částka = různá akce
-                continue
-            same_meeting = (k[2] == it[2] and k[3] == it[3])
-            d1, d2 = _date(k[0]), _date(it[0])
-            close = bool(d1 and d2 and abs((d1 - d2).days) <= 90)
-            share_parcel = bool(_parcels(k[4]) & _parcels(it[4]))
-            if same_meeting or (k[2] != it[2] and close) or share_parcel or it[1] >= 4_000_000:
-                idx = i
-                break
-        if idx is None:
-            kept.append(it)
-        elif _score(it) > _score(kept[idx]):
-            kept[idx] = it
-    return kept
-
-
+# _firm a dedup_projects sdílené v firmy.py (používá i build_zakazky.py)
 akce = dedup_projects(akce)
 akce.sort(key=lambda x: -x[1])
 akce_years = sorted({int(a[0][:4]) for a in akce if a[0]}, reverse=True)
-
-# --- zhotovitel / firma u každé akce (sloupec ve feedu) ---
-# název firmy se bere AŽ ZA konektorem (společností/firmou) — tím se vynechají
-# advokátní/dotační kanceláře (zprostředkovatelé "kanceláří"); cena patří vítězi.
-_CONN = r"(?:[Ss]polečnost[íi]|[Ff]irm[ouy])\s+"
-_FORM = r"(?:spol\.\s*s\.?\s*r\.?\s*o\.?|s\.\s*r\.\s*o\.?|a\.\s*s\.|v\.\s*o\.\s*s\.)"
-_FIRM = re.compile(_CONN + r"([A-ZÁ-Ž0-9][\wáčďéěíňóřšťúůýž.&-]*(?:[ -][\wáčďéěíňóřšťúůýž0-9.&/-]+){0,4}?)\s*,?\s*" + _FORM)
-_FIRM_DROP = re.compile(r"kancelář|advokát|dota[cč]", re.IGNORECASE)
-# u KOUPĚ nemovitosti je uvedená firma PRODÁVAJÍCÍ, ne zhotovitel → nezobrazovat
-_REALTY_BUY = re.compile(r"kupní smlouv|nákup|koup", re.IGNORECASE)
-_REALTY = re.compile(r"budov|pozem|nemovit|jednotk|komerčn", re.IGNORECASE)
-
-
-def _firm(text):
-    if _REALTY_BUY.search(text) and _REALTY.search(text):
-        return ""                                     # koupě nemovitosti — firma je prodávající
-    for m in _FIRM.finditer(text):
-        core = re.sub(r"\s*\d+/20\d\d/[A-Za-z]?\d+\s*", " ", m.group(1))   # vložené ID usnesení
-        core = re.sub(r"\s*-\s*", "-", core)                               # sjednotit pomlčku
-        core = re.sub(r"\s+", " ", core).strip(" ,.-").replace("POOR", "PORR")
-        if len(core) >= 2 and not _FIRM_DROP.search(core):
-            return core
-    return ""
-
 
 # --- tematická skupina akce (pořadí ROZHODUJE, první shoda vyhrává) ---
 SKUPINY = [
@@ -289,11 +206,10 @@ body = f'''<header class="hero">
   <div class="ctrls">
     <span class="lbl">Rok</span><span class="seg" id="yrSeg"></span>
     <span class="lbl" style="margin-left:8px">Skupina</span><select id="skupSel" class="oblsel"></select>
-    <span class="lbl" style="margin-left:8px">Řadit</span><span class="seg" id="sortSeg"><button class="on" data-k="amount">Podle částky</button><button data-k="date">Podle data</button></span>
     <button class="dlbtn" id="dlAkce" style="margin-left:auto" title="Stáhnout aktuální výběr akcí jako CSV">⬇ Stáhnout CSV</button>
   </div>
   <div class="panel">
-    <div class="tablewrap"><table id="tbl"><thead><tr><th>Datum</th><th>Skupina</th><th>Investiční akce</th><th>Zhotovitel</th><th class="r">Částka</th><th>Zdroj</th></tr></thead><tbody id="tbody"></tbody></table></div>
+    <div class="tablewrap"><table id="tbl"><thead><tr><th class="thsort" data-k="date">Datum<span class="ar"></span></th><th class="thsort" data-k="skup">Skupina<span class="ar"></span></th><th>Investiční akce</th><th class="thsort" data-k="firm">Zhotovitel<span class="ar"></span></th><th class="r thsort" data-k="amount">Částka<span class="ar"></span></th><th>Zdroj</th></tr></thead><tbody id="tbody"></tbody></table></div>
     <p class="note">Akce s uvedenou částkou z usnesení Rady obce (RO) a Zastupitelstva (ZO) — typicky smlouvy o dílo, vyhodnocení veřejných zakázek a dodatky. Tatáž stavba se může objevit dvakrát (rada vyhodnotí zakázku → zastupitelstvo schválí smlouvu). Částka je orientační, vychází z textu usnesení. Plné znění a kontext najdete v sekcích <a href="zapisy.html" style="color:var(--accent)">Rada obce</a> a <a href="zastupitelstvo.html" style="color:var(--accent)">Zastupitelstvo</a>.</p>
   </div>
 </section>
@@ -415,7 +331,7 @@ function yearChart(){
 
 
 // --- feed konkrétních akcí ---
-let curYear='vse', curSkup='', sortK='amount', shown=12;
+let curYear='vse', curSkup='', sortC='amount', sortDesc=true, shown=12;
 const PAGE=12;
 // Matcher oblasti pro filtr akcí ve feedu (odvozeno z názvu oddílu rozpočtu).
 // ci = kmeny case-insensitive; cs = ZKRATKY jen velkými (MŠ/ZŠ/ČOV) — jinak by
@@ -428,9 +344,15 @@ function filtered(){
   let a=D.akce.slice();
   if(curYear!=='vse') a=a.filter(x=>x[0].slice(0,4)===curYear);
   if(curSkup) a=a.filter(x=>x[7]===curSkup);
-  a.sort(sortK==='amount'?(p,q)=>q[1]-p[1]:(p,q)=>(q[0]||'').localeCompare(p[0]||''));
+  // prázdný zhotovitel ("—") patří při řazení na konec, ne na začátek
+  const key=x=>({date:x[0]||'',skup:x[7]||'',firm:x[6]||(sortDesc?'':'￿'),amount:x[1]})[sortC];
+  a.sort((p,q)=>{const A=key(p),B=key(q);
+    const c=typeof A==='string'?A.localeCompare(B,'cs'):A-B;
+    return sortDesc?-c:c;});
   return a;
 }
+function updAr(){document.querySelectorAll('#tbl thead .thsort').forEach(th=>{
+  th.querySelector('.ar').textContent=th.dataset.k===sortC?(sortDesc?'▼':'▲'):'↕';});}
 function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return p[2]+'. '+(+p[1])+'. '+p[0];}
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
 function renderTbl(){
@@ -609,7 +531,11 @@ document.getElementById('dlAkce').onclick=()=>{
     ['datum','skupina','akce','zhotovitel','castka_kc','zdroj','zasedani','pdf_url'],
     filtered().map(x=>[x[0],x[7],x[4],x[6],x[1],x[2],x[3],x[5]]));};
 buildYrSeg();
-document.querySelectorAll('#sortSeg button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#sortSeg button').forEach(x=>x.classList.remove('on'));b.classList.add('on');sortK=b.dataset.k;shown=PAGE;renderTbl();});
+document.querySelectorAll('#tbl thead .thsort').forEach(th=>th.onclick=()=>{
+  const k=th.dataset.k;
+  if(sortC===k)sortDesc=!sortDesc;else{sortC=k;sortDesc=(k==='amount'||k==='date');}
+  shown=PAGE;renderTbl();updAr();});
+updAr();
 document.getElementById('modalX').onclick=closeModal;
 document.getElementById('modalBd').onclick=closeModal;
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});

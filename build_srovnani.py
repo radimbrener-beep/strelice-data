@@ -210,18 +210,27 @@ function trChart(){
       scales:{x:axis(),y:Object.assign(axis(),{ticks:{color:cssv('--muted'),callback:v=>nf.format(v)}})}},
     plugins:[endLabels]});
 }
+let tblSort=[1,true];   // [index sloupce, sestupně] — výchozí podle počtu obyvatel
 function tbl(){
   const H=['Obec','Obyvatel','Příjmy','Výdaje','Investice','Dluh','Rezervy','Majetek'];
   const u=perCap?'Kč/ob.':'mil. Kč';
-  document.querySelector('#cmpTbl thead').innerHTML='<tr>'+H.map((h,i)=>'<th>'+h+(i>1?' <span style="font-weight:400">'+u+'</span>':'')+'</th>').join('')+'</tr>';
+  document.querySelector('#cmpTbl thead').innerHTML='<tr>'+H.map((h,i)=>
+    '<th class="thsort" data-i="'+i+'">'+h+(i>1?' <span style="font-weight:400">'+u+'</span>':'')
+    +'<span class="ar">'+(i===tblSort[0]?(tblSort[1]?'▼':'▲'):'↕')+'</span></th>').join('')+'</tr>';
   document.getElementById('tblHint').textContent='rok '+YRS[LYI]+(perCap?', Kč na obyvatele':', mil. Kč celkem');
   const fv=v=>perCap?nf.format(Math.round(v)):(v/1e6).toLocaleString('cs-CZ',{minimumFractionDigits:1,maximumFractionDigits:1});
   const rows=OB.map(o=>({n:o.n,pop:o.pop[LYI],
-    vals:['prijmy','vydaje','kap','dluh','ucty','majetek'].map(m=>perCap?o[m][LYI]/o.pop[LYI]:o[m][LYI])}))
-    .sort((a,b)=>b.pop-a.pop);
+    vals:['prijmy','vydaje','kap','dluh','ucty','majetek'].map(m=>perCap?o[m][LYI]/o.pop[LYI]:o[m][LYI])}));
+  const [si,sd]=tblSort, kv=r=>si===0?r.n:(si===1?r.pop:r.vals[si-2]);
+  rows.sort((a,b)=>{const A=kv(a),B=kv(b);
+    const c=typeof A==='string'?A.localeCompare(B,'cs'):A-B; return sd?-c:c;});
   document.querySelector('#cmpTbl tbody').innerHTML=rows.map(r=>
     `<tr${r.n==='Střelice'?' class="hl"':''}><td>${r.n}</td><td>${nf.format(r.pop)}</td>`+
     r.vals.map(v=>'<td>'+fv(v)+'</td>').join('')+'</tr>').join('');
+  document.querySelectorAll('#cmpTbl thead .thsort').forEach(th=>th.onclick=()=>{
+    const i=+th.dataset.i;
+    tblSort=[i, tblSort[0]===i?!tblSort[1]:i>0];   // texty vzestupně, čísla sestupně
+    tbl();});
   tbl._rows=rows;
 }
 document.getElementById('metSeg').innerHTML=MET.map((m,i)=>`<button${i==0?' class="on"':''} data-m="${m[0]}">${m[1]}</button>`).join('');

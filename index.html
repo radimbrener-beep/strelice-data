@@ -97,6 +97,10 @@ section{margin-top:30px;scroll-margin-top:74px}
 .dlbtn{display:inline-flex;align-items:center;gap:6px;font:inherit;font-size:12px;font-weight:500;color:var(--muted);
   background:var(--inset);border:1px solid var(--line);border-radius:9px;padding:5px 11px;cursor:pointer;transition:.16s;white-space:nowrap}
 .dlbtn:hover{color:var(--accent);border-color:var(--accent)}
+/* řaditelné hlavičky tabulek */
+.thsort{cursor:pointer;user-select:none;white-space:nowrap;transition:color .14s}
+.thsort:hover{color:var(--text)}
+.thsort .ar{font-size:9px;opacity:.65;margin-left:3px}
 .brandfoot{margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center}
 .brandfoot img{height:46px;width:auto;opacity:.9;transition:opacity .2s, transform .2s}
 .brandfoot a:hover img{opacity:1;transform:translateY(-2px)}
@@ -144,7 +148,7 @@ section{margin-top:30px;scroll-margin-top:74px}
 <div class="ptop"><div class="in">
   <a class="brand" href="index.html"><span class="dot"><svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="27" cy="21" r="15"/><circle cx="27" cy="21" r="8"/><circle cx="27" cy="21" r="3.4" fill="#fff" stroke="none"/><line x1="5" y1="43" x2="27" y2="21"/><path d="M5 43 l7 -1.4 M5 43 l1.4 -7"/></svg></span><span>Jak žijí Střelice<small>otevřená data obce</small></span></a>
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
-  <nav class="pnav" id="pnav"><a href="index.html" class="active">Přehled</a><a href="rozpocet.html">Rozpočet</a><a href="srovnani.html">Srovnání</a><a href="investice.html">Investice</a><a href="dotace.html">Dotace spolkům</a><a href="skolstvi.html">Školství</a><a href="zapisy.html">Rada obce</a><a href="zastupitelstvo.html">Zastupitelstvo</a></nav>
+  <nav class="pnav" id="pnav"><a href="index.html" class="active">Přehled</a><a href="rozpocet.html">Rozpočet</a><a href="srovnani.html">Srovnání</a><a href="investice.html">Investice</a><a href="zakazky.html">Zakázky</a><a href="dotace.html">Dotace spolkům</a><a href="skolstvi.html">Školství</a><a href="zapisy.html">Rada obce</a><a href="zastupitelstvo.html">Zastupitelstvo</a></nav>
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>
 <div class="wrap">
@@ -158,7 +162,8 @@ section{margin-top:30px;scroll-margin-top:74px}
   <div class="tiles"><a class="tile" href="rozpocet.html">
       <span class="ic">Kč</span><h3>Rozpočet</h3><p>Příjmy, výdaje a saldo 2013–2025, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail.</p><span class="go">Otevřít rozpočet →</span></a><a class="tile" href="srovnani.html">
       <span class="ic">⚖</span><h3>Srovnání se sousedy</h3><p>Jak si Střelice vedou vedle okolních obcí — příjmy, investice, dluh a rezervy na obyvatele. A karty finančního zdraví obce podle metodiky MF.</p><span class="go">Otevřít srovnání →</span></a><a class="tile" href="investice.html">
-      <span class="ic">🏗</span><h3>Investice</h3><p>Co se v obci staví a opravuje — kapitálové výdaje v čase a podle oblasti, propojené s konkrétními zakázkami a smlouvami z usnesení rady a zastupitelstva.</p><span class="go">Otevřít investice →</span></a><a class="tile" href="dotace.html">
+      <span class="ic">🏗</span><h3>Investice</h3><p>Co se v obci staví a opravuje — kapitálové výdaje v čase a podle oblasti, propojené s konkrétními zakázkami a smlouvami z usnesení rady a zastupitelstva.</p><span class="go">Otevřít investice →</span></a><a class="tile" href="zakazky.html">
+      <span class="ic">🧾</span><h3>Zakázky obce</h3><p>Komu obec platí — firmy a jejich zakázky 2022–2026. Žebříček dodavatelů, kolik zakázek a za kolik získali, s rozklikem na jednotlivé smlouvy a usnesení.</p><span class="go">Otevřít zakázky →</span></a><a class="tile" href="dotace.html">
       <span class="ic">🤝</span><h3>Komu obec přispívá</h3><p>Dotace spolkům a organizacím 2022–2026 — kolik, komu a na co. Žebříček příjemců a vývoj objemu v čase.</p><span class="go">Otevřít dotace →</span></a><a class="tile" href="skolstvi.html">
       <span class="ic">🎓</span><h3>Školství</h3><p>Demografický vývoj obce a poptávka po vzdělávání — mateřská a základní škola, ZUŠ, kapacity.</p><span class="go">Otevřít školství →</span></a><a class="tile" href="zapisy.html">
       <span class="ic">📋</span><h3>Rada obce</h3><p>Zápisy z jednání Rady obce 2022–2026 — fulltextové hledání v usneseních, filtr podle roku a druhu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.</p><span class="go">Procházet zápisy →</span></a><a class="tile" href="zastupitelstvo.html">

@@ -139,9 +139,19 @@ function recChart(){
       plugins:{legend:{display:false},tooltip:Object.assign({},tt,{callbacks:{label:c=>nf.format(c.parsed.x)+' Kč'}})},
       scales:{x:Object.assign(axis(),{ticks:{color:cv('--muted'),callback:v=>v>=1000?(v/1000)+'k':v}}),y:{ticks:{color:cv('--text'),font:{size:11}},grid:{display:false}}}}});
 }
+let tSort=[2,true];   // [index sloupce v r, sestupně] — výchozí podle částky
 function table(){
-  const yr=R.filter(r=>r[0]==year).sort((a,b)=>b[2]-a[2]);
-  document.querySelector('#tbl thead').innerHTML='<tr><th>Příjemce</th><th>Částka</th><th>Účel (přibližně)</th></tr>';
+  const yr=R.filter(r=>r[0]==year);
+  const [si,sd]=tSort;
+  yr.sort((a,b)=>{const A=a[si],B=b[si];
+    const c=typeof A==='string'?A.localeCompare(B,'cs'):A-B; return sd?-c:c;});
+  const ar=i=>'<span class="ar">'+(i===si?(sd?'▼':'▲'):'↕')+'</span>';
+  document.querySelector('#tbl thead').innerHTML='<tr><th class="thsort" data-i="1">Příjemce'+ar(1)
+    +'</th><th class="thsort" data-i="2">Částka'+ar(2)+'</th><th>Účel (přibližně)</th></tr>';
+  document.querySelectorAll('#tbl thead .thsort').forEach(th=>th.onclick=()=>{
+    const i=+th.dataset.i;
+    tSort=[i, tSort[0]===i?!tSort[1]:i===2];   // příjemce vzestupně, částka sestupně
+    table();});
   document.querySelector('#tbl tbody').innerHTML=yr.map(r=>
     `<tr class="clk" data-r="${r[1].replace(/"/g,'&quot;')}"><td>${r[1]}</td><td><b>${nf.format(r[2])}</b></td><td style="text-align:left;white-space:normal;color:var(--muted)">${r[3]||'—'}</td></tr>`).join('')+
     `<tr class="total"><td>Celkem ${year}</td><td>${nf.format(yr.reduce((a,r)=>a+r[2],0))}</td><td></td></tr>`;

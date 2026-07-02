@@ -31,6 +31,9 @@ tiles = [
     ("investice.html", "Investice", "in", True,
      "Co se v obci staví a opravuje — kapitálové výdaje v čase a podle oblasti, propojené s konkrétními zakázkami a smlouvami z usnesení rady a zastupitelstva.",
      "Otevřít investice →", None),
+    ("zakazky.html", "Zakázky obce", "za", True,
+     "Komu obec platí — firmy a jejich zakázky 2022–2026. Žebříček dodavatelů, kolik zakázek a za kolik získali, s rozklikem na jednotlivé smlouvy a usnesení.",
+     "Otevřít zakázky →", None),
     ("dotace.html", "Komu obec přispívá", "do", True,
      "Dotace spolkům a organizacím 2022–2026 — kolik, komu a na co. Žebříček příjemců a vývoj objemu v čase.",
      "Otevřít dotace →", None),
@@ -52,7 +55,7 @@ for href, name, ic, active, desc, go, badge in tiles:
     cls = "tile" + ("" if active else " soon")
     badge_html = f'<span class="badge">{badge}</span>' if badge else ""
     go_html = f'<span class="go">{go}</span>' if go else ""
-    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+"}.get(ic, "•")
+    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "za": "🧾", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+"}.get(ic, "•")
     tile_html += f'''<a class="{cls}" href="{href}">{badge_html}
       <span class="ic">{icon}</span><h3>{name}</h3><p>{desc}</p>{go_html}</a>'''
 
