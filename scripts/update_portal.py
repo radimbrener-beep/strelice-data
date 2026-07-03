@@ -410,6 +410,10 @@ def main():
     # ── Rebuild ──────────────────────────────────
     print("\n[BUILD] Přegenerovávám HTML...")
     to_rebuild = ['build_portal.py']
+    if new_zo or new_ro:
+        # nové parcely v usneseních -> souřadnice pro prokliky do katastru
+        # (inkrementální, selhání jednotlivých dotazů ČÚZK skript toleruje)
+        to_rebuild.insert(0, 'geocode_parcely.py')
     if new_zo or new_videos:
         to_rebuild.append('build_video_casy.py')
         to_rebuild.append('build_zastupitelstvo.py')
