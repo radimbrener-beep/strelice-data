@@ -137,14 +137,17 @@ def fetch_yt_channel_videos():
     Vrátí list [(vid_id, title, upload_date)] nebo [] při chybě.
     """
     print(f"  Stahuji seznam videí z YouTube kanálu...")
-    try:
-        result = run([
-            'yt-dlp', '--flat-playlist',
+    args = ['--flat-playlist',
             '--print', '%(id)s\t%(title)s\t%(upload_date)s',
             '--playlist-end', '50',
             '--no-warnings',
-            YT_CHANNEL,
-        ], capture=True, check=False)
+            YT_CHANNEL]
+    try:
+        try:
+            result = run(['yt-dlp'] + args, capture=True, check=False)
+        except FileNotFoundError:
+            # binárka není v PATH (Windows Store Python) — zkus modul
+            result = run([sys.executable, '-m', 'yt_dlp'] + args, capture=True, check=False)
         lines = (result.stdout or '').strip().splitlines()
     except FileNotFoundError:
         print("  WARN: yt-dlp není nainstalováno")
