@@ -160,7 +160,7 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
     # oprava procedurálních bodů: dataset u voleb ověřovatelů/komise zahazuje
     # druhého zvoleného (a komisi občas celou) → zrekonstruuj z raw_textu
     proc = reconstruct_proc(r.get("raw_text", ""))
-    items = [it for it in items if not re.match(r'^a pan[íi]?\b', it[4], re.I)]  # zahoď útržky "a pan X"
+    items = [it for it in items if not re.match(r'^a pan(a|í|i)?\b', it[4], re.I)]  # zahoď útržky "a pan(a)/paní X"
     ov_pos, has_komise = None, False
     for n, it in enumerate(items):
         f = _fold(it[4])
