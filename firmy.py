@@ -28,14 +28,37 @@ def _norm_form(f):
     return _FORMS_NORM.get(c, f.strip())
 
 
+# VLASTNÍ SLUŽBY advokátní/dotační kanceláře: příkazní smlouva na právní služby,
+# zpracování žádosti o dotaci — tady je kancelář DODAVATELEM (částka = její odměna).
+# Jinak se jména kanceláří zahazují (_FIRM_DROP): u „vyhodnocení VZ předložené
+# kanceláří" je uvedená částka cenou CIZÍ zakázky, ne odměnou kanceláře.
+_OWN_SVC = re.compile(r"příkazní smlouv|právní služb|zpracování žádost\w*\s+o\s+dotac",
+                      re.IGNORECASE)
+# název s čárkami („Steska, Kavřík, advokátní kancelář, s.r.o.") + konektor „kanceláří"
+_AKFIRM = re.compile(
+    r"(?:[Kk]ancelář\w*|[Ss]polečnost[íi]|[Ff]irm[ouy])\s+"
+    r"([A-ZÁ-Ž][\wáčďéěíňóřšťúůýž.&-]*(?:,?\s+[\wáčďéěíňóřšťúůýž.&-]+){0,4}?)"
+    r",?\s*(" + _FORM + ")")
+
+
+def _clean(core):
+    core = re.sub(r"\s*\d+/20\d\d/[A-Za-z]?\d+\s*", " ", core)   # vložené ID usnesení
+    core = re.sub(r"\s*-\s*", "-", core)                         # sjednotit pomlčku
+    return re.sub(r"\s+", " ", core).strip(" ,.-").replace("POOR", "PORR")
+
+
 def firm(text):
     """Název firmy včetně normalizované právní formy ('MATYÁŠ s.r.o.')."""
     if _REALTY_BUY.search(text) and _REALTY.search(text):
         return ""                                     # koupě nemovitosti — firma je prodávající
+    if _OWN_SVC.search(text):                          # kancelář jako přímý dodavatel
+        m = _AKFIRM.search(text)
+        if m:
+            core = _clean(m.group(1))
+            if len(core) >= 2:
+                return core + " " + _norm_form(m.group(2))
     for m in _FIRM.finditer(text):
-        core = re.sub(r"\s*\d+/20\d\d/[A-Za-z]?\d+\s*", " ", m.group(1))   # vložené ID usnesení
-        core = re.sub(r"\s*-\s*", "-", core)                               # sjednotit pomlčku
-        core = re.sub(r"\s+", " ", core).strip(" ,.-").replace("POOR", "PORR")
+        core = _clean(m.group(1))
         if len(core) >= 2 and not _FIRM_DROP.search(core):
             return core + " " + _norm_form(m.group(2))
     return ""
