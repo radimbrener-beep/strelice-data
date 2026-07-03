@@ -78,6 +78,20 @@ body = '''<header class="hero">
 </section>
 
 <section>
+  <div class="sec-h"><h2>Zakázky obce</h2></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> usnesení rady a zastupitelstva, kde je uvedena firma (s.r.o., a.s., …) i částka — smlouvy o dílo, vyhodnocení výběrových řízení, nabídky, dodávky a služby. Částka je orientační: je to cena v okamžiku rozhodnutí, vytažená z textu usnesení, ne z účetnictví.</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Deduplikace</b></td><td>tatáž zakázka schválená radou i zastupitelstvem se počítá jednou</td></tr>
+      <tr><td><b>Dodatky</b></td><td>dodatek/vícepráce je úprava existující zakázky — nepočítá se do počtu zakázek, ale jeho částka zůstává v součtech (je to reálný výdaj); v tabulce má štítek „dodatek"</td></tr>
+      <tr><td><b>Advokátní a dotační kanceláře</b></td><td>rozlišují se dvě role: u „vyhodnocení veřejné zakázky předložené kanceláří" patří částka vítězné firmě (kancelář jen soutěž administrovala); vlastní odměny kanceláří (příkazní smlouvy, právní služby, zpracování žádostí o dotace) v přehledu jsou</td></tr>
+      <tr><td><b>Co v přehledu není</b></td><td>faktury a drobné nákupy bez usnesení, platby fyzickým osobám, dary, a platby směrem K obci (např. developerské příspěvky a plánovací smlouvy)</td></tr>
+      <tr><td><b>Názvy firem</b></td><td>varianty zápisu téže firmy (překlepy, diakritika, právní forma) se slučují; kanonické názvy ověřeny v ARES</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
   <div class="sec-h"><h2>Školství</h2></div>
   <div class="panel">
     <p><b>Zdroje:</b> demografie obce z ČSÚ, počty žáků a tříd z výročních zpráv ZŠ a MŠ Střelice a ZUŠ, kapacity z rejstříku škol MŠMT. <b>Kapacita</b> znamená maximální počet žáků zapsaný v rejstříku — ne aktuální prostorové možnosti. Údaj „žáci podle obce bydliště" je z výroční zprávy školy za daný školní rok.</p>
