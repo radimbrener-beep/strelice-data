@@ -82,8 +82,9 @@ body = '''<header class="hero">
     <div class="chartbox" id="recBox"><canvas id="recChart"></canvas></div>
   </div>
   <div class="panel" style="margin-top:18px">
-    <div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Dodavatelé ve vybraném období</h2>
-      <button class="dlbtn" id="dlBtn" style="margin-left:auto" title="Stáhnout všechny zakázky za všechny roky jako CSV">⬇ Stáhnout vše (CSV)</button></div>
+    <div class="sec-h" style="margin:0 0 8px;flex-wrap:wrap;gap:10px"><h2 style="font-size:16px">Dodavatelé ve vybraném období</h2>
+      <input id="q" type="text" placeholder="🔍 hledat dodavatele / zakázku…" style="margin-left:auto">
+      <button class="dlbtn" id="dlBtn" title="Stáhnout všechny zakázky za všechny roky jako CSV">⬇ Stáhnout vše (CSV)</button></div>
     <div class="tablewrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
     <div id="moreWrap"></div>
     <p class="note">Řazeno podle celkové částky za období. <b>Klikni na řádek firmy</b> — rozbalí se její jednotlivé zakázky. Zachyceny jsou jen zakázky, kde usnesení uvádí firmu (s.r.o., a.s., …) i částku — drobné nákupy bez usnesení, platby fyzickým osobám a faktury tu nejsou. Tatáž zakázka schválená radou i zastupitelstvem se počítá jednou. Plné texty najdete v sekcích <a href="zapisy.html" style="color:var(--accent)">Rada obce</a> a <a href="zastupitelstvo.html" style="color:var(--accent)">Zastupitelstvo</a>.</p>
@@ -111,6 +112,9 @@ tr.grow .car{display:inline-block;width:18px;color:var(--faint);font-size:11px;t
 tr.grow.open .car{transform:rotate(90deg)}
 .cnt{display:inline-block;font-size:11px;padding:2px 9px;border-radius:999px;background:var(--inset);color:var(--muted);border:1px solid var(--line);white-space:nowrap}
 .cnt.dod{margin-left:5px;background:transparent;color:var(--faint)}
+#q{font:inherit;font-size:13px;padding:7px 12px;border:1px solid var(--line);border-radius:10px;
+  background:var(--surface);color:var(--text);outline:none;min-width:240px;transition:.16s}
+#q:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .dodtag{display:inline-block;font-size:10.5px;padding:1px 7px;border-radius:999px;background:var(--inset);color:var(--faint);border:1px solid var(--line);vertical-align:middle;margin-right:2px}
 #tbl tr.sub td{background:var(--surface2);font-size:12.5px}
 #tbl tr.sub td:first-child{padding-left:30px}
@@ -194,7 +198,8 @@ function recChart(){
       scales:{x:Object.assign(axis(),{ticks:{color:cssv('--muted'),callback:v=>(v/1e6)+' mil'}}),
         y:{ticks:{color:cssv('--text'),font:{size:11}},grid:{display:false}}}}});
 }
-let expanded=new Set(), gSort=['tot',true];   // řazení skupin: tot | n | f
+let expanded=new Set(), gSort=['tot',true], q='';   // řazení skupin: tot | n | f
+const norm=s=>(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
 function srcLinks(r){
   const secUrl=(r[4]==='ZO'?'zastupitelstvo.html?zo=':'zapisy.html?ro=')+r[5];
   let s=`<a class="zsrc" href="${secUrl}" onclick="event.stopPropagation()">${r[4]} č.&nbsp;${r[5]}</a>`;
@@ -205,7 +210,10 @@ function table(){
   // seskupit po firmách, seřadit podle celkové částky za vybrané období
   const g={};
   sel().forEach(r=>{(g[r[1]]=g[r[1]]||[]).push(r);});
-  const groups=Object.entries(g).map(([f,rs])=>({f,n:rs.filter(r=>!r[8]).length,nd:rs.filter(r=>r[8]).length,
+  const nq=norm(q);
+  let entries=Object.entries(g);
+  if(nq)entries=entries.filter(([f,rs])=>norm(f).includes(nq)||rs.some(r=>norm(r[7]).includes(nq)));
+  const groups=entries.map(([f,rs])=>({f,n:rs.filter(r=>!r[8]).length,nd:rs.filter(r=>r[8]).length,
       tot:rs.reduce((a,r)=>a+r[2],0),
       rows:rs.slice().sort((a,b)=>(b[3]||'').localeCompare(a[3]||''))}));
   const [sk,sd]=gSort;
@@ -219,8 +227,9 @@ function table(){
     const k=th.dataset.k;
     gSort=[k, gSort[0]===k?!gSort[1]:k!=='f'];   // firma vzestupně, čísla sestupně
     table();});
-  document.querySelector('#tbl tbody').innerHTML=slice.map(gr=>{
-    const open=expanded.has(gr.f);
+  document.querySelector('#tbl tbody').innerHTML=slice.length?slice.map(gr=>{
+    // shoda jen v textu zakázky (ne v názvu firmy) -> rovnou rozbalit, ať je vidět proč
+    const open=expanded.has(gr.f)||(nq&&!norm(gr.f).includes(nq));
     const n=gr.n, pl=n===1?'zakázka':(n<5?'zakázky':'zakázek');
     const dbadge=gr.nd?`<span class="cnt dod">+${gr.nd} ${gr.nd<5?'dodatky':'dodatků'}</span>`:'';
     let h=`<tr class="grow${open?' open':''}" data-f="${gr.f.replace(/"/g,'&quot;')}">
@@ -232,7 +241,7 @@ function table(){
       `<tr class="sub"><td class="dt">${fmtDate(r[3])}</td>`+
       `<td class="ucel" colspan="1">${r[8]?'<span class="dodtag">dodatek</span> ':''}${r[7]}</td><td class="r">${castka(r[2])}</td><td>${srcLinks(r)}</td></tr>`).join('');
     return h;
-  }).join('');
+  }).join(''):'<tr><td colspan="4" style="color:var(--faint);text-align:center;padding:22px">Nic nenalezeno — zkuste jiný výraz.</td></tr>';
   const wrap=document.getElementById('moreWrap');
   wrap.innerHTML=groups.length>shown?`<button class="morebtn" id="more">Zobrazit další firmy (${groups.length-shown})</button>`:'';
   const mb=document.getElementById('more'); if(mb)mb.onclick=()=>{shown+=PAGE;table();};
@@ -260,6 +269,7 @@ function selectYear(y,scroll){
 }
 function render(){totChart();renderSel();}
 
+document.getElementById('q').oninput=e=>{q=e.target.value.trim();shown=PAGE;table();};
 document.getElementById('yearSeg').innerHTML='<button class="on" data-y="vse">Vše</button>'+YRS.map(y=>`<button data-y="${y}">${y}</button>`).join('');
 document.querySelectorAll('#yearSeg button').forEach(b=>b.onclick=()=>selectYear(b.dataset.y));
 document.querySelector('#tbl tbody').addEventListener('click',e=>{
