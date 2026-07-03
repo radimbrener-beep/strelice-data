@@ -5890,7 +5890,7 @@
   "datum_text": "23. 6. 2026",
   "rok": 2026,
   "pritomno": 15,
-  "pocet_bodu": 17,
+  "pocet_bodu": 19,
   "body": [
    {
     "kategorie": "schvaluje",
@@ -6014,15 +6014,39 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Pozemky, majetek a bydlení",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 2644600,
     "vydaj": "nad 1 mil. Kč",
+    "hlasovani": [
+     12,
+     0,
+     3
+    ],
+    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní opatření PUPFL, k. ú. Střelice u Brna, s firmou AQUASYS spol. s r.o., Jamská 2488/65, 591 01 Žďár nad Sázavou, IČ 25344447, za cenu 2 644 600 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+   },
+   {
+    "kategorie": "schvaluje",
+    "tema": "Stavby, investice a územní rozvoj",
+    "castka": 619800,
+    "vydaj": "0,5–1 mil. Kč",
+    "hlasovani": [
+     13,
+     0,
+     2
+    ],
+    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava podlahy v šatně ZŠ Střelice včetně položení nové podlahové krytiny, s firmou ProInterier s.r.o., Bavorská 2780/2, 155 00 Praha, IČ 47122374, za cenu 619 800,30 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+   },
+   {
+    "kategorie": "schvaluje",
+    "tema": "Pozemky, majetek a bydlení",
+    "castka": null,
+    "vydaj": "Bez částky",
     "hlasovani": [
      15,
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní opatření PUPFL, k. ú. Střelice u Brna, s firmou AQUASYS spol. s r.o., Jamská 2488/65, 591 01 Žďár nad Sázavou, IČ 25344447, za cenu 2 644 600 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy. Pro – 12 (Brener, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška, Rozsíval, Ströbinger, Tichý, Vašulín, Zoubková) Proti – 0 Zdrželi se – 3 (Bartoňová, Pernikář, Smištík) • Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava podlahy v šatně ZŠ Střelice včetně položení nové podlahové krytiny, s firmou ProInterier s.r.o., Bavorská 2780/2, 155 00 Praha, IČ 47122374, za cenu 619 800,30 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy. Pro – 13 (Brener, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška, Rozsíval, Smištík, Ströbinger, Tichý, Vašulín, Zoubková) Proti – 0 Zdrželi se – 2 (Bartoňová, Pernikář) • Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek p. č. 3466/8 o výměře 118 m2, k. ú. Střelice u Brna. Smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, (nabyvatel) a Úřadem pro zastupování státu ve věcech majetkových, Rašínovo nábřeží 390/42, 128 00 Praha, IČ 69797111, (převodce). Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek p. č. 3466/8 o výměře 118 m2, k. ú. Střelice u Brna. Smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, (nabyvatel) a Úřadem pro zastupování státu ve věcech majetkových, Rašínovo nábřeží 390/42, 128 00 Praha, IČ 69797111, (převodce). Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",

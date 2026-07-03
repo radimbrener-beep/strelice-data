@@ -39,7 +39,7 @@ PRITOMNO_RE = re.compile(r'[Pp]řítomno[:\s]+(\d+)', re.I)
 VOTE_A_RE = re.compile(
     r'Pro\s*[–\-]\s*(\d+)\s*(?:\([^)]*\))?\s*'
     r'Proti\s*[–\-]\s*(\d+)\s*(?:\([^)]*\))?\s*'
-    r'Zdržel\s*se\s*[–\-]\s*(\d+)\s*(?:\([^)]*\))?',
+    r'Zdržel\w*\s*se\s*[–\-]\s*(\d+)\s*(?:\([^)]*\))?',   # Zdržel/Zdrželi/Zdrželo se
     re.S | re.I)
 
 # ── Formát B (OCR): "Bod N. text ... N/YYYY/ZNN" ──────────────────────────────

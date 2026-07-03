@@ -76,55 +76,67 @@
     "gi": 6
    },
    {
+    "t": 1598,
+    "bod": 12,
+    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní…",
+    "src": "fill",
+    "gi": 7
+   },
+   {
     "t": 1941,
     "bod": 13,
-    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní…",
+    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava…",
     "src": "prog",
-    "gi": 7
+    "gi": 8
    },
    {
     "t": 2193,
     "bod": 14,
-    "label": "• Zastupitelstvo obce Střelice schválilo Kupní smlouvu se zřízením služebnosti na…",
+    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek…",
     "src": "prog",
-    "gi": 11
+    "gi": 9
    },
    {
     "t": 2309,
     "bod": 15,
-    "src": "snip",
-    "label": "Participativního rozpočtu. Opět . obce Střelice vyčlenila v rozpočtu na…"
+    "label": "• Zastupitelstvo obce Střelice schválilo v rámci participativního rozpočtu…",
+    "src": "prog",
+    "gi": 10
    },
    {
     "t": 2733,
     "bod": 16,
-    "src": "snip",
-    "label": "Souhlas s podmínkami prodeje pozemku číslo 3361/13 parcelní číslo…"
+    "label": "• Zastupitelstvo obce Střelice schválilo technické podmínky prodeje k pozemku p.…",
+    "src": "prog",
+    "gi": 11
    },
    {
     "t": 2853,
     "bod": 17,
-    "label": "• Zastupitelstvo obce Střelice vzalo na vědomí vyjádření ředitele ZŠ a MŠ…",
+    "label": "• Zastupitelstvo obce Střelice schválilo pro volební období 2026–2030 patnáct…",
     "src": "prog",
-    "gi": 13
+    "gi": 12
    },
    {
     "t": 2939,
     "bod": 18,
-    "src": "snip",
-    "label": "Smlouva na prodej budovy pošty ve se zřízením služebnosti Českou poštu…"
+    "label": "• Zastupitelstvo obce Střelice schválilo Kupní smlouvu se zřízením služebnosti na…",
+    "src": "prog",
+    "gi": 13
    },
    {
     "t": 3236,
     "bod": 19,
-    "src": "snip",
-    "label": "Příspěvku zřizovatele platy nepedagogických pracovníků ZŠ a Střelice.…"
+    "label": "• Zastupitelstvo obce Střelice schválilo navýšení příspěvku zřizovatele na platy…",
+    "src": "prog",
+    "gi": 14
    },
    {
     "t": 3818,
     "bod": 20,
-    "src": "snip",
-    "label": "Vyjádření ředitele školy Střelice k anonymní obce číslo 27 dne 29. 2026…"
+    "label": "• Zastupitelstvo obce Střelice vzalo na vědomí vyjádření ředitele ZŠ a MŠ…",
+    "src": "prog",
+    "gi": 15
    },
    {
     "t": 4346,
@@ -151,9 +163,15 @@
    "7": 1144,
    "8": 1245,
    "9": 1402,
-   "10": 1941,
-   "14": 2193,
-   "16": 2853
+   "10": 1598,
+   "11": 1941,
+   "12": 2193,
+   "13": 2309,
+   "14": 2733,
+   "15": 2853,
+   "16": 2939,
+   "17": 3236,
+   "18": 3818
   }
  },
  "27": {

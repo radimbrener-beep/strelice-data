@@ -115,7 +115,7 @@ def parse_vote(tail):
     if not p:
         return None
     a = re.search(r"Proti\s*[–\-:]?\s*(\d+)", tail, re.IGNORECASE)
-    z = re.search(r"Zdržel\s+se\s*[–\-:]?\s*(\d+)", tail, re.IGNORECASE)
+    z = re.search(r"Zdržel\w*\s+se\s*[–\-:]?\s*(\d+)", tail, re.IGNORECASE)
     pro = int(p.group(1)); proti = int(a.group(1)) if a else 0; zdr = int(z.group(1)) if z else 0
     # sanity: zastupitelstvo ma 15 clenu; nesmyslne hodnoty (rozbity OCR) zahodit
     if pro > 15 or proti > 15 or zdr > 15 or (pro + proti + zdr) > 16:

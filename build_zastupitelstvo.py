@@ -16,7 +16,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 VOTE_RE = re.compile(
     r'Pro\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?\s*'
     r'Proti\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?\s*'
-    r'Zdržel\s*se\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?', re.S)
+    r'Zdržel\w*\s*se\s*[–-]\s*(\d+)\s*(?:\(([^)]*)\))?', re.S)   # i „Zdrželi se"
 
 
 def _names(s):
