@@ -25,7 +25,7 @@ def ci(c):
         cats.append(c)
     return cats.index(c)
 
-present = {b.get("tema", temata.OSTATNI) for r in src for b in r["body"]}
+present = {b.get("tema") or temata.OSTATNI for r in src for b in r["body"]}
 tlist = [t for t in temata.ORDER if t in present]
 ti_index = {t: i for i, t in enumerate(tlist)}
 
@@ -37,7 +37,7 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
         "y": r["rok"],
         "u": r["url"] or "",
         # polozka: [druh_idx, tema_idx, castka|null, text]
-        "b": [[ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)], b.get("castka"), b["text"]]
+        "b": [[ci(b["kategorie"]), ti_index[b.get("tema") or temata.OSTATNI], b.get("castka"), b["text"]]
               for b in r["body"]],
     })
 

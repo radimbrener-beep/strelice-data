@@ -8,8 +8,15 @@ Zvládá dva formáty:
   - Formát B (OCR sken, ZO 27+): "Bod N. text ... N/YYYY/ZNN ... Hlasování: Pro Proti Zdržel se / N N N"
 """
 import re, sys, json, io
+from pathlib import Path
 import pdfplumber
 import requests
+
+# klasifikace tématu a extrakce částky — stejné moduly jako plný builder
+# (_build_zo.py); bez nich mají nové body tema=None a buildery padají
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import temata
+import vydaje
 
 # ── Datum ────────────────────────────────────────────────────────────────────
 _MONTHS = {
@@ -80,8 +87,10 @@ def parse_date(raw):
 
 def _item(text, hl):
     text = re.sub(r'\s+', ' ', text).strip().rstrip('.')
-    return {'kategorie': detect_kat(text), 'tema': None, 'castka': None,
-            'vydaj': None, 'hlasovani': hl, 'text': text}
+    text = vydaje.fix_ocr_digits(text)
+    amt = vydaje.extract_amount(text)
+    return {'kategorie': detect_kat(text), 'tema': temata.classify(text), 'castka': amt,
+            'vydaj': vydaje.bucket(amt), 'hlasovani': hl, 'text': text}
 
 
 # ── Parser formátu A (textové PDF) ────────────────────────────────────────────

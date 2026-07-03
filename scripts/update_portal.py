@@ -414,6 +414,8 @@ def main():
     if new_ro:
         to_rebuild.append('build_zapisy.py')
         to_rebuild.append('build_investice.py')
+    if new_zo or new_ro:
+        to_rebuild.append('build_zakazky.py')   # nové zakázky firem z usnesení
 
     seen = set()
     to_rebuild = [s for s in to_rebuild if not (s in seen or seen.add(s))]

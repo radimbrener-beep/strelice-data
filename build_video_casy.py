@@ -336,6 +336,13 @@ def main():
         if len(ln) == 2:
             themap[int(ln[0])] = ln[1]
 
+    # existující výstup — chybí-li lokální titulky (CI má čistý checkout bez
+    # data/video/caps/), NESMÍME zahodit dřív spočtené kapitoly/bodytimes
+    try:
+        prev = json.load(open("video_casy.json", encoding="utf-8"))
+    except (FileNotFoundError, ValueError):
+        prev = {}
+
     out = {}
     report = []
     for cislo in sorted(themap, reverse=True):
@@ -344,8 +351,13 @@ def main():
         z = by_cislo.get(cislo)
         usn = [b["text"] for b in z["body"]] if z else []
         if not os.path.exists(cap):
-            out[str(cislo)] = {"vid": vid, "dur": None, "has_caps": False, "chapters": []}
-            report.append((cislo, vid, 0, 0, []))
+            p = prev.get(str(cislo))
+            if p and p.get("vid") == vid and p.get("has_caps"):
+                out[str(cislo)] = p          # zachovej dřívější výsledek
+                report.append((cislo, vid, p.get("dur") or 0, len(p.get("chapters") or []), p.get("chapters") or []))
+            else:
+                out[str(cislo)] = {"vid": vid, "dur": None, "has_caps": False, "chapters": []}
+                report.append((cislo, vid, 0, 0, []))
             continue
         W = parse_vtt(cap)
         groups = build_groups(z["body"]) if z else []

@@ -107,7 +107,7 @@ def ci(c):
         cats.append(c)
     return cats.index(c)
 
-present = {b.get("tema", temata.OSTATNI) for r in src for b in r["body"]}
+present = {b.get("tema") or temata.OSTATNI for r in src for b in r["body"]}
 tlist = [t for t in temata.ORDER if t in present]
 ti_index = {t: i for i, t in enumerate(tlist)}
 
@@ -152,7 +152,7 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
                 hl = ov_vote
                 if ov_dis:
                     dis = ov_dis
-        it = [ci(b["kategorie"]), ti_index[b.get("tema", temata.OSTATNI)],
+        it = [ci(b["kategorie"]), ti_index[b.get("tema") or temata.OSTATNI],
               b.get("castka"), hl, b["text"], 0, bt.get(str(ix)), dis]
         items.append(it)
         parent = it

@@ -5,8 +5,15 @@ Parsuje PDF zápisu ze zasedání RO (Rada obce Střelice).
 Vrací dict kompatibilní s dataset_RO.json.
 """
 import re, sys, json, io
+from pathlib import Path
 import pdfplumber
 import requests
+
+# klasifikace tématu a extrakce částky — stejné moduly jako plný builder
+# (_build_dataset.py); bez nich mají nové body tema=None a buildery padají
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+import temata
+import vydaje
 
 DATE_RE  = re.compile(r'(\d{1,2})\.\s*(\d{1,2})\.\s*(\d{4})')
 CISLO_RE = re.compile(r'z\s+(\d+)\.\s+zasedání\s+Rady\s+obce', re.I)
@@ -81,12 +88,14 @@ def parse(source, cislo_hint=None):
             return
         text = clean(' '.join(current_item_lines))
         if len(text) >= 10:
+            text = vydaje.fix_ocr_digits(text)
+            amt = vydaje.extract_amount(text)
             body.append({
                 'kategorie': active_kat,
                 'kategorie_full': active_kat_full,
-                'tema': None,
-                'castka': None,
-                'vydaj': None,
+                'tema': temata.classify(text),
+                'castka': amt,
+                'vydaj': vydaje.bucket(amt),
                 'text': text,
             })
         current_item_lines.clear()
