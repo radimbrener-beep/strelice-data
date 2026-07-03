@@ -5890,7 +5890,7 @@
   "datum_text": "23. 6. 2026",
   "rok": 2026,
   "pritomno": 15,
-  "pocet_bodu": 19,
+  "pocet_bodu": 23,
   "body": [
    {
     "kategorie": "schvaluje",
@@ -5902,7 +5902,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo schválilo program jednání 28. Zastupitelstva obce Střelice"
+    "text": "Zastupitelstvo schválilo program jednání 28. Zastupitelstva obce Střelice"
    },
    {
     "kategorie": "volí",
@@ -5914,19 +5914,7 @@
      0,
      1
     ],
-    "text": "• Za ověřovatele zápisu zvolilo zastupitelstvo pana Petra Rozsívala"
-   },
-   {
-    "kategorie": "jiné",
-    "tema": "Ostatní",
-    "castka": null,
-    "vydaj": "Bez částky",
-    "hlasovani": [
-     15,
-     0,
-     0
-    ],
-    "text": "a pana Jana Dlapku"
+    "text": "Za ověřovatele zápisu zvolilo zastupitelstvo pana Petra Rozsívala a pana Jana Dlapku."
    },
    {
     "kategorie": "volí",
@@ -5938,19 +5926,31 @@
      0,
      1
     ],
-    "text": "návrhové komise zvolilo pana Ing. Radima Brenera"
+    "text": "návrhové komise zvolilo pana Ing. Radima Brenera a pana Mgr. Roberta Ströbingera."
    },
    {
-    "kategorie": "jiné",
+    "kategorie": "bere na vědomí",
     "tema": "Ostatní",
     "castka": null,
     "vydaj": "Bez částky",
-    "hlasovani": [
-     14,
-     0,
-     1
-    ],
-    "text": "a pana Mgr. Roberta Ströbingera"
+    "hlasovani": null,
+    "text": "Zastupitelstvo obce Střelice vzalo bez připomínek na vědomí zprávu o činnosti Rady obce Střelice od 27. zastupitelstva obce"
+   },
+   {
+    "kategorie": "bere na vědomí",
+    "tema": "Dotace a finance",
+    "castka": null,
+    "vydaj": "Bez částky",
+    "hlasovani": null,
+    "text": "Zastupitelstvo obce Střelice vzalo na vědomí rozpočtové opatření č. 4/2026, které schválila rada obce č. 92 dne 30. 4. 2026"
+   },
+   {
+    "kategorie": "bere na vědomí",
+    "tema": "Dotace a finance",
+    "castka": null,
+    "vydaj": "Bez částky",
+    "hlasovani": null,
+    "text": "Zastupitelstvo obce Střelice vzalo na vědomí rozpočtové opatření č. 5/2026, které schválila rada obce č. 94 dne 27. 5. 2026"
    },
    {
     "kategorie": "schvaluje",
@@ -5962,7 +5962,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice vzalo bez připomínek na vědomí zprávu o činnosti Rady obce Střelice od 27. zastupitelstva obce. • Zastupitelstvo obce Střelice vzalo na vědomí rozpočtové opatření č. 4/2026, které schválila rada obce č. 92 dne 30. 4. 2026. • Zastupitelstvo obce Střelice vzalo na vědomí rozpočtové opatření č. 5/2026, které schválila rada obce č. 94 dne 27. 5. 2026. • Zastupitelstvo obce Střelice schválilo závěrečný účet obce Střelice za rok 2025 v souladu s § 17 odst. 7 písm. a) zákona č. 250/2000 Sb., o rozpočtových pravidlech územních rozpočtů a uzavřelo projednání závěrečného účtu 2025 vyjádřením souhlasu s celoročním hospodařením a se závěrečnou zprávou výsledku auditu, a to bez výhrad"
+    "text": "Zastupitelstvo obce Střelice schválilo závěrečný účet obce Střelice za rok 2025 v souladu s § 17 odst. 7 písm. a) zákona č. 250/2000 Sb., o rozpočtových pravidlech územních rozpočtů a uzavřelo projednání závěrečného účtu 2025 vyjádřením souhlasu s celoročním hospodařením a se závěrečnou zprávou výsledku auditu, a to bez výhrad"
    },
    {
     "kategorie": "schvaluje",
@@ -5974,7 +5974,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo účetní závěrku obce Střelice za rok 2025. Zastupitelstvo obce pověřilo starostu obce podpisem protokolu účetní závěrky"
+    "text": "Zastupitelstvo obce Střelice schválilo účetní závěrku obce Střelice za rok 2025. Zastupitelstvo obce pověřilo starostu obce podpisem protokolu účetní závěrky"
    },
    {
     "kategorie": "schvaluje",
@@ -5986,7 +5986,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo účetní odpisový plán za období od 01/2026 do"
+    "text": "Zastupitelstvo obce Střelice schválilo účetní odpisový plán za období od 01/2026 do"
    },
    {
     "kategorie": "schvaluje",
@@ -5998,7 +5998,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Restaurace U Nádraží – rekonstrukce střechy, s firmou Stavby a konstrukce, s.r.o., Žatčany 302, 664 53 Újezd u Brna, IČ 25595750, za cenu 1 393 408 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Restaurace U Nádraží – rekonstrukce střechy, s firmou Stavby a konstrukce, s.r.o., Žatčany 302, 664 53 Újezd u Brna, IČ 25595750, za cenu 1 393 408 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",
@@ -6010,7 +6010,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Zemní práce na zhotovení pomníků dvojhrob, 52 ks, s firmou JUBOCAR spol. s r.o., Králova 279/9, 616 00 Brno, IČ 63492954, za cenu 1 860 002,80 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Zemní práce na zhotovení pomníků dvojhrob, 52 ks, s firmou JUBOCAR spol. s r.o., Králova 279/9, 616 00 Brno, IČ 63492954, za cenu 1 860 002,80 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",
@@ -6022,7 +6022,7 @@
      0,
      3
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní opatření PUPFL, k. ú. Střelice u Brna, s firmou AQUASYS spol. s r.o., Jamská 2488/65, 591 01 Žďár nad Sázavou, IČ 25344447, za cenu 2 644 600 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní opatření PUPFL, k. ú. Střelice u Brna, s firmou AQUASYS spol. s r.o., Jamská 2488/65, 591 01 Žďár nad Sázavou, IČ 25344447, za cenu 2 644 600 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",
@@ -6034,7 +6034,7 @@
      0,
      2
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava podlahy v šatně ZŠ Střelice včetně položení nové podlahové krytiny, s firmou ProInterier s.r.o., Bavorská 2780/2, 155 00 Praha, IČ 47122374, za cenu 619 800,30 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava podlahy v šatně ZŠ Střelice včetně položení nové podlahové krytiny, s firmou ProInterier s.r.o., Bavorská 2780/2, 155 00 Praha, IČ 47122374, za cenu 619 800,30 Kč bez DPH. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",
@@ -6046,7 +6046,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek p. č. 3466/8 o výměře 118 m2, k. ú. Střelice u Brna. Smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, (nabyvatel) a Úřadem pro zastupování státu ve věcech majetkových, Rašínovo nábřeží 390/42, 128 00 Praha, IČ 69797111, (převodce). Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek p. č. 3466/8 o výměře 118 m2, k. ú. Střelice u Brna. Smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, (nabyvatel) a Úřadem pro zastupování státu ve věcech majetkových, Rašínovo nábřeží 390/42, 128 00 Praha, IČ 69797111, (převodce). Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",
@@ -6058,7 +6058,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo v rámci participativního rozpočtu realizaci projektů: Bobří stezka II. etapa (rozpočet 300 000 Kč). Venkovní stůl na stolní tenis (rozpočet 100 000 Kč). Zastupitelstvo obce pověřilo radu obce výběrem vhodného obecního pozemku pro realizaci tohoto projektu. Projekt Skatepark, který zvítězil 164 hlasy, bude realizován samostatně z rozpočtu obce Střelice. Zastupitelstvo obce Střelice pověřilo radu obce vypsáním veřejné zakázky"
+    "text": "Zastupitelstvo obce Střelice schválilo v rámci participativního rozpočtu realizaci projektů: Bobří stezka II. etapa (rozpočet 300 000 Kč). Venkovní stůl na stolní tenis (rozpočet 100 000 Kč). Zastupitelstvo obce pověřilo radu obce výběrem vhodného obecního pozemku pro realizaci tohoto projektu. Projekt Skatepark, který zvítězil 164 hlasy, bude realizován samostatně z rozpočtu obce Střelice. Zastupitelstvo obce Střelice pověřilo radu obce vypsáním veřejné zakázky"
    },
    {
     "kategorie": "schvaluje",
@@ -6070,7 +6070,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo technické podmínky prodeje k pozemku p. č. 3361/13, p. č. 3361/14, k. ú. Střelice u Brna, které stanovila Správa železnic, státní organizace, Dlážděná 1003/7, 110 00 Praha, IČ 70994234. Zastupitelstvo obce pověřilo starostu podpisem souhlasu technických podmínek prodeje"
+    "text": "Zastupitelstvo obce Střelice schválilo technické podmínky prodeje k pozemku p. č. 3361/13, p. č. 3361/14, k. ú. Střelice u Brna, které stanovila Správa železnic, státní organizace, Dlážděná 1003/7, 110 00 Praha, IČ 70994234. Zastupitelstvo obce pověřilo starostu podpisem souhlasu technických podmínek prodeje"
    },
    {
     "kategorie": "schvaluje",
@@ -6082,7 +6082,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo pro volební období 2026–2030 patnáct zastupitelů"
+    "text": "Zastupitelstvo obce Střelice schválilo pro volební období 2026–2030 patnáct zastupitelů"
    },
    {
     "kategorie": "schvaluje",
@@ -6094,7 +6094,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo Kupní smlouvu se zřízením služebnosti na nákup pozemku p. č. 16 o výměře 380 m2, zastavěná plocha a nádvoří, jehož součástí je i stavba – budova pošty č. p. 241, k. ú. Střelice u Brna, za cenu 5 370 000 Kč bez DPH. Převod vlastnického práva je osvobozen od DPH v souladu s ustanovením § 56 zákona o dani z přidané hodnoty, v platném znění. Kupující se zavazuje uhradit prodávajícímu náklady spojené s prodejem předmětu koupě ve výši 28 015 Kč vč. DPH na základě daňového dokladu, který vystaví Česká pošta, s.p., Politických vězňů 909/4, 225 99 Praha, IČ 47114983, nejpozději do sedmi pracovních dnů od uzavření smlouvy. Kupní smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, a Českou poštou, s.p., Politických vězňů 909/4, 110 00, Praha, IČ 47114983. Součástí kupní smlouvy bude zřízení služebnosti ve prospěch České pošty, s.p. za účelem zajištění výkonu činnosti. Jedná se o bezplatné užívání prostor dle smlouvy. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
+    "text": "Zastupitelstvo obce Střelice schválilo Kupní smlouvu se zřízením služebnosti na nákup pozemku p. č. 16 o výměře 380 m2, zastavěná plocha a nádvoří, jehož součástí je i stavba – budova pošty č. p. 241, k. ú. Střelice u Brna, za cenu 5 370 000 Kč bez DPH. Převod vlastnického práva je osvobozen od DPH v souladu s ustanovením § 56 zákona o dani z přidané hodnoty, v platném znění. Kupující se zavazuje uhradit prodávajícímu náklady spojené s prodejem předmětu koupě ve výši 28 015 Kč vč. DPH na základě daňového dokladu, který vystaví Česká pošta, s.p., Politických vězňů 909/4, 225 99 Praha, IČ 47114983, nejpozději do sedmi pracovních dnů od uzavření smlouvy. Kupní smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, a Českou poštou, s.p., Politických vězňů 909/4, 110 00, Praha, IČ 47114983. Součástí kupní smlouvy bude zřízení služebnosti ve prospěch České pošty, s.p. za účelem zajištění výkonu činnosti. Jedná se o bezplatné užívání prostor dle smlouvy. Zastupitelstvo obce pověřilo starostu obce podpisem smlouvy"
    },
    {
     "kategorie": "schvaluje",
@@ -6106,11 +6106,35 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice schválilo navýšení příspěvku zřizovatele na platy nepedagogických pracovníků pro ZŠ a MŠ Střelice ve výši 1 500 000 Kč. Zastupitelstvo obce pověřilo radu obce k dalším jednáním s vedením ZŠ a MŠ Střelice o platových podmínkách nepedagogických pracovníků s termínem do příštího jednání zastupitelstva obce"
+    "text": "Zastupitelstvo obce Střelice schválilo navýšení příspěvku zřizovatele na platy nepedagogických pracovníků pro ZŠ a MŠ Střelice ve výši 1 500 000 Kč. Zastupitelstvo obce pověřilo radu obce k dalším jednáním s vedením ZŠ a MŠ Střelice o platových podmínkách nepedagogických pracovníků s termínem do příštího jednání zastupitelstva obce"
    },
    {
-    "kategorie": "schvaluje",
+    "kategorie": "bere na vědomí",
     "tema": "Školství",
+    "castka": null,
+    "vydaj": "Bez částky",
+    "hlasovani": null,
+    "text": "Zastupitelstvo obce Střelice vzalo na vědomí vyjádření ředitele ZŠ a MŠ Střelice Mgr. Davida Čížka k jednotlivým bodům anonymní stížnosti"
+   },
+   {
+    "kategorie": "bere na vědomí",
+    "tema": "Ostatní",
+    "castka": null,
+    "vydaj": "Bez částky",
+    "hlasovani": null,
+    "text": "Zastupitelstvo obce Střelice vzalo na vědomí schválení Závěrečného účtu Společenství obcí Šlapanicko, Opuštěná 9/2, 656 70 Brno, IČ 04379322, za rok 2025, které schválilo Shromáždění starostů dne 9. 6. 2026"
+   },
+   {
+    "kategorie": "bere na vědomí",
+    "tema": "Životní prostředí a odpady",
+    "castka": null,
+    "vydaj": "Bez částky",
+    "hlasovani": null,
+    "text": "Zastupitelstvo obce Střelice vzalo na vědomí schválení Závěrečného účtu valné hromady Svazku vodovodů a kanalizací Ivančice, Kounická 1598/78, 664 91 Ivančice, za rok 2025, které schválila valná hromada dne 23. 6. 2026"
+   },
+   {
+    "kategorie": "pověřuje",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 1,
     "vydaj": "do 10 tis. Kč",
     "hlasovani": [
@@ -6118,7 +6142,7 @@
      0,
      0
     ],
-    "text": "• Zastupitelstvo obce Střelice vzalo na vědomí vyjádření ředitele ZŠ a MŠ Střelice Mgr. Davida Čížka k jednotlivým bodům anonymní stížnosti. • Zastupitelstvo obce Střelice vzalo na vědomí schválení Závěrečného účtu Společenství obcí Šlapanicko, Opuštěná 9/2, 656 70 Brno, IČ 04379322, za rok 2025, které schválilo Shromáždění starostů dne 9. 6. 2026. • Zastupitelstvo obce Střelice vzalo na vědomí schválení Závěrečného účtu valné hromady Svazku vodovodů a kanalizací Ivančice, Kounická 1598/78, 664 91 Ivančice, za rok 2025, které schválila valná hromada dne 23. 6. 2026. • Zastupitelstvo obce Střelice pověřilo radu obce, aby bezodkladně zajistila právní posouzení vymahatelnosti práva obce na převod uvedené místní komunikace v ulici Žleby za 1 Kč, včetně posouzení promlčení a možného zániku závazků a zjištění, zda obec v minulosti učinila výzvu k plnění a jak proběhly převody ostatní infrastruktury. Na základě výsledků tohoto posouzení, aby písemně vyzvala společnost MAXMONT s.r.o., Nádražní 1668, 684 01 Slavkov u Brna, IČ 27712214, k uzavření kupní smlouvy o převodu této místní komunikace na obec za cenu 1 Kč v přiměřené lhůtě a případně předložila zastupitelstvu návrh kupní smlouvy ke schválení, popřípadě návrh dalšího postupu a to nejpozději do příštího plánovaného zasedání zastupitelstva obce"
+    "text": "Zastupitelstvo obce Střelice pověřilo radu obce, aby bezodkladně zajistila právní posouzení vymahatelnosti práva obce na převod uvedené místní komunikace v ulici Žleby za 1 Kč, včetně posouzení promlčení a možného zániku závazků a zjištění, zda obec v minulosti učinila výzvu k plnění a jak proběhly převody ostatní infrastruktury. Na základě výsledků tohoto posouzení, aby písemně vyzvala společnost MAXMONT s.r.o., Nádražní 1668, 684 01 Slavkov u Brna, IČ 27712214, k uzavření kupní smlouvy o převodu této místní komunikace na obec za cenu 1 Kč v přiměřené lhůtě a případně předložila zastupitelstvu návrh kupní smlouvy ke schválení, popřípadě návrh dalšího postupu a to nejpozději do příštího plánovaného zasedání zastupitelstva obce"
    }
   ],
   "raw_text": "Výpis usnesení z 28. zasedání Zastupitelstva obce Střelice dne 23. 6. 2026\nPřítomno: 15 členů ZO – Mgr. Eva Bartoňová, Ing. Radim Brener, Jan Dlapka, Mgr. Ing.\nDavid Dvořák, Mgr. Helena Fialová, Zuzana Hloušková, Ing. Alois Liška, Vojtěch Liška, Jan\nPernikář, Petr Rozsíval, Radovan Smištík, Mgr. Robert Ströbinger, Josef Tichý, Jiří Vašulín,\nMgr. Petra Zoubková\n• Zastupitelstvo schválilo program jednání 28. Zastupitelstva obce Střelice.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Za ověřovatele zápisu zvolilo zastupitelstvo pana Petra Rozsívala\nPro – 14 (Bartoňová, Brener, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška,\nPernikář, Smištík, Ströbinger, Tichý, Vašulín, Zoubková) Proti – 0\nZdržel se – 1 (Rozsíval)\na pana Jana Dlapku.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\nDo návrhové komise zvolilo pana Ing. Radima Brenera\nPro – 14 (Bartoňová, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška,\nPernikář, Rozsíval, Smištík, Ströbinger, Tichý, Vašulín, Zoubková) Proti – 0\nZdržel se – 1 (Brener)\na pana Mgr. Roberta Ströbingera.\nPro – 14 (Bartoňová, Brener, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška,\nPernikář, Rozsíval, Smištík, Tichý, Vašulín, Zoubková) Proti – 0\nZdržel se – 1 (Ströbinger)\n• Zastupitelstvo obce Střelice vzalo bez připomínek na vědomí zprávu o činnosti Rady\nobce Střelice od 27. zastupitelstva obce.\n• Zastupitelstvo obce Střelice vzalo na vědomí rozpočtové opatření č. 4/2026, které\nschválila rada obce č. 92 dne 30. 4. 2026.\n• Zastupitelstvo obce Střelice vzalo na vědomí rozpočtové opatření č. 5/2026, které\nschválila rada obce č. 94 dne 27. 5. 2026.\n• Zastupitelstvo obce Střelice schválilo závěrečný účet obce Střelice za rok 2025 v\nsouladu s § 17 odst. 7 písm. a) zákona č. 250/2000 Sb., o rozpočtových pravidlech\núzemních rozpočtů a uzavřelo projednání závěrečného účtu 2025 vyjádřením souhlasu\ns celoročním hospodařením a se závěrečnou zprávou výsledku auditu, a to bez výhrad.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo účetní závěrku obce Střelice za rok 2025.\nZastupitelstvo obce pověřilo starostu obce podpisem protokolu účetní závěrky.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo účetní odpisový plán za období od 01/2026 do\n12/2026.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Restaurace\nU Nádraží – rekonstrukce střechy, s firmou Stavby a konstrukce, s.r.o., Žatčany 302,\n664 53 Újezd u Brna, IČ 25595750, za cenu 1 393 408 Kč bez DPH.\nZastupitelstvo obce pověřilo starostu obce podpisem smlouvy.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Zemní práce na\nzhotovení pomníků dvojhrob, 52 ks, s firmou JUBOCAR spol. s r.o., Králova 279/9,\n616 00 Brno, IČ 63492954, za cenu 1 860 002,80 Kč bez DPH.\nZastupitelstvo obce pověřilo starostu obce podpisem smlouvy.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní\nopatření PUPFL, k. ú. Střelice u Brna, s firmou AQUASYS spol. s r.o., Jamská\n2488/65, 591 01 Žďár nad Sázavou, IČ 25344447, za cenu 2 644 600 Kč bez DPH.\nZastupitelstvo obce pověřilo starostu obce podpisem smlouvy.\nPro – 12 (Brener, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška, Rozsíval,\nStröbinger, Tichý, Vašulín, Zoubková) Proti – 0 Zdrželi se – 3\n(Bartoňová, Pernikář, Smištík)\n• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava podlahy v\nšatně ZŠ Střelice včetně položení nové podlahové krytiny, s firmou ProInterier s.r.o.,\nBavorská 2780/2, 155 00 Praha, IČ 47122374, za cenu 619 800,30 Kč bez DPH.\nZastupitelstvo obce pověřilo starostu obce podpisem smlouvy.\nPro – 13 (Brener, Dlapka, Dvořák, Fialová, Hloušková, A. Liška, V. Liška, Rozsíval,\nSmištík, Ströbinger, Tichý, Vašulín, Zoubková) Proti – 0 Zdrželi se – 2\n(Bartoňová, Pernikář)\n• Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek p. č.\n3466/8 o výměře 118 m2, k. ú. Střelice u Brna. Smlouva bude uzavřena mezi Obcí\nStřelice, nám. Svobody 111/1, 664 47 Střelice, IČ 00282618, (nabyvatel) a Úřadem\npro zastupování státu ve věcech majetkových, Rašínovo nábřeží 390/42, 128 00 Praha,\nIČ 69797111, (převodce).\nZastupitelstvo obce pověřilo starostu obce podpisem smlouvy.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo v rámci participativního rozpočtu realizaci\nprojektů:\nBobří stezka II. etapa (rozpočet 300 000 Kč).\nVenkovní stůl na stolní tenis (rozpočet 100 000 Kč).\nZastupitelstvo obce pověřilo radu obce výběrem vhodného obecního pozemku pro\nrealizaci tohoto projektu. Projekt Skatepark, který zvítězil 164 hlasy, bude realizován\nsamostatně z rozpočtu obce Střelice. Zastupitelstvo obce Střelice pověřilo radu obce\nvypsáním veřejné zakázky.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo technické podmínky prodeje k pozemku p. č.\n3361/13, p. č. 3361/14, k. ú. Střelice u Brna, které stanovila Správa železnic, státní\norganizace, Dlážděná 1003/7, 110 00 Praha, IČ 70994234.\nZastupitelstvo obce pověřilo starostu podpisem souhlasu technických podmínek\nprodeje.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo pro volební období 2026–2030 patnáct\nzastupitelů.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo Kupní smlouvu se zřízením služebnosti na\nnákup pozemku p. č. 16 o výměře 380 m2, zastavěná plocha a nádvoří, jehož součástí\nje i stavba – budova pošty č. p. 241, k. ú. Střelice u Brna, za cenu 5 370 000 Kč bez\nDPH. Převod vlastnického práva je osvobozen od DPH v souladu s ustanovením § 56\nzákona o dani z přidané hodnoty, v platném znění. Kupující se zavazuje uhradit\nprodávajícímu náklady spojené s prodejem předmětu koupě ve výši 28 015 Kč vč.\nDPH na základě daňového dokladu, který vystaví Česká pošta, s.p., Politických vězňů\n909/4, 225 99 Praha, IČ 47114983, nejpozději do sedmi pracovních dnů od uzavření\nsmlouvy. Kupní smlouva bude uzavřena mezi Obcí Střelice, nám. Svobody 111/1, 664\n47 Střelice, IČ 00282618, a Českou poštou, s.p., Politických vězňů 909/4, 110 00,\nPraha, IČ 47114983. Součástí kupní smlouvy bude zřízení služebnosti ve prospěch\nČeské pošty, s.p. za účelem zajištění výkonu činnosti. Jedná se o bezplatné užívání\nprostor dle smlouvy.\nZastupitelstvo obce pověřilo starostu obce podpisem smlouvy.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice schválilo navýšení příspěvku zřizovatele na platy\nnepedagogických pracovníků pro ZŠ a MŠ Střelice ve výši 1 500 000 Kč.\nZastupitelstvo obce pověřilo radu obce k dalším jednáním s vedením ZŠ a MŠ Střelice\no platových podmínkách nepedagogických pracovníků s termínem do příštího jednání\nzastupitelstva obce.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\n• Zastupitelstvo obce Střelice vzalo na vědomí vyjádření ředitele ZŠ a MŠ Střelice\nMgr. Davida Čížka k jednotlivým bodům anonymní stížnosti.\n• Zastupitelstvo obce Střelice vzalo na vědomí schválení Závěrečného účtu Společenství\nobcí Šlapanicko, Opuštěná 9/2, 656 70 Brno, IČ 04379322, za rok 2025, které\nschválilo Shromáždění starostů dne 9. 6. 2026.\n• Zastupitelstvo obce Střelice vzalo na vědomí schválení Závěrečného účtu valné\nhromady Svazku vodovodů a kanalizací Ivančice, Kounická 1598/78, 664 91 Ivančice,\nza rok 2025, které schválila valná hromada dne 23. 6. 2026.\n• Zastupitelstvo obce Střelice pověřilo radu obce, aby bezodkladně zajistila právní\nposouzení vymahatelnosti práva obce na převod uvedené místní komunikace v ulici\nŽleby za 1 Kč, včetně posouzení promlčení a možného zániku závazků a zjištění, zda\nobec v minulosti učinila výzvu k plnění a jak proběhly převody ostatní infrastruktury.\nNa základě výsledků tohoto posouzení, aby písemně vyzvala společnost\nMAXMONT s.r.o., Nádražní 1668, 684 01 Slavkov u Brna, IČ 27712214, k uzavření\nkupní smlouvy o převodu této místní komunikace na obec za cenu 1 Kč v přiměřené\nlhůtě a případně předložila zastupitelstvu návrh kupní smlouvy ke schválení,\npopřípadě návrh dalšího postupu a to nejpozději do příštího plánovaného zasedání\nzastupitelstva obce.\nPro – 15 (všichni přítomní) Proti – 0 Zdržel se – 0\nZapsala: Ing. Magdaléna Bartlová"

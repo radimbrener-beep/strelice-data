@@ -23,132 +23,137 @@
     "src": "fix"
    },
    {
-    "t": 598,
+    "t": 601,
     "bod": 4,
-    "src": "snip",
-    "label": "Správa o Rady obce Střelice. každé zastupitelstvo obce je bodem správa…"
+    "label": "Zprávu o činnosti Rady obce Střelice od 27. zastupitelstva obce",
+    "src": "fill",
+    "gi": 0
    },
    {
     "t": 850,
     "bod": 5,
-    "label": "• Zastupitelstvo obce Střelice vzalo bez připomínek na vědomí zprávu o činnosti…",
+    "label": "Rozpočtové opatření č. 4/2026, které schválila rada obce č. 92 dne 30. 4. 2026",
     "src": "prog",
-    "gi": 2
+    "gi": 1
    },
    {
     "t": 912,
     "bod": 6,
-    "src": "snip",
-    "label": "Rozpočtové číslo 5/2026. kolegy. rozepsané rozpoč"
+    "label": "Rozpočtové opatření č. 5/2026, které schválila rada obce č. 94 dne 27. 5. 2026",
+    "src": "prog",
+    "gi": 2
    },
    {
     "t": 991,
     "bod": 7,
-    "src": "snip",
-    "label": "Závěr a poděkování"
+    "label": "Závěrečný účet obce Střelice za rok 2025 v souladu s § 17 odst. 7 písm. a) zákona…",
+    "src": "prog",
+    "gi": 3
    },
    {
     "t": 1085,
     "bod": 8,
-    "label": "• Zastupitelstvo obce Střelice schválilo účetní závěrku obce Střelice za rok…",
+    "label": "Účetní závěrku obce Střelice za rok 2025. Zastupitelstvo obce pověřilo starostu…",
     "src": "fill",
-    "gi": 3
+    "gi": 4
    },
    {
     "t": 1144,
     "bod": 9,
-    "label": "• Zastupitelstvo obce Střelice schválilo účetní odpisový plán za období od…",
-    "src": "prog",
-    "gi": 4
-   },
-   {
-    "t": 1245,
-    "bod": 10,
-    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Restaurace U…",
+    "label": "Účetní odpisový plán za období od 01/2026 do",
     "src": "prog",
     "gi": 5
    },
    {
-    "t": 1402,
-    "bod": 11,
-    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Zemní práce…",
+    "t": 1245,
+    "bod": 10,
+    "label": "Smlouvu o dílo, na zakázku: Restaurace U Nádraží – rekonstrukce střechy, s firmou…",
     "src": "prog",
     "gi": 6
    },
    {
+    "t": 1402,
+    "bod": 11,
+    "label": "Smlouvu o dílo, na zakázku: Zemní práce na zhotovení pomníků dvojhrob, 52 ks, s…",
+    "src": "prog",
+    "gi": 7
+   },
+   {
     "t": 1598,
     "bod": 12,
-    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Protierozní…",
+    "label": "Smlouvu o dílo, na zakázku: Protierozní opatření PUPFL, k. ú. Střelice u Brna, s…",
     "src": "fill",
-    "gi": 7
+    "gi": 8
    },
    {
     "t": 1941,
     "bod": 13,
-    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o dílo, na zakázku: Oprava…",
-    "src": "prog",
-    "gi": 8
-   },
-   {
-    "t": 2193,
-    "bod": 14,
-    "label": "• Zastupitelstvo obce Střelice schválilo Smlouvu o bezúplatném převodu, pozemek…",
+    "label": "Smlouvu o dílo, na zakázku: Oprava podlahy v šatně ZŠ Střelice včetně položení…",
     "src": "prog",
     "gi": 9
    },
    {
-    "t": 2309,
-    "bod": 15,
-    "label": "• Zastupitelstvo obce Střelice schválilo v rámci participativního rozpočtu…",
+    "t": 2193,
+    "bod": 14,
+    "label": "Smlouvu o bezúplatném převodu, pozemek p. č. 3466/8 o výměře 118 m2, k. ú.…",
     "src": "prog",
     "gi": 10
    },
    {
-    "t": 2733,
-    "bod": 16,
-    "label": "• Zastupitelstvo obce Střelice schválilo technické podmínky prodeje k pozemku p.…",
+    "t": 2309,
+    "bod": 15,
+    "label": "V rámci participativního rozpočtu realizaci projektů: Bobří stezka II. etapa…",
     "src": "prog",
     "gi": 11
    },
    {
-    "t": 2853,
-    "bod": 17,
-    "label": "• Zastupitelstvo obce Střelice schválilo pro volební období 2026–2030 patnáct…",
+    "t": 2733,
+    "bod": 16,
+    "label": "Technické podmínky prodeje k pozemku p. č. 3361/13, p. č. 3361/14, k. ú. Střelice…",
     "src": "prog",
     "gi": 12
    },
    {
-    "t": 2939,
-    "bod": 18,
-    "label": "• Zastupitelstvo obce Střelice schválilo Kupní smlouvu se zřízením služebnosti na…",
+    "t": 2853,
+    "bod": 17,
+    "label": "Pro volební období 2026–2030 patnáct zastupitelů",
     "src": "prog",
     "gi": 13
    },
    {
-    "t": 3236,
-    "bod": 19,
-    "label": "• Zastupitelstvo obce Střelice schválilo navýšení příspěvku zřizovatele na platy…",
+    "t": 2939,
+    "bod": 18,
+    "label": "Kupní smlouvu se zřízením služebnosti na nákup pozemku p. č. 16 o výměře 380 m2,…",
     "src": "prog",
     "gi": 14
    },
    {
-    "t": 3818,
-    "bod": 20,
-    "label": "• Zastupitelstvo obce Střelice vzalo na vědomí vyjádření ředitele ZŠ a MŠ…",
+    "t": 3236,
+    "bod": 19,
+    "label": "Navýšení příspěvku zřizovatele na platy nepedagogických pracovníků pro ZŠ a MŠ…",
     "src": "prog",
     "gi": 15
    },
    {
+    "t": 3818,
+    "bod": 20,
+    "label": "Vyjádření ředitele ZŠ a MŠ Střelice Mgr. Davida Čížka k jednotlivým bodům…",
+    "src": "prog",
+    "gi": 16
+   },
+   {
     "t": 4346,
     "bod": 21,
-    "src": "snip",
-    "label": "Závěr a poděkování"
+    "label": "Schválení Závěrečného účtu Společenství obcí Šlapanicko, Opuštěná 9/2, 656 70…",
+    "src": "prog",
+    "gi": 17
    },
    {
     "t": 4440,
     "bod": 22,
-    "src": "snip",
-    "label": "Závěr a poděkování"
+    "label": "Schválení Závěrečného účtu valné hromady Svazku vodovodů a kanalizací Ivančice,…",
+    "src": "prog",
+    "gi": 18
    },
    {
     "t": 4525,
@@ -158,20 +163,26 @@
    }
   ],
   "bodytimes": {
-   "5": 850,
-   "6": 1085,
-   "7": 1144,
-   "8": 1245,
-   "9": 1402,
-   "10": 1598,
-   "11": 1941,
-   "12": 2193,
-   "13": 2309,
-   "14": 2733,
-   "15": 2853,
-   "16": 2939,
-   "17": 3236,
-   "18": 3818
+   "3": 601,
+   "4": 850,
+   "5": 912,
+   "6": 991,
+   "7": 1085,
+   "8": 1144,
+   "9": 1245,
+   "10": 1402,
+   "11": 1598,
+   "12": 1941,
+   "13": 2193,
+   "14": 2309,
+   "15": 2733,
+   "16": 2853,
+   "17": 2939,
+   "18": 3236,
+   "19": 3818,
+   "20": 4346,
+   "21": 4440,
+   "22": 4440
   }
  },
  "27": {

@@ -57,10 +57,14 @@ _KATS = [
     (re.compile(r'\bbere\b.*\bna vědomí\b|\bvzalo\b.*\bna vědomí\b|\bkonstatoval', re.I | re.S), 'bere na vědomí'),
 ]
 def detect_kat(text):
+    # rozhoduje NEJDŘÍVE se vyskytující sloveso — „vzalo na vědomí schválení X"
+    # je bere-na-vědomí, i když text dál obsahuje „schválilo"
+    best, pos = 'jiné', len(text) + 1
     for pat, kat in _KATS:
-        if pat.search(text):
-            return kat
-    return 'jiné'
+        m = pat.search(text)
+        if m and m.start() < pos:
+            pos, best = m.start(), kat
+    return best
 
 
 # ── Načtení PDF ───────────────────────────────────────────────────────────────
@@ -125,15 +129,39 @@ def parse_format_a(raw):
         # Odstraň úvodní jmenovitý seznam (končí za posledním jménem před prvním slovesem)
         text = re.sub(r'^(?:[A-ZÁČĎÉĚÍŇÓŘŠŤÚŮÝŽ][a-záčďéěíňóřšťúůýž]+\s+)*', '', text).strip()
 
+        # V segmentu může být VÍC usnesení bez vlastního hlasování (bere na
+        # vědomí, pověřuje…) oddělených odrážkou • — hlasování patří POSLEDNÍMU.
+        parts = [p.strip() for p in re.split(r'\s*•\s*', text) if p.strip()]
+        if not parts:
+            continue
+        for p in parts[:-1]:
+            if len(p) < 15:
+                continue
+            if re.match(r'^a\s+pan(a|í|i)?\b', p, re.I) and body:
+                body[-1]['text'] += ' ' + p
+                continue
+            body.append(_item(p, None))
+        text = parts[-1]
+
         # Přeskoč příliš krátký text (pokračování, "a pana X.")
         if len(text) < 15:
             continue
-        # Pokud text začíná "a pan(í)" – je to pokračování ověřovatele apod., přidej k předchozímu
-        if re.match(r'^a\s+pan[íi]?\b', text, re.I) and body:
+        # Pokud text začíná "a pan(a/í)" – je to pokračování ověřovatele apod., přidej k předchozímu
+        if re.match(r'^a\s+pan(a|í|i)?\b', text, re.I) and body:
             body[-1]['text'] += ' ' + text
             continue
 
         body.append(_item(text, hl))
+
+    # ocásek ZA posledním hlasováním — usnesení bez hlasování na konci výpisu
+    # (jen odrážky začínající „Zastupitelstvo…", ať nezachytíme podpisový blok)
+    tail = USN_ID_RE.sub('', raw[max(prev_end, header_end):])
+    tlines = [l.strip() for l in tail.splitlines()]
+    tlines = [l for l in tlines if len(l) > 4 and not re.fullmatch(r'[\d\s/\.]+', l)]
+    ttext = ' '.join(tlines).strip()
+    for p in (p.strip() for p in re.split(r'\s*•\s*', ttext) if p.strip()):
+        if len(p) >= 30 and re.match(r'^Zastupitelstvo\b', p):
+            body.append(_item(p, None))
 
     return body
 
