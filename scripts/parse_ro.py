@@ -39,6 +39,13 @@ STRIP_TAIL_RE = re.compile(
     r'\s*\.?\s*(?:RO|Rada\s+obce)\s+a?\s*pověřuje\s+starostu\s+(?:obce\s+)?podpisem\s+smlouvy\.?$',
     re.I)
 
+# Znaky odrážek napříč fonty. Kromě • (U+2022) sem patří  — odrážka
+# Symbol/Wingdings fontu z Private Use Area, tak ji pdfplumber vytáhne z
+# novějších zápisů (např. RO 96). Bez toho se položky nerozpoznají a zápis
+# vyjde prázdný. Escapes schválně, ať je zdroj čistě ASCII a nejde zmršit.
+BULLETS = '•‣●▪◦·∙⁃'
+_LEAD_BULLET_RE = re.compile('^[' + re.escape(BULLETS) + r'\-]\s*')
+
 
 def pdf_text(source):
     if isinstance(source, str) and source.startswith('http'):
@@ -53,8 +60,8 @@ def clean(text):
     text = re.sub(r'\s+', ' ', text).strip()
     text = STRIP_TAIL_RE.sub('', text)
     text = text.strip().rstrip('.')
-    # odstraň vedoucí bullet •
-    text = re.sub(r'^[•\-]\s*', '', text).strip()
+    # odstraň vedoucí odrážku (•, , pomlčka…)
+    text = _LEAD_BULLET_RE.sub('', text).strip()
     return text
 
 
@@ -119,8 +126,8 @@ def parse(source, cislo_hint=None):
         if not in_content:
             continue
 
-        # Bullet = nová položka
-        if stripped.startswith('•'):
+        # Odrážka = nová položka (bere v potaz více znaků odrážek, viz BULLETS)
+        if stripped and stripped[0] in BULLETS:
             flush_item()
             current_item_lines.append(stripped[1:].strip())
         elif current_item_lines:
