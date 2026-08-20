@@ -1,0 +1,171 @@
+{
+  "cislo_zasedani": 27,
+  "vid": "73ndg9cnY6w",
+  "body": [
+    {
+      "index": 0,
+      "start": 481,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 26. zastupitelstva se rada sešla čtyřikrát — zápisy č. 88 až 91 jste obdrželi e-mailem. Má někdo k zápisům dotaz?"},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Dobrý večer, děkuji za slovo. Viděla jsem, že jste pokročili ve věci stavu školy a vypsali poptávku po firmě na energetickou studii. Můžete říct víc a jaká je dodací lhůta?"},
+        {"who": "Starosta", "role": "s", "text": "Studie má být obci předána podle objednávky do 7. května, tedy příští týden. Bude se zabývat hlavně zdrojem tepla — zda využít stávající kotelnu, nebo přidat druhou pro druhou polovinu budovy školy — a měla by zmínit i fotovoltaiku a zateplení; energetik dělal sondy do pláště budovy zatepleného kolem roku 2006. Hlavní myšlenkou je, aby posudek navrhl, jak rekonstrukci zdroje tepla a fotovoltaiku do budoucna řešit. Rekuperace v této zakázce není, ta musí být samostatný projekt."},
+        {"who": "Radim Brener", "role": "z", "text": "Chápu, že rekuperace může být v dalším projektu, ale přijde mi zvláštní, že nebude komplexně zvážena — souvisí přece s energetickou náročností budovy."},
+        {"who": "Starosta", "role": "s", "text": "Studie je pouze návrh, ze kterého vycházejí jednotlivé projekty; výsledek jsem zatím neviděl, takže nemohu nic potvrdit. Rekuperace v celé budově je náročná investice a stejně ji budeme muset řešit samostatným projektem. Věřím, že myšlenka rekuperace ve studii bude — byla o tom řeč — ale potvrdit to mohu, až studii uvidím."},
+        {"who": "David Dvořák", "role": "z", "text": "Jen doplním: energetik to posoudí, a pokud mu to vyjde smysluplně — energeticky i nákladově — může tam být i rekuperace."}
+      ]
+    },
+    {
+      "index": 1,
+      "start": 775,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "V materiálu č. 1 předkládáme rozpočtové opatření č. 2/2026, které reaguje na skutečný vývoj finančních operací obce za únor 2026 a které projednaly a schválily rada obce i finanční výbor. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů zastupitelstvo bere na vědomí rozpočtové opatření č. 2/2026, schválené radou obce č. 88 dne 27. 2. 2026."}
+      ]
+    },
+    {
+      "index": 2,
+      "start": 847,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 2 předkládáme podrobně rozepsané rozpočtové opatření č. 3/2026, zpracované společně s našimi účetními a reagující na skutečný vývoj finančních operací obce. Rada obce doporučuje vzít je na vědomí."},
+        {"who": "Starosta", "role": "s", "text": "Děkuji. Bez dotazů zastupitelstvo bere na vědomí rozpočtové opatření č. 3/2026, schválené radou obce č. 90 dne 25. 3. 2026."}
+      ]
+    },
+    {
+      "index": 3,
+      "start": 920,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Jde o rekonstrukci chodníku na ulici Antonína Smutného včetně části ulice Na Hrázi. Do výběrového řízení se přihlásili čtyři uchazeči; nejnižší nabídku podala firma BS - IMEX, spol. s r.o. z Brna (IČ 63476711) za 8 423 111 Kč bez DPH (materiál č. 3). Rada doporučuje smlouvu schválit. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Z nákresu vyplývá, že na zeleném plácku, kde je dnes sběrné místo, bude parkoviště — moc zeleně tam nezůstane. A vypadá to, že je tam zachováno sběrné místo se třemi kontejnery?"},
+        {"who": "Starosta", "role": "s", "text": "Zůstane tam jen jeden kontejner na sklo, o umístění ještě budeme diskutovat. Parkovací plochy jsou maximum, co tam projektant mohl umístit, a myslím, že je potřeba je udělat — dnes tam parkuje spousta aut. Prostoru je málo, ale nějaká zeleň tam určitě bude."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Půjdou dolů tři vzrostlé borovice, takže bychom měli mít i povinnost náhradní výsadby."},
+        {"who": "Starosta", "role": "s", "text": "Náhradní výsadba být musí. Až projekt připravíme — začátkem příštího týdne by mělo stavební povolení nabýt právní moci — oslovíme zahradního architekta, aby připravil návrh zeleně; to bude další etapa. Na jaře jsme už vysazovali a další stromy vysázíme. Bez dalších dotazů návrhová komise přečetla usnesení a smlouva o dílo byla schválena, můžeme stavbu zahájit."}
+      ]
+    },
+    {
+      "index": 4,
+      "start": 920,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo týmž usnesením pověřilo starostu obce podpisem smlouvy o dílo na rekonstrukci chodníku; schváleno společně s předchozím bodem."}
+      ]
+    },
+    {
+      "index": 5,
+      "start": 1201,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Jde o nákup pozemků p. č. 3419/29 a p. č. 3441/60 v k. ú. Střelice u Brna — lokalita U Čepra mezi stávající cestou a železniční tratí. Obec je může využít pro občanskou vybavenost (hřiště pro mládež, odstavné parkoviště, překladiště při stavbách). Správa železnic, státní organizace, předkládá kupní smlouvu za celkovou cenu 859 000 Kč bez DPH (materiál č. 4); cenu schválilo zastupitelstvo č. 24 dne 16. prosince 2025. Rada doporučuje schválit. Má někdo dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů; návrhová komise přečetla usnesení a kupní smlouva na nákup uvedených pozemků byla schválena."}
+      ]
+    },
+    {
+      "index": 6,
+      "start": 1201,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo týmž usnesením pověřilo starostu obce podpisem kupní smlouvy; schváleno všemi 15 hlasy."}
+      ]
+    },
+    {
+      "index": 7,
+      "start": 1380,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "V souvislosti s připravovanou rekonstrukcí ulic Úvoz, Nové a části ulice Na Hrázi předkládáme návrh směnné a kupní smlouvy (materiál č. 5). Část pozemku p. č. 1261/1 o výměře 7 m² v majetku soukromých vlastníků bude směněna za stejnou výměru pozemku p. č. 1260/1 v majetku obce. Obec dále prodá části pozemku p. č. 1260/1 o výměře 30 m² a p. č. 1261/2 o výměře 1 m², vše v k. ú. Střelice u Brna. Na pozemky si obec nechala zpracovat znalecký posudek, cena 1 400 Kč/m², celkem 43 400 Kč; přílohou je geometrický plán č. 3088-341/2025 ze dne 26. 11. 2025. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů; návrhová komise přečetla usnesení a smlouva byla schválena."}
+      ]
+    },
+    {
+      "index": 8,
+      "start": 1380,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo týmž usnesením pověřilo starostu obce podpisem směnné a kupní smlouvy; schváleno společně s předchozím bodem."}
+      ]
+    },
+    {
+      "index": 9,
+      "start": 1586,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Vloni v září se na obec obrátila realitní kancelář s nabídkou odprodeje pozemku p. č. 391/8 v k. ú. Střelice u Brna pod chodníkem v ulici Antonína Smutného o rozloze 22 m² za 4 356 Kč. Podle znaleckého posudku je požadovaná cena pro obec výhodnější než obvyklá. Kupní smlouva zahrnuje i administrativní a právní služby prodávajícího ve výši 3 025 Kč, celková cena tedy činí 7 381 Kč. Smlouvu se společností Viagem a.s. jsme po konzultaci s právničkou upravili a předkládáme ke schválení. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla kupní smlouva schválena — jde o pozemek u druhé bytovky na ulici Antonína Smutného, jak upřesnil pan Smištík."}
+      ]
+    },
+    {
+      "index": 10,
+      "start": 1586,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo týmž usnesením pověřilo starostu obce podpisem kupní smlouvy na pozemek p. č. 391/8; schváleno společně s předchozím bodem."}
+      ]
+    },
+    {
+      "index": 11,
+      "start": 1757,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme smlouvu o poskytnutí podpory ze Státního fondu životního prostředí ČR — dotaci ve výši 450 000 Kč na vozidlo s alternativním pohonem, kontejnerový komunální elektromobil. Vozidlo jsme dnes v poledne převzali; po zaškolení obsluhy by mělo do týdne vyjet do ulic a sloužit pracovní četě obce. Rada doporučuje schválit. Má někdo dotaz?"},
+        {"who": "Radim Brener", "role": "z", "text": "Mohl byste zmínit, kde bude vozidlo nabíjeno a jak to bude řešeno?"},
+        {"who": "Starosta", "role": "s", "text": "Státní fond nám po náročném jednání schválil dotaci na fotovoltaiku, kterou máme na hasičské zbrojnici, na obecním úřadě a v domě s pečovatelskou službou na ulici Antonína Smutného, a tuto energii chceme co nejvíc využívat. Elektromobil proto bude dobíjen na dvoře obecního úřadu, kde připravujeme nabíjecí stanici; přebytky z bateriového úložiště chceme večer využívat i na veřejné osvětlení. Ideální by bylo pořídit časem i elektromobil na rozvoz obědů, uvidíme podle vývoje dotací. Bez dalších dotazů byla smlouva o poskytnutí podpory schválena."}
+      ]
+    },
+    {
+      "index": 12,
+      "start": 1757,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo týmž usnesením pověřilo starostu obce podpisem smlouvy o poskytnutí podpory ze Státního fondu životního prostředí; schváleno společně s předchozím bodem."}
+      ]
+    },
+    {
+      "index": 13,
+      "start": 1994,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Jde o výměnu silničních obrubníků na krajské silnici III/3945 ve Střelicích, ulice Antonína Smutného a ulice Tetčická (stavební objekt SO 102). Zakázka byla soutěžena současně s opravou silnice, kterou zajišťovala Správa a údržba silnic Jihomoravského kraje. Přihlásilo se devět uchazečů, nejnižší nabídku podala společnost IMOS Brno, a.s. (IČ 25322257) za 2 286 461,57 Kč bez DPH (materiál č. 8). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "pan Smištík", "role": "z", "text": "Ve smlouvě je uvedeno šest měsíců — to zasáhne i prázdniny. Jak to bude s koordinací kvůli koupališti a parkování na ulici Školní, kam se auta dostávají právě přes ulici Antonína Smutného?"},
+        {"who": "Starosta", "role": "s", "text": "Harmonogram zatím neznám — tento týden se mi s firmou IMOS nepodařilo sejít, řeším to přes Správu a údržbu silnic a mám přislíbenou schůzku na příští týden. Chceme to zkoordinovat tak, aby to neomezovalo ani naši stavbu chodníků; termíny přes prázdniny nějak rozložíme, jakmile budu vědět víc, dám vědět. Bez dalších dotazů návrhová komise přečetla usnesení a smlouva o dílo byla schválena."}
+      ]
+    },
+    {
+      "index": 14,
+      "start": 1994,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo týmž usnesením pověřilo starostu obce podpisem smlouvy o dílo na výměnu obrubníků; schváleno společně s předchozím bodem."}
+      ]
+    },
+    {
+      "index": 15,
+      "start": 2232,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Společnost Recovera Využití zdrojů a.s., která pro obec zajišťuje svoz odpadů, žádá o navýšení ceny dopravy z důvodu růstu cen pohonných hmot. Cena bude stanovena podle výpisu trasy z GPS ve výši 125 Kč/hod bez DPH provozu svozového nákladního vozu, s platností od 1. 5. 2026; bude se odvíjet od vývoje průměrných cen pohonných hmot podle Českého statistického úřadu, a pokud do 31. 12. 2026 ceny neklesnou na hranici platnou při uzavření smlouvy, předloží zhotovitel nový písemný dodatek nebo novou smlouvu. Rada doporučuje schválit (dodatečný materiál č. 9). K dotazu na počet hodin měsíčně — u komunálního odpadu jde zhruba o 8 až 9 hodin dvakrát měsíčně, u tříděného méně; nárůst může činit přibližně 7 až 10 000 Kč měsíčně. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "V pondělí jste zmiňoval, že bychom mohli dospět i k výběrovému řízení — nevím, kdy se naposledy nějaká soutěž dělala."},
+        {"who": "Starosta", "role": "s", "text": "Je pravda, že svozová firma zde jezdí přes deset let. Pokud by předložila novou smlouvu, výběrové řízení se udělat může, ale současné navýšení je dané právě cenami pohonných hmot."},
+        {"who": "Radim Brener", "role": "z", "text": "Chtěl bych upozornit, že jsme se bavili o platnosti od 1. května, zatímco ve smlouvě je uveden 1. duben. A také: když cena poroste, Recovera na to zareaguje zdražením — když bude klesat, musíme si jako objednatel pohlídat a upozornit je, aby cenu zase snížili."},
+        {"who": "Starosta", "role": "s", "text": "Je to jejich žádost, ale trval jsem na tom a budu trvat, že platnost bude od 1. května; zpětně to řešit nelze. V ceníku mají ceny ještě vyšší a my jsme přistoupili na nejnižší možnou variantu; na další navýšení bychom v této době nepřistoupili a muselo by je znovu schválit zastupitelstvo. Bez dalších dotazů bylo navýšení ceny schváleno."}
+      ]
+    },
+    {
+      "index": 16,
+      "start": 3476,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Dne 24. dubna 2026 obec převzala anonymní stížnost na vedení základní školy ve Střelicích; obsahuje sedm bodů. Stížnost bude předána řediteli školy, aby se k jednotlivým bodům vyjádřil do 29. května 2026. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "O tom jsme se bavili na pondělní interní schůzce a myslím, že jsme se mezi sebou dohodli, takže je to jasné."},
+        {"who": "Radim Brener", "role": "z", "text": "Poprosil bych, zda bychom jako zastupitelé mohli být informováni o tom, jak se ředitel k jednotlivým bodům vyjádřil."},
+        {"who": "Starosta", "role": "s", "text": "Beru na vědomí a vyjádření vám přepošlu. Zastupitelstvo bere anonymní stížnost na vědomí (nehlasuje se)."}
+      ]
+    },
+    {
+      "index": 17,
+      "start": 3598,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 12 máte zápis č. 14 z jednání kontrolního výboru, který sepsala předsedkyně výboru Eva Bartoňová. Jsou tam body, na které byla rada obce a obec upozorněny."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Kontrolní výbor se během březnového jednání dohodl podívat se blíže na dvě poptávky na studie — na přístavbu školní jídelny a na propojení koupaliště a fotbalového hřiště na ulici Antonína Smutného. U studie jídelny byli nejprve poptáni dva dodavatelé a třetí byl osloven později; chtěla jsem zdůraznit, že v takové situaci musí všichni oslovení projektanti dostat stejné podmínky i dostatek času, výběrové řízení má být transparentní. U studie u koupaliště byla dokumentace vysoutěžena v březnu s dodáním na konec května."},
+        {"who": "Starosta", "role": "s", "text": "Jakmile budou studie předány, zveřejníme je na webu obce — stejně jako projekt na ulici Antonína Smutného, u kterého čekáme na nabytí právní moci; doufám, že koncem příštího týdne ho budeme moci zveřejnit a zahájit stavbu. Návrhová komise poté přečetla usnesení a zastupitelstvo vzalo zápis kontrolního výboru č. 14 na vědomí."},
+        {"who": "Starosta", "role": "s", "text": "Otevírám bod různé a rozpravu; nejprve zastupitelé, poté občané. Vezmu si slovo já: včera jsme s panem místostarostou jednali s provozovatelem zdroje zápachu. Doručili nám projekt vzduchotechniky — projekční firma dále řešila způsob filtrace a biofiltrace je připravená; stavební práce by měly být zahájeny koncem příštího týdne. Projekt ještě podle slibu pošlu na posouzení odborné firmě do Prahy."},
+        {"who": "Radim Brener", "role": "z", "text": "K rušení sběrných míst na tříděný odpad: chápu, že kontejnery na plasty a papír mají ze stanovišť zmizet a zůstanou jen u sběrného dvora — ty jsou ale pořád plné. Nešlo by, aby je četa vyměňovala za prázdné, nebo aby občané mohli odpad vozit v době provozu sběrného dvora? Slyšel jsem, že tam menší papír neberou a lidi vykázali."},
+        {"who": "Starosta", "role": "s", "text": "Souhlasím. Ke zrušení stanovišť jsme přistoupili neradi — na veřejných stanovištích se hromadil nepořádek, který tam vozí hlavně firmy a řemeslníci projíždějící obcí (pneumatiky, plasty z aut); po Velikonocích jsme odtud odvezli dvě vlečky a za pár dní bylo stanoviště opět plné. Každý občan má možnost získat zdarma nádoby na tříděný odpad — děláme soupis do konce května a komu se nedostalo, tomu je obec koupí a zaplatí. U sběrného dvora připravíme i kontejner na papír a domluvím s obsluhou, aby plné kontejnery vyměňovala, jak navrhuješ. Sběrný dvůr má letní provoz v pondělí a ve středu od 15 do 18 hodin a v sobotu od 8 do 12. Pro rekreační objekty a zahrádkáře navíc zřizujeme oplocená stanoviště (mimo jiné u vodojemu, Pod Lipami a na Mastných horách), kam vlastníci dostanou klíče. Po posledním svozu, zhruba 6. května, veřejná stanoviště zrušíme; zůstane sklo, textil, oleje a elektroodpad."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Měli jsme dotaz na pytle na odpad pro ty, kdo nemají místo na popelnice — jaký mají objem a jak se dají zavázat?"},
+        {"who": "Místostarosta", "role": "s", "text": "Pytle mají 120 litrů a jsou určené hlavně pro domácnosti, které nemají kam popelnici postavit; svoz je měsíční. Na sběrném dvoře je přímo kontejner na kartony, které se dají skládat; ostatní zmačkaný papír patří do pytlů. Upozornil bych i na bioodpad: do velkoobjemového kontejneru patří tráva, listí a drobný bioodpad, kdežto větve a stromy patří za hřbitov na parkoviště, kde se hromadně štěpkují."},
+        {"who": "Starosta", "role": "s", "text": "Jiné místo na bioodpad zatím nemáme — sběrný dvůr je pod kamerami a jednu jsme přidali přímo na bioodpad. Jednáme s velitelem městské policie v Modřicích a chtěl bych, aby policie výhledově převzala i dohled nad kamerovým systémem a řešila přestupky, když někdo naveze, co tam nepatří."},
+        {"who": "Robert Ströbinger", "role": "z", "text": "Navázal bych a doporučil zvážit monitoring i u sběrného místa na bioodpad u hřbitova — nedávno tam přijel velký kamion a vyházel větve, přitom je to primárně pro občany."},
+        {"who": "Starosta", "role": "s", "text": "Souhlasím a zamyslíme se nad tím; hřbitov je pod kamerami, takže přidání jedné kamery by nemělo být nákladné."},
+        {"who": "Helena Fialová", "role": "z", "text": "Byla jsem oslovena občany, kteří mají dlouhodobě problém s mobilním signálem — těžko se dovolají. Mohli bychom se tím zabývat, nechat zmapovat pokrytí a požádat renomovanou firmu o posílení signálu?"},
+        {"who": "Starosta", "role": "s", "text": "Asi před měsícem jsem na podnět občanů z Dolního konce odeslal na Český telekomunikační úřad žádost o zařazení této části mezi tzv. bílá místa a o proměření signálu; odpověď zatím nemáme. Zároveň řešíme žádost T-Mobilu o vybudování nového vysílače, ale je těžké najít vhodný pozemek kvůli ochrannému pásmu. Situace je vážná — jedna paní se nemohla z domu dovolat záchranky a musela vyběhnout na ulici."},
+        {"who": "Občan", "role": "o", "text": "Jako zástupce místní firmy jsem obci zaslal studii záměru postavit na našem pozemku polyfunkční dům se třemi bytovými jednotkami pro zaměstnance firem v areálu. Uvažovali jste o tom?"},
+        {"who": "Starosta", "role": "s", "text": "Tímto záměrem se bude zítra zabývat rada obce, poté půjde do stavební komise a případně na zastupitelstvo; odpověď tedy nebude hned a dostanete ji od pana místostarosty. Tím pro dnešek končím — děkuji všem za účast, přeji hezký večer a v červnu na shledanou."}
+      ]
+    }
+  ]
+}

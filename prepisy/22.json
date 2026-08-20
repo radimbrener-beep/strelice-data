@@ -1,0 +1,208 @@
+{
+  "cislo_zasedani": 22,
+  "vid": "LsJM35aIf_I",
+  "body": [
+    {
+      "index": 2,
+      "start": 603,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 20. zastupitelstva se rada sešla šestkrát — obdrželi jste zápisy č. 72 až 77. Má někdo dotaz? Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Na jedné z rad se schvalovala výstavba haly na zemědělské potřeby v lokalitě Mastné hory, nedaleko chatové oblasti. Dostal stavebník nějaké podmínky, jak má hala vypadat, vzhledem k blízkosti chat?"},
+        {"who": "Místostarosta", "role": "s", "text": "Halu staví soukromý vlastník; záměr byl projednáván ve stavební komisi i v radě obce už přibližně před třemi lety. V projektu došlo jen k minimálním změnám — zvětšení zázemí pro pracovníky z hygienických důvodů a doplnění odvětrávání. Stavba je zasazená do svahu, severní strana bude schovaná za navezeným valem osázeným zelení, výška budovy je do 10 metrů a nemá výrazně převyšovat okolní zástavbu. Na lokalitu Mastné hory navíc nenavazuje přímo, mezi nimi je ještě pozemek."},
+        {"who": "Starosta", "role": "s", "text": "Děkuji za vysvětlení. Pokud není další dotaz, zastupitelstvo bere zápisy rady obce č. 72 až 77 na vědomí."}
+      ]
+    },
+    {
+      "index": 3,
+      "start": 813,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 1 předkládáme rozpočtové opatření č. 6/2025, které reaguje na skutečný vývoj finančních operací v červnu 2025. Rada obce (č. 72) i finanční výbor je projednaly a schválily."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů zastupitelstvo bere rozpočtové opatření č. 6/2025 na vědomí."}
+      ]
+    },
+    {
+      "index": 4,
+      "start": 873,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 2 předkládáme rozpočtové opatření č. 7/2025, zpracované s našimi účetními; reaguje na skutečný vývoj finančních operací v červenci 2025. Rada obce i finanční výbor doporučují vzít je na vědomí."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů zastupitelstvo bere rozpočtové opatření č. 7/2025 na vědomí."}
+      ]
+    },
+    {
+      "index": 5,
+      "start": 933,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 3 předkládáme rozpočtové opatření č. 8/2025, které reaguje na skutečný vývoj finančních operací v srpnu 2025. Rada obce i finanční výbor doporučují vzít je na vědomí."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů zastupitelstvo bere rozpočtové opatření č. 8/2025 na vědomí."}
+      ]
+    },
+    {
+      "index": 6,
+      "start": 1000,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Správa železnic předkládá smlouvu o bezúplatném převodu pozemku p. č. 3419/41 v k. ú. Střelice u Brna, ve vlastnictví České republiky — jde o pozemek pod cestou u sběrného dvora, u areálu ČEPRO (materiál č. 4). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o bezúplatném převodu pozemku p. č. 3419/41 se státní organizací Správa železnic (IČO 70994234) schválena a starosta byl pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 7,
+      "start": 1137,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Správa železnic dále předkládá technické podmínky prodeje pozemku p. č. 3465/15 v k. ú. Střelice u Brna — jde o pozemek pod chodníkem k zámečku na ulici Tetčická (materiál č. 5). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byly technické podmínky prodeje pozemku p. č. 3465/15 schváleny a starosta byl pověřen podpisem souhlasu."}
+      ]
+    },
+    {
+      "index": 8,
+      "start": 1240,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme návrh obecně závazné vyhlášky o místním poplatku za odkládání komunálního odpadu z nemovité věci. Od roku 2025 má obec zákonnou povinnost plnit takzvané třídicí cíle — předat nejméně 60 % komunálního odpadu k využití a nejvýše 40 % skládkovat či energeticky využít; požadavky se budou dále zpřísňovat. Mění se proto způsob svozu tříděného odpadu i systém poplatku. Nově se bude platit podle objednané kapacity nádob v litrech na poplatníka za měsíc. Zákon umožňuje sazbu 0,1 až 1 Kč za litr; rada navrhuje 0,60 Kč za litr a minimální dílčí základ 30 litrů (původně se zvažovalo 60 litrů, po propočtech jsme je snížili). Platit se bude zpětně za skutečně svezený odpad, vyúčtování proběhne v lednu následujícího roku. Vyhláška by nabyla účinnosti 1. ledna 2026, připomínkovala ji i hospodářská komise. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Téma je v obci hodně diskutované, věnovali jsme se mu i na pondělním pracovním setkání zastupitelů a konzultovali je v Troubsku, kde systém funguje od roku 2024 a produkce směsného komunálního odpadu tam za rok klesla o 22 %. Otevírám diskuzi."},
+        {"who": "Radim Brener", "role": "z", "text": "Nemám dotaz, spíš poznámku. Změna systému se otevírala hlavně z ekonomického hlediska — mělo to pro obec vyjít výhodněji, protože roste cena za skládkování i pokuty. Firma Recovera nám ale přes dvojí žádost nikdy nedodala ekonomickou analýzu, takže nemáme podklad, zda starý systém nebyl výhodnější. Pokles směsného odpadu o 22 % ještě neznamená úsporu — svozové vozy budou jezdit častěji kvůli komunálu, plastům i papíru, tedy víc kilometrů a času. Obávám se, že starý systém by pro obec vyšel ekonomicky lépe."},
+        {"who": "Starosta", "role": "s", "text": "Recoveru jsme oslovili a upřesnili počty nádob u rodinných domů i snížení počtu nádob na stanovištích. Potvrzuji, že pro obec v rozjezdu tento způsob výhodný není a cena poroste. Když ale snížíme množství komunálního odpadu, splníme dané kvóty, které nesmíme překročit, a víc vytříděného odpadu znamená vyšší příjem od EKO-KOMu — za rok 2024 to bylo zhruba 779 tisíc Kč. Výhodné je to hlavně pro občany."},
+        {"who": "David Dvořák", "role": "z", "text": "Doplním, že od EKO-KOMu jsme za rok 2025 dostali necelý milion korun, a to za tříděný plast a papír. Největší výhodou svozu od domu je, že ze směsného odpadu dostaneme bioodpad — dnes máme zhruba 200 kg na obyvatele, z toho asi 50 kg bioodpadu, takže bychom mohli klesnout ke 150 kg."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "V článku 6 vyhlášky o výpočtu poplatku bylo něco o zaokrouhlování objemu — zůstává to tam? A nerozumím tomu, proč by měla čtyřčlenná rodina platit za 120 litrů, když je nenaplní."},
+        {"who": "Místostarosta", "role": "s", "text": "Zaokrouhluje se dílčí základ přepočtený na jednotlivé poplatníky, a to na celé litry nahoru — je to systematika zákona o místních poplatcích. Poplatek platí každá fyzická osoba s bydlištěm v nemovitosti, případně vlastník, který tam nemá nahlášenou žádnou osobu, a to nejméně z minimálního dílčího základu 30 litrů měsíčně."},
+        {"who": "David Dvořák", "role": "z", "text": "Smysl zákona je, že poplatek musí být dohledatelný na konkrétního poplatníka; chtěli jsme to zjednodušit na plátce za celou nemovitost, ale zákon to neumožňuje. Platí se i za to, že je systém k dispozici — sběrný dvůr i svoz tříděného odpadu. Proto jsme minimum snížili; poplatek zůstává zhruba na dnešní úrovni a minimum umožňuje zapojit i poplatníky bez nahlášených osob. Kdo má malé množství odpadu, dnes platí 650 Kč, podle nového minima to bude 324 Kč."},
+        {"who": "Starosta", "role": "s", "text": "Zvažoval jsem odložení na prosinec, ale schvalovat vyhlášku 16. prosince s účinností za 14 dní mi nepřišlo vůči občanům férové. Takto mají na přípravu čtyři měsíce."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Vadí mi, že jsme se v pondělí domluvili na něčem jiném a novou variantu jsme dopředu nedostali. Obec navíc měla čas oslovit i další svozové firmy — do 30 dnů by dodaly reálné náklady. Nemáme žádná čísla, nevíme, jestli ušetříme 10, 20, nebo 30 procent, a Troubsko není totéž co Střelice. Navrhuji rozhodnutí odložit a připravit podklady; sám jsem si zjišťoval třeba systém vážení na kilogramy."},
+        {"who": "Starosta", "role": "s", "text": "Za nezaslané podklady se omlouvám, vznikly včera večer. Vyhlášku ale nechceme odkládat na prosinec i proto, že máme připravené informační materiály pro občany, které nesmíme zveřejnit dřív, než ji zastupitelstvo schválí."},
+        {"who": "Místostarosta", "role": "s", "text": "Vážení na kilogramy jsme u dodavatelů prověřovali — je nepraktické: váhy se musí často kalibrovat, v kopcovitém terénu vznikají problémy a občané pak reklamují navážené hmotnosti. Nejjednodušší a nejčistší je objem rezervované nádoby."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "V dubnu jsme neměli v ruce nic, ceny 0,60 až 0,80 Kč jsme se dozvěděli až ze zpravodaje. Nejsem proti tomu to vyzkoušet, ale připadá mi to nepřipravené — sejděme se nad tím ještě jednou."},
+        {"who": "Robert Ströbinger", "role": "z", "text": "Rozvahu nákladů na rok 2026 nebudeme mít ani v prosinci, protože nevíme, jak budou lidé třídit. Strávil jsem nad propočty dva dny a neexistuje modelový příklad, kdy by nový systém i s minimem vyšel občanovi dráž. Jdeme do rizika pro obec, ne pro občana."},
+        {"who": "Radim Brener", "role": "z", "text": "Modelové případy, které vyjdou hůř i pro občany, ale existují — rodina se dvěma dětmi, která každých 14 dní naplní 120litrovou nádobu. Analýzu by přitom šlo namodelovat z historických dat 2022 až 2025; zástupkyně Recovery sama ukazovala odhady z jiných obcí, že obec vyjde dráž — tu představu by bylo dobré zhmotnit. Ať to ale dopadne jakkoli, pokud vyhlášku schválíme, budu systém plně propagovat a lidi ke třídění přesvědčovat."},
+        {"who": "David Dvořák", "role": "z", "text": "Obec je tvořena občany — když ušetří občané, je to smyslem obce. Svoz bude pro obec dražší, ale vyděláme na zpětném odběru a u sběrného dvora vznikne nový kontejner na bioodpad přístupný nepřetržitě."},
+        {"who": "Občanka", "role": "o", "text": "Aplikace na sledování odpadu není povinná — jak to zvládnou starší lidé bez chytrého telefonu? Kdo spravuje osobní data a jak bude vypadat vyúčtování?"},
+        {"who": "Starosta", "role": "s", "text": "Aplikace opravdu povinná není. Kdo ji nechce, vše vyřídí na obecním úřadě, kde mu množství i doklad vytiskneme; starším lidem pomáháme, sociální pracovnice je s nimi v kontaktu a nádoby jsme i osobně rozváželi. Vyúčtování vygeneruje obec zpětně v následujícím roce. Data spravuje vybraná společnost JRK, obec je jejich správcem."},
+        {"who": "David Dvořák", "role": "z", "text": "Aplikace je jen dobrovolná nadstavba pro přehled; nádoby čipujeme hlavně proto, aby měla obec průběžná data o množství odpadu. Ve srpnovém zpravodaji je výslovně uvedeno, že jde o možnost, ne povinnost."},
+        {"who": "Starosta", "role": "s", "text": "Každý si musí zvolit správný objem nádoby podle potřeby své rodiny. Pokud není další dotaz, prosím návrhovou komisi o přečtení usnesení."},
+        {"who": "Návrhová komise", "role": "k", "text": "Přečetla návrh usnesení ke schválení obecně závazné vyhlášky o místním poplatku za odkládání komunálního odpadu z nemovité věci."},
+        {"who": "Starosta", "role": "s", "text": "Nechávám hlasovat. Vyhláška byla schválena; proti hlasovali Radim Brener, Jan Pernikář, Martin Klíma a Eva Bartoňová."}
+      ]
+    },
+    {
+      "index": 9,
+      "start": 4480,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Úřad pro zastupování státu ve věcech majetkových předkládá smlouvu o bezúplatném převodu pozemku p. č. 3466/19 v k. ú. Střelice u Brna — jde o pozemek podél chodníku na ulici Tetčická (materiál č. 7). Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o bezúplatném převodu pozemku p. č. 3466/19 s Úřadem pro zastupování státu ve věcech majetkových (IČO 69797111) schválena a starosta pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 10,
+      "start": 4518,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Úřad pro zastupování státu ve věcech majetkových dále předkládá smlouvu o bezúplatném převodu pozemků p. č. 510/1 a 1060/7 v k. ú. Střelice u Brna — jde o pozemky podél chodníku na ulicích Tetčická a Antonína Smutného (materiál č. 8). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o bezúplatném převodu pozemků p. č. 510/1 a 1060/7 schválena a starosta pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 11,
+      "start": 4718,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Do výběrového řízení na nákup nádob na tříděný odpad se přihlásili čtyři uchazeči; nejnižší nabídku podala společnost NAODPAD s.r.o. z Hronova za 1 383 750 Kč bez DPH (materiál č. 9). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Někteří občané popelnice mít nechtějí a budou moci využít pytle na plast a papír — jak to obec eviduje?"},
+        {"who": "Starosta", "role": "s", "text": "Objednávky lidé podávají na formuláři, kde si zvolí buď 240litrovou nádobu na papír a plast, nebo pytle, a u bioodpadu kompostér, nebo hnědou nádobu 240 litrů. Dodávka nádob proběhne do konce listopadu (425 kusů) a do konce února (dalších 200), celkem 625 na každý druh odpadu; barevné pytle na celý rok bude možné vyzvednout před Vánocemi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "A dotace má nějakou dobu udržitelnosti?"},
+        {"who": "Starosta", "role": "s", "text": "Ano, pět let. S každým občanem bude uzavřena nájemní smlouva a po pěti letech nádoba přejde do jeho vlastnictví — stejně jako to bylo u kompostérů zhruba před deseti lety."},
+        {"who": "Občan", "role": "o", "text": "Je zapojení pro každého povinné?"},
+        {"who": "Starosta", "role": "s", "text": "Povinné to není, ale kdo se do systému třídění zapojí, získá pytel nebo nádobu k domu. Zároveň budeme výrazně omezovat počet sběrných stanovišť."},
+        {"who": "Martin Klíma", "role": "z", "text": "Platí se pouze směsný komunální odpad. Tříděný odpad můžete mít v nádobě před domem, nebo ho vozit na sběrný dvůr, případně na sběrná místa, kterých ale bude ubývat."},
+        {"who": "Starosta", "role": "s", "text": "O třídění s občany komunikujeme už od června a snažíme se vše vysvětlovat. Prosím návrhovou komisi o přečtení usnesení."},
+        {"who": "Návrhová komise", "role": "k", "text": "Přečetla návrh usnesení ke kupní smlouvě na nákup nádob na tříděný odpad se společností NAODPAD s.r.o."},
+        {"who": "Starosta", "role": "s", "text": "Nechávám hlasovat. Kupní smlouva byla schválena; zdrželi se Jan Pernikář a Eva Bartoňová."}
+      ]
+    },
+    {
+      "index": 12,
+      "start": 5153,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "V otevřeném výběrovém řízení na nákup kompostérů podala nejnižší nabídku společnost MEVA-TEC s.r.o. z Roudnice nad Labem za 2 240 000 Kč bez DPH (materiál č. 10). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Radim Brener", "role": "z", "text": "Mohl byste zopakovat, proč je cena za jeden kus tak vysoká?"},
+        {"who": "Starosta", "role": "s", "text": "Je to dáno podmínkami dotace, která přesně určuje vzhled, velikost i materiál kompostéru a váže se na pětiletou udržitelnost. Proto jsou dražší než levné kompostéry z hobbymarketů."},
+        {"who": "David Dvořák", "role": "z", "text": "Zatímco o nádoby na tříděný odpad je velký zájem, o kompostéry menší. Vyzývám proto občany, ať si kvalitní kompostér vyzvednou — bioodpad je pro obec na zpracování nejdražší surovina."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Dotace je zhruba 45 až 50 procent, ne 85 jako dřív."},
+        {"who": "Starosta", "role": "s", "text": "Prosím návrhovou komisi o přečtení usnesení."},
+        {"who": "Návrhová komise", "role": "k", "text": "Přečetla návrh usnesení ke kupní smlouvě na nákup kompostérů se společností MEVA-TEC s.r.o."},
+        {"who": "Starosta", "role": "s", "text": "Nechávám hlasovat. Kupní smlouva byla schválena; zdržel se Jan Pernikář."}
+      ]
+    },
+    {
+      "index": 13,
+      "start": 5413,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme smlouvu o spolupráci a financování projektu Cyklostezka Střelice–Troubsko (materiál č. 11), který propojí obě obce. Smlouva se uzavírá mezi obcí Střelice a Dobrovolným svazkem obcí Šlapanicko, jenž bude žadatelem o dotaci z IROPu — je zde možnost získat až 85 %. Projekt se bude realizovat jen za podmínky získání dotace; náklady včetně výkupu pozemků ponesou Střelice a Troubsko každý z poloviny. Trasa povede podél silnice a zatím skončí u vlakové zastávky Střelice dolní. Do jara bychom potřebovali stavební povolení, abychom uspěli v dotačním řízení."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Půjde celá trasa vést po střelické straně, aby se nemuselo přejíždět přes silnici?"},
+        {"who": "Starosta", "role": "s", "text": "Na katastru Troubska je u trasy přes dvacet podílových vlastníků, snažili jsme se jim vyhnout. Do budoucna je úvaha pokračovat přes Mastné hory a lesní cestu směrem na Omice."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Podél trasy rostou javory — zůstanou zachovány?"},
+        {"who": "Starosta", "role": "s", "text": "Budeme se snažit zachovat, co půjde, ale ve fázi přípravy projektu to teď nedokážu slíbit; výkup pozemků nebude jednoduchý. Bez dotace se projekt realizovat nebude. Prosím návrhovou komisi o přečtení usnesení."},
+        {"who": "Návrhová komise", "role": "k", "text": "Přečetla usnesení; smlouva o spolupráci a financování projektu Cyklostezka Střelice–Troubsko s Dobrovolným svazkem obcí Šlapanicko (IČO 04379322) byla schválena."}
+      ]
+    },
+    {
+      "index": 14,
+      "start": 5790,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Rada předkládá upravený návrh územní studie obytného souboru Žleby Ib, který připravil spolek vlastníků. Studie nově obsahuje propojení na plánovanou lokalitu Žleby 2B, takže zůstane zachován průchod a nebude omezena budoucí výstavba. Návrh byl připomínkován stavební komisí a projednán radou, která doporučuje schválit."},
+        {"who": "Radim Brener", "role": "z", "text": "Ověřoval jsem si u plochy Z3, že má sloužit k propojení na Žleby 2B a k průchodu do lesů a že se nemá oplocovat. Škoda je, že z lokality vypadly dva pozemky, takže dopravu už nepůjde napojit na ulici Antonína Smutného a povede kolem domu s pečovatelskou službou. Obávám se také nedostatku parkovacích míst a hlavně toho, že komunikaci ve Žlebech dosud vlastní developer MAXMONT, který ji podle plánovací smlouvy měl převést obci — aby to nezpůsobilo problém s přístupem k pozemkům a s hypotékami."},
+        {"who": "Starosta", "role": "s", "text": "S firmou MAXMONT jsme kvůli nesplnění podmínek v rozporu a stále jednáme; bez splnění této podmínky nebude moci se svými dalšími záměry pokračovat."},
+        {"who": "David Dvořák", "role": "z", "text": "Pro banky i pro přístup k pozemkům stačí veřejně přístupná komunikace a deklaratorní rozhodnutí, které vydají Šlapanice bez ohledu na vlastnictví. Máme to ověřené ze zkušenosti z ulice Kopaniny."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Žleby 2 jsou spíš ukázkou, jak by to vypadat nemělo — vsakovací silnice, málo zeleně, chybějící prostor pro setkávání. Stálo by za úvahu, zda může stavební úřad vymáhat aspoň nějaké sjednocující prvky, jako výšku či vzhled staveb."},
+        {"who": "Jan Pernikář", "role": "z", "text": "V mapě je plocha propojení široká jako silnice, v ideovém návrhu je z ní jen úzký chodník. Co tedy platí?"},
+        {"who": "Místostarosta", "role": "s", "text": "Platí schvalovaná studie; ideový návrh je jen ilustrace. Dva pozemky z lokality vypadly, protože jejich majitelé vystoupili ze spolku, a vznikla tam plocha zeleně s možností budoucího napojení. Stavební komise se zabývala hlavně tím průchodem a její připomínky nebyly zásadní."},
+        {"who": "Občan", "role": "o", "text": "Zastupuji na základě plné moci společnost, která vlastní sousední pozemek. Zásadní problém vidíme v tom, že napojení na Žleby 2B není garantováno. Plocha Z3 by měla být podmínkou schválení a měla by se stát veřejně přístupnou komunikací ve vlastnictví obce, jinak hrozí odříznutí lokality Žleby 2B. Naše společnost je připravena pozemky pro obec odkoupit. Zároveň nám obec na dvě žádosti podle zákona o svobodném přístupu k informacím neodpověděla."},
+        {"who": "Starosta", "role": "s", "text": "Zastupitelstvo už před dvěma lety uložilo studii přepracovat tak, aby tam v budoucnu mohla vzniknout komunikace, a to bylo splněno. Naší podmínkou bylo umožnit průstup; majetkoprávní vypořádání ale obec vyřešit nemůže."},
+        {"who": "David Dvořák", "role": "z", "text": "Obec nemůže vstupovat do soukromých majetkoprávních sporů ani hodnotit podmínky převodu mezi vlastníky. Předkladatelé splnili podmínky stanovené před dvěma lety, další řízení je už na majitelích."},
+        {"who": "Občan", "role": "o", "text": "Za spolek dvaceti vlastníků: projekt jsme kvůli požadovanému průjezdu celý přepracovali, což bylo nad rámec původního závazku, kde stačil jen průchod. Převod cesty na obec proběhne až po rozdělení pozemků, stejně jako se to povedlo na Kopaninách; kdo se bude chtít napojit, musí se na nákladech na cesty a sítě podílet. Plochu pro komunikaci teď převést nelze, protože zatím existuje jen na papíře. Jako majitel dotčeného pozemku potvrzuji, že průchod nebude oplocen a že jsme s druhou stranou začali jednat."},
+        {"who": "Občanka", "role": "o", "text": "Zastupuji manžela, vlastníka již schválené studie Žleby 2B. Souhlasíme, že při současné podobě hrozí odříznutí Žleby 2B od přístupu. Požadujeme, aby obec schválení podmínila převodem plochy Z3 do svého vlastnictví jako veřejné komunikace; máme podezření, že si ji někteří z vedení spolku drží jako nástroj nátlaku."},
+        {"who": "Starosta", "role": "s", "text": "Prosím, doložte své vyjádření písemně, ať je součástí zápisu."},
+        {"who": "Radim Brener", "role": "z", "text": "Jsou tu obě strany — zajímalo by mě, proč se dosud nedohodly. Nechci, aby obec do sporu zasahovala, ale nevím, které straně věřit."},
+        {"who": "David Dvořák", "role": "z", "text": "Nemáme věřit ani jedné straně, je to na jejich dohodě. Obec stanovila podmínky a ty jsou splněny."},
+        {"who": "Starosta", "role": "s", "text": "Tento spor mezi vlastníky tady uzavřu. Prosím návrhovou komisi o přečtení usnesení."},
+        {"who": "Návrhová komise", "role": "k", "text": "Přečetla návrh usnesení ke schválení studie obytného souboru Žleby Ib Střelice."},
+        {"who": "Starosta", "role": "s", "text": "Nechávám hlasovat. Studie byla schválena; zdrželi se Radim Brener a Jan Pernikář."}
+      ]
+    },
+    {
+      "index": 15,
+      "start": 7971,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Nájemce restaurace U Nádraží, společnost VPV CORP s.r.o. se sídlem ve Střelicích, v rámci investice do obecní restaurace zrealizoval obcí odsouhlasenou změnu topného média. Předkládáme smlouvu o převodu tohoto nového tepelného zdroje do majetku obce — krbová kamna v ceně 93 506 Kč bez DPH a krbová vložka v ceně 51 183 Kč včetně DPH (materiál č. 13). Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o převodu tepelného zdroje do majetku obce se společností VPV CORP s.r.o. (IČO 29278031) schválena a starosta pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 16,
+      "start": 7971,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "K úpravě protierozních opatření podél cesty pod Čeprem a části ulice Jaroslava Svobody — po dnešní diskuzi se zastupitelkou Evou Bartoňovou a po rozhodnutí rady tuto realizaci stahuji a navrhuji, aby zastupitelstvo pověřilo radu zadáním dopracování projektové dokumentace. S projektantem jsme se shodli, že by od Bílého křížku po obecním pozemku měl vzniknout mělký průleh svádějící dešťovou vodu do zádržného systému, průjezdný pro zemědělskou techniku a případně doplněný stromovou alejí. Otevírám diskuzi."},
+        {"who": "Občan", "role": "o", "text": "Do rozhodování jste mě nezahrnuli. Žádám, aby úprava zajistila, že odtok dešťové vody bude níž než okolní domy a bude udržovaný. Navrhuji také snížit komunikaci, kterou obec postavila výš, než původně byla, a stočit ji ke křížku — vyřešilo by se tím i připojení dalších pozemků."},
+        {"who": "Starosta", "role": "s", "text": "Tyto podněty předáme projektantovi. Rád bych měl projekt připravený do jarních měsíců. Zastupitelstvo pověřilo radu zadáním dopracování projektové dokumentace na úpravu protierozních opatření podél cesty pod Čeprem a části ulice Jaroslava Svobody; návrh byl schválen."}
+      ]
+    },
+    {
+      "index": 17,
+      "start": 8648,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Posledním bodem programu je vyřazení starého a nepotřebného přístřešku na zrušené autobusové zastávce u hřbitova na ulici Brněnská z majetku obce; cena vyřazovaného majetku je 136 809 Kč včetně DPH. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů bylo vyřazení přístřešku z majetku obce schváleno. Otevírám rozpravu."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "V létě jsme mluvili o výsadbě a údržbě zeleně, ale v zápisech z rady jsem k tomu nic nenašla. Budou nové chodníky osázeny?"},
+        {"who": "Starosta", "role": "s", "text": "Oslovil jsem zahradníka, aby dopracoval výkaz výměr; chceme mít tři nezávislé nabídky. Výsadba naváže na projekt na Brněnské a na náměstí a doplní se i park u obchodního domu o stromy, trvalky a cibuloviny. Věřím, že se to podaří ještě na podzim, počítáme i s údržbou."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Jak pokročilo jednání se zemědělskou společností v Řičanech a měření zápachu?"},
+        {"who": "Starosta", "role": "s", "text": "Jsme s firmou v kontaktu, ale došlo ke skluzu a projekt na řešení zápachu zatím nemáme. Uděláme maximum, abychom vám ho předložili ještě letos, řekněme do října."},
+        {"who": "Radim Brener", "role": "z", "text": "K vyhlášce o odpadech — jsem rád, že proběhlo dost jednání i veřejné projednání."},
+        {"who": "Starosta", "role": "s", "text": "Děkuji a ještě jednou se omlouvám za pozdě zaslané podklady."},
+        {"who": "Helena Fialová", "role": "z", "text": "Chybí odstavná stání na ulici Antonína Smutného směrem od koupaliště; auta nemají kde parkovat a stojí na trávě."},
+        {"who": "Starosta", "role": "s", "text": "Projekt chodníku na Antonína Smutného leží na Městském úřadě Šlapanice skoro rok — na celý správní obvod se čtyřiceti obcemi je tam jediný úředník. Parkovací stání ale v projektu nejsou, řešily se vjezdy a chodníky; komplikují je inženýrské sítě, šířka i probíhající jednání se správcem silnice o novém povrchu. Počítáme spíš s parkovištěm v lokalitě Rybníky. Nechci ale nic slibovat."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Transparentnost vedení obce se zlepšila, ale některé studie a projekty se zveřejňují pozdě nebo jen ve špatně dohledatelných záložkách. Bylo by dobré na zveřejnění občany upozorňovat."},
+        {"who": "Starosta", "role": "s", "text": "Například ulici Nová zatím zveřejnit nemůžeme, protože ještě probíhají jednání s majiteli pozemků. Někdy to opomeneme, není to ale úmysl."},
+        {"who": "Občan", "role": "o", "text": "Podle mých propočtů se poplatek 0,60 Kč za litr vyplatí jen menším domácnostem; tříčlenné až čtyřčlenné rodiny, které se nevejdou do 120 litrů, zaplatí násobně víc a hrozí, že se lidé začnou odpadu zbavovat nelegálně. Komu se tedy nový systém vyplatí?"},
+        {"who": "Robert Ströbinger", "role": "z", "text": "Vyplatí se občanům, kteří poctivě třídí; obec na systém doplatí. Dnes se navíc za děti neplatí, takže dnešní poplatek 650 Kč na osobu je u větších rodin ve skutečnosti vyšší."},
+        {"who": "Občan", "role": "o", "text": "K územnímu plánu — mou připomínku k ulici Jaroslava Svobody a k propustku by měl vyřešit rovnou projektant územního plánu."},
+        {"who": "Starosta", "role": "s", "text": "Územní plán tyto věci neřeší, řeší je projektová dokumentace, kterou jsme dnes zadali radě; věřím, že z jara bude projekt k dispozici."},
+        {"who": "Martin Klíma", "role": "z", "text": "Stěhuji se ze Střelic, a protože bych už nemohl vykonávat funkci zodpovědně, skládám mandát zastupitele. Ve Střelicích žiji deset let a sedm let jsem zastupitelem; poznal jsem tu spoustu skvělých lidí a obci děkuji za zážitky i zkušenosti. Přeji Střelicím, aby dále vzkvétaly a aby spolupráce všech obyvatel byla ještě užší. Svému nástupci, panu Smištíkovi, přeji hodně štěstí a prosím ho, aby k funkci přistupoval zodpovědně. I nadále se budu ve Střelicích pohybovat na kulturním poli."},
+        {"who": "Starosta", "role": "s", "text": "Martine, děkuji za sebe i za všechny zastupitele a občany za tvé věcné připomínky a spolupráci. Přeji tobě i celé rodině hodně zdraví a pohody v novém působišti v Náměšti; do patnácti dnů budeme podle zákona informovat tvého náhradníka pana Smištíka. Pokud už nikdo nic nemá, děkuji všem za dnešní náročné jednání a přeji hezký večer."}
+      ]
+    }
+  ]
+}

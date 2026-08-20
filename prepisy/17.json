@@ -1,0 +1,236 @@
+{
+ "cislo_zasedani": 17,
+ "vid": "oUAMh13Cji8",
+ "body": [
+  {
+   "index": 2,
+   "start": 642,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 16. zastupitelstva se rada sešla dvakrát — zápisy č. 57 a 58 jste obdrželi e-mailem. Má někdo k zápisům dotaz?"},
+    {"who": "Radim Brener", "role": "z", "text": "Všiml jsem si, že rada č. 57 schválila podání žádosti o dotaci na nádoby na tříděný odpad a kompostéry. Existuje už nějaká strategie, jak s odpady nakládat? Před rokem se o tom mělo jednat i v komisi pro životní prostředí."},
+    {"who": "Starosta", "role": "s", "text": "Využili jsme vypsané dotace, která je vázaná na kompostéry, takže s nimi musíme odebrat i určité množství nádob na tříděný odpad. Jak jsme slíbili, bude to dobrovolné. Rada zvažuje, že občany, kteří třídí, finančně zvýhodní — je to zatím jen návrh k diskuzi. Pokud dotaci dostaneme, nákup nádob se nestihne v roce 2025, spíš od 1. ledna 2026."},
+    {"who": "Radim Brener", "role": "z", "text": "Jde mi o to, jestli už víme, že jdeme cestou nádob, nebo se na strategii ještě pracuje — jinde volí i pytlový svoz, jako v Ostopovicích. Bude mít každý, kdo bude chtít, vlastní nádobu, a je to nejvýhodnější varianta?"},
+    {"who": "Starosta", "role": "s", "text": "Nebude to pytlový svoz — budou to plastové nádoby na tříděný odpad, obdobně jako na komunální odpad. Každý bude mít nádobu na komunální odpad, plast, papír a bioodpad. Pro obec i občany to bude výhodnější a docílíme vyššího třídění. Zvýhodnění těch, kdo třídí, teď nechci předjímat — na tom teprve budeme pracovat, ať už půjde o jakoukoli částku."},
+    {"who": "Místostarosta", "role": "s", "text": "Doplním, že obec musí v horizontu let dosahovat rostoucího podílu vytříděného odpadu — kolem roku 2035 až 70 %. Třídění proto budeme muset podporovat. Nechceme jít cestou povinnosti jako v Popůvkách, bližší je nám dobrovolnost jako v Troubsku."},
+    {"who": "Starosta", "role": "s", "text": "Je to i celoevropský trend. S rostoucími poplatky za skládkování a spalovny ceny odpadů rostou — dnes budeme schvalovat navýšení o 6 %. Starosta Ořechova mi říkal, že jim po třech letech zvedli cenu o 52 %. Proto chceme občany vést k třídění a nádoby poskytnout zdarma. Bez dalších dotazů bere zastupitelstvo zápisy rady č. 57 a 58 na vědomí."}
+   ]
+  },
+  {
+   "index": 3,
+   "start": 1004,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Předkládáme rozpočtové opatření č. 11/2024, které reaguje na finanční operace obce za listopad 2024 (materiál č. 1); schválila jej rada č. 58 dne 27. 11. 2024. Rada i finanční výbor doporučují vzít je na vědomí. Bez dotazů je zastupitelstvo bere na vědomí."},
+    {"who": "Starosta", "role": "s", "text": "Přistupujeme k rozpočtu obce na rok 2025 (materiál č. 2). Byl vyvěšen na úřední desce od 20. listopadu 2024, je sestaven jako vyrovnaný a projednal jej finanční výbor. Rada i finanční výbor doporučují jej schválit. Otevírám diskuzi."},
+    {"who": "Radim Brener", "role": "z", "text": "Mám dotaz k rekonstrukci ulice Školní a parkoviště — na projektovou dokumentaci, stavební povolení i realizaci je tam 8 milionů. Je v té částce zahrnuta i realizace parkoviště?"},
+    {"who": "Starosta", "role": "s", "text": "Ano, těch 8 milionů je na celou akci. Je to rozpočtová cena; předpokládáme, že se v rámci veřejné zakázky sníží."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Krátce ke dvěma položkám. První je komunikace a osvětlení v lokalitě koupaliště–fotbalové hřiště–Čerňák, navazující na lokalitu Rybníky; přesouvá se na příští rok. Na pracovní schůzce v listopadu jsme se dozvěděli, že projektant má studii připravenou. Jaký je další plán — počítáte třeba v prvním čtvrtletí s veřejnou prezentací?"},
+    {"who": "Starosta", "role": "s", "text": "Do konce února chci, aby projektant studii předložil na pracovním jednání zastupitelů; budeme o ní diskutovat a poté ji zveřejníme. Považuji za rozumné, aby se k ní nejdřív vyjádřili zastupitelé. Je to jedna z prvních akcí, které chceme realizovat, ale zatím půjde o studii — je to běh na dlouhou trať."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Mrzí mě, že takovou věc zpracovává dopravní inženýr; podle mě by architekt víc zohlednil vztahy v prostoru, zeleň i pěší. Souvisí to i s parkovištěm u ulice Školní — projekt má stavební povolení, ale domlouvali jsme se na dílčích úpravách. Kdy uvidíme další verzi? Ráda bych, aby parkoviště odpovídalo podmínkám, na kterých jsme se shodli."},
+    {"who": "Starosta", "role": "s", "text": "Souhlasím. Rada č. 58 schválila nabídku zahradních architektů z Kralic nad Oslavou za 50 000 Kč — chceme tomu prostoru věnovat péči. Sešli bychom se v polovině února a probrali koupaliště, zeleň v parku před obchodním domem i ulici Školní. Pracují na tom titíž zahradní architekti jako na parku pod školou."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Ozvali se mi občané ohledně kácení. Mezi zdravotním střediskem a Sokolovnou jsou dvě staré lípy určené k pokácení a další dvě zřejmě také. Vyřizujeme už povolení ke kácení a následnou výstavbu?"},
+    {"who": "Starosta", "role": "s", "text": "Jsem přesvědčen, že další lípy se kácet nemají. Loni se jedna pokácela, za ni vysadíme novou. Odborníci mohou přijít s jiným návrhem, ale vzrostlé lípy kácet nechceme. Případně bude vadit jeden stromek u bývalého dětského hřiště kvůli parkovišti, ne však lipové stromořadí. Tyto lípy tu sázeli žáci s tehdejším ředitelem kolem roku 1960."},
+    {"who": "Místostarosta", "role": "s", "text": "Mám dojem, že paní Bartoňová má pravdu u lípy nejblíž mezi zdravotním střediskem a volejbalovým hřištěm — je v plánu kvůli vjezdu a výjezdu k parkovišti. Nejsem si jistý, jestli zůstane."},
+    {"who": "Starosta", "role": "s", "text": "Ta lípa sice překáží dvěma parkovacím místům, ale stojí za to ji zachovat — vzrostlé lípy kácet nebudeme. Bez dalších dotazů návrhová komise přečetla usnesení a rozpočet obce na rok 2025 byl schválen."}
+   ]
+  },
+  {
+   "index": 5,
+   "start": 1665,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Předkládáme střednědobý výhled rozpočtu na roky 2026–2027 (materiál č. 3). Byl vyvěšen na úřední desce od 29. listopadu 2024, je sestaven jako vyrovnaný a projednal jej finanční výbor. Rada i finanční výbor doporučují jej schválit. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byl střednědobý výhled rozpočtu na roky 2026–2027 schválen."}
+   ]
+  },
+  {
+   "index": 6,
+   "start": 1760,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "Junák – český skaut, středisko Wahinkpe Střelice, žádá o individuální dotaci z rozpočtu na rok 2025 ve výši 250 000 Kč na úpravu venkovních prostor areálu klubovny, doplnění vybavení a zajištění celoroční činnosti s dětmi a mládeží. Rada doporučuje schválit 200 000 Kč."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla dotace pro střelické skauty ve výši 200 000 Kč schválena."},
+    {"who": "Místostarosta", "role": "s", "text": "FK Střelice žádá o individuální dotaci na rok 2025 ve výši 650 000 Kč na údržbu travnatých ploch a areálu, ozvučení, pořízení kamery a přípravu další tréninkové plochy. Rada doporučuje schválit 520 000 Kč."},
+    {"who": "Starosta", "role": "s", "text": "Připomínám, že spolky žádají o vyšší částky, ale máme pravidla, která výši dotací váží procentem na příjmy rozpočtu. Na příští rok počítáme s o 3 miliony nižším rozpočtovým určením daní, takže musíme šetřit. Otevírám diskuzi."},
+    {"who": "Radim Brener", "role": "z", "text": "Ve formulářích spolky málokdy rozepisují, jaký podíl z daného účelu žádají po obci. Bylo by dobré to do pravidel doplnit. A není mi jasné, zda „předpokládaná částka“ ve formuláři znamená celkové náklady, nebo částku požadovanou po obci."},
+    {"who": "Starosta", "role": "s", "text": "Je to předpokládaná částka, o kterou spolek žádá. Souhlasím, že by se to mělo lépe rozepisovat. Bez dalších dotazů byla dotace pro FK Střelice ve výši 520 000 Kč schválena."}
+   ]
+  },
+  {
+   "index": 7,
+   "start": 2101,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Tělocvičná jednota Sokol Střelice žádá o individuální dotaci na rok 2025 ve výši 1 141 340 Kč na údržbu Sokolovny, provoz oddílů, kulturní akce a opravu podlahy v salonku (materiál č. 6). Rada doporučuje schválit 650 000 Kč. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla dotace pro Tělocvičnou jednotu Sokol Střelice ve výši 650 000 Kč schválena."}
+   ]
+  },
+  {
+   "index": 8,
+   "start": 2197,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Sbor dobrovolných hasičů obce Střelice žádá o individuální dotaci na rok 2025 ve výši 100 000 Kč na kulturní a společenské akce a zejména na výstroj a vybavení pro výchovu mládeže v požárním sportu. Rada doporučuje schválit 90 000 Kč."},
+    {"who": "Petr Rozsíval", "role": "z", "text": "Z důvodu možného střetu zájmu se nebudu účastnit diskuze ani hlasování o tomto bodu; prosím o zaznamenání do zápisu."},
+    {"who": "Starosta", "role": "s", "text": "Zaznamenáno. Bez dalších dotazů byla dotace pro Sbor dobrovolných hasičů ve výši 90 000 Kč schválena; pan Petr Rozsíval nehlasoval."}
+   ]
+  },
+  {
+   "index": 9,
+   "start": 2380,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Římskokatolická farnost Střelice u Brna žádá o individuální dotaci na rok 2025 ve výši 250 000 Kč na provoz a opravu kostela a přilehlého areálu. Rada doporučuje schválit 200 000 Kč. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla dotace pro Římskokatolickou farnost Střelice u Brna ve výši 200 000 Kč schválena."}
+   ]
+  },
+  {
+   "index": 10,
+   "start": 2411,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Včelařský spolek ve Střelicích u Brna žádá o individuální dotaci na rok 2025 ve výši 100 000 Kč na činnost spolku a budování včelařského areálu (materiál č. 9). Rada doporučuje schválit 80 000 Kč."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla dotace pro Včelařský spolek ve Střelicích ve výši 80 000 Kč schválena."},
+    {"who": "Místostarosta", "role": "s", "text": "Sdružení rodičů a přátel základní školy Střelice žádá o individuální dotaci na rok 2025 ve výši 55 000 Kč na Den dětí, sportovní den, dýňové slavnosti, vánoční dílny a školní ples. Rada doporučuje žádost schválit."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla dotace pro SRPŠ ve výši 55 000 Kč schválena."}
+   ]
+  },
+  {
+   "index": 12,
+   "start": 2587,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "Diecézní charita Brno, Oblastní charita Rajhrad, žádá o individuální dotaci na rok 2025 ve výši 100 000 Kč na pečovatelskou službu a odborné sociální poradenství pro střelické občany. Rada doporučuje žádost schválit."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla dotace pro Diecézní charitu Brno ve výši 100 000 Kč schválena."}
+   ]
+  },
+  {
+   "index": 13,
+   "start": 2667,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Obec připravuje investiční akci Střelice, cyklostezka u hřbitova na ulici Ostopovická, na pozemcích ve správě Správy a údržby silnic Jihomoravského kraje. Předkládáme smlouvu o budoucí smlouvě darovací s Jihomoravským krajem (materiál č. 12), kterou obec po kolaudaci bezplatně převede stavbu průlehu a trativodu do vlastnictví kraje — Správa a údržba silnic na tom trvá, protože je spojen s krajskou silnicí. Jednání bylo dlouhé, museli jsme žádat i o prodloužení termínu pro podání žádosti o dotaci, nakonec jsme se díky vedoucímu odboru kraje dohodli. Rada doporučuje schválit."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o budoucí smlouvě darovací s Jihomoravským krajem schválena a starosta byl pověřen jejím podpisem."}
+   ]
+  },
+  {
+   "index": 14,
+   "start": 2678,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Předkládáme návrh směnné smlouvy v lokalitě u ulice Antonína Smutného. Obec smění část svého pozemku p. č. 1426/1 o výměře 378 m² za stejnou výměru části pozemku p. č. 1421 (nově oddělený pozemek p. č. 1421/4 dle geometrického plánu); pozemky se směňují bezúplatně. První návrh zastupitelstvo projednalo v dubnu 2024, jedna ze spolumajitelek jej ale odmítla podepsat, proto předkládáme upravený návrh podle nového geometrického plánu. Rada doporučuje schválit. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byla směnná smlouva s paní A. S. a panem P. K. schválena a starosta byl pověřen jejím podpisem."}
+   ]
+  },
+  {
+   "index": 15,
+   "start": 3081,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 14 předkládáme nabídku společnosti KEEO4DESIGN s.r.o. na projektovou dokumentaci ke stavebnímu povolení na akci Náves ve Střelicích, včetně vyřízení dokladové části — závazných stanovisek a vyjádření dotčených orgánů a vlastníků infrastruktury. Celková cena je 478 000 Kč bez DPH. Rada doporučuje nabídku schválit."},
+    {"who": "Starosta", "role": "s", "text": "Letos jsme nechali zpracovat dvě studie — od kanceláře KEEO a od společnosti Dimenze. Ve veřejném hlasování se občanům líbil hlavní park u pomníku padlých z návrhu KEEO a část mezi poštou a úřadem z návrhu Dimenze. Dohodli jsme se, že z každé studie necháme zpracovat to nejlepší; KEEO na to přistoupila. Chceme také získat dotaci — ty jsou ale zaměřené na zadržování vody, výsadbu stromů a zeleň, což musí být v zadání."},
+    {"who": "Radim Brener", "role": "z", "text": "Chápu správně, že ještě předtím, než začnou pracovat na projektové dokumentaci ke stavebnímu povolení, budeme vědět, jak vypadá spojení obou studií?"},
+    {"who": "Starosta", "role": "s", "text": "Ano. Zatím jsme žádný návrh neviděli — nejdřív potřebují schválit nabídku a pak začnou pracovat. Chtěl bych, abychom se do poloviny února sešli, ideálně i s autory, a základní návrh si prošli. Poté budou následovat další kroky."},
+    {"who": "Starosta", "role": "s", "text": "Bez dalších dotazů byla nabídka společnosti KEEO4DESIGN s.r.o. za 478 000 Kč bez DPH schválena a starosta byl pověřen podpisem smlouvy o dílo."}
+   ]
+  },
+  {
+   "index": 16,
+   "start": 3380,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 15 předkládáme dodatek č. 2 ke smlouvě o dílo se společností BS-IMEX, s.r.o. na akci Oprava chodníku nám. Svobody, ul. Brněnská. Dodatek navyšuje cenu díla o 179 400,19 Kč bez DPH a posouvá termín dokončení na 18. 12. 2024. Důvodem je větší rozsah výkopových prací — například v autobusových zálivech, kde nevyhověly zátěžové zkoušky, a v širších výkopech pro nová kabelová vedení nízkého napětí, s čímž souvisí i likvidace vytěžené zeminy. Nová celková cena je 8 175 092,02 Kč bez DPH. Rada doporučuje schválit."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byl dodatek č. 2 se společností BS-IMEX schválen a starosta byl pověřen jeho podpisem."}
+   ]
+  },
+  {
+   "index": 17,
+   "start": 3380,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Následuje převod podílového vlastnictví u pozemků v areálu obchodního domu na ulici Antonína Smutného. Podle původního návrhu by obec převodem podílu získala výlučné vlastnictví dvojgaráže ve vnitrobloku a spoluvlastnické podíly na okolních chodnících a zelených plochách, včetně věcného břemene přístupu; část dvora by sloužila jako stanoviště obecních kontejnerů, aby nepřekážely v novém parku před obchodním domem. Rada doporučuje návrh schválit. Otevírám diskuzi."},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Vítám kroky vedení obce k využití prostor v objektu obchodního centra. Obec je většinovým spoluvlastníkem a objekt si v dalších letech vyžádá velké investice; v centru se navíc nabízí ke koupi další byt. Doporučuji proto vypořádání vlastnických vztahů řešit komplexně a s vizí do budoucna, abychom si teď směnou pozemků nezavírali dveře. Předkládám protinávrh usnesení: zastupitelstvo pověřuje radu obce dalším jednáním o vypořádání vlastnických vztahů v objektu nákupního centra a přilehlých pozemků."},
+    {"who": "Radim Brener", "role": "z", "text": "Můžete rozvést, co původní návrh znamenal a co by nám bránil?"},
+    {"who": "Starosta", "role": "s", "text": "Podle původního návrhu by se obec stala výlučným vlastníkem dvojgaráže ve vnitrobloku a získala spoluvlastnické podíly na okolních chodnících a zelených plochách toho areálu."},
+    {"who": "Radim Brener", "role": "z", "text": "Protinávrh podpořím. Nabízený byt by mohl být příležitostí, jak rozšířit služby občanům — víme, že Dům služeb chátrá a některé provozy by se daly přesunout do obchodního centra. Jakákoli ukvapená dispozice by nás do budoucna mohla omezit."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Souhlasím a protinávrh podpořím. Čím více prostoru obec vlastní, tím svobodněji s ním může nakládat, a k tomu prostranství je namístě přistupovat s péčí."},
+    {"who": "Starosta", "role": "s", "text": "Během diskuze jsem o tom přemýšlel a dáváte mi za pravdu — je potřeba to promyslet a neukvapit se. Chceme zadat studii na komunitní centrum, na vnější vzhled budovy i na obecní byt (s úvahou o samostatném přístupu a rozdělení na dva byty); architekti zdůrazňují, že se na budovu musí dívat komplexně. Otevřeme jednání s paní V. Z. a budeme vás informovat."},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Doplním, že směnu nechci zavírat — pokud se ukáže, že jiné řešení není smysluplné, budu pro to, aby se směna uskutečnila a vztahy se aspoň v tomto rozsahu vypořádaly."},
+    {"who": "Starosta", "role": "s", "text": "Nechávám hlasovat o protinávrhu. Byl schválen, takže rada bude v jednání s paní V. Z. o vypořádání vlastnických vztahů pokračovat."}
+   ]
+  },
+  {
+   "index": 18,
+   "start": 4291,
+   "turns": [
+    {"who": "David Dvořák", "role": "z", "text": "Představuji návrh nové zřizovací listiny základní a mateřské školy. Hlavním důvodem aktualizace je přístavba mateřské školy a s ní nový rozsah majetku školy. Nově se do výpůjčky škole zařazuje sportovní hala, což umožní lepší plánování jejího využití. Dalším bodem je povolení doplňkové činnosti, díky níž může škola získat mimorozpočtové prostředky na svůj rozvoj i na platy zaměstnanců. Práva a povinnosti k nemovitému majetku upravuje smlouva o výpůjčce, která je přílohou. Rada doporučuje návrh schválit."},
+    {"who": "Helena Fialová", "role": "z", "text": "Budova č. p. 814 je na ulici Školní, ne Komenského — je to mateřská škola, mělo by se to opravit. A dotaz: obec vybírá nájem sportovního areálu a zaměstnává na částečný úvazek správce a uklízečku, přičemž nájem nepokryje ani jejich platy a zbytek dotuje obec. Jak to bude s těmito zaměstnanci?"},
+    {"who": "Starosta", "role": "s", "text": "Ano, u mateřské školy adresu opravíme na ulici Školní. Zaměstnanci zůstávají pod obcí, nic se nemění; obec bude jejich platy nadále dotovat."},
+    {"who": "David Dvořák", "role": "z", "text": "Doplňková činnost se netýká zaměstnanců haly, ale celkové možnosti školy získávat prostředky — například do budoucna z vaření obědů pro cizí strávníky. Škola nám bude nové nájemní smlouvy předkládat."},
+    {"who": "Starosta", "role": "s", "text": "Bez dalších dotazů byla zřizovací listina pro Základní školu a Mateřskou školu Střelice schválena a starosta byl pověřen jejím podpisem."}
+   ]
+  },
+  {
+   "index": 19,
+   "start": 4649,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 18 předkládáme návrh na vyřazení manipulační plošiny pro invalidy na zdravotním středisku z dlouhodobého hmotného majetku obce. Na jejím místě se staví nový osobní výtah, který tuto poruchovou a nevyhovující plošinu plně nahradí. Rada doporučuje schválit."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Dá se plošina nějak zpeněžit? Obávám se, že ne — v zimě jsme s ní měli hodně práce, oprava topného tělesa pro vyhřívání oleje by stála 40 až 50 tisíc a už jsme ji odmítli opravovat."},
+    {"who": "Místostarosta", "role": "s", "text": "U technických zařízení, jako jsou výtahy, je riskantní používat vyřazené zařízení — vyžadují revize a v případě nehody za ně nikdo nemůže převzít odpovědnost. Další využití je nepravděpodobné, spíš půjde do šrotu."},
+    {"who": "Starosta", "role": "s", "text": "Bez dalších dotazů bylo vyřazení manipulační plošiny v ceně 636 237,22 Kč z majetku obce schváleno. U nového výtahu máme kvůli zimě mírný skluz, ve čtvrtek je kontrolní den; hotovou stavební a konstrukční část chceme proplatit, dokončení přejde do příštího roku."}
+   ]
+  },
+  {
+   "index": 20,
+   "start": 4906,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Společnost Recovera Využití zdrojů a.s. předkládá dodatek č. 12 ke smlouvě na svoz a využití recyklovaných složek komunálního odpadu (materiál č. 19). Kvůli růstu skládkovného, poplatků na spalovnách a mzdových nákladů jde o navýšení ceny o 6 %. Dotkli jsme se toho už u rozpočtu — ceny odpadů rostou u nás i v okolních obcích. Otevírám diskuzi."},
+    {"who": "Radim Brener", "role": "z", "text": "Vrtá mi hlavou počet nádob — 500 kusů 110litrových a 400 kusů 240litrových je skoro 900 popelnic, tedy víc než jedna na dům. Asi to ovlivňují bytovky."},
+    {"who": "Starosta", "role": "s", "text": "Ano, počet ovlivňují bytovky a také 110litrové nádoby na stanovištích v rekreačních oblastech."},
+    {"who": "Místostarosta", "role": "s", "text": "Doplním, že hlasujeme dvakrát — zvlášť o dodatku pro komunální odpad a zvlášť pro nebezpečný odpad."},
+    {"who": "Starosta", "role": "s", "text": "Bez dalších dotazů byl dodatek č. 12 ke smlouvě na svoz a využití recyklovaných složek komunálního odpadu s ceníky č. 4 a 5 schválen a starosta byl pověřen jeho podpisem."}
+   ]
+  },
+  {
+   "index": 21,
+   "start": 5048,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Druhým hlasováním je dodatek č. 16 ke smlouvě o sběru, svozu a odstraňování odpadu se společností Recovera Využití zdrojů a.s., včetně ceníků č. 1, 2 a 3. Bez dotazů byl dodatek č. 16 schválen a starosta byl pověřen jeho podpisem."},
+    {"who": "Starosta", "role": "s", "text": "Připomínám, že zítra je svoz komunálního odpadu; kvůli Novému roku dojde k jednodennímu posunu, o kterém budeme včas informovat rozhlasem i na webu."}
+   ]
+  },
+  {
+   "index": 22,
+   "start": 5183,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Předkládáme převod části obecních financí z běžného účtu na termínovaný vklad. K dnešnímu dni máme na účtu 39 milionů Kč; rada navrhuje vložit 20 milionů na termínovaný vklad na tři měsíce s možností prodloužení o další tři. Úrok u Komerční banky, kde máme vedený účet, je nyní 3 %. Během toho půl roku peníze uložíme a dál se uvidí podle rozběhnutých projektů. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů byl převod 20 milionů Kč z běžného účtu na termínovaný vklad na tři měsíce s možností prodloužení o další tři schválen."}
+   ]
+  },
+  {
+   "index": 23,
+   "start": 5285,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Prvním z doplněných bodů je smlouva o spolupráci se Správou a údržbou silnic Jihomoravského kraje při přípravě rekonstrukce ulice Nebovidská. V roce 2025 bude kraj rekonstruovat silnici III. třídy na ulici Tetčická a část ulice Antonína Smutného; pro přípravu projektové dokumentace na ulici Nebovidská je nutné uzavřít tuto smlouvu. Obec zajistí projektovou dokumentaci ke stavebnímu povolení na chodníky i na krajskou silnici a uhradí chodníky a nové místo pro přecházení, pokud se dohodneme s majitelkou rohového domu na úpravě keřů. Chceme také nový chodník směrem z obce, který propojí ulici V Uličce s ulicí Pod Lesem, aby chodci nemuseli přecházet. Otevírám diskuzi."},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Rozumím tomu tak, že projekční i realizační práce na obecních chodnících platí obec ze svého rozpočtu, což zůstává dodrženo, a u krajské komunikace, kde by standardně platil kraj, se v rámci urychlení dohodneme, že projekt půjde za obcí?"},
+    {"who": "Starosta", "role": "s", "text": "Přesně tak. Silnice se navíc z 8 metrů zúží na 6,5 metru, protože přidáváme druhý chodník."},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Máme aspoň řádovou představu, kolik projekt bude stát?"},
+    {"who": "Starosta", "role": "s", "text": "Na poslední radě jsme schválili nejlevnější nabídku projektanta za 460 000 Kč bez DPH, včetně silnice. Dříve jsme si nechali zpracovat i průzkum podloží, obdobně jako na Brněnské, kde to stálo kolem 35 až 40 tisíc."},
+    {"who": "Radim Brener", "role": "k", "text": "Za návrhovou komisi přečetl návrh usnesení ke smlouvě o spolupráci se Správou a údržbou silnic Jihomoravského kraje (IČO 70932581) na přípravu komplexní rekonstrukce chodníků a silnice III/15267, ul. Nebovidská."},
+    {"who": "Starosta", "role": "s", "text": "Nechávám hlasovat. Smlouva o spolupráci se Správou a údržbou silnic Jihomoravského kraje byla schválena a starosta byl pověřen jejím podpisem."}
+   ]
+  },
+  {
+   "index": 24,
+   "start": 5707,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Posledním bodem je zápis č. 9 z jednání kontrolního výboru. Poprosím paní Bartoňovou."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Sešli jsme se se zpožděním až v listopadu a doplnili jsme, co jsme dlužili — vysvětlení zdvojené rozpočtové položky v očekávaném plnění. Informovali jsme také o novém sběrném místě na tříděný odpad pod myslivnou."},
+    {"who": "Starosta", "role": "s", "text": "Doplním, že toto stanoviště na ulici Zbýšovská je připravené a od nového roku bude fungovat — na každý druh odpadu jeden kontejner. Bez dalších dotazů bere zastupitelstvo zápis č. 9 kontrolního výboru na vědomí."},
+    {"who": "Starosta", "role": "s", "text": "Otevírám diskuzi — nejprve pro zastupitele, poté pro občany."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "V zápise z rady je zmíněno, že rada schválila pravidla pro zpravodaj. Co obnášejí?"},
+    {"who": "Místostarosta", "role": "s", "text": "Pravidla jen obecně definují, jak zpravodaj vzniká a jaké příspěvky do něj patří a nepatří — aby v něm nebyly urážlivé nebo hanlivé texty. Nic zásadního nevymezují a zveřejníme je na webu v části Zpravodaj."},
+    {"who": "Jan Pernikář", "role": "z", "text": "Jak dopadla ohlašovaná další jednání s firmou provozující zdroj zápachu? Zlepšení zatím nevidíme."},
+    {"who": "Starosta", "role": "s", "text": "Sešli jsme se s projektantem vzduchotechniky. Úprava koncového potrubí se posunula na 13. ledna. Výfukové potrubí se sníží a ukončí vodorovně, protože výpary stoupající vzhůru padají do údolí; má následovat ještě technologická úprava. Podrobnosti zatím nemám, na odborníka na vzduchotechniku si netroufám."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Děkuji za investiční akce a projekty. Budu ráda, když se příští rok podle dohody budeme věnovat škole — sportovní hale, jídelně i revitalizaci původní budovy."},
+    {"who": "Starosta", "role": "s", "text": "Souhlasím, škola bude jednou z prvních priorit. S architektem řešíme možnosti u jídelny, ale na budovu je potřeba se dívat komplexně — populační křivka klesá, takže je otázka, zda stavět novou budovu pro první stupeň, nebo rozšířit stávající učebny. Do konce února chceme mít návrh a cenovou nabídku, hlavně na jídelnu a učebnu."},
+    {"who": "Občan", "role": "o", "text": "Bude obec reagovat na povinnost sběru textilu od roku 2025?"},
+    {"who": "Starosta", "role": "s", "text": "Kontejnery na textil už máme (u pošty, u bytového domu, na ulici Vršovická i na sběrném dvoře) ve spolupráci s firmou Textil Eco. S novým zákonem o odpadech budeme na sběrném dvoře nově třídit i nábytek — dřevotřísku a lamino — zvlášť od objemného odpadu; podle potřeby přidáme další stanoviště na textil."},
+    {"who": "Občan", "role": "o", "text": "Podle jakých pravidel obec posuzuje výši dotací spolkům? V pravidlech jsou kritéria jako počet členů, počet dětí či podíl členů z obce, ale k žádosti je nemusíme dokládat a nikde nejsou oficiálně vedena. Jak tedy dosáhnu vyšší částky, když budeme jako spolek potřebovat například na opravu vozidla, které využívá i obec?"},
+    {"who": "Starosta", "role": "s", "text": "Dotace nikdy nebude úplně spravedlivá a není nároková. Rozhodujeme každou žádost jednotlivě a bereme zřetel hlavně na práci s mládeží, činnost spolku a účel dotace. Na dotace máme omezené procento z výdajů (kolem 3,5 %), takže spolky nemůžeme uspokojit v plné výši. Loni jste na stoly dostali velkou část, letos jste žádali 100 000 a dostali 90 000. Pokud budete příště žádat o vyšší částku a budeme mít možnost, budeme se snažit pomoct."},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Pravidla vnímám jako procedurální nástroj a výčet kritérií pro posuzování je jen demonstrativní. Doporučuji všem spolkům, aby účel dotace i jednotlivé položky popisovaly co nejpodrobněji — u mě to bude kritérium, raději podpořím dotaci s jasným rozpadem položek."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Dodám, že mimořádnou potřebu, třeba náročnější opravu vozidla, může obec podpořit i mimo rámec dotace — v poslední době se nestalo, že by se něco takového neschválilo."},
+    {"who": "Martin Klíma", "role": "z", "text": "Navrhuji udělat revizi formuláře žádosti a doplnit pole, která žadatele motivují potřebné údaje uvést."},
+    {"who": "Radim Brener", "role": "z", "text": "Přirovnal bych to k participativnímu rozpočtu — tam si žadatelé o 400 000 dají mnohem větší práci s popisem než spolky u žádosti o milion. Čím lépe bude účel popsaný, tím snáz se dotace schvaluje."},
+    {"who": "Starosta", "role": "s", "text": "Souhlasím, na formulář se s panem místostarostou podíváme; kolonky pro rozepsání účelu tam jsou, stačí je konkrétně vyplnit. Pokud už nejsou další dotazy, končím jednání. Děkuji všem za účast i za celoroční spolupráci a přeji vám krásné Vánoce a hodně zdraví a úspěchů v roce 2025."}
+   ]
+  }
+ ]
+}

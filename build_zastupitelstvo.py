@@ -101,6 +101,20 @@ VCAS = json.load(open("video_casy.json", encoding="utf-8")) if os.path.exists("v
 # doplnění hlasování tam, kde je obecní výpis nečitelný sken (zdroj: Zpravodaj)
 VOTE_OVR = json.load(open("zo_votes_override.json", encoding="utf-8")) if os.path.exists("zo_votes_override.json") else {}
 
+# vyčištěné přepisy jednání z videa (prepisy/{N}.json) — kolik jich existuje.
+# PREP[cislo][index_bodu] = [{"who","role","text"}, ...]
+import glob
+PREP = {}
+for _fp in glob.glob("prepisy/*.json"):
+    try:
+        _pj = json.load(open(_fp, encoding="utf-8"))
+    except Exception:
+        continue
+    _c = _pj.get("cislo_zasedani")
+    if _c is None:
+        continue
+    PREP[_c] = {b["index"]: b.get("turns", []) for b in _pj.get("body", []) if b.get("turns")}
+
 cats = []
 def ci(c):
     if c not in cats:
@@ -153,7 +167,7 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
                 if ov_dis:
                     dis = ov_dis
         it = [ci(b["kategorie"]), ti_index[b.get("tema") or temata.OSTATNI],
-              b.get("castka"), hl, b["text"], 0, bt.get(str(ix)), dis]
+              b.get("castka"), hl, b["text"], 0, bt.get(str(ix)), dis, ix]
         items.append(it)
         parent = it
 
@@ -173,14 +187,14 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
                 it[4] = proc["komise"]
             it[3] = None; it[7] = None; has_komise = True
     if not has_komise and proc.get("komise") and ov_pos is not None:
-        kom = [ci("volí"), ti_index.get(temata.OSTATNI, 0), None, None, proc["komise"], 0, None, None]
+        kom = [ci("volí"), ti_index.get(temata.OSTATNI, 0), None, None, proc["komise"], 0, None, None, None]
         items.insert(ov_pos + 1, kom)
 
     # zasedání s nečitelným skenem (ZO27) nemají úvodní procedurální body vůbec —
     # doplň je na začátek z override (zdroj: Zpravodaj)
     _ovr = VOTE_OVR.get(str(r["cislo_zasedani"]))
     if _ovr and _ovr.get("prepend") and not any("zvolilo" in it[4].lower() for it in items):
-        pre = [[ci(p["kat"]), ti_index.get(temata.OSTATNI, 0), None, p.get("vote"), p["text"], 0, None, None]
+        pre = [[ci(p["kat"]), ti_index.get(temata.OSTATNI, 0), None, p.get("vote"), p["text"], 0, None, None, None]
                for p in _ovr["prepend"]]
         items = pre + items
     meet.append({
@@ -192,7 +206,8 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
         "ch": ([[c["t"], c["bod"], c["label"]] for c in vc["chapters"]] if vc else []),
     })
 
-DATA = {"cats": cats, "temata": tlist, "vbuckets": vydaje.ORDER, "meet": meet, "pgeo": parcely_geo}
+DATA = {"cats": cats, "temata": tlist, "vbuckets": vydaje.ORDER, "meet": meet, "pgeo": parcely_geo,
+        "prep": {str(k): {str(i): t for i, t in v.items()} for k, v in PREP.items()}}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 n_m = len(meet)
@@ -306,6 +321,19 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
   border-radius:12px;color:var(--accent);font-weight:600;cursor:pointer;font:inherit;font-size:13.5px}
 .zmore:hover{border-color:var(--accent);background:var(--accent-soft)}
 @media(max-width:680px){.zmt-date{min-width:0}.zmt-count{display:none}.zmt-h{gap:10px;padding:12px 13px}}
+/* přepis diskuze z videa (sbalený, rozbalí se kliknutím) */
+.prepwrap{margin-top:9px}
+.prep-toggle{border:1px solid var(--line);background:var(--inset);color:var(--muted);font:inherit;font-size:11.5px;
+  font-weight:600;padding:3px 11px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.prep-toggle:hover{border-color:var(--accent);color:var(--text)}
+.prep-toggle .pchev{font-size:9px;transition:transform .15s}
+.prep-toggle.open .pchev{transform:rotate(180deg)}
+.prep{margin-top:9px;border-left:2px solid var(--line);padding:2px 0 2px 13px;display:flex;flex-direction:column;gap:9px}
+.prep .ptrn{font-size:13px;line-height:1.6}
+.prep .pwho{font-weight:640;margin-right:7px}
+.prep .pwho.o{font-style:italic}
+.prep .ptxt{color:var(--text)}
+.prep .pdisc{font-size:11px;color:var(--faint);margin:2px 0 2px;line-height:1.5}
 </style>"""
 
 year_btns = '<button class="on" data-k="all">Vše</button>' + "".join(
@@ -370,6 +398,8 @@ scripts = '<script>' + CHARTJS + '''</script>
 <script>
 const D=DATA_JSON, CATS=D.cats, TEMATA=D.temata, VBUCKETS=D.vbuckets, MEET=D.meet;
 const PGEO=D.pgeo||{};
+const PREP=D.prep||{};
+const ROLECOL={s:'--accent', z:'--c3', o:'--muted', k:'--c1'};
 const nf=new Intl.NumberFormat('cs-CZ');
 const PAGE=20;
 let q='', year='all', tema='all', vyd='all', sort='new', shown=PAGE;
@@ -491,6 +521,18 @@ function votePanel(v, nm){
   return `<div class="vpop" hidden>${line('Pro',v[0]??0,nm[0])}${line('Proti',v[1]??0,nm[1])}${line('Zdržel se',v[2]??0,nm[2])}</div>`;
 }
 
+function prepHTML(mn, idx){
+  if(idx==null) return '';
+  const byM=PREP[mn]; if(!byM) return '';
+  const turns=byM[idx]; if(!turns||!turns.length) return '';
+  const inner=turns.map(t=>{
+    const col='var('+(ROLECOL[t.role]||'--muted')+')';
+    const ocls=t.role==='o'?' o':'';
+    return `<div class="ptrn"><span class="pwho${ocls}" style="color:${col}">${esc(t.who||'')}</span><span class="ptxt">${esc(t.text||'')}</span></div>`;
+  }).join('');
+  return `<div class="prepwrap"><button type="button" class="prep-toggle">&#128172; Přepis diskuze <span class="pchev">&#9662;</span></button>`+
+         `<div class="prep" hidden><p class="pdisc">Redakčně upravený přepis z automatických titulků záznamu — orientační, není doslovný ani úřední záznam. Zastupitelé jsou uvedeni jménem, občané anonymizováni.</p>${inner}</div></div>`;
+}
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
 function plurKap(n){return (n>=2&&n<=4)?'kapitoly':'kapitol';}
 function recHTML(m){
@@ -528,7 +570,7 @@ function cardHTML(m,items,open,qf){
       const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
       const cat=`<span class="zcat" style="--cc:${col}">${esc(c)}</span>`;
       return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
-             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}</div>`;
+             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}${prepHTML(m.n,it[8])}</div>`;
     }).join('');
     bodyHTML='<div class="zmt-body">'+recHTML(m)+rows+'</div>';
   }
@@ -570,6 +612,12 @@ function render(){
     const pop=btn.closest('.zitem').querySelector('.vpop');
     pop.hidden=!pop.hidden;
     btn.classList.toggle('open', !pop.hidden);
+  });
+  feed.querySelectorAll('.prep-toggle').forEach(btn=>btn.onclick=(e)=>{
+    e.stopPropagation();
+    const pr=btn.parentElement.querySelector('.prep');
+    pr.hidden=!pr.hidden;
+    btn.classList.toggle('open', !pr.hidden);
   });
 }
 

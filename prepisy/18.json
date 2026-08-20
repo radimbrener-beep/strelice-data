@@ -1,0 +1,176 @@
+{
+  "cislo_zasedani": 18,
+  "vid": "pWmbwgEHfsE",
+  "body": [
+    {
+      "index": 2,
+      "start": 615,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 17. zastupitelstva se rada sešla čtyřikrát — zápisy č. 59 až 62 jste obdrželi e-mailem. Má někdo k zápisům z rady dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez připomínek; zastupitelstvo bere zprávu o činnosti rady obce na vědomí."}
+      ]
+    },
+    {
+      "index": 3,
+      "start": 892,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Rozpočtové opatření č. 12/2024 (materiál č. 1) reaguje na skutečný vývoj finančních operací v prosinci 2024. Rada obce i finanční výbor je projednaly a doporučují vzít je na vědomí. Má někdo dotaz?"},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Dobrý večer, děkuji za slovo. V rozpočtovém opatření je zmíněn územní plán a ve stavební komisi zazněla poznámka, že je nedořešený. V jakém je stavu a kdy se plánuje další postup?"},
+        {"who": "Starosta", "role": "s", "text": "Po loňské změně stavebního zákona přestal fungovat systém, do kterého se měl návrh nového územního plánu povinně odeslat digitálně (geoportál), a práce na něm se prakticky zastavily. Poslanci nyní schválili přechodné řešení — návrat k dřívějšímu postupu. Minulý týden jsem o tom jednal se zpracovateli a žádal je, abychom tohoto přechodného období využili a dotáhli územní plán až k veřejnému projednání. Je to řekněme poslední šance to dokončit; termín veřejného projednání vám sdělíme, jakmile to půjde. Bez dalších dotazů zastupitelstvo bere rozpočtové opatření č. 12/2024 na vědomí."}
+      ]
+    },
+    {
+      "index": 4,
+      "start": 895,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 2 vám předkládáme podrobně rozepsané rozpočtové opatření č. 1/2025, zpracované společně s našimi účetními. Reaguje na skutečný vývoj finančních operací v lednu 2025. Rada obce i finanční výbor doporučují vzít je na vědomí."},
+        {"who": "Radim Brener", "role": "z", "text": "Možná je to i dotaz k bodu 26. V tomto rozpočtovém opatření je zahrnuta projektová dokumentace na ulici Novou — jak na tom projekt je a bylo by možné jej představit, případně zveřejnit?"},
+        {"who": "Starosta", "role": "s", "text": "Bod 26 je právě majetkoprávní vyrovnání pozemků, které potřebujeme, abychom se dostali až na konec ulice. Jednání s majiteli byla zdlouhavá a náročná, ale během posledních dvou měsíců jsme se dohodli, takže projekt je připraven. Věřím, že jej pan inženýr Smělý představí na dalším pracovním setkání. Dokončujeme řešení až po poslední dům a řešíme tam novou dešťovou kanalizaci — chceme oddělit dešťové vody od splašků, a ulehčit tak čistírně. K bodu 26 se ještě dostaneme. Bez dalších dotazů zastupitelstvo bere rozpočtové opatření č. 1/2025 na vědomí."}
+      ]
+    },
+    {
+      "index": 5,
+      "start": 1083,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Jde o smlouvu o dílo na akci Střelice — rekonstrukce ulice Školní (materiál č. 6). K veřejné zakázce bylo podáno několik dotazů, proto byl na doporučení právního zástupce termín podání nabídek prodloužen do pondělí 24. února 2025 do 10 hodin. Z jedenácti uchazečů podala nejnižší nabídku společnost ZEMAKO, s.r.o., Bohunická cesta 501/9, Moravany, za 7 728 343,30 Kč bez DPH. Rada doporučuje smlouvu schválit. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Investice do rekonstrukce chodníků i revitalizace okolních pozemků je určitě potřeba a vítám ji. Navážu ale na pondělní pracovní setkání s projektantem a paní architektkou, která řešila zeleň. Studie je zveřejněná na webu a potvrdilo se v ní i to, co mě mrzí — kácení dvou starých lip u velkého parkoviště u zdravotního střediska. Chtěla bych vedení obce požádat, aby se ještě u tohoto bodu pozastavilo a kácení zvážilo; i malá šance ty stromy zachovat existuje a měli bychom jim ji dát."},
+        {"who": "Starosta", "role": "s", "text": "Na minulém zastupitelstvu jsem slíbil, že uděláme maximum pro záchranu těch dvou lip, a považuji tehdejší diskuzi za velmi podnětnou. Proto jsme oslovili paní inženýrku Jitku Vágnerovou, která má zkušenosti s výsadbou zeleně a revitalizovala park pod školou, a zadali jí studii nové výsadby na ulici Školní — tu jsme minulou středu zveřejnili. Kácení žádného stromu mě netěší, ale máme zkušenost: když se u jedné z lip na ulici Antonína Smutného dělal chodník, strom i přes veškerou péči po dvou letech uschl. Aby bylo parkoviště průjezdné a doprava plynulá, budeme tyto lípy zachraňovat jen velmi těžko. Vysadíme ale přes deset nových stromů — lípy i javory. Stavbu potřebujeme zahájit brzy a dokončit do konce srpna, aby se nový školní rok začínal na hotové komunikaci; téma ještě otevřeme na setkání s panem inženýrem Smělým 4. března, víc ale slíbit nemohu."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Díval jsem se na plány. Chápu, že výjezd mezi obě lípy skloubit nejde, ale zdála se mi funkční varianta zachránit alespoň jednu lípu — je jí přes sedmdesát let — a posunout výjezd o metr na úkor té druhé. Byla tato varianta zvažována a dá se ještě odborně posoudit, zda by to strom přežil?"},
+        {"who": "Starosta", "role": "s", "text": "Po pravé straně cestou do školy nechceme pokácet žádnou lípu, to mohu slíbit. Projekt paní inženýrky Vágnerové proto zužuje komunikaci a posouvá parkoviště od lip dál. Myslím, že jsme pro záchranu udělali maximum; téma ještě naposledy otevřeme na úterním setkání 4. března."},
+        {"who": "Starosta", "role": "s", "text": "Návrhová komise přečetla usnesení. Smlouva o dílo na rekonstrukci ulice Školní byla schválena; jeden zastupitel hlasoval proti."}
+      ]
+    },
+    {
+      "index": 6,
+      "start": 1955,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Jde o smlouvu o dílo na akci Autobusová zastávka u Čepra, ul. Brněnská (materiál č. 7). Do výběrového řízení se přihlásilo osm uchazečů; nejnižší nabídku podala společnost STAVOS PROFESSIONAL s.r.o., Pražákova 1008/69, Brno, za 1 887 236,47 Kč bez DPH. Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Je projekt zveřejněn na webu? Ptám se proto, že jej zpracovává inženýr Jiří Mikulášek, který dělal i první etapu ulice Brněnské. Řeší rozšíření chodníku od ostrůvku u přechodu na hřbitov — silnice i chodník se srovnají a nebezpečný ostrůvek zmizí — a pokračuje až k čerpací stanici, kde vznikne nový záliv a autobusová zastávka s přístřeškem. Někteří starší lidé nadšení nebyli, ale hlavním důvodem je bezpečnost při stále hustším provozu."},
+        {"who": "Starosta", "role": "s", "text": "Projekt zatím na webu není, ale zveřejníme jej. Doplním, že u zastávky vznikne nové místo pro přecházení směrem od zastávky Střelice dolní, kudy přijíždějí a přestupují i lidé z Radostic a Vršovic. Zastávka bude na přehledném místě, ne na nešťastném horizontu. Bez dalších dotazů byla smlouva o dílo schválena."}
+      ]
+    },
+    {
+      "index": 7,
+      "start": 2256,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Obec postupně objednala v roce 2019 a začátkem roku 2022 dvě architektonické studie parkovacího domu u zdravotního střediska kvůli umístění obchodu se smíšeným zbožím. Obchod je dnes v lokalitě vyřešen jinak, takže studie už obec nevyužije. Podobně jako kdysi u přístavby školky proto navrhujeme nerealizované studie v ceně 194 064 Kč zařadit do účetnictví jako zmařenou investici a vyřadit je — audit se opakovaně ptá, kdy se stavba zrealizuje, a my víme, že parkovací dům obec patrně nikdy nepostaví. Chceme to vyřešit před krajským auditem 25.–26. března (materiál č. 5). Má někdo dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byl návrh na vyřazení studie z účetnictví jako zmařené investice schválen."}
+      ]
+    },
+    {
+      "index": 8,
+      "start": 2418,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Na základě zákona č. 251/2016 Sb. o některých přestupcích a v souladu se zákonem č. 128/2000 Sb. o obcích připravila rada obce obecně závaznou vyhlášku o nočním klidu. Vymezuje výjimečné případy, kdy je doba nočního klidu stanovena odlišně od zákonné doby 22.–6. hodiny. Vyhláška nabude účinnosti patnáctým dnem po vyhlášení. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla obecně závazná vyhláška o nočním klidu schválena."}
+      ]
+    },
+    {
+      "index": 9,
+      "start": 2505,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Na základě zákona č. 565/1990 Sb. o místních poplatcích a zákona č. 128/2000 Sb. o obcích připravila rada obecně závaznou vyhlášku o místním poplatku za užívání veřejného prostranství. Řeší poplatky za zvláštní užívání prostranství — výkopové práce, dočasné stavby a zařízení pro komerční účely, stavební a reklamní zařízení či kulturní a sportovní akce. Vyhlášku připomínkovala komise pro veřejné záležitosti a hospodaření; účinnosti nabude patnáctým dnem po vyhlášení. Rada doporučuje schválit."},
+        {"who": "Petr Rozsíval", "role": "z", "text": "Jen technickou poznámku — v článku 6 chybí slovo „akce“."},
+        {"who": "Starosta", "role": "s", "text": "Děkuji, pan místostarosta to doplní. Bez dalších připomínek byla vyhláška schválena."}
+      ]
+    },
+    {
+      "index": 10,
+      "start": 2636,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme doplněný účetní odpisový plán za období od ledna do prosince 2024 (materiál č. 7). Rada doporučuje schválit. Má někdo dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byl doplněný účetní odpisový plán za rok 2024 schválen."}
+      ]
+    },
+    {
+      "index": 11,
+      "start": 2718,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme měsíční odměny neuvolněným členům zastupitelstva podle novely zákona č. 128/2000 Sb. o obcích s platností od 1. 3. 2025 (materiál č. 8): člen rady obce 10 068 Kč, předseda výboru či komise 5 034 Kč, člen výboru či komise 4 180 Kč a člen zastupitelstva 2 517 Kč. Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byly měsíční odměny neuvolněným zastupitelům schváleny."}
+      ]
+    },
+    {
+      "index": 12,
+      "start": 2844,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Správa železnic, státní organizace, Dlážděná 1003/7, Praha 1, nám bezúplatně převádí pozemky p. č. 2628/2 a 2628/3 v k. ú. Střelice u Brna — jde o polní cestu v ochranném pásmu dráhy. Podmínkou je, že majetek přebíráme i s trvalými porosty, že si obec je vědoma vlivů provozu dráhy a nebude po Správě železnic požadovat opatření proti nim, v souladu se zákonem č. 266/1994 Sb. o dráhách. Přečetl jsem to schválně — bezúplatný převod u drah nebývá zvykem; za pozemky u nádraží a u lávky jsme dříve zaplatili statisíce. Doporučuji převod schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byly technické podmínky bezúplatného převodu uvedených pozemků od Správy železnic schváleny a starosta byl pověřen jejich podpisem."}
+      ]
+    },
+    {
+      "index": 13,
+      "start": 3098,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme návrh veřejnoprávní smlouvy o poskytnutí dotace 55 000 Kč z rozpočtu obce pro Sdružení rodičů a přátel Základní školy Střelice. Dotace bude využita na Den dětí, sportovní den, vánoční dílny, školní ples a dýňovou slavnost. Rada doporučuje schválit."},
+        {"who": "Petr Rozsíval", "role": "z", "text": "Než začneme schvalovat veřejnoprávní smlouvy — byly všechny loňské dotace všemi spolky řádně a včas vyúčtovány?"},
+        {"who": "Starosta", "role": "s", "text": "Ano, dohlíží na to paní účetní. Všechna vyúčtování byla řádně dodána, jen u jednoho spolku jsme vyzývali k upřesnění. Bez dalších dotazů byla smlouva schválena."}
+      ]
+    },
+    {
+      "index": 14,
+      "start": 3239,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme návrh veřejnoprávní smlouvy o poskytnutí dotace 200 000 Kč z rozpočtu obce pro Junák — český skaut, středisko Wahinkpe Střelice. Žádost zastupitelstvo schválilo již na 17. zasedání; dotace bude využita na doplnění táborového a sportovního vybavení (materiál č. 12). Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla veřejnoprávní smlouva pro Junák — český skaut, středisko Wahinkpe Střelice schválena."}
+      ]
+    },
+    {
+      "index": 19,
+      "start": 3340,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme návrh veřejnoprávní smlouvy o poskytnutí dotace 80 000 Kč z rozpočtu obce pro Včelařský spolek ve Střelicích u Brna. Žádost byla schválena na 17. zasedání; dotace bude využita na činnost spolku a budování včelařského areálu. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla veřejnoprávní smlouva pro Včelařský spolek ve Střelicích u Brna schválena."}
+      ]
+    },
+    {
+      "index": 20,
+      "start": 3442,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme návrh veřejnoprávní smlouvy o poskytnutí dotace 100 000 Kč z rozpočtu obce pro neziskovou organizaci Diecézní charita Brno, oblastní charita Rajhrad, která ve Střelicích zajišťuje terénní pečovatelskou službu. Žádost byla schválena na 17. zasedání. Rada doporučuje schválit."},
+        {"who": "Radim Brener", "role": "z", "text": "Můj dotaz se týká všech osmi dotačních bodů. Většinu jsme schvalovali už na 17. zastupitelstvu. Nešlo by to řešit jednou — třeba při schválení dotace rovnou pověřit starostu podpisem smlouvy? Zabere to půlku zasedání a přitom u těchto formalit žádná diskuze neprobíhá; mohli bychom se věnovat zajímavějším věcem."},
+        {"who": "Starosta", "role": "s", "text": "Rozumím, ale audit vyžaduje samostatné schválení žádosti a samostatné schválení smlouvy. Rada by dnes podle novely zákona o obcích mohla dotace do 250 000 Kč schvalovat sama, já ale chci, aby se ke každé dotaci nad 50 000 Kč vyjádřilo všech patnáct zastupitelů — bývá to citlivá otázka. Postup ještě ověříme na krajském auditu 25.–26. března. Smlouva s Diecézní charitou Brno byla schválena."}
+      ]
+    },
+    {
+      "index": 21,
+      "start": 4184,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme předávací protokoly, kterými obec předává do hospodaření Základní školy a Mateřské školy Střelice vybavení přístavby mateřské školy na ulici Školní — IT vybavení a nábytek. Škola majetek zařadí do užívání a naváže na jeho odepisování od března 2025 (materiál č. 19). Nákup vybavení jsme už schvalovali, nyní jej formálně předáváme do hospodaření školy. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byly předávací protokoly se ZŠ a MŠ Střelice schváleny a starosta byl pověřen jejich podpisem."}
+      ]
+    },
+    {
+      "index": 22,
+      "start": 4195,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Obdobně předkládáme předávací protokoly, kterými obec předává do hospodaření Základní umělecké školy Střelice vybavení jejího výtvarného ateliéru — IT vybavení a nábytek včetně schodolezu pro invalidy. Škola majetek zařadí do užívání a naváže na jeho odepisování od března 2025 (materiál č. 20). Rada doporučuje schválit."},
+        {"who": "Zuzana Hloušková", "role": "k", "text": "Přečetla návrh usnesení k předávacím protokolům se Základní uměleckou školou Střelice."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byly předávací protokoly se ZUŠ Střelice schváleny a starosta byl pověřen jejich podpisem."}
+      ]
+    },
+    {
+      "index": 23,
+      "start": 4581,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 21 předkládáme smlouvu o výstavbě technické infrastruktury — realizaci prodloužení vodovodního řadu, o kterou požádal stavebník kvůli výstavbě rodinného domu. Vybudovaný vodovodní řad v délce 23 m na obecním pozemku p. č. 1722 v k. ú. Střelice u Brna bude po kolaudaci předán do majetku obce. Rada doporučuje smlouvu se stavebníkem, panem O. F., schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o výstavbě technické infrastruktury schválena a starosta byl pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 24,
+      "start": 4626,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Závěrečným bodem je smlouva o smlouvě budoucí směnná v lokalitě Nová ulice (materiál č. 22). Řeší budoucí bezúplatnou směnu pozemků mezi obcí a manželi Ing. B., která proběhne nejpozději do jednoho měsíce od nabytí právní moci kolaudačního rozhodnutí stavebních úprav komunikace, a dále služebnost pro veřejné osvětlení a nově zbudovanou dešťovou kanalizaci. Byli jste informováni v zápisech z rady — jednání za účasti našeho právního zástupce i ve spolupráci s EG.D nebyla jednoduchá, ale nakonec jsme se dohodli, což považuji za úspěch; druhá strana včera všechny výtisky podepsala. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o smlouvě budoucí směnná schválena a starosta byl pověřen jejím podpisem. Otevírám poslední bod různé — nejprve dotazy zastupitelů, poté občanů."},
+        {"who": "Radim Brener", "role": "z", "text": "Chtěl bych požádat, zda by bylo možné na příštím zastupitelstvu představit připravované změny v systému sběru odpadu a další plán."},
+        {"who": "Starosta", "role": "s", "text": "Věřím, že ano; prezentaci zajistíme i na pracovním setkání, aby byl čas vše vysvětlit. Pokud dotace vyjde, měly by domácnosti dostat nádoby na odpad zhruba v létě — budou zdarma, dotace pokryje asi 50 % a obec se bude podílet. Cílem je lepší třídění a pořádek na stanovištích, který dnes není dobrý."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Bude už známa i finanční stránka a celková koncepce? Nejdražší bude podle mě zřejmě samotný odvoz."},
+        {"who": "Starosta", "role": "s", "text": "Podobný systém už funguje v Troubsku, Popůvkách i Nebovidech; zjišťujeme jejich zkušenosti a informace doplníme."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Jel jsem kolem zemědělského provozu, který je zdrojem zápachu — staré komíny leží na zemi a jsou osazeny nové, ale při větru z toho místa to stále zapáchá. Je naplánováno nějaké jednání, aby to směřovalo k řešení?"},
+        {"who": "Starosta", "role": "s", "text": "Úprava tam proběhla — měli zpoždění, dostali poslední termín a minulý týden jsme to zkontrolovali. Teď je potřeba situaci sledovat, hlavně v dubnu až červnu; pokud se nezlepší, budeme to muset řešit. Prosím i zastupitele z dolního konce, kde bydlíte vy i pan Liška, aby dění hlásili. Do dalšího zastupitelstva to vyhodnotíme."},
+        {"who": "Starosta", "role": "s", "text": "Dávám slovo občanům — nikdo se nehlásí. Děkuji všem za účast a přeji hezký a klidný večer."}
+      ]
+    }
+  ]
+}

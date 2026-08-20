@@ -1,0 +1,194 @@
+{
+  "cislo_zasedani": 13,
+  "vid": "j1aWDDATXgA",
+  "body": [
+    {
+      "index": 2,
+      "start": 151,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 12. zastupitelstva se rada sešla čtyřikrát — e-mailem jste obdrželi zápisy č. 44 až 47. Má někdo k zápisům dotaz?"},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Dobrý večer, děkuji za slovo. Viděla jsem, že obec vybírala nějaké herní prvky a prolézačky — kam se budou instalovat?"},
+        {"who": "Starosta", "role": "s", "text": "Obec rozšiřuje kapacitu mateřské školy; přístavbu dvou učeben bychom měli zkolaudovat začátkem srpna. Dětské hřiště přitom zůstává stejné, dokonce menší, a chybějí na něm herní prvky. Využíváme proto dotaci z Programu rozvoje venkova přes MAS Bobrava — žádali jsme na herní prvky i na zahradní domek, který bude sloužit také jako sklad hraček. Uznatelné náklady dotace mají být 500 000 Kč. Bez dalších dotazů bere zastupitelstvo zprávu o činnosti rady na vědomí."}
+      ]
+    },
+    {
+      "index": 3,
+      "start": 757,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 1 předkládáme podrobně rozepsané rozpočtové opatření č. 4/2024, zpracované našimi účetními. Reaguje na skutečný vývoj finančních operací v dubnu 2024 a schválila je rada obce č. 44 dne 29. 4. 2024. Rada i finanční výbor doporučují vzít je na vědomí."},
+        {"who": "Starosta", "role": "s", "text": "Děkuji panu místostarostovi. Bez dotazů zastupitelstvo bere rozpočtové opatření č. 4/2024 na vědomí."}
+      ]
+    },
+    {
+      "index": 4,
+      "start": 760,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme rozpočtové opatření č. 5/2024, které reaguje na skutečný vývoj financí v květnu 2024; schválila je rada obce č. 46 dne 29. 5. 2024. Rada i finanční výbor doporučují vzít je na vědomí."},
+        {"who": "Starosta", "role": "s", "text": "Děkuji. Bez dotazů zastupitelstvo bere rozpočtové opatření č. 5/2024 na vědomí."}
+      ]
+    },
+    {
+      "index": 5,
+      "start": 826,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme závěrečný účet obce Střelice za rok 2023 (materiál č. 3). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů; návrhová komise přečetla usnesení a závěrečný účet obce Střelice za rok 2023 byl schválen — vyjádřením souhlasu s celoročním hospodařením a se zprávou o výsledku auditu, a to bez výhrad."}
+      ]
+    },
+    {
+      "index": 6,
+      "start": 920,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme účetní odpisový plán obce Střelice pro rok 2024 (materiál č. 4). Rada doporučuje schválit. Má někdo dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byl účetní odpisový plán za období leden až prosinec 2024 schválen."}
+      ]
+    },
+    {
+      "index": 7,
+      "start": 1011,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Informace o veřejné zakázce Dodávka vybavení ZUŠ Střelice — výtvarný ateliér. Zastupitelstvo obce č. 12 dne 25. dubna 2024 pověřilo radu vyhodnocením a starostu podpisem kupní smlouvy. Ze tří přihlášených firem podala nejnižší nabídku společnost MT Interiér ze Střelic za 673 838 Kč bez DPH. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů bere zastupitelstvo zprávu o průběhu a výsledku této veřejné zakázky na vědomí."}
+      ]
+    },
+    {
+      "index": 8,
+      "start": 1088,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Smlouva o dílo na zakázku Lesní cyklotrasa Lotrůvka — stavební práce. Z šesti přihlášených firem podala nejnižší nabídku společnost AQUASYS spol. s r.o. ze Žďáru nad Sázavou za 2 550 000 Kč bez DPH; rada doporučuje schválit. Doplním, že jsme koncem roku 2023 podali žádost o dotaci na Jihomoravský kraj, ale neuspěli jsme — skončili jsme první pod čarou, protože trasa nemá návaznost na další cyklostezky. Koncem května jsme podali novou individuální žádost o dotaci a do 14 dnů má kraj rozhodnout. Zakázku jsme už vysoutěžili a chceme začít stavět začátkem srpna. Dnes zároveň proběhla kontrola loňské dotace na III. etapu cyklotrasy s konstatováním, že je vše v pořádku. Otevírám diskuzi."},
+        {"who": "Občan", "role": "o", "text": "Nehrozí u této zpevněné cesty podobný problém jako jinde, kde se z vozovky po letech stalo koryto pro vodu z polí a usadilo se tam množství naplavené zeminy? Dalo by se tomu předejít?"},
+        {"who": "Starosta", "role": "s", "text": "Tuto lesní cestu jsme dnes při kontrole ukazovali; přítomen byl i projektant, který navrhoval také III. etapu. Do přírodně chráněné oblasti Bobrava nelze dát asfalt, projekt je ale zabezpečen svodnicemi na určených místech, takže by měl být připraven i na přívalové deště. Pokud by to nestačilo, bude se to muset řešit dodatečně. Bez dalších dotazů byla smlouva o dílo s firmou AQUASYS schválena."}
+      ]
+    },
+    {
+      "index": 9,
+      "start": 1396,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Smlouva o dílo na zakázku Venkovní úpravy u hasičské zbrojnice, III. etapa. Z pěti přihlášených firem podala nejnižší nabídku společnost CREATIVE BUILDINGS, s.r.o. z Brna za 1 832 139,24 Kč bez DPH; rada doporučuje schválit. Jde vlastně o dokončení chodníku podél Střelického potoka od muzea k hasičce — projekt připravovaný už kolem roku 2016/2017, jehož první etapa byla zhotovena v roce 2022. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o dílo schválena."}
+      ]
+    },
+    {
+      "index": 10,
+      "start": 1541,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Smlouva o dílo na zakázku Úsekové měření v ulicích Tetčická a Antonína Smutného. Ze dvou přihlášených firem podala nejnižší nabídku společnost DOSIP Servis, s.r.o. z Okříšek za 1 549 000 Kč bez DPH. Začátek a konec úseku bude za odbočkou z ulice Svitáčkova a na náměstí Svobody u autobusové zastávky před ZUŠ. Stejný systém provozujeme od září 2022 na ulici Nebovická, kde se doprava zpomalila. Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Martin Klíma", "role": "z", "text": "Pokud to dnes schválíme, dodávka se má splnit v srpnu a zkušební provoz by mohl začít nejpozději v polovině září. Ten musí trvat tři až čtyři měsíce, takže pokuty by naběhly zhruba od 1. ledna 2025?"},
+        {"who": "Starosta", "role": "s", "text": "Ano, zkušební provoz je tři až čtyři měsíce. Bez dalších dotazů byla smlouva schválena."}
+      ]
+    },
+    {
+      "index": 11,
+      "start": 1718,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Dobrovolný svazek obcí Šlapanicko, jehož jsme členem, předkládá ke schválení upravené stanovy. Změny jsou dvě: v článku 10 se rozšiřuje možnost konat radu i korespondenčně (per rollam) a v článku 7 se na doporučení právníků doplňuje nutnost schvalovat či měnit stanovy alespoň dvoutřetinovou většinou členských obcí (to platí už ze zákona). Stanovy již schválila rada svazku a rada obce doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byly stanovy Dobrovolného svazku obcí Šlapanicko schváleny."}
+      ]
+    },
+    {
+      "index": 12,
+      "start": 1829,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Memorandum se Svazkem vodovodů a kanalizací Ivančice k financování stavby Rozšíření ČOV Střelice. Memorandum stvrzuje vůli zrealizovat vodní dílo o celkové kapacitě 6 500 EO — obci Střelice bude rezervována kapacita 4 500 EO, obci Nebovidy 1 000 EO a zbývajících 1 000 EO zůstane jako rezerva pro budoucí rozvoj, evidovaná svazkem. Kapacitu jsme oproti minulému jednání upravili tak, aby vyhovovala; vychází i z demografické studie. Projektová cena je vysoká, řádově kolem 177 milionů Kč bez DPH (uvádím z hlavy), obec proto bude muset řešit úvěr. O dalším postupu budete jako zastupitelé informováni. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů bylo memorandum schváleno."}
+      ]
+    },
+    {
+      "index": 13,
+      "start": 2082,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Dodatek č. 24 ke smlouvě o vkladu majetku do hospodaření Svazku vodovodů a kanalizací Ivančice. Obec vkládá vodovodní řad pod železniční tratí mezi ulicí Jaroslava Svobody a fotbalovým hřištěm; ten dosud nebyl ve svazku evidován, na což se přišlo při posledních inventurách, a tímto to napravujeme. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byl dodatek č. 24 schválen."}
+      ]
+    },
+    {
+      "index": 14,
+      "start": 2185,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Nákup částí pozemků pro realizaci cyklostezky, chodníku a veřejného osvětlení v ulici Ostopovická (materiál č. 12). Projekt připravujeme ve spolupráci s Dobrovolným svazkem obcí Šlapanicko; výkup řešíme s vlastníky, s nimiž obec už v roce 2018 uzavřela smlouvy o smlouvě budoucí — jde o firmy Stavebniny Dostál a HARVESTICA ESTATE i soukromé vlastníky, za 400 až 700 Kč/m². Rada doporučuje schválit. Dodám, že projektovou dokumentaci chceme do konce června podat na stavební úřad, abychom stihli ještě starý stavební zákon; pokud vyřídíme územní rozhodnutí do konce září, mohl by svazek podat žádost o dotaci z IROP na cyklostezku. Otevírám diskuzi."},
+        {"who": "Radim Brener", "role": "k", "text": "Přečetl podrobné znění usnesení ke kupní smlouvě."},
+        {"who": "Starosta", "role": "s", "text": "Bez dalších dotazů byla kupní smlouva schválena."}
+      ]
+    },
+    {
+      "index": 15,
+      "start": 2599,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Smlouva o bezúplatném převodu pozemku p. č. 1449/4 o výměře 30 m² v k. ú. Střelice u Brna. Pozemek se nachází na začátku náměstí Svobody u křižovatky s ulicí Na Hrázi a je využíván jako chodník. Úřad pro zastupování státu ve věcech majetkových připravil smlouvu, podle níž pozemek bezúplatně převede na obec. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o bezúplatném převodu s Úřadem pro zastupování státu ve věcech majetkových schválena."}
+      ]
+    },
+    {
+      "index": 16,
+      "start": 2710,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Výsledky hlasování participativního rozpočtu. Rada vyčlenila na rok 2024 částku 400 000 Kč, maximální hodnota jednoho projektu byla 300 000 Kč včetně DPH. Přihlášeny byly čtyři projekty — Pumptrack Pod Lesem (II. etapa), přírodní hřiště Skalka (II. etapa), vyhlídka nad myslivnou a Bobří stezka — všechny prošly formální kontrolou a byly představeny občanům; v květnu proběhlo hlasování lístky i elektronicky. Pořadí podle počtu hlasů: 1. Pumptrack Pod Lesem 145, 2. Bobří stezka 126, 3. přírodní hřiště Skalka 93, 4. vyhlídka nad myslivnou 90. Rada doporučuje schválit realizaci Pumptracku Pod Lesem, II. etapa, a Bobří stezky. Otevírám diskuzi."},
+        {"who": "Petr Rozsíval", "role": "z", "text": "Navrhuji do usnesení doplnit částky vyčleněné na jednotlivé projekty — kolik připadá na Pumptrack a kolik na Bobří stezku; teď to tam chybí."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Jsem ráda, že se obec do participativního rozpočtu opět pustila — je dobře, že se veřejnost může ozvat s menším i větším projektem. Bobří stezka má trefný název a něco takového tu chybí. Pokud budou autoři potřebovat pomocnou ruku, jistě ji najdou třeba u myslivců, včelařů nebo maminek. Byly nějaké problémy s hlasováním přes mobilní rozhlas?"},
+        {"who": "Starosta", "role": "s", "text": "Nedokážu potvrdit, zda byly problémy; papírových lístků bylo odevzdáno méně než elektronických. Případné jednotlivé neodeslané hlasy by na výsledek neměly vliv, hlasování je dobře sledovatelné a papírové lístky jsou u mě k nahlédnutí. Bez dalších připomínek byly v rámci participativního rozpočtu schváleny projekty Pumptrack Pod Lesem, II. etapa (100 000 Kč) a Bobří stezka (300 000 Kč)."}
+      ]
+    },
+    {
+      "index": 17,
+      "start": 3016,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Účetní závěrka obce Střelice za rok 2023 (materiál č. 14) — poslední z účetních záležitostí, které podle zákona schvalujeme. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla účetní závěrka obce Střelice za rok 2023 schválena a starosta pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 18,
+      "start": 3097,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Smlouva o provozování služby SENIOR TAXI, jejímž provozovatelem je Místní akční skupina Bobrava, z.s. Služba byla na území MAS Bobrava zahájena v říjnu 2023 na dobu určitou; protože se osvědčila, předkládá se nová smlouva na dobu neurčitou s platností od 1. 9. 2024. Provoz je rozdělen do dvou pásem — pásmo A (jízda do 10 km) s doplatkem obce 230 Kč a pásmo B (do 30 km) s doplatkem 300 Kč. Zájem o službu roste, od šesti jízd v říjnu po desítky měsíčně. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů byla smlouva o provozování služby SENIOR TAXI schválena."}
+      ]
+    },
+    {
+      "index": 19,
+      "start": 3283,
+      "turns": [
+        {"who": "David Dvořák", "role": "z", "text": "Tento bod navazuje na minulé zastupitelstvo, kde jsme schválili návrh opatření obecné povahy o stanovení místního koeficientu pro nemovitosti společnosti Čepro, a.s. Dotčené subjekty jsme vyzvali k námitkám, nikdo je však v zákonné lhůtě nepodal, takže konečné znění je prakticky totožné s návrhem. Dnes schvalujeme konečné znění; opatření bude zasláno správci daně a bude účinné od 1. 1. 2025. Rada doporučuje schválit."},
+        {"who": "Robert Ströbinger", "role": "k", "text": "Přečetl podrobné znění opatření obecné povahy o stanovení místního koeficientu 5,0 pro vymezené pozemky a stavby (list vlastnictví č. 1815, k. ú. Střelice u Brna), s odůvodněním, že tyto nemovitosti mají negativní dopad na veřejný život v obci i na životní prostředí a zásadním způsobem zatěžují obec i občany."},
+        {"who": "Starosta", "role": "s", "text": "Opatření obecné povahy o stanovení místního koeficientu bylo schváleno; pro hlasovalo 13 zastupitelů, zdržela se Petra Zoubková."}
+      ]
+    },
+    {
+      "index": 20,
+      "start": 4163,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Zápis z jednání kontrolního výboru č. 7 a 8 (materiál č. 17). Rada doporučuje vzít na vědomí. Slovo má předsedkyně kontrolního výboru Eva Bartoňová."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Kontrolní výbor se sešel v květnu a červnu. Kontrolovali jsme usnesení rady a zastupitelstva a podrobněji se podívali na jedno výběrové řízení. Zabývali jsme se podnětem občana k nedostatečné kapacitě kontejnerů na tříděný odpad — rada souhlasila s navýšením počtu na frekventovaných místech a vyzvala občany, ať navrhnou vhodná místa; hledá se také místo na tříděný odpad v jedné z ulic, zatím zřízeno nebylo. Prověřili jsme dvě podobné položky z plnění roku 2023 (nový chodník a vstup u základní školy, přesun hřiště od zdravotního střediska ke škole) a požádali finanční výbor o kontrolu. U kontrolované investiční akce — výběr projektanta pro ulici Na Hrázi a pokračování na ulici Nová — výbor nedostatky neshledal. Další jednání výboru bude v září."},
+        {"who": "Starosta", "role": "s", "text": "Doplním, že místo na tříděný odpad v dané ulici zatím řešíme se sousedy — chceme se dohodnout, i když stavební zákon neporušujeme. Bez dalších dotazů bere zastupitelstvo zápis kontrolního výboru č. 7 a 8 na vědomí."}
+      ]
+    },
+    {
+      "index": 21,
+      "start": 4163,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Poptávka zahradnických služeb na údržbu veřejné zeleně v ulicích Tetčická a Antonína Smutného. Zeleň podél hlavní ulice by potřebovala oživit — vyplet zarostlé záhony, doplnit mulčovací kůru a nahradit část keřů. Podnět dala zastupitelka Eva Bartoňová. Rada doporučuje vypsat poptávkové řízení na dvouleté období."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Souhlasím; první úsek od odbočky k nádraží po uličku K Závorám už poptáváme u zahradnické firmy, později bychom údržbu rozšířili na celé ulice Tetčická a Antonína Smutného, ale až po dokončení chodníků."},
+        {"who": "Starosta", "role": "s", "text": "Bez dalších dotazů zastupitelstvo pověřilo radu poptat zahradnické služby. Otevírám bod různé — nejdříve dotazy zastupitelů."},
+        {"who": "Radim Brener", "role": "z", "text": "Jak pokračuje pasport dopravního značení, který se před rokem veřejně projednával?"},
+        {"who": "Starosta", "role": "s", "text": "Jeden z občanů se odvolal proti omezení na 70 km/h na ulici Ostopovická (obdobně to bylo před ulicí Nebovická), věc se proto vrátila na policii a odbor dopravy k úpravám. Věřím, že pasport bude v této podobě schválen do konce července a poté necháme instalovat dopravní značení."},
+        {"who": "Martin Klíma", "role": "z", "text": "Jak to vypadá s výběrem varianty rekonstrukce náměstí Svobody a mohou se k ní občané ještě vyjádřit?"},
+        {"who": "Starosta", "role": "s", "text": "Proběhlo veřejné projednání studií dvou architektonických kanceláří; zvítězila studie společnosti KEO, kancelář DIMENZE skončila druhá. Zatím jsme to nechtěli řešit, necháme to uležet. Řada občanů oceňuje řešení hlavní části náměstí od KEO, ale prostor mezi poštou a obecním úřadem považuje za lepší od DIMENZE, proto jednáme o možném spojení; jedna z kanceláří ovšem s dělením na etapy nesouhlasí. O dalším postupu budeme informovat."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Řešíme u náměstí současně i parkování? Fakticky je to velké parkoviště a rekonstrukcí ubydou místa i u pošty; mělo by to jít ruku v ruce."},
+        {"who": "Starosta", "role": "s", "text": "Parkování je věčné téma; obě kanceláře zdůraznily, že řeší náměstí, nikoli parkování, to je na dopravní inženýry. Řešení zatím neznám, uvažujeme třeba o ulici Ke Kostelu."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Předávám stížnost spoluobčanů kvůli porušování vyhlášky o pohybu psů u veterinární ordinace na Nebovické. Volně pobíhající psi bez vodítka a náhubku ohrožují děti, které tam jezdí na kole nebo míří na hřiště; majitelé po sobě navíc neuklízejí. Nešlo by tam umístit upozorňující ceduli, případně to jinak posílit?"},
+        {"who": "Starosta", "role": "s", "text": "Vyhláška o volném pohybu psů platí, ale bez obecní policie ji těžko vymáháme. Zvážíme informativní tabuli a stížnost projednáme v radě obce."},
+        {"who": "David Dvořák", "role": "z", "text": "Doplním, že obec nemá nástroj na vymáhání vyhlášky. Přestupky je potřeba zaznamenat, vyfotit a předat přestupkové komisi ORP Šlapanice, která je projedná. Informativní cedule ale rozhodně neuškodí."},
+        {"who": "Helena Fialová", "role": "z", "text": "Mám dvě připomínky ke škole. Zaprvé — červnová vedra ukázala, že je nutné využít schválenou dotaci na předokenní žaluzie či jiné stínění, hlavně na jižní straně; překračujeme hygienickou vyhlášku. Zadruhé — u nového hřiště a parku u školy prosím vyvěsit provozní řád (vstup na vlastní nebezpečí, zákaz jízdy na kole a zákaz vstupu se psy), děti tam jezdí na kolech po trávníku."},
+        {"who": "Starosta", "role": "s", "text": "Hřiště jsme převzali po odstranění závad; na provozním řádu pracujeme s revizním technikem a měl by být hotový během 14 dnů až měsíce, odpadkové koše jsou objednané."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Na nové části chodníku na Nebovické chybí na jižní straně přechod a pokračování chodníku — děti i chodci musejí mezi zaparkovanými auty. Dá se to řešit?"},
+        {"who": "Starosta", "role": "s", "text": "Souhlasím. Jednáme se Správou a údržbou silnic JMK; do konce června měly být hotové výsledky diagnostiky krajské silnice, kterou obec na ulici Brněnská zaplatila (kolem 45 až 50 tis. Kč) a která dopadla dobře. SÚS nám doporučila připravit projekt chodníků, s čímž souhlasíme — chodník na jižní straně Nebovické (u potoka) chceme udělat po dokončení ulic Antonína Smutného a Nová. Zaměříme se i na bezbariérové nájezdy, které v části Střelic chybějí."},
+        {"who": "Helena Fialová", "role": "z", "text": "K přehřívání tříd — nemusí to nutně být žaluzie; stálo by za to nechat odborníky posoudit třeba klimatizaci spouštěnou jen podle potřeby. Hlavně aby se ta teplota vyřešila, protože překračujeme hygienickou vyhlášku."},
+        {"who": "Starosta", "role": "s", "text": "Prověříme to."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "K vepřínu — v posledních parných dnech nešlo po večerech větrat kvůli zápachu. Přišly stížnosti i na úřad a řeší se nějaká filtrace?"},
+        {"who": "Starosta", "role": "s", "text": "Před 14 dny jsme jednali s provozovatelem. Po doplnění technologie na podzim došlo ke zlepšení, které potvrzují i obyvatelé ulice Pod Lesem, ale v některých dnech je ovzduší stále špatné. Žádali jsme o kvalitnější kontrolu technologie a budeme dál jednat o zlepšení; řeší se také prodloužení valu a další výsadba stromů."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Nešlo by provozovateli připomenout slíbenou plně automatickou „pračku vzduchu“, která by nebyla závislá na obsluze doplňující chemikálie?"},
+        {"who": "Starosta", "role": "s", "text": "Toto téma jsme také otevřeli, víc teď ale slíbit nemohu; budeme dál jednat. Občané už dotazy nemají, uzavírám diskuzi. Na závěr — veřejné projednání místní energetické koncepce obce se koná ve středu 3. 7. v 18:00 v sále obecního úřadu, zváni jsou i občané. Zastupitelům připomínám pracovní setkání v pondělí 29. července 2024 v 18:00. Děkuji všem za účast a přeji vám i vašim rodinám krásné prázdniny a hezkou dovolenou."}
+      ]
+    }
+  ]
+}

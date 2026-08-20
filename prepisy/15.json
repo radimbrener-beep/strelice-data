@@ -1,0 +1,128 @@
+{
+ "cislo_zasedani": 15,
+ "vid": "w2AhtLV1Vtw",
+ "body": [
+  {
+   "index": 2,
+   "start": 168,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva o činnosti rady obce mezi zasedáními. Od 14. zastupitelstva se rada sešla čtyřikrát — obdrželi jste zápisy č. 50 až 53. Má někdo k zápisům z rady dotaz? Paní Bartoňová."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "V zápisech z rady jsem viděla, že nový pan ředitel školy začíná poznávat budovu. Nabídne mu obec pomocnou ruku s revitalizací budovy? Myslím, že je toho k opravě víc a bylo by dobré podívat se na to koncepčně."},
+    {"who": "Starosta", "role": "s", "text": "S panem ředitelem jsme o postupných opravách základní školy hovořili a školu jsme spolu prošli. Jedním z prvních bodů je úprava a rozšíření jídelny — přislíbili jsme vybrat projekční kancelář. Jednali jsme i o úpravě vstupu do školy, kde rodiče čekají na děti (átrium, přístřešek, lavičky), a o zastaralém vytápění, energetice a zateplení budovy. Teď dokončujeme mateřskou školu, příští rok se chceme věnovat přípravě rekonstrukce ZŠ; zhruba za půl roku, na jaře, vás budeme moci konkrétně informovat."},
+    {"who": "Helena Fialová", "role": "z", "text": "Měla jsem to připravené do diskuze, ale navážu. Upozorňuji opakovaně: od 1. 9. 2025 nám bude chybět jedna plnohodnotná učebna. Nemáme dostatečně velké třídy — malá učebna pojme asi 20 dětí a nedá se v ní pořádně učit. Počítačovou učebnu zrušit nemůžeme, přibývají hodiny informatiky, a žádná třída nemá méně než 25 žáků. Do prosincového rozpočtu je proto potřeba zahrnout studii, jak jednu učebnu k 1. 9. zajistit — buď ji zvětšit, nebo vystavět."},
+    {"who": "Starosta", "role": "s", "text": "Diskutujeme o postavení samostatné budovy pro první stupeň; pozemek u školy máme a zvažujeme propojení s jídelnou, tělocvičnou a hřištěm. Zatím nejsme ve fázi studie ani projektové dokumentace, ale budeme na tom pracovat, jakmile dokončíme školku. Myšlenkou paní Fialové — zajistit učebnu k 1. 9. — se budeme s ředitelem zabývat a hledat nejjednodušší a nejlevnější řešení."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Doplním, že tímto problémem se zabýváme dlouhodobě — mluvilo se o dostavbě křídla i o podkroví, kde se ale zjistila špatná statika, a nic se nepodniklo. Vidím možnost v kontejnerových či montovaných stavbách, které mohou být i dočasné."},
+    {"who": "Radim Brener", "role": "z", "text": "Kdyby se stavělo, byl bych rád, aby se plnohodnotně podílely i ostatní obce, jejichž děti sem chodí. Provoz nemůže financovat jen Střelice."},
+    {"who": "Starosta", "role": "s", "text": "Souhlasím. V první řadě budeme hledat dotaci; spádové obce se dnes na výuce finančně podílejí a chceme, aby se podílely na stavbě i na provozu."},
+    {"who": "Helena Fialová", "role": "z", "text": "Doplním, že podle právě zpracovávané výroční zprávy bylo loni na zahájení 444 žáků, z toho 324 střelických."},
+    {"who": "Jan Pernikář", "role": "z", "text": "Zvažuje se i nákladná přestavba kuchyně? Loni se mluvilo o tom, že při stavbě nové budovy by bylo levnější postavit novou kuchyni rovnou tam a peníze využít účelněji."},
+    {"who": "Starosta", "role": "s", "text": "Nehovoříme o kuchyni, ale o jídelně — to je předmět práce projektantů. Je tu myšlenka rozšířit ji do zahrady; byli jsme tam i s odborníkem. Vše by mělo vycházet z plnohodnotné studie, kterou chceme zadat kolem Vánoc či začátkem roku. Teď musíme dokončit dotace — dnes jsme měli finanční audit ministerstva financí na dotaci školky. Do září musíme vyřešit jednu učebnu."},
+    {"who": "Radim Brener", "role": "z", "text": "Mohl byste okomentovat pronájem komerčního prostoru v obchodním domě Satov — jaké byly nabídky a co se vybralo?"},
+    {"who": "Starosta", "role": "s", "text": "Jde o prostor v přízemí obchodního domu. Nejdřív jsme vybrali záměr paní ze Střelic na květinovou kavárnu, ta ale v létě odstoupila, protože podobný sortiment chtěl rozšířit i provozovatel stánku s pečivem. V srpnu jsme vypsali nový záměr; přihlásily se tři firmy — pizzerie, zmrzlinárna a provozovna studené kuchyně. Rozhodli jsme, že prostor má sloužit občanům, ne výrobě, a rada schválila pizzerii. Provoz by měl začít od 1. ledna, architektka připravuje interiér. Nejsou-li další dotazy, zastupitelstvo bere zprávu o činnosti rady na vědomí."}
+   ]
+  },
+  {
+   "index": 3,
+   "start": 176,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 1 předkládáme podrobně rozepsané rozpočtové opatření č. 8/2024, které reaguje na skutečný vývoj finančních operací v srpnu 2024; zpracovaly je naše účetní. Rada obce a finanční výbor je schválily na 52. zasedání rady dne 28. 8. a doporučují vzít je na vědomí."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů zastupitelstvo bere rozpočtové opatření č. 8/2024 na vědomí."}
+   ]
+  },
+  {
+   "index": 4,
+   "start": 184,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Na základě memoranda s Jihomoravským krajem o spolupráci v cyklistické dopravě a podané žádosti schválilo zastupitelstvo kraje na srpnovém zasedání pro obec Střelice dotaci na akci Lesní cyklotrasa Lotrůvka ve výši 1 500 000 Kč (materiál č. 2). Práce na cyklotrase se blíží ke konci — v pondělí 30. 9. dílo převezmeme. Připravujeme také projektovou dokumentaci na zpevnění navazující polní cesty směrem do ulice Trpín, abychom cyklotrasu v údolí Bobravy propojili s centrem obce; na to budeme hledat dotaci a rádi bychom akci zrealizovali příští rok. Rada doporučuje smlouvu schválit. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Bez dotazů; návrhová komise přečetla usnesení a smlouva o poskytnutí dotace z rozpočtu Jihomoravského kraje ve výši 1 500 000 Kč byla schválena."}
+   ]
+  },
+  {
+   "index": 5,
+   "start": 1690,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Poprosím pana místostarostu o představení souhlasu s podmínkami prodeje pozemku p. č. 3419/41 v k. ú. Střelice u Brna."},
+    {"who": "Místostarosta", "role": "s", "text": "Obec požádala Správu železnic, státní organizaci, o bezúplatný převod pozemku p. č. 3419/41, pod nímž leží pozemní komunikace ve vlastnictví obce podél Čepra. Správa železnic zaslala základní, tzv. technické podmínky převodu (materiál č. 3); po jejich schválení a doplnění výpisu z katastru a písemné žádosti bude moci v převodu pokračovat. Rada doporučuje schválit."},
+    {"who": "Starosta", "role": "s", "text": "Je to velmi malý pozemek pod komunikací. Ostatní pozemky od Správy železnic kupujeme za poměrně vysokou cenu, ale tento pod komunikací nám nechávají zdarma. Bez dotazů; návrhová komise přečetla usnesení a souhlas byl schválen."}
+   ]
+  },
+  {
+   "index": 6,
+   "start": 1861,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Společnost BS-IMEX předkládá návrh dodatku č. 1 ke smlouvě o dílo na akci Oprava chodníku nám. Svobody, ul. Brněnská (materiál č. 4). Cena díla se navýší o 1 695 691,83 Kč bez DPH na celkových 7 995 691,83 Kč bez DPH; jde především o výměnu všech silničních obrubníků podél krajské silnice, úpravu podloží a vpustí na obou autobusových zastávkách, opravu propadlého kanálového potrubí a úpravu skladby dlažby podle podmínek dotace SFDI. Termín dokončení díla je 30. 11. 2024. Rada doporučuje schválit. Otevírám diskuzi."},
+    {"who": "Radim Brener", "role": "z", "text": "Vysvětlil byste, proč se mění obrubníky?"},
+    {"who": "Starosta", "role": "s", "text": "Rada vede jednání se Správou a údržbou silnic. Přislíbili jsme diagnostiku ulice Brněnská, protože kraj na ni neměl peníze; chceme průzkum podloží celého průtahu krajské silnice obcí. Na jednání 17. září se ukázalo, že podloží Brněnské je kvalitní a stačí dvě obrusné vrstvy, které udělá správa silnic, zatímco obec vymění obrubníky. Ty budeme muset dopracovat v celých Střelicích, proto jsme je do této akce doplnili, ačkoli nebyly v původním projektu. Věřím, že příští rok se podaří první etapa, mimo jiné ulice Antonína Smutného. Bez dalších dotazů návrhová komise přečetla usnesení a dodatek č. 1 se společností BS-IMEX byl schválen."}
+   ]
+  },
+  {
+   "index": 7,
+   "start": 1880,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 5 předkládáme dodatek č. 2 ke smlouvě o dílo na akci Stavební úpravy a půdní vestavba budovy ZUŠ Střelice se společností QuickBuilding. Cena díla se z důvodu rozšíření prací navyšuje o 183 638,57 Kč bez DPH na celkových 7 954 590,01 Kč bez DPH; ve změnovém listu jsou méně i více práce a dodatek řeší i prodloužení termínu dokončení. Rada doporučuje schválit."},
+    {"who": "Starosta", "role": "s", "text": "Práce se chýlí ke konci, do konce měsíce bude zkolaudováno a od pondělí bude v podkroví řádná učebna výtvarného oboru — je to zdařilý projekt. Na listopad plánujeme den otevřených dveří, aby si občané mohli obě novostavby, ZUŠ i školku, prohlédnout; termín upřesníme. Bez dotazů; návrhová komise přečetla usnesení a dodatek č. 2 se společností QuickBuilding byl schválen."}
+   ]
+  },
+  {
+   "index": 8,
+   "start": 2494,
+   "turns": [
+    {"who": "Místostarosta", "role": "s", "text": "Ředitel ZUŠ Střelice žádá o navýšení příspěvku na dorovnání mezd a odvodů pro nepedagogické pracovníky; protože částka není v rozpočtu, musí ji schválit zastupitelstvo. Rada doporučuje navýšit příspěvek o 40 000 Kč pro období 1. 9. až 31. 12. 2024."},
+    {"who": "Starosta", "role": "s", "text": "Doplním, že s ředitelem jednáme i o dalším roce, to však bude součástí rozpočtu na rok 2025. Bez dotazů; návrhová komise přečetla usnesení a příspěvek 40 000 Kč pro ZUŠ byl schválen."}
+   ]
+  },
+  {
+   "index": 9,
+   "start": 2610,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Jde o smlouvu o vypořádání spoluvlastnického práva k nemovitostem se zřízením věcného břemene k pozemku p. č. 373/1 v k. ú. Střelice u Brna — pozemek kolem obchodního domu Satov v ulici Antonína Smutného (materiál č. 6). Podle nového geometrického plánu získají manželé K. nově vzniklý pozemek p. č. 373/6 o výměře 155 m², část zahrady sousedící se školkou. Obec získá spoluvlastnický podíl o výměře 63,59 m² na pozemku p. č. 373/1 (celková výměra 429 m²) a nově vzniklý pozemek p. č. 373/5 o výměře 97 m². Obec doplatí manželům K. celkem 190 770 Kč. Rada doporučuje schválit. Otevírám diskuzi."},
+    {"who": "Starosta", "role": "s", "text": "Jde o upravenou smlouvu — na pracovním jednání jsme se dohodli na úpravě podle návrhu pana Roberta Ströbingera a naše právnička ji dnes upravila. Jakmile z katastru přijde potvrzený geometrický plán, můžeme podepsat a podat návrh na vklad. Bez dalších dotazů; návrhová komise přečetla usnesení a smlouva byla schválena."}
+   ]
+  },
+  {
+   "index": 11,
+   "start": 3139,
+   "turns": [
+    {"who": "Starosta", "role": "s", "text": "Posledním bodem programu je různé. Nejprve pan místostarosta předkládá doplnění obecně závazné vyhlášky o odpadech."},
+    {"who": "Místostarosta", "role": "s", "text": "Obecně závazná vyhláška o místním poplatku za obecní systém odpadového hospodářství, schválená na 10. zasedání, obsahovala textovou nepřesnost, která od poplatku osvobozovala více osob než předchozí vyhláška. V zaslaném materiálu je opravený text čl. 6 (Osvobození a úlevy), bod 3. Vyhláška nabývá účinnosti 1. 1. 2025. Rada doporučuje schválit."},
+    {"who": "Starosta", "role": "s", "text": "Omlouváme se — kdybychom vyhlášku nechali na prosincové zastupitelstvo, kvůli patnáctidenní lhůtě vyvěšení by nenabyla účinnosti od 1. ledna; jde o nechtěné opomenutí z loňského schvalování. Vítám také pana zastupitele Davida Dvořáka. Bez dotazů byla změna vyhlášky schválena s účinností od 1. 1. 2025. Otevírám bod různé."},
+    {"who": "Helena Fialová", "role": "z", "text": "Technický dotaz — má nová školka nové popisné číslo?"},
+    {"who": "Starosta", "role": "s", "text": "Ne, jde o přístavbu, popisné číslo zůstává stejné. Zřizovací listinu měnit nebudeme; na prosincovém zasedání budeme řešit vklad budovy a vybavení do majetku."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "K projektu rozšíření parkoviště u obchodního domu mám výhrady. Dětské hřiště jsme přesouvali do parku právě kvůli zklidnění dopravy a projektanti toto místo zastavět nedoporučovali. Je to už finální verze schválená dopravní policií? Splňuje parametry a lze ještě něco namítat?"},
+    {"who": "Starosta", "role": "s", "text": "Máme pravomocné stavební povolení; vyjadřovaly se všechny instituce — dopravní policie, odbor dopravy MěÚ Šlapanice i životní prostředí."},
+    {"who": "Místostarosta", "role": "s", "text": "Myšlenku jsme probírali na pondělním pracovním setkání. S nájemcem obchodního domu máme nájemní smlouvu, v níž se obec zavázala zřídit parkovací stání, proto byl projekt o parkoviště doplněn — dnes musí lidé s vozíky přejít 20 až 25 metrů. Na zeleň nezapomínáme, výsadbu navrhne projektant."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Máme v obci dvě centra a mělo by to i hezky vypadat. Navrhuji spíš přístřešek pro vozíky; obávám se, že parkoviště dopravu zkomplikuje, a hlasovala bych proti. Nešlo by akce rozdělit — nejdřív větší parkoviště, sledovat provoz a teprve pak případně dobudovat?"},
+    {"who": "Starosta", "role": "s", "text": "U Sokolovny se zruší podélné stání, které nahradí nové parkování. Ze smlouvy máme závazek stání zřídit ve sjednané lhůtě; počítáme i s přemístěním stanoviště kontejnerů a rozšířením parku."},
+    {"who": "Radim Brener", "role": "z", "text": "Podporuji paní Bartoňovou. Kdyby se zrušilo stání u kontejnerů, vzniklo by parkování bez zajíždění do parku; slepá ramena, jako u zdravotního střediska, působí problémy s otáčením. Šlo by se s provozovatelem stánku domluvit na výměně pár metrů? Projekt se stejně bude předělávat kvůli přesunu kontejnerů."},
+    {"who": "Starosta", "role": "s", "text": "Parkoviště i změnu stánku konzultujeme s architektem, autorem studie — provozovatel plánuje vnitřní prodej a rozšíření sortimentu."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Bylo by dobré zveřejňovat studie a informace nejen na webu, ale i v informačním e-mailu pro občany."},
+    {"who": "Starosta", "role": "s", "text": "Zveřejňujeme na webu; zvážíme i Facebook nebo rozhlas. Místní energetická koncepce byla například zveřejněna 3. 7. 2024."},
+    {"who": "Martin Klíma", "role": "z", "text": "Jaký je postih, pokud provozovatel obchodu parkoviště nezřídí? Existuje varianta smlouvu neplnit?"},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Parkoviště před obchodem není novinka — hlasovali jsme pro něj už před rokem. Závazek ve smlouvě není nijak sankcionován, ale považuji za základní slušnost závazky plnit a stání ve sjednané lhůtě zřídit. Sjednáno bylo minimálně 14 míst, ve stávajícím projektu je jich méně — asi 11 plus místo pro handicapované."},
+    {"who": "Radim Brener", "role": "z", "text": "Podobu projektu známe až teď a přijde mi, že zásah do zelené plochy je příliš velký. Byl bych rád, kdyby se stání přiblížila k silnici a zeleně se ubralo méně — třeba vyměnit stání za kolmá u kontejnerů."},
+    {"who": "Starosta", "role": "s", "text": "Každé veřejné parkoviště má technické předpisy, včetně povinných míst pro invalidy; projektant je splnil a všechny instituce se k němu vyjádřily."},
+    {"who": "Robert Ströbinger", "role": "z", "text": "Ve smlouvě s nájemcem je specifikován konkrétní pozemek; nevím, zda jeho tvar a velikost umožňují jiné řešení, ale pokud ano, souhlasil bych."},
+    {"who": "Starosta", "role": "s", "text": "Budeme to řešit s dopravním inženýrem, architektem i projektantem zeleně; možná se podaří o dvě místa ubrat. Změna před dokončením stavby je vždy možná, víc ale neslibuji."},
+    {"who": "Eva Bartoňová", "role": "z", "text": "Myslím, že rozšíření stánku bude pro obchod horší než chybějící parkoviště."},
+    {"who": "Starosta", "role": "s", "text": "Jsem rád, že tu tento provozovatel je — má kvalitní pečivo a po zavření obchodu v obchodním domě nahradil základní služby. Nemám důvod bránit mu v rozšíření."},
+    {"who": "Jan Pernikář", "role": "z", "text": "Pokračuje komunikace se společností Genagro ohledně slíbené pračky vzduchu? Zápach dál trápí obyvatele dolního konce."},
+    {"who": "Starosta", "role": "s", "text": "V polovině srpna jsme se s vedením Genagro Říčany sešli na radě; bude o tom článek v říjnovém zpravodaji. Genagro přislíbilo úpravu vzduchotechniky ve výdechových prostorech, snížení počtu hovězího dobytka, rozšíření valu a výsadbu zeleně. O pračce vzduchu byla řeč, ale nejdřív chtějí zkusit úpravu vzduchotechniky."},
+    {"who": "Radim Brener", "role": "z", "text": "Val podle mě nepomůže a stromy porostou patnáct let. Hlavním řešením je pračka vzduchu; jednou z cest by mohlo být zvýšení koeficientu daně z nemovitosti, aby obec získala prostředky a firmu motivovala."},
+    {"who": "Jan Pernikář", "role": "z", "text": "Na zastupitelstvu nám pračku veřejně přislíbili. Problém se táhne od začátku a pořád se ustupuje k valům a stromům, které podle odborníků pomohou jen o procenta. Nevím, proč firmě dokola ustupujeme."},
+    {"who": "Občanka", "role": "o", "text": "Přišla jsem se zeptat na zápach. Má firma nějaký termín, dokdy úpravy zkusí, podobně jako obec má závazek u obchodu? Lidé z dolního konce mají pocit, že se tomu obec nechce věnovat."},
+    {"who": "Starosta", "role": "s", "text": "Obec se tomu věnuje a mě samotného to trápí. Věřím, že do konce roku úpravu vzduchotechniky udělají; budeme na ně tlačit a výsledek si zkontrolujeme."},
+    {"who": "Občanka", "role": "o", "text": "Nabízíme i podporu občanů — třeba hlásit, kdy zápach cítíme. A jen postřeh: překvapilo mě, že obchod potřebuje 14 parkovacích míst."},
+    {"who": "Starosta", "role": "s", "text": "Víme o tom. Parkoviště ale nebude jen pro tento obchod — poslouží i pro zásobování stánku mimo hlavní silnici, pizzerii a plánovanému komunitnímu centru."},
+    {"who": "Petra Zoubková", "role": "z", "text": "Když jsme sháněli obchod, byl tento jediný ochotný sem přijít a měl spočítané, jak to má kolem vypadat. Schválili jsme to, tak na to pojďme přistoupit — případně jednejme o úpravách a doplnění zeleně."},
+    {"who": "Starosta", "role": "s", "text": "Bavme se s odborníky o úpravě přijatelné pokud možno pro všechny."},
+    {"who": "Radim Brener", "role": "z", "text": "U Genagra bych si rád ujasnil, že navrhované změny budou za nás poslední, ať firma nepřichází s dalšími odklady, a pak začneme tlačit na pračku. A dotaz: mohlo by u zpevnění cesty navazující na cyklotrasu Lotrůvka vzniknout stromořadí?"},
+    {"who": "Starosta", "role": "s", "text": "Nechali jsme si zpracovat generel řešící dešťové vody a výsadbu. Projekt na zpevnění cesty výsadbu neřeší, protože obec vlastní jen úzký pruh komunikace a ostatní pozemky jsou soukromé; generel ale navrhuje protierozní pásy pod Lotrůvkou, kde by obec výsadbu udělat mohla."},
+    {"who": "David Dvořák", "role": "z", "text": "Ke Genagru — u schvalování jsem nebyl, to je za námi; musíme se soustředit na to, co můžeme dělat. Reálně máme velmi omezené možnosti: nemáme žádnou smluvní páku a inspekce životního prostředí na podněty občanů opakovaně shledala, že k závadě nedochází, takže jsme odkázáni na spolupráci. Veřejný příslib je těžko uchopitelný, natož konkrétní parametry čističky."},
+    {"who": "Radim Brener", "role": "z", "text": "Nastínil jsem jen jednu z cest — zvýšení koeficientu daně z nemovitosti."},
+    {"who": "David Dvořák", "role": "z", "text": "Pokud se nedomluvíme, zvýšení koeficientu je jasná možnost. U samotné čističky ale nemáme konkrétní parametry a nevíme, jak by zabrala; zvýšení koeficientu může být pro obec prospěšnější než tlačit na tři roky starý veřejný příslib."},
+    {"who": "Jan Pernikář", "role": "z", "text": "Účinnost pračky lze konzultovat s odborníky. Lidé kvůli zápachu prodávají domy pod cenou; bude se zvažovat nějaká kompenzace, třeba na dani?"},
+    {"who": "Starosta", "role": "s", "text": "Děkuji všem za dnešní účast na jednání zastupitelstva a přeji vám krásný podzim a hezký večer."}
+   ]
+  }
+ ]
+}

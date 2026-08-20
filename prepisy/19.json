@@ -1,0 +1,107 @@
+{
+  "cislo_zasedani": 19,
+  "vid": "7lTI6P6zK2Y",
+  "body": [
+    {
+      "index": 2,
+      "start": 141,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 18. zastupitelstva se rada sešla pětkrát — zápisy č. 63 až 67 jste obdrželi mailem. Má někdo k zápisům dotaz?"},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Ze zápisů se dočítáme, že obec má zájem o spolupráci s městskou policií. Jak by taková spolupráce mohla vypadat — existuje už nějaký systém, počítá se s pravidelným dojížděním, nebo to bude na zavolání? A druhá otázka: mohly by případné pokuty, například z měření radary, plynout do obecní pokladny?"},
+        {"who": "Starosta", "role": "s", "text": "Službu by měla zajišťovat městská policie Modřice, kterou se snažíme získat pro obce sdružené v MAS Bobrava — první se ozvaly Střelice, Ořechov a Želešice; v Želešicích už Modřice tuto službu zajišťují. Potřebujeme ji na špatné parkování, vraky aut, odchyt psů a vymáhání obecních vyhlášek. Věřím, že do dalšího zasedání budou připraveny podklady pro veřejnoprávní smlouvu; činnost by mohla začít od 1. září, nejpozději od 1. ledna 2026. Zda obec získá část příjmů třeba z úsekového měření, teď slíbit nemohu — Modřice za službu žádají úhradu a příliš tomu sám nevěřím, i když se o to snažíme."},
+        {"who": "Jan Pernikář", "role": "z", "text": "V zápise z rady č. 65 je uvedeno, že byl vybrán nový nájemce komerčních prostor v obchodním domě. Mohl byste občany seznámit s tím, jak proběhlo výběrové řízení a kdo byl vybrán?"},
+        {"who": "Starosta", "role": "s", "text": "Rada se komerčním plochám v obchodním domě věnuje téměř rok — chtěli jsme kavárnu či rychlé občerstvení, dvakrát se to nezdařilo. Napotřetí jsme vypsali záměr, přihlásili se zhruba čtyři uchazeči a vybrali jsme provozovatele rychlého občerstvení (kebab a pizzerie). Chtěli bychom otevřít nejpozději o letních prázdninách. S tím souvisí i dnešní bod o smlouvě na výlohy a vstupní dveře do obchodního domu; probíhá tam rekonstrukce elektroinstalace, vody a vzduchotechniky. Bez dalších dotazů zastupitelstvo bere zprávu o činnosti rady obce na vědomí."}
+      ]
+    },
+    {
+      "index": 3,
+      "start": 910,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme rozpočtové opatření č. 2/2025 (materiál č. 1) — reaguje na skutečný vývoj finančních operací obce za únor 2025 a projednaly a schválily je rada obce i finanční výbor. Bez dotazů zastupitelstvo bere rozpočtové opatření č. 2/2025 na vědomí."}
+      ]
+    },
+    {
+      "index": 4,
+      "start": 913,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme rozpočtové opatření č. 3/2025 (materiál č. 2) — reaguje na skutečný vývoj finančních operací obce za březen 2025 a projednaly a schválily je rada obce i finanční výbor. Bez dotazů zastupitelstvo bere rozpočtové opatření č. 3/2025 na vědomí."}
+      ]
+    },
+    {
+      "index": 5,
+      "start": 960,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Státní fond životního prostředí ČR předkládá smlouvu o poskytnutí podpory č. 7221400109 ve výši 2 286 749 Kč, určenou výhradně na instalaci fotovoltaických elektráren na budovách DPS, obecního úřadu a hasičské zbrojnice (materiál č. 3). Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Radim Brener", "role": "z", "text": "Součástí projektu je i fotovoltaická elektrárna nad budovou bývalé čety, že? Trochu mě zaráží stav té střechy."},
+        {"who": "Starosta", "role": "s", "text": "Ano, je to budova obecního úřadu. Střecha dostala potřebné statické úpravy. Budova jako jediná nebyla součástí rekonstrukce úřadu a do budoucna o její rekonstrukci uvažujeme — máme ale domluveno, že se elektrárna jednoduše odmontuje a přemontuje na novou střechu; výkon zůstane stejný, nic nebudeme navyšovat ani měnit. Bez dalších dotazů návrhová komise přečetla usnesení a smlouva o poskytnutí podpory byla schválena; starosta byl pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 6,
+      "start": 1168,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Správa železnic, státní organizace, nabízí bezúplatný převod pozemku p. č. 3391/2 v k. ú. Střelice u Brna u sběrného dvora, kudy dříve vedla veřejná cesta (materiál č. 4). Musíme doložit, že splníme její technické podmínky — pozemek je v ochranném pásmu dráhy, obec si musí být vědoma nepříznivých účinků provozu dráhy a nebude požadovat opatření proti nim. Do budoucna bychom tu mohli rozšířit sběrný dvůr nebo vytvořit stanoviště. Rada doporučuje schválit. Otevírám diskuzi."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "V podmínkách je uvedeno i zachování přístupové cesty k tělesu dráhy. Tímto směrem tedy rozšíření sběrného dvora asi nebude možné?"},
+        {"who": "Starosta", "role": "s", "text": "Myslím, že možné bude — část pozemku je obecní a přístupovou cestu, která je veřejná, jen využijeme. Věřím, že podmínky splníme; kontejner na bioodpad, o kterém uvažujeme, by mohl stát na obecním pozemku. Je to zatím jen myšlenka. Bez dalších dotazů byly technické podmínky bezúplatného převodu schváleny a starosta pověřen jejich podpisem."}
+      ]
+    },
+    {
+      "index": 7,
+      "start": 1432,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "Úřad pro zastupování státu ve věcech majetkových oznámil, že v elektronické aukci ve dnech 19.–20. února byla dosažena cena 2 889 000 Kč za pozemky p. č. 1328/2, 1449/1 a 1450 v k. ú. Střelice u Brna na rohu ulice Na Hrázi a náměstí Svobody (materiál č. 5). Obec má přednostní právo koupě za vysoutěženou cenu, proto nám úřad zaslal výzvu k uzavření kupní smlouvy. Kvůli plynovému řadu křižujícímu téměř celou plochu, ale především kvůli vysoké ceně rada doporučuje nabídku odmítnout a kupní smlouvu neschválit."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Děkuji obci, že se dražby vůbec zúčastnila — zkusit to podle mě stálo za to. Je to stavební pozemek, proto ta cena; byla by tam pěkná zeleň, ale je to tak."},
+        {"who": "Starosta", "role": "s", "text": "Nevzdáváme to — rádi bychom tam měli aspoň lavičku a nějakou zeleň. Jsou tam ale sítě, plynový řad i veřejné osvětlení, takže to není jednoduché; nad využitím prostoru budeme do budoucna přemýšlet. Návrhová komise přečetla usnesení a zastupitelstvo kupní smlouvu neschválilo (jeden zastupitel se zdržel hlasování)."}
+      ]
+    },
+    {
+      "index": 8,
+      "start": 1706,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "MAS Bobrava, z.s. vyhlásila veřejnou sbírku na rekonstrukci mostu u Spáleného mlýna, který propojuje katastr Střelic a Ořechova; darovací smlouva bude uzavřena mezi obcí a MAS Bobrava (materiál č. 6). Rada doporučuje schválit finanční dar 330 000 Kč — částku navrhl radní David Dvořák tak, aby vycházela zhruba na 100 Kč na občana. Původně jsme chtěli akci řešit společně s Ořechovem, ten ji ale nakonec řešil samostatně. Bez diskuze návrhová komise přečetla usnesení a darovací smlouva na 330 000 Kč byla schválena; starosta byl pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 9,
+      "start": 1875,
+      "turns": [
+        {"who": "Místostarosta", "role": "s", "text": "V materiálu č. 7 je smlouva o dílo se společností A+BX OKNA, s.r.o. na výrobu a montáž vstupní vchodové sestavy do obchodního domu na ulici Antonína Smutného 630/75 a výlohy v rekonstruovaných komerčních prostorách. Podle připravené technické dokumentace byli poptáni čtyři výrobci oken, dva podali nabídku; rada vybrala ekonomicky nejvýhodnější za 452 242 Kč bez DPH a doporučuje smlouvu schválit."},
+        {"who": "Jan Pernikář", "role": "z", "text": "Dočetl jsem se, že se teď bude řešit jen hlavní vchodová sestava a vnitřní dveře do prodejny až v další fázi — je to tak?"},
+        {"who": "Starosta", "role": "s", "text": "Ano. Tato smlouva řeší vstupní vchodovou sestavu a výlohu — jedny dveře budou automatické, druhé klasické. Dveře do provozovny (pizzerie) budeme řešit s nájemcem samostatně a nejsou v této ceně. Vnitřní dveře do sousední prodejny si prodejna řeší sama — dohodli jsme se, že jí obec udělá parkoviště a ona si na oplátku pořídí automatické dveře. Bez dalších dotazů návrhová komise přečetla usnesení a smlouva o dílo se společností A+BX OKNA za 452 242 Kč bez DPH byla schválena; starosta byl pověřen jejím podpisem."}
+      ]
+    },
+    {
+      "index": 10,
+      "start": 2164,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "V rámci přípravy rekonstrukce náměstí zahájila rada jednání s Českou poštou o úpravách budovy pošty, případně o odprodeji dvora či prodeji budovy. Česká pošta zároveň nabídla provozování Pošty Partner ve Střelicích (menším obcím jinak vypisuje veřejnou zakázku). Předkládá čtyři podmínky: s provozovatelem bude uzavřena smlouva na provozování Pošty Partner (na přechodné období nájemní smlouva); prodej za cenu dle znaleckého posudku externího znalce; zřízení služebnosti na 10 let bezúplatně pro užívání části nemovitosti Českou poštou pro případ ukončení smlouvy; a zákaz zcizení či zatížení předmětu koupě po dobu 10 let bez souhlasu prodávajícího. Rada doporučuje podmínky schválit. Otevírám diskuzi."},
+        {"who": "Radim Brener", "role": "z", "text": "Znamenalo by to pozastavení spolupráce s architektem, který pracuje na projektu náměstí?"},
+        {"who": "Starosta", "role": "s", "text": "Ne — architekta jsem hned požádal, aby náměstí kolem pomníku včetně příjezdové cesty od kostela a od Brněnky řešil jako první etapu a připravil stavební povolení, ideálně do konce roku, abychom mohli případně realizovat příští rok; druhou etapu budeme řešit v návaznosti na jednání s Českou poštou. Transakce na poště klesají; Česká pošta by na provoz Pošty Partner měsíčně přispívala (zhruba 59 000 Kč) a vybavila ji technikou i nábytkem. Poštu Partner už provozují Troubsko i Ostopovice; počet přepážek určuje Česká pošta podle objemu transakcí, zatím vychází na dvě přepážky, tedy dvě pracovnice. Návrhová komise přečetla usnesení a podmínky České pošty byly schváleny; starosta byl pověřen podpisem souhlasu."}
+      ]
+    },
+    {
+      "index": 11,
+      "start": 2725,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "K zápisům z kontrolního výboru č. 10 a 11 poprosím o slovo předsedkyni výboru Evu Bartoňovou."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Kontrolní výbor se sešel v únoru a v dubnu a zkontroloval usnesení rady obce (do č. 61) i zastupitelstva (do prosincového zasedání). U jednoho usnesení o zahradnických službách na údržbu veřejné zeleně výbor konstatoval, že rada je nesplnila — proběhlo jen jednorázové ošetření — a doporučuje se tím zabývat. Jako navrhovatelka bodu dodávám, že problémem je i sucho: záhon s trvalkami u přechodu u Sokolovny se neuchytil. Ráda bych, aby se tomuto místu zahradníci věnovali a vyřešila se zálivka."},
+        {"who": "Starosta", "role": "s", "text": "Zahradníky, kteří výsadbu realizovali, jsme oslovili; nabídli výhodnou cenu kolem 20 000 Kč, plochu odplevelili a zastřihli živý plot. Budeme se tomu věnovat dál — v současném suchu je nutné zeleň zalévat."},
+        {"who": "Alois Liška", "role": "k", "text": "Přečetl usnesení — zastupitelstvo bere na vědomí zápisy č. 10 a 11 z jednání kontrolního výboru."},
+        {"who": "Starosta", "role": "s", "text": "Otevírám diskuzi zastupitelů v bodu různé."},
+        {"who": "Radim Brener", "role": "z", "text": "Navazuji na minulé zasedání — měl být představen systém svozu komunálního a tříděného odpadu. Vím, že ještě není zfinalizovaný; můžete shrnout další postup a kdy bude občanům představen?"},
+        {"who": "Starosta", "role": "s", "text": "Koordinátorka, která nám pomáhá se získáním dotace, byla na pracovním setkání; druhý den přišla zpráva, že obec dotaci získala. Nejdřív se sejdeme jako zastupitelé (druhá polovina května) a schválíme podmínky, poté proběhne veřejné projednání pro občany (první polovina června). Systém bude dobrovolný — kdo se zapojí, dostane od obce zdarma nádoby na papír, plast a bioodpad. Cílem je snížit množství komunálního odpadu, protože skládkování v roce 2030 končí a ceny do té doby porostou."},
+        {"who": "Radim Brener", "role": "z", "text": "Ještě k velkoobjemovému kontejneru na bioodpad u sběrného dvora — šlo by ho zřídit nezávisle na celém systému? Na jaře by se hodil. Bylo by dobré doplnit kamery, aby tam lidé nevozili třeba pneumatiky."},
+        {"who": "Starosta", "role": "s", "text": "Uvažujeme o tom a je to nezávislé na řešení pozemku — vhodný obecní pozemek máme. Musíme dořešit kamery; hrozí totiž, že v bioodpadu skončí beton a komunální odpad. S vymáháním takových přestupků souvisí i budoucí městská policie. Cílem je kontejner u sběrného dvora přístupný 24 hodin a zároveň zvážíme snížení počtu kontejnerů na stanovištích."},
+        {"who": "Martin Klíma", "role": "z", "text": "Tlumočím dotazy nepřítomného kolegy. Za prvé — bude obec řešit parkování na obecní zeleni, které ničí i nově upravené plochy? Za druhé — upozorňuje na pohyb dětí a neohleduplné řidiče na ulici Zběrovského a ptá se, zda obec plánuje chodník."},
+        {"who": "Starosta", "role": "s", "text": "Na ulici Zběrovského obec pozemek má, chodník je tedy do budoucna reálný. Parkování na zeleni i ve vjezdech, například na ulici Antonína Smutného, vadí i mně — maminky s kočárky a vozíčkáři pak musí do silnice. Řešit to ale může jedině policie; nedávno se díky ní podařilo na ulici Školní odstranit auta, která tam stála dva roky."},
+        {"who": "Robert Ströbinger", "role": "z", "text": "Ulice Zběrovského je součástí obytné zóny, kde pěší a doprava nejsou odděleny, takže chodník je tam zbytečný — spíš by řidiče ještě víc rozvolnil. Platí tam omezení 20 km/h, které se nedodržuje; cestou je edukace řidičů. Upozorňuji i na přednost zprava v přilehlých ulicích Kopaniny a Nad Farou."},
+        {"who": "Starosta", "role": "s", "text": "Souhlasím — v obytné zóně chodník nedává smysl; případné úpravy lze řešit v rámci pasportu dopravního značení."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Nejsem příznivcem zužování hlavních silnic při rekonstrukcích. U nové zastávky na ulici Jaroslava Svobody zasahují chodníky od mostu a od Čepra do obslužné silnice — obávám se kolizních situací a ráda bych odborné posouzení. Podobně mě trápí zúžený vjezd u sběrného dvora; pro srovnání vjezd u zdravotního střediska bude mít 5,5 m."},
+        {"who": "Starosta", "role": "s", "text": "Šířku u zastávky jsme měřili — je 6,5 m; stavbu schvalovala i policie a počítá se s vodicím pruhem, který provoz navede mimo výběžek zastávky. Zúžení je podmínkou správce silnic."},
+        {"who": "Místostarosta", "role": "s", "text": "Doplním, že totéž řešíme na ulici Nebovická, kde správce silnic požaduje zúžení komunikace — přibudou parkovací místa a širší chodník; stejně tak na Brněnské, kde chodník rozšíříme na dva metry."},
+        {"who": "Jan Pernikář", "role": "z", "text": "K ulici Bezručova — kde se tam smí parkovat? Chodník tam není a chodec se špatně dostane z místa na místo."},
+        {"who": "Starosta", "role": "s", "text": "Nejpozději příští rok to chceme dořešit — v pasportu dopravního značení počítáme s jednosměrkou ke kostelu, parkováním po jedné straně a zónou 30 km/h. Z občanů už nikdo přítomen není a další dotazy nejsou, takže děkuji všem zastupitelům za účast a jednání končím."}
+      ]
+    }
+  ]
+}

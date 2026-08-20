@@ -1,0 +1,95 @@
+{
+  "cislo_zasedani": 12,
+  "vid": "6SYy0aqnqYM",
+  "body": [
+    {
+      "index": 2,
+      "start": 112,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Pravidelným bodem je zpráva rady obce o činnosti mezi zasedáními. Od 11. zastupitelstva se rada sešla pětkrát — zápisy č. 39 až 43 jste obdrželi mailem. Má někdo k zápisům dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez připomínek zastupitelstvo bere zprávu o činnosti rady obce na vědomí."}
+      ]
+    },
+    {
+      "index": 3,
+      "start": 120,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Předkládáme rozpočtové opatření č. 3/2024 (materiál č. 1), které reaguje na skutečný vývoj finančních operací obce za březen 2024. Rada obce i finanční výbor je projednali a schválili. Má někdo dotaz?"},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů zastupitelstvo bere rozpočtové opatření č. 3/2024 na vědomí."}
+      ]
+    },
+    {
+      "index": 4,
+      "start": 1713,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Dalším bodem je návrh kupní smlouvy na nákup části pozemku p. č. 1947/1 o výměře 52 m². Poprosím pana místostarostu."},
+        {"who": "Místostarosta", "role": "s", "text": "Vlastník pozemku p. č. 1947/1, jehož část se nachází pod komunikací v ulici K Myslivně, souhlasil s prodejem. Obec zde v budoucnu plánuje rekonstrukci komunikace, a proto potřebuje pozemek získat do svého vlastnictví. Podle geometrického plánu vznikne oddělením nový pozemek p. č. 1947/5 o výměře 52 m²; podle kupní smlouvy (materiál č. 2) by jej obec koupila za 39 000 Kč. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Otevírám diskuzi. Bez dotazů návrhová komise přečetla usnesení a kupní smlouva na pozemek p. č. 1947/5 byla schválena."}
+      ]
+    },
+    {
+      "index": 8,
+      "start": 1716,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Následuje návrh směnné smlouvy. V rámci zhotovení nové komunikace do lokality Rybníky z ulice Antonína Smutného je nutné majetkově dořešit část pozemků. Obec proto nechala zpracovat geometrický plán a navrhuje směnit část svého pozemku p. č. 1426/1 o výměře 378 m² za stejnou výměru části pozemku p. č. 1421 (druh zahrada); pozemky se směňují bezúplatně. Podklady jsou v materiálu č. 6, rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů návrhová komise přečetla usnesení a směnná smlouva byla schválena."}
+      ]
+    },
+    {
+      "index": 9,
+      "start": 1911,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Následuje nákup částí pozemků v ulici Ostopovická. Poprosím pana místostarostu, aby se ujal slova."},
+        {"who": "Místostarosta", "role": "s", "text": "Obec Střelice ve spolupráci s dobrovolným svazkem obcí Šlapanicko připravuje projektovou dokumentaci na cyklostezku, chodník a veřejné osvětlení v průmyslové zóně v ulici Ostopovická. Pro realizaci je nutné vykoupit potřebné pozemky. S vlastníky obec v letech 2018 až 2021 uzavřela smlouvy o smlouvě budoucí za cenu 250 Kč za m²; nyní předkládáme kupní smlouvu (materiál č. 7) s celkovou cenou 327 250 Kč. Rada doporučuje schválit."},
+        {"who": "Radim Brener", "role": "z", "text": "Budou tím mít Střelice vykoupené všechny pozemky pro stezku, nebo bude ještě něco chybět?"},
+        {"who": "Starosta", "role": "s", "text": "Zbývá jedno jednání se společností Agrikomp, které by mělo být skoro poslední, a pak ještě jeden soukromý pozemek podél silnice; obojí chceme dořešit na červnovém zastupitelstvu a do konce roku připravit stavební povolení. Bez dalších dotazů návrhová komise přečetla usnesení a kupní smlouva byla schválena."}
+      ]
+    },
+    {
+      "index": 10,
+      "start": 2208,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Bodem č. 12 je memorandum k financování stavby rozšíření čistírny odpadních vod Střelice. Svazek vodovodů a kanalizací Ivančice, provoz Rosicko, navrhuje uzavřít s obcí memorandum, kterým se stvrzuje vůle stavbu zrealizovat. Zatím se nepodařilo vyjednat snížení kapacity, proto doporučuji memorandum vzít na vědomí; zástupci svazku přislíbili další jednání s cílem uzavřít věc do konce května. Chceme snížit rezervovanou kapacitu čistírny pro Střelice na 4 500 ekvivalentních obyvatel — Střelice by pak měly 4 500, Nebovidy 1 000 a dalších 1 000 by převzal svazek, s možností v budoucnu dokoupit. Vstupní náklady jsou vysoké, celkový rozpočet je zhruba 180 milionů Kč, a i podle demografické studie je pro nás nižší kapacita dostačující."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Z jednání na pracovní schůzce vyplynulo, že nejde ani tak o rozšíření čistírny, ale prakticky o zcela novou stavbu — stávající technologie už neodpovídá, a proto je i částka mnohem vyšší, než jsme čekali. Je to tak?"},
+        {"who": "Starosta", "role": "s", "text": "Ano, tak nám to bylo řečeno. Název projektu je „rozšíření“, ale fakticky jde o novou čistírnu včetně nové technologie. Navrhuji memorandum vzít na vědomí a pověřit starostu dalším jednáním."},
+        {"who": "Návrhová komise", "role": "k", "text": "Přečetla usnesení; zastupitelstvo vzalo memorandum mezi obcí Střelice a Svazkem vodovodů a kanalizací Ivančice na vědomí a pověřilo starostu dalším jednáním o snížení rezervované kapacity pro obec na 4 500 ekvivalentních obyvatel. O bodu se nehlasovalo."}
+      ]
+    },
+    {
+      "index": 11,
+      "start": 2482,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Následuje kupní smlouva na nábytek pro novostavbu mateřské školy Střelice. Zastupitelstvo č. 11 pověřilo radu výběrem dodavatele; z devíti firem podala nejnižší nabídku společnost MAKRA DIDAKTA s.r.o. z Nymburka za 1 372 040 Kč bez DPH. Nábytek je uznatelnou položkou dotace z IROP, podklady jsou v materiálu č. 9. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů návrhová komise přečetla usnesení a kupní smlouva na vybavení mateřské školy byla schválena."}
+      ]
+    },
+    {
+      "index": 12,
+      "start": 2482,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Dalším bodem je vybavení výtvarného ateliéru Základní umělecké školy Střelice. Podobně jako u mateřské školy se kvůli podmínkám čerpání dotace z IROP zpozdila veřejná zakázka — byla vyhlášena včera, nabídky se odevzdávají do 10. května 2024. Rada proto doporučuje, aby zastupitelstvo pověřilo radu dokončením veřejné zakázky, tedy všemi procesními úkony včetně vyhodnocení a výběru dodavatele, a starostu podpisem smlouvy s vybraným dodavatelem. Alternativně bychom mohli svolat mimořádné zastupitelstvo, ale pověření rady je jednodušší a o výsledku vás budeme informovat."},
+        {"who": "Radim Brener", "role": "z", "text": "Jakou tam očekáváme cenu?"},
+        {"who": "Starosta", "role": "s", "text": "Přibližně 750 000 Kč bez DPH, a to bez IT — to je dalších zhruba 300 000 Kč. Bez dalších dotazů návrhová komise přečetla usnesení a návrh byl schválen."}
+      ]
+    },
+    {
+      "index": 13,
+      "start": 2821,
+      "turns": [
+        {"who": "Starosta", "role": "s", "text": "Posledním bodem je žádost o výjimku z nočního klidu na kulturní akci Kácení máje. Poprosím pana místostarostu."},
+        {"who": "Místostarosta", "role": "s", "text": "Předkládáme žádost Střelické chasy, z. s. Ve dnech 5. až 6. července 2024 proběhne na prostranství u hasičské zbrojnice tradiční kácení máje s hudební produkcí cimbálové kapely; spolek proto žádá o výjimku z nočního klidu od 22.00 do 3.00 hodin. Rada doporučuje schválit."},
+        {"who": "Starosta", "role": "s", "text": "Bez dotazů návrhová komise přečetla usnesení a žádost o výjimku z nočního klidu byla schválena. Otevírám bod různé — nejdříve dotazy zastupitelů. Pan Brener."},
+        {"who": "Radim Brener", "role": "z", "text": "Chtěl bych požádat, zda byste nás mohli na červnovém zastupitelstvu seznámit s výsledky energetického auditu — rada na to zřejmě už reaguje a chystají se nějaké plány; ať víme, jaké jsou výsledky a jaké kroky z toho pro obec vyplývají."},
+        {"who": "Starosta", "role": "s", "text": "V rámci dotace jsme nechali zpracovat místní energetickou koncepci a management energetické situace; samotný energetický audit jednotlivých obecních budov musíme ještě zajistit, vychází to z těchto podkladů. Dnes jsem jednal se zástupci EG.D — máme návrh, který řešíme na radě: chtěli bychom propojit obecní budovy tak, abychom si vyrobenou elektřinu mohli po vlastní distribuční síti posílat tam, kde je potřeba. Získali jsme dotaci na fotovoltaické elektrárny na obecním úřadě, hasičské zbrojnici a domě s pečovatelskou službou; elektřinu vyrobenou na úřadě bychom uložili do baterií a večer posílali třeba do obecní restaurace nebo na hasičku. Podle odborníků by to pro nás bylo velmi výhodné. Záleží ale na EG.D jako distributorovi — byli překvapení, prý jsme první obec v Jihomoravském kraji, která jim chce takto konkurovat; slíbili, že to do měsíce projednají a dají stanovisko. Na červnovém zastupitelstvu vám sdělíme více."},
+        {"who": "Radim Brener", "role": "z", "text": "K tématu energetiky bych se rád jako zastupitel ještě podrobněji vrátil, až se sejdeme."},
+        {"who": "Starosta", "role": "s", "text": "Určitě se k tomu dostaneme."},
+        {"who": "Eva Bartoňová", "role": "z", "text": "Dodala bych, že prospěšné není jen tohle, ale i zateplení budov a řešení úniku energií."},
+        {"who": "Starosta", "role": "s", "text": "Přesně tak, souhlasím. Má někdo ze zastupitelů další dotaz? Pokud ne, prosím občany."},
+        {"who": "Občan", "role": "o", "text": "Bude ta máje hodová?"},
+        {"who": "Starosta", "role": "s", "text": "Ano, měla by to být hodová máje — bude stát měsíc a něco. Je to samostatná akce Střelické chasy, obec jí nebrání, ale bude to ještě na dohodě se Sborem dobrovolných hasičů, protože se u hasičky koná i letní noc."},
+        {"who": "Petr Rozsíval", "role": "z", "text": "Potvrdil, že termín je se sborem už domluvený."},
+        {"who": "Starosta", "role": "s", "text": "Takže se akce uskuteční. Pokud není další dotaz, končím dnešní jednání. Děkuji, že jste přišli, přeji vám hezký večer a na shledanou 20. června."}
+      ]
+    }
+  ]
+}
