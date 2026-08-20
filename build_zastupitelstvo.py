@@ -329,6 +329,11 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .prep-toggle .pchev{font-size:9px;transition:transform .15s}
 .prep-toggle.open .pchev{transform:rotate(180deg)}
 .prep{margin-top:9px;border-left:2px solid var(--line);padding:2px 0 2px 13px;display:flex;flex-direction:column;gap:9px}
+.prep[hidden]{display:none}
+.prepall-row{margin:10px 0 2px}
+.prepall{border:1px solid var(--line);background:var(--accent-soft);color:var(--accent);font:inherit;font-size:12px;
+  font-weight:600;padding:5px 13px;border-radius:999px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.prepall:hover{border-color:var(--accent)}
 .prep .ptrn{font-size:13px;line-height:1.6}
 .prep .pwho{font-weight:640;margin-right:7px}
 .prep .pwho.o{font-style:italic}
@@ -530,7 +535,7 @@ function prepHTML(mn, idx){
     const ocls=t.role==='o'?' o':'';
     return `<div class="ptrn"><span class="pwho${ocls}" style="color:${col}">${esc(t.who||'')}</span><span class="ptxt">${esc(t.text||'')}</span></div>`;
   }).join('');
-  return `<div class="prepwrap"><button type="button" class="prep-toggle">&#128172; Přepis diskuze <span class="pchev">&#9662;</span></button>`+
+  return `<div class="prepwrap"><button type="button" class="prep-toggle">&#128172; <span class="plabel">Otevřít přepis diskuze</span> <span class="pchev">&#9662;</span></button>`+
          `<div class="prep" hidden><p class="pdisc">Redakčně upravený přepis z automatických titulků záznamu — orientační, není doslovný ani úřední záznam. Zastupitelé jsou uvedeni jménem, občané anonymizováni.</p>${inner}</div></div>`;
 }
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
@@ -572,7 +577,9 @@ function cardHTML(m,items,open,qf){
       return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
              `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}${prepHTML(m.n,it[8])}</div>`;
     }).join('');
-    bodyHTML='<div class="zmt-body">'+recHTML(m)+rows+'</div>';
+    const hasPrep = PREP[m.n] && Object.keys(PREP[m.n]).length>0;
+    const prepAllBtn = hasPrep ? '<div class="prepall-row"><button type="button" class="prepall">&#128172; Rozbalit všechny přepisy diskuze</button></div>' : '';
+    bodyHTML='<div class="zmt-body">'+recHTML(m)+prepAllBtn+rows+'</div>';
   }
   const pdf=m.u?`<a class="zpdf" href="${esc(m.u)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF&nbsp;&#8599;</a>`:'';
   const yt=m.v?`<a class="zyt" href="https://youtu.be/${m.v}?t=0" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Záznam jednání na YouTube (od začátku)">&#9654;&nbsp;záznam</a>`:'';
@@ -613,11 +620,23 @@ function render(){
     pop.hidden=!pop.hidden;
     btn.classList.toggle('open', !pop.hidden);
   });
+  function setPrep(btn, open){
+    const pr=btn.parentElement.querySelector('.prep');
+    pr.hidden=!open;
+    btn.classList.toggle('open', open);
+    const lab=btn.querySelector('.plabel'); if(lab) lab.textContent = open ? 'Zavřít přepis diskuze' : 'Otevřít přepis diskuze';
+  }
   feed.querySelectorAll('.prep-toggle').forEach(btn=>btn.onclick=(e)=>{
     e.stopPropagation();
-    const pr=btn.parentElement.querySelector('.prep');
-    pr.hidden=!pr.hidden;
-    btn.classList.toggle('open', !pr.hidden);
+    setPrep(btn, btn.parentElement.querySelector('.prep').hidden);
+  });
+  feed.querySelectorAll('.prepall').forEach(btn=>btn.onclick=(e)=>{
+    e.stopPropagation();
+    const card=btn.closest('.zmt');
+    const toggles=[...card.querySelectorAll('.prep-toggle')];
+    const anyClosed=toggles.some(t=>t.parentElement.querySelector('.prep').hidden);
+    toggles.forEach(t=>setPrep(t, anyClosed));
+    btn.innerHTML = (anyClosed ? '&#128172; Sbalit všechny přepisy diskuze' : '&#128172; Rozbalit všechny přepisy diskuze');
   });
 }
 
