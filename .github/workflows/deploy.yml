@@ -29,6 +29,8 @@ jobs:
           cp og-image.png public/ 2>/dev/null || true
           # .htaccess pro čisté URL bez .html
           cp .htaccess public/ 2>/dev/null || true
+          # neveřejný textový soubor s plnými přepisy ZO (jen přes přímý odkaz /prepisy-zo.txt)
+          cp prepisy-zo.txt public/ 2>/dev/null || true
           echo "Nasazované soubory:"
           ls -la public/
 
