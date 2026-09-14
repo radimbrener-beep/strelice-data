@@ -17,8 +17,21 @@ Spuštění:
 """
 import sys, os, json, re, subprocess, argparse
 from pathlib import Path
+from urllib.parse import unquote
 import requests
 from bs4 import BeautifulSoup
+
+
+def _extract_cislo(title, href):
+    """Číslo zasedání z názvu/URL. Dekóduje %xx a snese 'č. 100', 'č._100',
+    'č.29' i 'N. zasedání'. Ankot na 'č' (RO č./ZO č.), pak na 'N. zasedání'."""
+    s = (title or '') + ' ' + unquote(href or '')
+    for pat in (r'[čČ]\.?\s*[_\xa0]*\s*(\d{1,3})(?!\d)',
+                r'(\d{1,3})\.\s*zasedání'):
+        m = re.search(pat, s, re.I)
+        if m:
+            return int(m.group(1))
+    return None
 
 sys.stdout.reconfigure(encoding='utf-8')
 sys.stderr.reconfigure(encoding='utf-8')
@@ -85,9 +98,7 @@ def scrape_zo_links():
         if not re.search(r'usnesení|usnesen', href + title, re.I):
             continue
         url = href if href.startswith('http') else BASE_OBEC + href
-        # extrahuj číslo zasedání z názvu/url
-        m = re.search(r'[ZzčČ]\.?\s*(\d+)|(\d+)\.\s*zasedání', title + href, re.I)
-        cislo = int(m.group(1) or m.group(2)) if m else None
+        cislo = _extract_cislo(title, href)
         if cislo:
             results.append((cislo, title, url))
 
@@ -110,8 +121,7 @@ def scrape_ro_links():
         if not re.search(r'zápis|zapis|RO', href + title, re.I):
             continue
         url = href if href.startswith('http') else BASE_OBEC + href
-        m = re.search(r'[RrčČ]\.?\s*(\d+)|(\d+)\.\s*zasedání', title + href, re.I)
-        cislo = int(m.group(1) or m.group(2)) if m else None
+        cislo = _extract_cislo(title, href)
         if cislo:
             results.append((cislo, title, url))
 
