@@ -7,7 +7,7 @@ import subprocess, os, shutil, re, json, csv, html as htmllib
 from urllib.parse import unquote
 import temata, vydaje
 
-ROOT = r"C:\Users\brener\SandboxVS\rozpocet"
+ROOT = os.path.dirname(os.path.abspath(__file__))   # kořen repa (funguje na Windows i Linuxu/CI)
 PDF_DIR = os.path.join(ROOT, "zastupitelstvo_ZO")
 WORK = os.path.join(ROOT, "_work")
 TXT_DIR = os.path.join(ROOT, "txt_zo")

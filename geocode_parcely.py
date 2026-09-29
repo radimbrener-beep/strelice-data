@@ -8,7 +8,7 @@ Spoustet jen obcas (kdyz pribydou nove zapisy) — vyzaduje sit."""
 import json, re, os, time
 import urllib.parse, urllib.request
 
-ROOT = r"C:\Users\brener\SandboxVS\rozpocet"
+ROOT = os.path.dirname(os.path.abspath(__file__))   # kořen repa (funguje na Windows i Linuxu/CI)
 KU_CODE = "757438"            # k.u. Strelice u Brna
 WFS = "https://services.cuzk.cz/wfs/inspire-cp-wfs.asp"
 OUT = os.path.join(ROOT, "data", "parcely_geo.json")

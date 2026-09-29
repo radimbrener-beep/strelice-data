@@ -5,7 +5,7 @@ from urllib.parse import unquote
 import temata  # tematicka klasifikace bodu
 import vydaje  # extrakce vyse vydaje + velikostni pasmo
 
-ROOT = r"C:\Users\brener\SandboxVS\rozpocet"
+ROOT = os.path.dirname(os.path.abspath(__file__))   # kořen repa (funguje na Windows i Linuxu/CI)
 PDF_DIR = os.path.join(ROOT, "zapisy_RO")
 WORK = os.path.join(ROOT, "_work")
 TXT_DIR = os.path.join(ROOT, "txt")
