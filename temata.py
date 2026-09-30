@@ -5,7 +5,7 @@ textem zbavenym diakritiky). Skore = pocet ruznych vzoru, ktere se trefi;
 vyhrava nejvyssi skore, pri shode mensi 'priorita' (specifictejsi tema).
 Bez trefy -> 'Ostatni'.
 
-Taxonomie: 9 sirsich oblasti + Ostatni."""
+Taxonomie: 9 sirsich oblasti + Jednani a formality + Ostatni."""
 import re
 import unicodedata
 
@@ -17,6 +17,13 @@ def fold(s):
 
 # tema: (priorita, [vzory]) ; mensi priorita = vyhrava pri shode skore
 THEMES = {
+    "Jednání a formality": (10, [
+        r"program\w* (?:jednani|dnesniho|zasedani)", r"overovatel", r"navrhov\w* komis",
+        r"zapisovatel", r"zprav\w* o cinnosti",r"\bslib\b", r"\bslibu\b", r"volebni rad",
+        r"^zastupitelstvo (?:obce )?poveruje starostu (?:obce )?podpisem (?:smlouvy|dodatku)[^,;]{0,20}\.?$",
+        r"zastupitelu\b", r"pocet clenu zastupitelstv", r"volebni obdobi 20\d\d",
+        r"platnost volby", r"mandatov\w* a volebni komis", r"odmen\w* (?:neuvolnen|clen\w* zastupitel)",
+    ]),
     "Školství": (1, [
         r"\bskoly\b", r"\bskole\b", r"\bskolu\b", r"matersk\w* skol", r"zakladni skol",
         r"umelec\w* skol", r"\bskolk", r"\bzus\b", r"\bms\b", r"\bzs\b", r"druzin",
@@ -47,6 +54,8 @@ THEMES = {
         r"\bodpad", r"\bsvoz", r"kontejner", r"sbern\w* dvur", r"sbern\w* mist",
         r"popelnic", r"separac", r"\btrideni odpad", r"\bskladk", r"biologick\w* rozlozit",
         r"komunaln\w* odpad", r"\bekokom", r"komposter", r"\bkelimk", r"zpetny odber",
+        r"\bpach", r"biofiltr", r"zivocisn\w* vyrob", r"\bkocek", r"\bkastrac", r"\btoulav",
+        r"\beko-kom",
     ]),
     "Doprava a sítě": (5, [
         # doprava
@@ -59,6 +68,7 @@ THEMES = {
         r"kabelov\w* veden", r"\bplyn", r"\belektr", r"distribu\w* soustav", r"\bcetin\b",
         r"telekomunik", r"\boptick", r"trafostanic", r"veden\w* nizk\w* napet",
         r"veden\w* vysok\w* napet", r"\bvodafone", r"\bnapeti\b",
+        r"\buzavirk", r"\bt-mobile", r"\btelefon", r"kabelov\w* propojen", r"\bceps\b",
     ]),
     "Dotace a finance": (6, [
         r"\bdotac", r"prispevek", r"prispevku", r"prispevk", r"individualni dotac",
@@ -66,6 +76,9 @@ THEMES = {
         r"\bdar\b", r"\bdaru\b", r"darovaci", r"\bpujck", r"refundac", r"zaverecn\w* ucet",
         r"\bfaktur", r"verejn\w* sbirk", r"\bzaloh", r"penezit\w* dar", r"\bvefa\b",
         r"\bgrant", r"poskytnuti dotac",
+        r"ucetni\w* zaverk", r"odpisov\w* plan", r"terminovan\w* vklad", r"\buver",
+        r"\brucitel", r"\bbank", r"dan\w* z nemovit", r"koeficient\w* dan", r"platebni\w* terminal",
+        r"platebnich sluzb",
     ]),
     "Stavby, investice a územní rozvoj": (7, [
         # stavby a investice
@@ -80,6 +93,9 @@ THEMES = {
         r"zmen\w* up\b", r"\bzmenu up\b", r"regulacni plan", r"uzemni studie",
         r"uzemne\s*planovac", r"uzemniho rozvoje", r"program rozvoje obce",
         r"zasad\w* uzemniho rozvoje",
+        r"smlouv\w* o dilo", r"\bvytah", r"\bvymalb", r"\bnater", r"\bmontaz", r"\bstudi\w* ",
+        r"technick\w* dozor", r"autorsk\w* dozor", r"\bkomin", r"\bvyloh", r"\bdvere", r"\bokna\b",
+        r"\bmobiliar", r"obytn\w* soubor", r"\bnaves",
     ]),
     "Pozemky, majetek a bydlení": (8, [
         # pozemky a majetek
@@ -92,6 +108,8 @@ THEMES = {
         r"\bbyt\b", r"\bbytu\b", r"\bbyty\b", r"\bbyte\b", r"\bbytov", r"\bdps\b",
         r"dum s pecovatelsk", r"najem\w* bytu", r"prideleni bytu", r"pridelovani bytu",
         r"\bnajemnik", r"bytov\w* fond",
+        r"\bnajm", r"obchodni\w* dom", r"obchodnim dome", r"spolecenstvi vlastniku", r"\bsvj\b",
+        r"\brestaurac", r"komercni\w* prostor", r"nebytov\w* prostor",
     ]),
     "Správa obce a úřad": (9, [
         # sprava, urad, provoz
@@ -110,6 +128,15 @@ THEMES = {
         r"\bstiznost", r"prestupk", r"\bprestupek", r"verejn\w* poradek",
         r"obcansk\w* souzit", r"vandal", r"\bhluk", r"ruseni nocniho", r"\bpes\b",
         r"\bpsa\b", r"\bpsi\b", r"\bpsu\b", r"obtezovan", r"sousedsk\w* spor",
+        # spolupráce obcí, bezpečnost, provoz úřadu, reprezentace obce
+        r"svazk\w* obci", r"\bdso\b", r"spolecenstvi obci", r"\bmas\b", r"\bsms cr\b",
+        r"mistnich samosprav", r"mestsk\w* polici", r"\bpolici", r"bezpecnostn\w* situac",
+        r"\bsoftware", r"\bsoftwar", r"kopirovac", r"\brozhlas", r"\bhlasic", r"\bkalendar",
+        r"\bvlajk", r"\bocen\w* (?:zaslouzil|byval)", r"ucten\w* pamatk", r"cestn\w* obcan",
+        r"nazv\w* ulic", r"nazev ulic", r"\bobrad", r"\bsvatb", r"oddavk", r"obradn",
+        r"\bkrajsk\w* urad", r"ministerstv\w* vnitra", r"kontrol\w* vykonu",
+        r"\bvideo\w* prenos", r"zaznam\w* zasedani", r"servisn\w* smlouv",
+        r"ceska posta,? s\.? ?p\.", r"posta partner", r"postovni", r"budov\w* posty",
     ]),
 }
 
@@ -130,6 +157,7 @@ ORDER = [
     "Správa obce a úřad",
     "Doprava a sítě",
     "Sociální a zdravotní oblast",
+    "Jednání a formality",
     OSTATNI,
 ]
 

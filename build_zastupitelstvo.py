@@ -125,6 +125,8 @@ present = {b.get("tema") or temata.OSTATNI for r in src for b in r["body"]}
 tlist = [t for t in temata.ORDER if t in present]
 ti_index = {t: i for i, t in enumerate(tlist)}
 
+# krátká shrnutí zasedání (psaná jazykovým modelem dle data/shrnuti/_SPEC.md)
+SHRNUTI = json.load(open("data/shrnuti/zo.json", encoding="utf-8")) if os.path.exists("data/shrnuti/zo.json") else {}
 meet = []
 # procedurální "pověřuje ... podpisem (smlouvy)" = jen přívažek k předchozímu
 # věcnému usnesení; nezobrazujeme jako samostatný řádek, jen jako štítek u rodiče.
@@ -187,18 +189,18 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
                 it[4] = proc["komise"]
             it[3] = None; it[7] = None; has_komise = True
     if not has_komise and proc.get("komise") and ov_pos is not None:
-        kom = [ci("volí"), ti_index.get(temata.OSTATNI, 0), None, None, proc["komise"], 0, None, None, None]
+        kom = [ci("volí"), ti_index.get(temata.classify(proc["komise"]), 0), None, None, proc["komise"], 0, None, None, None]
         items.insert(ov_pos + 1, kom)
 
     # zasedání s nečitelným skenem (ZO27) nemají úvodní procedurální body vůbec —
     # doplň je na začátek z override (zdroj: Zpravodaj)
     _ovr = VOTE_OVR.get(str(r["cislo_zasedani"]))
     if _ovr and _ovr.get("prepend") and not any("zvolilo" in it[4].lower() for it in items):
-        pre = [[ci(p["kat"]), ti_index.get(temata.OSTATNI, 0), None, p.get("vote"), p["text"], 0, None, None, None]
+        pre = [[ci(p["kat"]), ti_index.get(temata.classify(p["text"]), 0), None, p.get("vote"), p["text"], 0, None, None, None]
                for p in _ovr["prepend"]]
         items = pre + items
     meet.append({
-        "n": r["cislo_zasedani"], "d": r["datum"], "y": r["rok"],
+        "n": r["cislo_zasedani"], "s": SHRNUTI.get(str(r["cislo_zasedani"]), ""), "d": r["datum"], "y": r["rok"],
         "u": r["url"] or "", "p": r.get("pritomno"),
         "b": items,
         # záznam jednání: video id + kapitoly [čas_s, čísloBodu, popisek]
@@ -247,6 +249,10 @@ PAGE_CSS = r"""<style>
 .zmt-sp{margin-left:auto}
 .zmt-arrow{color:var(--faint);font-size:12px;transition:transform .18s;margin-left:6px}
 .zmt.open .zmt-arrow{transform:rotate(90deg)}
+.zsum{padding:0 16px 12px 16px;margin-top:-4px;font-size:13.5px;line-height:1.55;color:var(--muted);cursor:pointer}
+.zsum b{color:var(--text);font-weight:600}
+.zmt:not(.open) .zsum span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.zmt.open .zsum{padding-top:10px}
 .zmt-body{padding:4px 16px 16px;border-top:1px solid var(--line)}
 .zgrp{margin-top:14px}
 .zgrp-h{display:flex;align-items:center;gap:8px;font-size:11.5px;font-weight:700;color:var(--muted);
@@ -374,7 +380,7 @@ body = '''<header class="hero">
     <div class="ctrlrow" id="temaRow"></div>
     <div class="ctrlrow" id="vydRow"></div>
     <div class="rmeta" id="rmeta"></div>
-    <div class="feed" id="feed"></div>
+    <div class="feed" id="feed">''' + pc.skel(7) + '''</div>
     <button class="zmore" id="more" style="display:none"></button>
   </div>
 </section>
@@ -391,7 +397,7 @@ body = '''<header class="hero">
       <p class="note">Částka = nejvyšší hodnota v Kč uvedená v textu usnesení; orientační ukazatel (smlouvy, zakázky, dotace). Klikni na sloupec/štítek pro filtr.</p>
     </div>
   </div>
-  <p class="note">U každého usnesení je uveden výsledek hlasování (pro · proti · zdržel se), je-li v zápise k dispozici; zvýrazněné jsou body, kde někdo hlasoval proti nebo se zdržel. Témata i částky jsou přiřazeny automaticky. Osobní údaje fyzických osob nejsou ze zákonných důvodů uváděny.</p>
+  <p class="note">U každého usnesení je uveden výsledek hlasování (pro · proti · zdržel se), je-li v zápise k dispozici; zvýrazněné jsou body, kde někdo hlasoval proti nebo se zdržel. Témata i částky jsou přiřazeny automaticky; shrnutí „V kostce“ napsal jazykový model (AI) z textu usnesení — rozhoduje vždy text usnesení a PDF. Osobní údaje fyzických osob nejsou ze zákonných důvodů uváděny.</p>
 </section>
 
 <div class="footer">
@@ -420,10 +426,7 @@ const CATORDER=['schvaluje','neschvaluje','bere na vědomí','projednalo','souhl
 function catVar(c){return 'var('+(CATCOL[c]||'--c5')+')';}
 function catOrd(c){const i=CATORDER.indexOf(c);return i<0?99:i;}
 
-const TPAL=['--c0','--c2','--c3','--c1','--c4','--c6','--c5','--c7','--c8','--c9','--prijmy','--vydaje','--pos','--neg','--accent'];
-function temaName(name){return name==='Ostatní'?'--faint':TPAL[Math.max(0,TEMATA.indexOf(name))%TPAL.length];}
-function temaVar(name){return 'var('+temaName(name)+')';}
-function temaRGB(name){return cssv(temaName(name));}
+/*TEMAJS*/
 
 const VB=[['do 10 tis. Kč',10000],['10–50 tis. Kč',50000],['50–100 tis. Kč',100000],
           ['100–500 tis. Kč',500000],['0,5–1 mil. Kč',1000000],['nad 1 mil. Kč',Infinity]];
@@ -476,7 +479,7 @@ function buildTemaChips(){
   let html=`<span class="lbl">Téma</span><button class="chipbtn${tema==='all'?' on':''}" data-t="all">Vše <b>${nf.format(tot)}</b></button>`;
   for(const t of TEMATA){
     if(!counts[t]) continue;
-    html+=`<button class="chipbtn${tema===t?' on':''}" data-t="${esc(t)}"><span class="dotc" style="background:${temaVar(t)}"></span>${esc(t)} <b>${nf.format(counts[t])}</b></button>`;
+    html+=`<button class="chipbtn${tema===t?' on':''}" data-t="${esc(t)}"><span class="dotc" style="background:${temaVar(t)}"></span>${temaIco(t)}${esc(t)} <b>${nf.format(counts[t])}</b></button>`;
   }
   const row=document.getElementById('temaRow'); row.innerHTML=html;
   row.querySelectorAll('.chipbtn').forEach(b=>b.onclick=()=>{tema=b.dataset.t; shown=PAGE; buildTemaChips(); render();});
@@ -575,7 +578,7 @@ function cardHTML(m,items,open,qf){
       const tl=(m.v&&it[6])?`<a class="zct2" href="https://youtu.be/${m.v}?t=${it[6]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Skočit na projednávání tohoto bodu v záznamu jednání">&#9654; ${fmtT(it[6])}</a>`:'';
       const cat=`<span class="zcat" style="--cc:${col}">${esc(c)}</span>`;
       return `<div class="zitem" style="--ic:${col}"><div>${txt}</div>`+
-             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}${prepHTML(m.n,it[8])}</div>`;
+             `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${temaIco(th)}${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}${prepHTML(m.n,it[8])}</div>`;
     }).join('');
     const hasPrep = PREP[m.n] && Object.keys(PREP[m.n]).length>0;
     const prepAllBtn = hasPrep ? '<div class="prepall-row"><button type="button" class="prepall">&#128172; Rozbalit všechny přepisy diskuze</button></div>' : '';
@@ -592,7 +595,7 @@ function cardHTML(m,items,open,qf){
       <span class="zmt-sp"></span>
       ${yt}${pdf}
       <span class="zmt-arrow">&#9654;</span>
-    </button>${bodyHTML}</div>`;
+    </button>${m.s?`<div class="zsum" data-n="${m.n}"><span><b>V kostce:</b> ${esc(m.s)}</span></div>`:''}${bodyHTML}</div>`;
 }
 
 function render(){
@@ -607,7 +610,7 @@ function render(){
   feed.innerHTML=slice.map(([m,items])=>cardHTML(m,items, itemMode||openSet.has(m.n), qf)).join('');
   more.style.display = res.length>shown ? 'block':'none';
   more.textContent = 'Zobrazit další zasedání ('+(res.length-shown)+')';
-  feed.querySelectorAll('.zmt-h').forEach(h=>h.onclick=()=>{
+  feed.querySelectorAll('.zmt-h,.zsum').forEach(h=>h.onclick=()=>{
     const n=+h.dataset.n;
     if(openSet.has(n)) openSet.delete(n); else openSet.add(n);
     render();
@@ -691,6 +694,7 @@ document.querySelectorAll('#sortSeg button').forEach(b=>b.onclick=()=>{
 document.getElementById('more').onclick=()=>{shown+=PAGE; render();};
 
 function redraw(){temaChart(); vydChart();}
+{const uq=new URLSearchParams(location.search).get('q'); if(uq) qIn.value=uq;}   // ?q= z celostránkového hledání
 q=qIn.value||''; clr.style.display=q?'block':'none';
 buildTemaChips(); buildVydChips(); render(); temaChart(); vydChart();
 // otevření konkrétního zasedání přes URL (?zo=N) — proklik z jiných sekcí (Investice)
@@ -707,7 +711,7 @@ buildTemaChips(); buildVydChips(); render(); temaChart(); vydChart();
 })();
 bindTheme(redraw);
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
-</script>'''.replace("DATA_JSON", data_json)
+</script>'''.replace("DATA_JSON", data_json).replace("/*TEMAJS*/", pc.TEMA_JS)
 
 html = pc.page("Zastupitelstvo", "Usnesení zastupitelstva — Jak žijí Střelice", body,
                head_scripts=PAGE_CSS, body_scripts=scripts)

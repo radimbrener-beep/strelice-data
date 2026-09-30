@@ -12,6 +12,8 @@ data/skolstvi/*
 !data/skolstvi/strelice_demografie.csv
 !data/*.json
 !data/*.csv
+# shrnutí zasedání (psaná jazykovým modelem, nelze regenerovat skriptem)
+!data/shrnuti/
 zapisy_RO/
 zastupitelstvo_ZO/
 txt/

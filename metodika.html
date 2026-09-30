@@ -8,7 +8,6 @@
 <link rel="canonical" href="https://jakzijistrelice.cz/"><meta property="og:type" content="website"><meta property="og:site_name" content="Jak žijí Střelice"><meta property="og:title" content="Metodika a zdroje dat — Jak žijí Střelice"><meta property="og:description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého."><meta property="og:image" content="https://jakzijistrelice.cz/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:url" content="https://jakzijistrelice.cz/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Metodika a zdroje dat — Jak žijí Střelice"><meta name="twitter:description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého."><meta name="twitter:image" content="https://jakzijistrelice.cz/og-image.png"><meta name="description" content="Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2048%2048%27%3E%3Crect%20width%3D%2748%27%20height%3D%2748%27%20rx%3D%2711%27%20fill%3D%27%233d6c9e%27/%3E%3Ccircle%20cx%3D%2727%27%20cy%3D%2721%27%20r%3D%2713%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27/%3E%3Ccircle%20cx%3D%2727%27%20cy%3D%2721%27%20r%3D%277%27%20fill%3D%27none%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27/%3E%3Cline%20x1%3D%276%27%20y1%3D%2742%27%20x2%3D%2727%27%20y2%3D%2721%27%20stroke%3D%27%23fff%27%20stroke-width%3D%273.4%27%20stroke-linecap%3D%27round%27/%3E%3Ccircle%20cx%3D%2727%27%20cy%3D%2721%27%20r%3D%273%27%20fill%3D%27%23fff%27/%3E%3C/svg%3E">
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "c6b572a87a11472db1d63e8281478708"}'></script>
-<!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-L77N0PH5L6"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-L77N0PH5L6');</script>
 <style>
 :root{
   --bg1:#eef2f9; --bg2:#f8fafc; --surface:#fff; --surface2:#f8fafc; --inset:#f1f5f9;
@@ -45,9 +44,10 @@ body{margin:0;color:var(--text);
   background:linear-gradient(135deg,var(--accent),#5fa3ab);font-size:14px;box-shadow:var(--shadow)}
 .brand small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;letter-spacing:0}
 .pnav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
-.pnav a{padding:7px 13px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;transition:.18s;white-space:nowrap}
+.pnav a{padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;transition:.18s;white-space:nowrap}
 .pnav a:hover{color:var(--text);background:var(--inset)}
 .pnav a.active{color:var(--accent);background:var(--accent-soft)}
+.pnav{align-items:center}
 .iconbtn{width:38px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:10px;cursor:pointer;color:var(--muted);display:grid;place-items:center;transition:.18s;font-size:15px}
 .iconbtn:hover{color:var(--text);border-color:var(--accent)}
 .navtoggle{display:none;width:40px;height:34px;border:1px solid var(--line);background:var(--surface);
@@ -72,8 +72,8 @@ section{margin-top:30px;scroll-margin-top:74px}
 .sec-h .hint{color:var(--faint);font-size:12.5px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
 @media(max-width:820px){
-  .grid2{grid-template-columns:1fr}
   .navtoggle{display:grid}
   .pnav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
     background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}
@@ -81,7 +81,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   .pnav a{padding:12px;font-size:15px;border-radius:10px}
 }
 .ctrls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-bottom:6px}
-.seg{display:inline-flex;background:var(--inset);border-radius:11px;padding:3px;gap:2px}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--inset);border-radius:11px;padding:3px;gap:2px}
 .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:500;padding:6px 13px;border-radius:8px;cursor:pointer;transition:.16s}
 .seg button.on{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
 .lbl{font-size:12.5px;color:var(--muted);font-weight:500;margin-right:2px}
@@ -130,6 +130,36 @@ section{margin-top:30px;scroll-margin-top:74px}
 .mtab th:first-child,.mtab td:first-child{text-align:left;white-space:normal}
 .mtab th{color:var(--muted);font-weight:600;font-size:11.5px}
 .mtab tr.total td{font-weight:680;border-top:2px solid var(--text);background:var(--surface2)}
+
+.ngrp{position:relative}
+.nbtn{font:inherit;font-size:13.5px;font-weight:500;color:var(--muted);background:none;border:0;padding:7px 12px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:.18s}
+.nbtn:hover,.ngrp.open .nbtn{color:var(--text);background:var(--inset)}
+.ngrp.on .nbtn{color:var(--accent);background:var(--accent-soft)}
+.nbtn .car{font-size:10px;margin-left:5px;opacity:.7}
+.ndd{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 28px rgba(2,8,20,.28);padding:6px;z-index:70}
+.ngrp.open .ndd{display:block}
+.ndd a{display:block;padding:8px 11px;border-radius:8px;color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap}
+.ndd a small{display:block;color:var(--faint);font-size:11.5px;font-weight:400}
+.ndd a:hover{background:var(--inset)}
+.ndd a.active{color:var(--accent);background:var(--accent-soft)}
+@media(min-width:821px){.ngrp:hover .ndd{display:block}.ngrp:hover .ndd::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}}
+@media(max-width:820px){
+  .ngrp{width:100%}
+  .nbtn{display:block;width:100%;text-align:left;padding:10px 12px 4px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);pointer-events:none;background:none!important}
+  .nbtn .car{display:none}
+  .ndd{display:block;position:static;box-shadow:none;border:0;padding:0 0 4px 8px;min-width:0;background:none}
+  .ndd a{padding:10px 12px;font-size:15px}
+  .ndd a small{display:none}
+  .pnav,.nav{align-items:stretch}
+}
+@media(max-width:560px){.ptop .in,.topbar .inner{gap:8px;padding-left:14px;padding-right:14px}}
+.tic{font-size:12px;line-height:1;margin-right:1px;filter:saturate(.85)}
+@keyframes skel{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.skel{border-radius:10px;background:linear-gradient(90deg,var(--inset) 0,var(--line) 40%,var(--inset) 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
+.skel-row{height:54px;margin:0 0 10px}
+.skel-row.sm{height:18px;margin:10px 12px}
+.chartbox:not(:has(canvas[style])){border-radius:10px;background:linear-gradient(90deg,transparent 0,var(--inset) 40%,transparent 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
+@media(prefers-reduced-motion:reduce){.skel,.chartbox{animation:none!important}}
 </style>
 
 </head>
@@ -137,7 +167,8 @@ section{margin-top:30px;scroll-margin-top:74px}
 <div class="ptop"><div class="in">
   <a class="brand" href="index.html"><span class="dot"><svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="27" cy="21" r="15"/><circle cx="27" cy="21" r="8"/><circle cx="27" cy="21" r="3.4" fill="#fff" stroke="none"/><line x1="5" y1="43" x2="27" y2="21"/><path d="M5 43 l7 -1.4 M5 43 l1.4 -7"/></svg></span><span>Jak žijí Střelice<small>otevřená data obce</small></span></a>
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
-  <nav class="pnav" id="pnav"><a href="index.html">Přehled</a><a href="rozpocet.html">Rozpočet</a><a href="srovnani.html">Srovnání</a><a href="investice.html">Investice</a><a href="zakazky.html">Zakázky</a><a href="dotace.html">Dotace spolkům</a><a href="skolstvi.html">Školství</a><a href="zapisy.html">Rada obce</a><a href="zastupitelstvo.html">Zastupitelstvo</a></nav>
+  <nav class="pnav" id="pnav"><a href="index.html">Přehled</a><div class="ngrp"><button class="nbtn" type="button" aria-expanded="false">Peníze<span class="car">▾</span></button><div class="ndd"><a href="rozpocet.html">Rozpočet<small>příjmy, výdaje, rok 2026</small></a><a href="srovnani.html">Srovnání<small>se sousedními obcemi</small></a><a href="investice.html">Investice<small>co se staví, mapa</small></a><a href="zakazky.html">Zakázky<small>komu obec platí</small></a><a href="dotace.html">Dotace spolkům<small>komu obec přispívá</small></a></div></div><a href="zastupitelstvo.html">Zastupitelstvo</a><a href="zapisy.html">Rada obce</a><a href="obdobi.html">Bilance 2022–26</a><a href="skolstvi.html">Školství</a></nav>
+  <a class="iconbtn" href="hledat.html" title="Hledat na portálu (usnesení, firmy, dotace, ulice…)" aria-label="Hledat" style="text-decoration:none">⌕</a>
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>
 <div class="wrap">
@@ -160,7 +191,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   <div class="panel">
     <p>Datum poslední aktualizace je v patičce každé stránky. Jednotlivé sekce se obnovují různým tempem podle toho, kdy jejich zdroj zveřejní nová data:</p>
     <table class="mtab"><tbody>
-      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku</td></tr>
+      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku; průběžné plnění aktuálního roku (panel „Letošní rok") po zveřejnění čtvrtletních dat</td></tr>
       <tr><td><b>Zápisy rady, Zastupitelstvo</b></td><td>průběžně — automatická kontrola nových zápisů na webu obce několikrát denně</td></tr>
       <tr><td><b>Dotace spolkům</b></td><td>průběžně — po zveřejnění veřejnoprávních smluv obcí</td></tr>
       <tr><td><b>Školství</b></td><td>ročně — po zveřejnění výročních zpráv škol a dat ČSÚ</td></tr>
@@ -171,7 +202,7 @@ section{margin-top:30px;scroll-margin-top:74px}
 <section>
   <div class="sec-h"><h2>Rozpočet</h2><span class="hint">sekce Rozpočet a Srovnání</span></div>
   <div class="panel">
-    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618.</p>
+    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618. Rok 2026 je zobrazen zvlášť jako <b>průběžný stav</b> (poslední zveřejněné čtvrtletí) z nového extraktu FIN 2-12 M 2026 — od roku 2026 platí nová rozpočtová skladba, číselníky paragrafů a položek jsou dekódovány podle jejich aktuální verze.</p>
     <p><b>Tři varianty čísel</b>, které v grafech přepínáte:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Schválený rozpočet</b></td><td>plán, který zastupitelstvo schválilo na začátku roku</td></tr>
@@ -241,7 +272,30 @@ section{margin-top:30px;scroll-margin-top:74px}
       <tr><td><b>Částky</b></td><td>vytažené z textu usnesení, orientační (viz Investice)</td></tr>
       <tr><td><b>Parcely 📍</b></td><td>čísla parcel v k.ú. Střelice u Brna jsou proklikávací do katastrální mapy (ikatastr.cz)</td></tr>
       <tr><td><b>Video ▶</b></td><td>u zasedání zastupitelstva se záznamem vede odkaz na přesný čas projednávání bodu na YouTube</td></tr>
+      <tr><td><b>Shrnutí „V kostce"</b></td><td>krátké shrnutí každého jednání napsal <b>jazykový model (AI)</b> výhradně z textu usnesení podle pevných pravidel (jen fakta, bez hodnocení, bez jmen fyzických osob) a bylo namátkově zkontrolováno. Může obsahovat zjednodušení — rozhoduje vždy text usnesení a originální PDF.</td></tr>
+      <tr><td><b>Jednání a formality</b></td><td>samostatné téma pro procedurální body (program, ověřovatelé zápisu, návrhová komise, zprávy o činnosti rady), aby nezahlcovaly věcná témata</td></tr>
     </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Bilance období a aktivita zastupitelů</h2></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> výpisy usnesení zastupitelstva (seznam přítomných a omluvených, jmenovité hlasování), přepisy videozáznamů zasedání a data ostatních sekcí portálu.</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Účast</b></td><td>podle seznamu přítomných ve výpisu usnesení; počítají se jen zasedání během mandátu (náhradník od složení slibu)</td></tr>
+      <tr><td><b>Hlasování</b></td><td>jmenovité hlasování z výpisu; „všichni přítomní" = hlasovali všichni přítomní. Nepočítají se volby ověřovatelů a návrhové komise (zvolený se obvykle zdrží). „Nehlasoval" = přítomen, ale jméno u hlasování chybí (typicky střet zájmů nebo krátký odchod)</td></tr>
+      <tr><td><b>Diskuze</b></td><td>počet vystoupení a bodů, k nimž zastupitel promluvil, podle redakčně upravených přepisů automatických titulků YouTube — jen zasedání se záznamem; přepis nemusí zachytit každé krátké vystoupení. Po kliknutí na jméno zastupitele se zobrazí texty jeho vystoupení s odkazem na čas ve videozáznamu</td></tr>
+      <tr><td><b>Nestrannost</b></td><td>portál zastupitele nehodnotí ani neřadí; čísla nezachycují práci ve výborech, komisích a mimo zasedání. Autor portálu je sám členem zastupitelstva — proto jsou všechna čísla počítaná stejným automatickým postupem pro všechny a ověřitelná v originálních zápisech.</td></tr>
+      <tr><td><b>Časová osa</b></td><td>ručně vybrané milníky podle výše částky a dlouhodobého dopadu; úplný přehled je v sekcích Rada obce a Zastupitelstvo</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Hledání a Moje ulice</h2></div>
+  <div class="panel">
+    <p>Hledání prochází usnesení rady a zastupitelstva, přepisy diskuzí, dodavatele, příjemce dotací a rozpočtové oblasti — přímo v prohlížeči, nic se nikam neodesílá. „Moje ulice" přiřazuje usnesení k ulici podle výskytu jejího názvu v textu (včetně skloňování); usnesení, která ulici nejmenují (jen číslo parcely), se k ní nepřiřadí.</p>
   </div>
 </section>
 
@@ -252,7 +306,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   </div>
 </section><style>.mtab th,.mtab td{text-align:left;white-space:normal}.mtab td:first-child{width:32%}</style>
 <div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center"><a href="https://www.strelicnik.cz" target="_blank" rel="noopener" title="Součást webu Střeličník — strelicnik.cz" style="display:inline-block;transition:transform .2s" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''"><img src="data:image/png;base64,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" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>
-<footer class="footer">Data aktualizována k <b style="color:var(--muted)">3. 7. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
+<footer class="footer">Data aktualizována k <b style="color:var(--muted)">30. 9. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
 </div>
 <script>
 function bindTheme(after){var b=document.getElementById('themeBtn');if(!b)return;
@@ -276,6 +330,13 @@ function dlCSV(name,header,rows){
   a.href=URL.createObjectURL(new Blob([String.fromCharCode(0xFEFF)+csv],{type:'text/csv;charset=utf-8'}));
   a.download=name;document.body.appendChild(a);a.click();a.remove();
   setTimeout(function(){URL.revokeObjectURL(a.href);},500);}
+
+(function(){var gs=document.querySelectorAll('.ngrp');
+ gs.forEach(function(g){var b=g.querySelector('.nbtn');b.addEventListener('click',function(e){e.stopPropagation();
+   var o=!g.classList.contains('open');gs.forEach(function(x){x.classList.remove('open');x.querySelector('.nbtn').setAttribute('aria-expanded','false');});
+   if(o){g.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+ document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('open');});});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')gs.forEach(function(x){x.classList.remove('open');});});})();
 </script>
 
 </body>

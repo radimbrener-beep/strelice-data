@@ -19,7 +19,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -43,7 +43,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Správa obce a úřad",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -59,7 +59,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -120,7 +120,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -132,7 +132,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -156,7 +156,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -368,7 +368,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -380,7 +380,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Stavby, investice a územní rozvoj",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -417,7 +417,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -429,7 +429,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -453,7 +453,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -537,7 +537,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -786,7 +786,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -798,7 +798,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -822,7 +822,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -914,7 +914,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -963,7 +963,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -975,7 +975,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1084,7 +1084,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1096,7 +1096,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1144,7 +1144,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Životní prostředí a odpady",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1169,7 +1169,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1181,7 +1181,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1205,7 +1205,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -1233,7 +1233,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1245,7 +1245,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1269,7 +1269,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Doprava a sítě",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 2306016,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": [
@@ -1337,7 +1337,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Pozemky, majetek a bydlení",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1450,7 +1450,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1462,7 +1462,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1474,7 +1474,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -1634,7 +1634,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Kultura, sport a spolky",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 26520,
     "vydaj": "10–50 tis. Kč",
     "hlasovani": [
@@ -1670,7 +1670,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Školství",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 204116,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -1694,7 +1694,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Pozemky, majetek a bydlení",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1806,7 +1806,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": 25000000,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": [
@@ -1831,7 +1831,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1843,7 +1843,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1855,7 +1855,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1867,7 +1867,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Kultura, sport a spolky",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 228172,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -1892,7 +1892,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1904,7 +1904,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -1916,7 +1916,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -2096,7 +2096,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Školství",
+    "tema": "Správa obce a úřad",
     "castka": 237506,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -2288,7 +2288,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 168997,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -2325,7 +2325,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2337,7 +2337,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2349,7 +2349,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -2417,7 +2417,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2561,7 +2561,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Školství",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 64977,
     "vydaj": "50–100 tis. Kč",
     "hlasovani": [
@@ -2738,7 +2738,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2750,7 +2750,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2762,7 +2762,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -2907,7 +2907,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2919,7 +2919,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2931,7 +2931,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -2967,7 +2967,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -2987,7 +2987,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Doprava a sítě",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 2550000,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": [
@@ -2999,7 +2999,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Kultura, sport a spolky",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 1832139,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": [
@@ -3023,7 +3023,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3091,7 +3091,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3160,7 +3160,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3172,7 +3172,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3184,7 +3184,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -3240,7 +3240,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Školství",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 189447,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -3289,7 +3289,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3301,7 +3301,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3313,7 +3313,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -3365,7 +3365,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Školství",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 183639,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -3401,7 +3401,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 1970000,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": [
@@ -3438,7 +3438,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3450,7 +3450,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3462,7 +3462,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -3523,7 +3523,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3535,7 +3535,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3547,7 +3547,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -3775,7 +3775,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3820,7 +3820,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3832,7 +3832,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -3844,7 +3844,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -3928,7 +3928,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4121,7 +4121,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4133,7 +4133,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4145,7 +4145,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -4217,7 +4217,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 452242,
     "vydaj": "100–500 tis. Kč",
     "hlasovani": [
@@ -4262,7 +4262,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4274,7 +4274,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4286,7 +4286,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -4322,7 +4322,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4334,7 +4334,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4418,7 +4418,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Kultura, sport a spolky",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 1065033,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": [
@@ -4442,7 +4442,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4490,7 +4490,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4515,7 +4515,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4527,7 +4527,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4563,7 +4563,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4588,7 +4588,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4600,7 +4600,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4612,7 +4612,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -4740,7 +4740,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4752,7 +4752,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Stavby, investice a územní rozvoj",
+    "tema": "Pozemky, majetek a bydlení",
     "castka": 93506,
     "vydaj": "50–100 tis. Kč",
     "hlasovani": [
@@ -4801,7 +4801,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4813,7 +4813,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4825,7 +4825,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -4845,7 +4845,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -4873,7 +4873,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4885,7 +4885,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Životní prostředí a odpady",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 515182,
     "vydaj": "0,5–1 mil. Kč",
     "hlasovani": [
@@ -4970,7 +4970,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4982,7 +4982,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -4994,7 +4994,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5355,7 +5355,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5367,7 +5367,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5432,7 +5432,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5444,7 +5444,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5456,7 +5456,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5496,7 +5496,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5628,7 +5628,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5700,7 +5700,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5733,7 +5733,7 @@
   "body": [
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5765,7 +5765,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5801,7 +5801,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5817,7 +5817,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5833,7 +5833,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5841,7 +5841,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Doprava a sítě",
+    "tema": "Stavby, investice a územní rozvoj",
     "castka": 2286462,
     "vydaj": "nad 1 mil. Kč",
     "hlasovani": null,
@@ -5849,7 +5849,7 @@
    },
    {
     "kategorie": "pověřuje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5894,7 +5894,7 @@
   "body": [
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5906,7 +5906,7 @@
    },
    {
     "kategorie": "volí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5930,7 +5930,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,
@@ -5966,7 +5966,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -5978,7 +5978,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Dotace a finance",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -6074,7 +6074,7 @@
    },
    {
     "kategorie": "schvaluje",
-    "tema": "Ostatní",
+    "tema": "Jednání a formality",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": [
@@ -6118,7 +6118,7 @@
    },
    {
     "kategorie": "bere na vědomí",
-    "tema": "Ostatní",
+    "tema": "Správa obce a úřad",
     "castka": null,
     "vydaj": "Bez částky",
     "hlasovani": null,

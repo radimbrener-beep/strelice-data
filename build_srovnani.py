@@ -112,7 +112,7 @@ body = f'''<header class="hero">
   <div class="sec-h"><h2>Přehledová tabulka</h2><span class="hint" id="tblHint">rok {LY}</span></div>
   <div class="panel">
     <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="dlbtn" id="dlCmp" title="Stáhnout tabulku jako CSV">⬇ Stáhnout CSV</button></div>
-    <div class="tablewrap"><table id="cmpTbl"><thead></thead><tbody></tbody></table></div>
+    <div class="tablewrap"><table id="cmpTbl"><thead></thead><tbody>{pc.skel_tr(8)}</tbody></table></div>
     <p class="note">Investice Střelic za posledních 5 let: <b>{strel_inv/1000:.0f} tis. Kč na obyvatele</b> (průměr sousedních obcí: {sous_avg_inv/1000:.0f} tis. Kč). Údaje jsou skutečnost z výkazu FIN 2-12 M bez konsolidace — všechny obce počítány stejně, čísla jsou vzájemně srovnatelná. Dluh = úvěry, dluhopisy a návratné výpomoci dle pravidel rozpočtové odpovědnosti (rozvaha). Podrobnosti v <a href="metodika.html" style="color:var(--accent)">metodice</a>.</p>
   </div>
 </section>'''

@@ -419,7 +419,7 @@ def main():
 
     # ── Rebuild ──────────────────────────────────
     print("\n[BUILD] Přegenerovávám HTML...")
-    to_rebuild = ['build_portal.py']
+    to_rebuild = []   # build_portal.py se přidává až na konec (čte vygenerované stránky)
     if new_zo or new_ro:
         # nové parcely v usneseních -> souřadnice pro prokliky do katastru
         # (inkrementální, selhání jednotlivých dotazů ČÚZK skript toleruje)
@@ -433,7 +433,11 @@ def main():
         to_rebuild.append('build_investice.py')
     if new_zo or new_ro:
         to_rebuild.append('build_zakazky.py')   # nové zakázky firem z usnesení
+        # čtou data z investice.html / zakazky.html → až po nich
+        to_rebuild.append('build_hledat.py')    # hledání + Moje ulice
+        to_rebuild.append('build_obdobi.py')    # bilance období + aktivita zastupitelů
 
+    to_rebuild.append('build_portal.py')
     seen = set()
     to_rebuild = [s for s in to_rebuild if not (s in seen or seen.add(s))]
     rebuild(to_rebuild)

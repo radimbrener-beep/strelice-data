@@ -26,7 +26,7 @@ body = '''<header class="hero">
   <div class="panel">
     <p>Datum poslední aktualizace je v patičce každé stránky. Jednotlivé sekce se obnovují různým tempem podle toho, kdy jejich zdroj zveřejní nová data:</p>
     <table class="mtab"><tbody>
-      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku</td></tr>
+      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku; průběžné plnění aktuálního roku (panel „Letošní rok") po zveřejnění čtvrtletních dat</td></tr>
       <tr><td><b>Zápisy rady, Zastupitelstvo</b></td><td>průběžně — automatická kontrola nových zápisů na webu obce několikrát denně</td></tr>
       <tr><td><b>Dotace spolkům</b></td><td>průběžně — po zveřejnění veřejnoprávních smluv obcí</td></tr>
       <tr><td><b>Školství</b></td><td>ročně — po zveřejnění výročních zpráv škol a dat ČSÚ</td></tr>
@@ -37,7 +37,7 @@ body = '''<header class="hero">
 <section>
   <div class="sec-h"><h2>Rozpočet</h2><span class="hint">sekce Rozpočet a Srovnání</span></div>
   <div class="panel">
-    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618.</p>
+    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618. Rok 2026 je zobrazen zvlášť jako <b>průběžný stav</b> (poslední zveřejněné čtvrtletí) z nového extraktu FIN 2-12 M 2026 — od roku 2026 platí nová rozpočtová skladba, číselníky paragrafů a položek jsou dekódovány podle jejich aktuální verze.</p>
     <p><b>Tři varianty čísel</b>, které v grafech přepínáte:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Schválený rozpočet</b></td><td>plán, který zastupitelstvo schválilo na začátku roku</td></tr>
@@ -107,7 +107,30 @@ body = '''<header class="hero">
       <tr><td><b>Částky</b></td><td>vytažené z textu usnesení, orientační (viz Investice)</td></tr>
       <tr><td><b>Parcely 📍</b></td><td>čísla parcel v k.ú. Střelice u Brna jsou proklikávací do katastrální mapy (ikatastr.cz)</td></tr>
       <tr><td><b>Video ▶</b></td><td>u zasedání zastupitelstva se záznamem vede odkaz na přesný čas projednávání bodu na YouTube</td></tr>
+      <tr><td><b>Shrnutí „V kostce"</b></td><td>krátké shrnutí každého jednání napsal <b>jazykový model (AI)</b> výhradně z textu usnesení podle pevných pravidel (jen fakta, bez hodnocení, bez jmen fyzických osob) a bylo namátkově zkontrolováno. Může obsahovat zjednodušení — rozhoduje vždy text usnesení a originální PDF.</td></tr>
+      <tr><td><b>Jednání a formality</b></td><td>samostatné téma pro procedurální body (program, ověřovatelé zápisu, návrhová komise, zprávy o činnosti rady), aby nezahlcovaly věcná témata</td></tr>
     </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Bilance období a aktivita zastupitelů</h2></div>
+  <div class="panel">
+    <p><b>Zdroj:</b> výpisy usnesení zastupitelstva (seznam přítomných a omluvených, jmenovité hlasování), přepisy videozáznamů zasedání a data ostatních sekcí portálu.</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Účast</b></td><td>podle seznamu přítomných ve výpisu usnesení; počítají se jen zasedání během mandátu (náhradník od složení slibu)</td></tr>
+      <tr><td><b>Hlasování</b></td><td>jmenovité hlasování z výpisu; „všichni přítomní" = hlasovali všichni přítomní. Nepočítají se volby ověřovatelů a návrhové komise (zvolený se obvykle zdrží). „Nehlasoval" = přítomen, ale jméno u hlasování chybí (typicky střet zájmů nebo krátký odchod)</td></tr>
+      <tr><td><b>Diskuze</b></td><td>počet vystoupení a bodů, k nimž zastupitel promluvil, podle redakčně upravených přepisů automatických titulků YouTube — jen zasedání se záznamem; přepis nemusí zachytit každé krátké vystoupení. Po kliknutí na jméno zastupitele se zobrazí texty jeho vystoupení s odkazem na čas ve videozáznamu</td></tr>
+      <tr><td><b>Nestrannost</b></td><td>portál zastupitele nehodnotí ani neřadí; čísla nezachycují práci ve výborech, komisích a mimo zasedání. Autor portálu je sám členem zastupitelstva — proto jsou všechna čísla počítaná stejným automatickým postupem pro všechny a ověřitelná v originálních zápisech.</td></tr>
+      <tr><td><b>Časová osa</b></td><td>ručně vybrané milníky podle výše částky a dlouhodobého dopadu; úplný přehled je v sekcích Rada obce a Zastupitelstvo</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-h"><h2>Hledání a Moje ulice</h2></div>
+  <div class="panel">
+    <p>Hledání prochází usnesení rady a zastupitelstva, přepisy diskuzí, dodavatele, příjemce dotací a rozpočtové oblasti — přímo v prohlížeči, nic se nikam neodesílá. „Moje ulice" přiřazuje usnesení k ulici podle výskytu jejího názvu v textu (včetně skloňování); usnesení, která ulici nejmenují (jen číslo parcely), se k ní nepřiřadí.</p>
   </div>
 </section>
 

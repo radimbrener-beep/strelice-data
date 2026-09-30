@@ -4,11 +4,12 @@
 mezi sekcemi, přepínač světlý/tmavý režim, patička. Každá stránka je
 samostatný HTML soubor (data + Chart.js vložené) → funguje po dvojkliku
 i odděleně; navigace mezi sekcemi funguje, leží-li soubory ve stejné složce."""
-import urllib.parse, base64, os
+import urllib.parse, base64, os, json
 from datetime import date
 
 SECTIONS = [
     ("index.html",    "Přehled"),
+    ("obdobi.html",   "Bilance"),
     ("rozpocet.html", "Rozpočet"),
     ("srovnani.html", "Srovnání"),
     ("investice.html", "Investice"),
@@ -18,6 +19,82 @@ SECTIONS = [
     ("zapisy.html",   "Rada obce"),
     ("zastupitelstvo.html", "Zastupitelstvo"),
 ]
+# hlavní menu: položka = (href, název) nebo skupina (název, [(href, název), ...]) → rozbalovací
+NAV = [
+    ("index.html", "Přehled"),
+    ("Peníze", [("rozpocet.html", "Rozpočet"), ("srovnani.html", "Srovnání"),
+                ("investice.html", "Investice"), ("zakazky.html", "Zakázky"),
+                ("dotace.html", "Dotace spolkům")]),
+    ("zastupitelstvo.html", "Zastupitelstvo"),
+    ("zapisy.html", "Rada obce"),
+    ("obdobi.html", "Bilance 2022–26"),
+    ("skolstvi.html", "Školství"),
+]
+# popisky v rozbalovacím menu (krátká vysvětlivka pod názvem)
+NAV_HINT = {"rozpocet.html": "příjmy, výdaje, rok 2026", "srovnani.html": "se sousedními obcemi",
+            "investice.html": "co se staví, mapa", "zakazky.html": "komu obec platí",
+            "dotace.html": "komu obec přispívá", "zastupitelstvo.html": "usnesení, hlasování, video",
+            "zapisy.html": "zápisy z jednání rady", "obdobi.html": "bilance období, zastupitelé"}
+
+
+def nav_html(active):
+    """HTML odkazů hlavního menu (skupiny = rozbalovací). `active` = název sekce ze SECTIONS."""
+    act = next((h for h, n in SECTIONS + EXTRA_PAGES if n == active), None)
+    out = []
+    for item in NAV:
+        if isinstance(item[1], list):
+            label, links = item
+            on = any(h == act for h, _ in links)
+            sub = "".join(f'<a href="{h}"{" class=\"active\"" if h == act else ""}>{n}'
+                          f'{"<small>" + NAV_HINT[h] + "</small>" if h in NAV_HINT else ""}</a>' for h, n in links)
+            out.append(f'<div class="ngrp{" on" if on else ""}"><button class="nbtn" type="button" aria-expanded="false">'
+                       f'{label}<span class="car">▾</span></button><div class="ndd">{sub}</div></div>')
+        else:
+            h, n = item
+            out.append(f'<a href="{h}"{" class=\"active\"" if h == act else ""}>{n}</a>')
+    return "".join(out)
+
+
+# CSS rozbalovacího menu (sdílené i s rozpocet.html, které má vlastní topbar)
+NAV_CSS = """
+.ngrp{position:relative}
+.nbtn{font:inherit;font-size:13.5px;font-weight:500;color:var(--muted);background:none;border:0;padding:7px 12px;border-radius:10px;cursor:pointer;white-space:nowrap;transition:.18s}
+.nbtn:hover,.ngrp.open .nbtn{color:var(--text);background:var(--inset)}
+.ngrp.on .nbtn{color:var(--accent);background:var(--accent-soft)}
+.nbtn .car{font-size:10px;margin-left:5px;opacity:.7}
+.ndd{display:none;position:absolute;top:calc(100% + 6px);left:0;min-width:230px;background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 28px rgba(2,8,20,.28);padding:6px;z-index:70}
+.ngrp.open .ndd{display:block}
+.ndd a{display:block;padding:8px 11px;border-radius:8px;color:var(--text);text-decoration:none;font-size:13.5px;font-weight:500;white-space:nowrap}
+.ndd a small{display:block;color:var(--faint);font-size:11.5px;font-weight:400}
+.ndd a:hover{background:var(--inset)}
+.ndd a.active{color:var(--accent);background:var(--accent-soft)}
+@media(min-width:821px){.ngrp:hover .ndd{display:block}.ngrp:hover .ndd::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}}
+@media(max-width:820px){
+  .ngrp{width:100%}
+  .nbtn{display:block;width:100%;text-align:left;padding:10px 12px 4px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);pointer-events:none;background:none!important}
+  .nbtn .car{display:none}
+  .ndd{display:block;position:static;box-shadow:none;border:0;padding:0 0 4px 8px;min-width:0;background:none}
+  .ndd a{padding:10px 12px;font-size:15px}
+  .ndd a small{display:none}
+  .pnav,.nav{align-items:stretch}
+}
+@media(max-width:560px){.ptop .in,.topbar .inner{gap:8px;padding-left:14px;padding-right:14px}}
+"""
+
+# JS: klik otevře/zavře skupinu (dotyková zařízení), klik mimo zavře
+NAV_JS = r"""
+(function(){var gs=document.querySelectorAll('.ngrp');
+ gs.forEach(function(g){var b=g.querySelector('.nbtn');b.addEventListener('click',function(e){e.stopPropagation();
+   var o=!g.classList.contains('open');gs.forEach(function(x){x.classList.remove('open');x.querySelector('.nbtn').setAttribute('aria-expanded','false');});
+   if(o){g.classList.add('open');b.setAttribute('aria-expanded','true');}});});
+ document.addEventListener('click',function(){gs.forEach(function(x){x.classList.remove('open');});});
+ document.addEventListener('keydown',function(e){if(e.key==='Escape')gs.forEach(function(x){x.classList.remove('open');});});})();
+"""
+
+# stránky mimo hlavní navigaci (kvůli canonical/og:url)
+EXTRA_PAGES = [("hledat.html", "Hledat")]
+SEARCH_BTN = ('<a class="iconbtn" href="hledat.html" title="Hledat na portálu (usnesení, firmy, dotace, ulice…)" '
+              'aria-label="Hledat" style="text-decoration:none">⌕</a>')
 
 # datum sestavení = datum aktualizace dat (stránky se generují po každé změně dat)
 _d = date.today()
@@ -64,9 +141,10 @@ body{margin:0;color:var(--text);
   background:linear-gradient(135deg,var(--accent),#5fa3ab);font-size:14px;box-shadow:var(--shadow)}
 .brand small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;letter-spacing:0}
 .pnav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
-.pnav a{padding:7px 13px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;transition:.18s;white-space:nowrap}
+.pnav a{padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;transition:.18s;white-space:nowrap}
 .pnav a:hover{color:var(--text);background:var(--inset)}
 .pnav a.active{color:var(--accent);background:var(--accent-soft)}
+.pnav{align-items:center}
 .iconbtn{width:38px;height:34px;border:1px solid var(--line);background:var(--surface);border-radius:10px;cursor:pointer;color:var(--muted);display:grid;place-items:center;transition:.18s;font-size:15px}
 .iconbtn:hover{color:var(--text);border-color:var(--accent)}
 .navtoggle{display:none;width:40px;height:34px;border:1px solid var(--line);background:var(--surface);
@@ -91,8 +169,8 @@ section{margin-top:30px;scroll-margin-top:74px}
 .sec-h .hint{color:var(--faint);font-size:12.5px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
 @media(max-width:820px){
-  .grid2{grid-template-columns:1fr}
   .navtoggle{display:grid}
   .pnav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
     background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}
@@ -100,7 +178,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   .pnav a{padding:12px;font-size:15px;border-radius:10px}
 }
 .ctrls{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;margin-bottom:6px}
-.seg{display:inline-flex;background:var(--inset);border-radius:11px;padding:3px;gap:2px}
+.seg{display:inline-flex;flex-wrap:wrap;background:var(--inset);border-radius:11px;padding:3px;gap:2px}
 .seg button{border:0;background:transparent;color:var(--muted);font:inherit;font-size:13px;font-weight:500;padding:6px 13px;border-radius:8px;cursor:pointer;transition:.16s}
 .seg button.on{background:var(--surface);color:var(--text);box-shadow:var(--shadow)}
 .lbl{font-size:12.5px;color:var(--muted);font-weight:500;margin-right:2px}
@@ -170,11 +248,6 @@ FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote
 ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
              ' data-cf-beacon=\'{"token": "c6b572a87a11472db1d63e8281478708"}\'></script>')
 
-# Google Analytics 4 (gtag.js) — pozn.: používá cookies (případnou cookie lištu lze doplnit)
-GA = ('<!-- Google tag (gtag.js) -->'
-      '<script async src="https://www.googletagmanager.com/gtag/js?id=G-L77N0PH5L6"></script>'
-      '<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}'
-      "gtag('js',new Date());gtag('config','G-L77N0PH5L6');</script>")
 
 # logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz.
 # Vkládáme jako data-URI přímo do HTML → stránka je samostatná, deploy je jen
@@ -189,13 +262,12 @@ BRANDFOOT = ('<div style="margin-top:34px;padding-top:20px;border-top:1px solid 
              '<img src="' + LOGO_URI + '" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>')
 
 def topbar(active):
-    links = "".join(
-        f'<a href="{href}"{" class=\"active\"" if name==active else ""}>{name}</a>'
-        for href, name in SECTIONS)
+    links = nav_html(active)
     return f'''<div class="ptop"><div class="in">
   <a class="brand" href="index.html"><span class="dot">{TARGET_SVG}</span><span>Jak žijí Střelice<small>otevřená data obce</small></span></a>
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   <nav class="pnav" id="pnav">{links}</nav>
+  {SEARCH_BTN}
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>'''
 
@@ -233,7 +305,7 @@ OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, inve
 
 def og_meta(active, title):
     """Meta značky pro hezký náhled při sdílení (obrázek og-image.png je plochý soubor v kořeni)."""
-    fn = next((f for f, n in SECTIONS if n == active), "index.html")
+    fn = next((f for f, n in SECTIONS + EXTRA_PAGES if n == active), "index.html")
     url = SITE + "/" + ("" if fn == "index.html" else fn)
     t = (title or "Jak žijí Střelice").replace('"', '&quot;')
     img = SITE + "/og-image.png"
@@ -268,7 +340,6 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 {og_meta(active, title)}
 {FAVICON_LINK}
 {ANALYTICS}
-{GA}
 <style>{SHARED_CSS}</style>
 {head_scripts}
 </head>
@@ -283,3 +354,62 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 {body_scripts}
 </body>
 </html>'''
+
+# rozbalovací menu: CSS a JS připojené ke sdíleným blokům
+SHARED_CSS = SHARED_CSS + NAV_CSS
+THEME_JS = THEME_JS + NAV_JS
+
+# --- jednotné barvy a ikony témat napříč portálem (Rada obce, Zastupitelstvo, Hledat, Bilance) ---
+TEMA_COL = {
+    "Pozemky, majetek a bydlení": "--c3",
+    "Stavby, investice a územní rozvoj": "--c7",
+    "Dotace a finance": "--c0",
+    "Školství": "--c4",
+    "Životní prostředí a odpady": "--c2",
+    "Kultura, sport a spolky": "--c1",
+    "Správa obce a úřad": "--c5",
+    "Doprava a sítě": "--c8",
+    "Sociální a zdravotní oblast": "--c6",
+    "Jednání a formality": "--c9",
+    "Ostatní": "--faint",
+}
+TEMA_ICO = {
+    "Pozemky, majetek a bydlení": "🏡",
+    "Stavby, investice a územní rozvoj": "🏗️",
+    "Dotace a finance": "💰",
+    "Školství": "🎓",
+    "Životní prostředí a odpady": "🌳",
+    "Kultura, sport a spolky": "⚽",
+    "Správa obce a úřad": "🏛️",
+    "Doprava a sítě": "🚌",
+    "Sociální a zdravotní oblast": "🩺",
+    "Jednání a formality": "📋",
+    "Ostatní": "",
+}
+TEMA_JS = ("const TCOL=" + json.dumps(TEMA_COL, ensure_ascii=False) + ",TICO=" + json.dumps(TEMA_ICO, ensure_ascii=False) + ";"
+           "function temaName(n){return TCOL[n]||'--faint';}"
+           "function temaVar(n){return 'var('+temaName(n)+')';}"
+           "function temaRGB(n){return cssv(temaName(n));}"
+           "function temaIco(n){return TICO[n]?'<span class=\"tic\" aria-hidden=\"true\">'+TICO[n]+'</span>':'';}")
+TEMA_CSS = ".tic{font-size:12px;line-height:1;margin-right:1px;filter:saturate(.85)}"
+SHARED_CSS = SHARED_CSS + TEMA_CSS
+
+# --- skeleton: jemný „shimmer" místo prázdných míst, než JS vykreslí data (velké stránky) ---
+SKEL_CSS = """
+@keyframes skel{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.skel{border-radius:10px;background:linear-gradient(90deg,var(--inset) 0,var(--line) 40%,var(--inset) 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
+.skel-row{height:54px;margin:0 0 10px}
+.skel-row.sm{height:18px;margin:10px 12px}
+.chartbox:not(:has(canvas[style])){border-radius:10px;background:linear-gradient(90deg,transparent 0,var(--inset) 40%,transparent 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
+@media(prefers-reduced-motion:reduce){.skel,.chartbox{animation:none!important}}
+"""
+SHARED_CSS = SHARED_CSS + SKEL_CSS
+
+
+def skel(n=6, cls=""):
+    """Zástupné řádky do kontejneru, který JS přepíše skutečným obsahem (innerHTML)."""
+    return "".join(f'<div class="skel skel-row {cls}"></div>' for _ in range(n))
+
+
+def skel_tr(n=8, cols=4):
+    return "".join('<tr>' + f'<td colspan="{cols}"><div class="skel skel-row sm"></div></td>' + '</tr>' for _ in range(n))

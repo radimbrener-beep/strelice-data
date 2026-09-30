@@ -22,8 +22,14 @@ last = dem[-1]
 
 # ================= INDEX (rozcestník) =================
 tiles = [
+    ("obdobi.html", "Bilance období 2022–2026", "bi", True,
+     "Co zastupitelstvo a rada za čtyři roky rozhodly, kolik se proinvestovalo, časová osa klíčových rozhodnutí — a docházka, hlasování a vystoupení jednotlivých zastupitelů.",
+     "Otevřít bilanci →", "nové"),
+    ("hledat.html", "Hledat a Moje ulice", "hl", True,
+     "Jedno hledání přes celý portál — usnesení, diskuze na zastupitelstvu, firmy, dotace i rozpočet. A přehled všeho, co se řešilo ve vaší ulici, na mapě.",
+     "Hledat →", "nové"),
     ("rozpocet.html", "Rozpočet", "ti", True,
-     "Příjmy, výdaje a saldo 2013–2025, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail.",
+     "Příjmy, výdaje a saldo 2013–2025 a průběžné plnění rozpočtu 2026, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail a slovníček pojmů.",
      "Otevřít rozpočet →", None),
     ("srovnani.html", "Srovnání se sousedy", "sr", True,
      "Jak si Střelice vedou vedle okolních obcí — příjmy, investice, dluh a rezervy na obyvatele. A karty finančního zdraví obce podle metodiky MF.",
@@ -41,13 +47,13 @@ tiles = [
      "Demografický vývoj obce a poptávka po vzdělávání — mateřská a základní škola, ZUŠ, kapacity.",
      "Otevřít školství →", None),
     ("zapisy.html", "Rada obce", "ra", True,
-     "Zápisy z jednání Rady obce 2022–2026 — fulltextové hledání v usneseních, filtr podle roku a druhu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.",
+     "Zápisy z jednání Rady obce 2022–2026 — u každého jednání krátké shrnutí, fulltextové hledání v usneseních, filtr podle roku a tématu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.",
      "Procházet zápisy →", None),
     ("zastupitelstvo.html", "Zastupitelstvo", "zo", True,
-     "Usnesení zastupitelstva 2022–2026 — výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
+     "Usnesení zastupitelstva 2022–2026 — shrnutí každého zasedání, výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
      "Procházet usnesení →", None),
     ("#", "Další sekce", "pl", False,
-     "Připravujeme — např. volby ve Střelicích, životní prostředí a odpadové hospodářství.",
+     "Připravujeme — např. výsledky voleb ve Střelicích, životní prostředí a odpadové hospodářství.",
      "", "připravujeme"),
 ]
 tile_html = ""
@@ -55,7 +61,7 @@ for href, name, ic, active, desc, go, badge in tiles:
     cls = "tile" + ("" if active else " soon")
     badge_html = f'<span class="badge">{badge}</span>' if badge else ""
     go_html = f'<span class="go">{go}</span>' if go else ""
-    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "za": "🧾", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+"}.get(ic, "•")
+    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "za": "🧾", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+", "bi": "🗳", "hl": "⌕"}.get(ic, "•")
     tile_html += f'''<a class="{cls}" href="{href}">{badge_html}
       <span class="ic">{icon}</span><h3>{name}</h3><p>{desc}</p>{go_html}</a>'''
 
@@ -89,12 +95,12 @@ _feed = []
 for _m in json.load(open("dataset_ZO.json", encoding="utf-8")):
     _c = _m["cislo_zasedani"]
     _feed.append((_pubdate("ZO", _c), _m["datum"], "Zastupitelstvo", "#e0a458",
-                  f'Zápis z {_c}. zasedání zastupitelstva',
+                  f'Zápis z {_c}. zasedání zastupitelstva <span class="updmd">· zasedání {_fmt_d(_m["datum"])}</span>',
                   f'zastupitelstvo.html?zo={_c}'))
 for _m in json.load(open("dataset_RO.json", encoding="utf-8")):
     _c = _m["cislo_zasedani"]
     _feed.append((_pubdate("RO", _c), _m["datum"], "Rada obce", "#85b7eb",
-                  f'Zápis z {_c}. jednání rady obce',
+                  f'Zápis z {_c}. jednání rady obce <span class="updmd">· jednání {_fmt_d(_m["datum"])}</span>',
                   f'zapisy.html?ro={_c}'))
 if _dirty:
     json.dump(_pub, open(_PUB_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
@@ -107,13 +113,13 @@ for _row in _feed:
 # vysledne radky razeny podle data publikace (pri shode podle data zasedani), sestupne
 _shown = sorted(_best.values(), key=lambda x: (x[0], x[1]), reverse=True)
 updlist = "".join(
-    f'<a class="updrow" href="{lnk}"><span class="upddate">{_fmt_d(pubd)}</span>'
+    f'<a class="updrow" href="{lnk}"><span class="upddate"><small>přidáno</small>{_fmt_d(pubd)}</span>'
     f'<span class="updsec"><i style="background:{col}"></i>{sec}</span>'
     f'<span class="updtxt">{txt}</span><span class="updarr">&#8594;</span></a>'
     for pubd, _md, sec, col, txt, lnk in _shown)
 upd_panel = ('<section><div class="panel">'
              '<div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2>'
-             '<span class="hint">poslední zápis z každé sekce</span></div>'
+             '<span class="hint">poslední zápis z každé sekce · datum = kdy přibyl na portál</span></div>'
              f'<div class="updlist">{updlist}</div></div></section>')
 
 UPD_CSS = '''<style>
@@ -125,15 +131,67 @@ UPD_CSS = '''<style>
 .updsec{display:inline-flex;align-items:center;font-size:11px;font-weight:600;color:var(--muted);background:var(--inset);border:1px solid var(--line);padding:2px 9px;border-radius:999px;white-space:nowrap}
 .updsec i{width:8px;height:8px;border-radius:2px;display:inline-block;margin-right:6px}
 .updtxt{font-size:13.5px;flex:1}
+.updmd{color:var(--muted);font-size:12.5px}
+.upddate small{display:block;font-size:10.5px;color:var(--faint);line-height:1.1}
 .updarr{color:var(--faint);font-size:14px}
 @media(max-width:560px){.updrow{flex-wrap:wrap;gap:6px 10px}.updtxt{flex-basis:100%;order:3;font-size:13px}.updarr{display:none}}
 </style>'''
 
 pop_fmt = f'{last["stav"]:,}'.replace(",", " ")
+
+# --- poutač „období v číslech" s animovaným počítadlem (hero) ---
+import os
+def _emb(path):
+    t = open(path, encoding="utf-8").read(); i = t.index("const D=") + 8
+    return json.JSONDecoder().raw_decode(t[i:])[0]
+_ro = json.load(open("dataset_RO.json", encoding="utf-8"))
+_zo_n = len(json.load(open("dataset_ZO.json", encoding="utf-8")))
+# počet usnesení ZO stejně jako sekce Zastupitelstvo (vč. doplnění nečitelného ZO 27)
+_zo_b = (sum(len(m["b"]) for m in _emb("zastupitelstvo.html")["meet"]) if os.path.exists("zastupitelstvo.html")
+         else sum(len(m["body"]) for m in json.load(open("dataset_ZO.json", encoding="utf-8"))))
+_body = sum(len(m["body"]) for m in _ro) + _zo_b
+_jed = len(_ro) + _zo_n
+_fin = list(csv.DictReader(open("data/strelice_finm201_2013_2025.csv", encoding="utf-8-sig"), delimiter=";"))
+_kap = sum(float(r["skutecnost"] or 0) for r in _fin if 2022 <= int(r["rok"]) <= 2025 and r["trida"] == "Kapitálové výdaje")
+_dot = 0
+for r in csv.DictReader(open("data/dotace_strelice.csv", encoding="utf-8-sig"), delimiter=";"):
+    try: _dot += int(r["castka"])
+    except ValueError: pass
+def _cnt(v, dec=0):
+    shown = (f"{v:,.{dec}f}").replace(",", " ").replace(".", ",")
+    return f'<b class="cnt" data-v="{v:.{dec}f}" data-d="{dec}">{shown}</b>'
+POUTAC = (f'<a class="poutac" href="obdobi.html"><span class="pt">Volební období 2022–2026 v číslech</span>'
+          f'<span class="pl">Rada a zastupitelstvo projednaly {_cnt(_body)} bodů na {_cnt(_jed)} jednáních, '
+          f'obec proinvestovala {_cnt(_kap/1e6, 1)} mil. Kč a spolkům přispěla {_cnt(_dot/1e6, 1)} mil. Kč.</span>'
+          f'<span class="pg">Celá bilance období a aktivita zastupitelů →</span></a>')
+POUTAC_CSS = """<style>
+.poutac{display:block;margin:18px 0 0;padding:18px 22px;border-radius:var(--radius);text-decoration:none;color:var(--text);
+  background:linear-gradient(135deg,var(--accent-soft),transparent 70%),var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s}
+.poutac:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+.poutac .pt{display:block;font-size:12px;font-weight:650;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.poutac .pl{display:block;font-size:17px;line-height:1.6}
+.poutac .cnt{font-size:22px;font-weight:720;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.poutac .pg{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
+@media(max-width:560px){.poutac .pl{font-size:15.5px}.poutac .cnt{font-size:19px}}
+</style>"""
+POUTAC_JS = r"""<script>
+(function(){var els=document.querySelectorAll('.cnt');if(!els.length)return;
+ var red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ function fmt(v,d){return v.toLocaleString('cs-CZ',{minimumFractionDigits:d,maximumFractionDigits:d});}
+ function run(el){var t=+el.dataset.v,d=+el.dataset.d,t0=performance.now(),dur=1400;
+   if(red){el.textContent=fmt(t,d);return;}
+   (function step(now){var k=Math.min(1,(now-t0)/dur),e=1-Math.pow(1-k,3);el.textContent=fmt(t*e,d);
+     if(k<1)requestAnimationFrame(step);else el.textContent=fmt(t,d);})(t0);
+   setTimeout(function(){el.textContent=fmt(t,d);},dur+120);}
+ if(!('IntersectionObserver' in window)){els.forEach(run);return;}
+ var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);io.unobserve(x.target);}});},{threshold:.4});
+ els.forEach(function(el){io.observe(el);});   // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět})();
+</script>"""
 index_body = f'''<header class="hero">
   <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· obec v datech</span></h1>
   <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ {pop_fmt} obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
+  {POUTAC}
 </header>
 {upd_panel}
 <section>
@@ -148,8 +206,8 @@ index_body = f'''<header class="hero">
 </section>'''
 
 open("index.html", "w", encoding="utf-8").write(
-    pc.page("Přehled", "Jak žijí Střelice — data obce", index_body, head_scripts=UPD_CSS,
-            body_scripts='<script>bindTheme();</script>'))
+    pc.page("Přehled", "Jak žijí Střelice — data obce", index_body, head_scripts=UPD_CSS + POUTAC_CSS,
+            body_scripts='<script>bindTheme();</script>' + POUTAC_JS))
 
 # ================= ŠKOLSTVÍ =================
 DATA = {"obec": "Střelice", "dem": dem,

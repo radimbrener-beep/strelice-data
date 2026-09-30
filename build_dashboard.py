@@ -56,6 +56,178 @@ dotace_in.sort(key=lambda d: (-d["rok"], -d["castka"]))
 DATA = {"obec": "Obec Střelice", "ico": "00282618", "nuts": "okres Brno-venkov",
         "pop": POP, "years": years, "pol": pol, "par": par, "rows": rows, "dotaceIn": dotace_in}
 
+# --- „V kostce": srozumitelné shrnutí posledního uzavřeného roku ---
+import os
+def _fmt_mil(v):
+    return f"{v/1e6:.1f}".replace(".", ",") + " mil. Kč"
+_LY = years[-1]
+_ly = [r for r in rows_raw if int(r["rok"]) == _LY]
+_pr = sum(num(r["skutecnost"]) for r in _ly if r["druh"] == "Příjmy")
+_vy = sum(num(r["skutecnost"]) for r in _ly if r["druh"] == "Výdaje")
+_kap = sum(num(r["skutecnost"]) for r in _ly if r["trida"] == "Kapitálové výdaje")
+_dan = sum(num(r["skutecnost"]) for r in _ly if r["trida"] == "Daňové příjmy")
+_odd = {}
+for r in _ly:
+    if r["druh"] == "Výdaje" and r["par_oddil"]:
+        _odd[r["par_oddil"]] = _odd.get(r["par_oddil"], 0) + num(r["skutecnost"])
+_top = sorted(_odd.items(), key=lambda x: -x[1])[:3]
+# srozumitelnější názvy dlouhých oddílů rozpočtové skladby
+FRIENDLY = {"Státní moc, státní správa, územní samospráva a politické strany": "Správa obce a zastupitelstvo",
+            "Bydlení, komunální služby a územní rozvoj": "Bydlení, komunální služby a rozvoj obce",
+            "Sociální služby a společné činnosti v sociálním zabezpečení a politice zaměstnanosti": "Sociální služby",
+            "Vzdělávání a školské služby": "Školství",
+            "Ochrana životního prostředí": "Životní prostředí a odpady"}
+def _fr(n): return FRIENDLY.get(n, n)
+_saldo = _pr - _vy
+KOSTKA = (f'<section><div class="panel kostka"><h2>V kostce: rok {_LY}</h2><p>'
+          f'Obec v roce {_LY} <b>vybrala {_fmt_mil(_pr)}</b> a <b>utratila {_fmt_mil(_vy)}</b> — '
+          + (f'hospodařila tedy s <b>přebytkem {_fmt_mil(_saldo)}</b>' if _saldo >= 0
+             else f'rozdíl <b>{_fmt_mil(-_saldo)}</b> pokryla z úspor z minulých let')
+          + f'. Zhruba <b>{round(_dan/_pr*100)} % příjmů tvoří daně</b> (hlavně podíl na celostátně vybraných daních, který obec dostává podle počtu obyvatel). '
+          f'Na <b>investice</b> (stavby, nákupy pozemků a budov) šlo {_fmt_mil(_kap)}, tj. {round(_kap/_vy*100)} % výdajů. '
+          'Nejvíc peněz směřovalo do oblastí: ' + ", ".join(f'{_fr(n).lower()} ({_fmt_mil(v)})' for n, v in _top) + '. '
+          'Obec do konce roku 2025 <b>neměla žádný úvěr</b>; na rozšíření čistírny odpadních vod schválilo zastupitelstvo v roce 2026 úvěr u České spořitelny.'
+          '</p></div></section>')
+
+# --- průběžné plnění aktuálního roku (FinM2026, build_fin2026.py) ---
+BEZI = ""
+_F26 = "data/strelice_fin_2026.csv"
+if os.path.exists(_F26):
+    _r26 = list(csv.DictReader(open(_F26, encoding="utf-8-sig"), delimiter=";"))
+    _mon = int(_r26[0]["obdobi"]) if _r26 else 0
+    _MD = {3: "31. 3.", 6: "30. 6.", 9: "30. 9.", 12: "31. 12."}.get(_mon, f"konci {_mon}. měsíce")
+    _K3 = ("schvaleny_rozpocet", "upraveny_rozpocet", "skutecnost")
+    def _agg26(pred):
+        a = [0, 0, 0]
+        for r in _r26:
+            if pred(r):
+                for i, k in enumerate(_K3):
+                    a[i] += num(r[k])
+        return a
+    _lines = [("Příjmy celkem", _agg26(lambda r: r["druh"] == "Příjmy"), "var(--prijmy)", False),
+              ("z toho daně", _agg26(lambda r: r["trida"] == "Daňové příjmy"), "var(--prijmy)", True),
+              ("Výdaje celkem", _agg26(lambda r: r["druh"] == "Výdaje"), "var(--vydaje)", False),
+              ("běžné (provoz)", _agg26(lambda r: r["trida"] == "Běžné výdaje"), "var(--vydaje)", True),
+              ("investice", _agg26(lambda r: r["trida"] == "Kapitálové výdaje"), "#a855f7", True)]
+    _odd26 = {}
+    for r in _r26:
+        if r["druh"] == "Výdaje" and r["par_oddil"]:
+            a = _odd26.setdefault(r["par_oddil"], [0, 0, 0])
+            for i, k in enumerate(_K3):
+                a[i] += num(r[k])
+    _odd26 = sorted(_odd26.items(), key=lambda x: -x[1][1])[:8]
+    def _bar(name, a, col, sub=False):
+        pct = (a[2] / a[1] * 100) if a[1] else 0
+        return (f'<div class="bz{" sub" if sub else ""}"><div class="bzh"><span>{name}</span>'
+                f'<span><b>{_fmt_mil(a[2])}</b> z {_fmt_mil(a[1])} · <b>{pct:.0f} %</b></span></div>'
+                f'<div class="bzt"><i style="width:{min(pct, 100):.1f}%;background:{col}"></i>'
+                f'<em style="left:{_mon/12*100:.1f}%" title="uplynulá část roku"></em></div></div>')
+    BEZI = (f'<section id="letos"><div class="sec-h"><h2>Letošní rok 2026 — jak se plní rozpočet</h2>'
+            f'<span class="hint">stav k {_MD} 2026 · MONITOR SP</span></div>'
+            '<div class="grid2"><div class="panel">'
+            '<div class="lbl" style="margin-bottom:10px">Skutečnost vs. upravený rozpočet</div>'
+            + "".join(_bar(n, a, c, sub) for n, a, c, sub in _lines) +
+            f'<p class="note">Svislá čárka = uplynulá část roku ({_mon/12*100:.0f} %). Schválený rozpočet 2026 počítal s příjmy {_fmt_mil(_lines[0][1][0])} '
+            f'a výdaji {_fmt_mil(_lines[2][1][0])}; rozpočtovými opatřeními byly výdaje navýšeny na {_fmt_mil(_lines[2][1][1])} '
+            '(rozdíl kryjí úspory z minulých let). Investice se obvykle platí až po dokončení staveb, proto bývá jejich plnění v pololetí nízké.</p>'
+            '</div><div class="panel"><div class="lbl" style="margin-bottom:10px">Výdaje podle oblasti (největší dle upraveného rozpočtu)</div>'
+            + "".join(_bar(_fr(n), a, "var(--vydaje)") for n, a in _odd26) +
+            '</div></div></section>')
+
+SLOVNICEK = """<section id="slovnicek"><details class="panel slov"><summary><b>Slovníček pojmů</b> — co znamenají čísla v rozpočtu</summary><dl>
+<dt>Schválený rozpočet</dt><dd>Plán příjmů a výdajů, který zastupitelstvo schválí na začátku roku (obvykle v prosinci předchozího roku).</dd>
+<dt>Upravený rozpočet</dt><dd>Plán po všech změnách během roku. Mění se <i>rozpočtovými opatřeními</i> — např. když obec získá dotaci nebo se rozhodne pro novou stavbu.</dd>
+<dt>Skutečnost</dt><dd>Kolik peněz obec opravdu vybrala / zaplatila. U uzavřených let k 31. 12.</dd>
+<dt>% plnění</dt><dd>Skutečnost ÷ upravený rozpočet. 100 % = vybráno / utraceno přesně podle plánu.</dd>
+<dt>Saldo</dt><dd>Příjmy minus výdaje. Kladné = přebytek (obec ušetřila), záporné = schodek (doplatila z úspor minulých let nebo úvěrem).</dd>
+<dt>Daňové příjmy</dt><dd>Většinou <i>sdílené daně</i> — obec dostává podíl z celostátně vybrané DPH a daní z příjmů podle počtu obyvatel a dalších kritérií. Vlastní daní obce je daň z nemovitostí.</dd>
+<dt>Nedaňové příjmy</dt><dd>Nájemné, poplatky za služby, prodej vody, úroky z vkladů apod.</dd>
+<dt>Přijaté transfery</dt><dd>Dotace a příspěvky od státu, kraje, EU nebo jiných obcí.</dd>
+<dt>Běžné výdaje</dt><dd>Provoz obce: platy, energie, údržba, příspěvky škole, služby, dotace spolkům.</dd>
+<dt>Kapitálové výdaje (investice)</dt><dd>Výdaje na nový majetek: stavby, rekonstrukce, nákup pozemků a budov, stroje.</dd>
+<dt>Paragraf / oblast</dt><dd>Na co peníze jdou (školství, doprava, voda…). <i>Položka</i> naopak říká, jakého druhu výdaj je (mzdy, materiál, stavba…).</dd>
+</dl></details></section>"""
+
+# --- Sankey „tok peněz": zdroje příjmů → rozpočet obce → oblasti výdajů (po letech) ---
+SANKEY = {}
+for _y in years:
+    _yr = [r for r in rows_raw if int(r["rok"]) == _y]
+    _src = {}
+    for r in _yr:
+        if r["druh"] == "Příjmy" and r["trida"]:
+            _src[r["trida"]] = _src.get(r["trida"], 0) + num(r["skutecnost"])
+    _dst = {}
+    for r in _yr:
+        if r["druh"] == "Výdaje" and r["par_oddil"]:
+            k = _fr(r["par_oddil"])
+            _dst[k] = _dst.get(k, 0) + num(r["skutecnost"])
+    _src = sorted(((k, v) for k, v in _src.items() if v > 0), key=lambda x: -x[1])
+    _dst = sorted(((k, v) for k, v in _dst.items() if v > 0), key=lambda x: -x[1])
+    if len(_dst) > 7:
+        _dst = _dst[:7] + [("Ostatní oblasti", sum(v for _, v in _dst[7:]))]
+    _p, _v = sum(v for _, v in _src), sum(v for _, v in _dst)
+    if _v > _p:
+        _src.append(("Z úspor minulých let", _v - _p))
+    elif _p > _v:
+        _dst.append(("Přebytek (do úspor)", _p - _v))
+    SANKEY[_y] = {"s": _src, "d": _dst}
+
+SANKEY_HTML = """<section id="tok"><div class="sec-h"><h2>Tok peněz</h2><span class="hint">odkud obec peníze má a kam jdou · skutečnost · najeďte na pás pro detail</span></div>
+<div class="panel"><div class="ctrls"><span class="lbl">Rok</span><span class="seg" id="skYear"></span></div>
+<div class="skwrap"><svg id="sankey" viewBox="0 0 900 440" role="img" aria-label="Sankeyův diagram příjmů a výdajů obce"></svg></div>
+<p class="note">Vlevo zdroje příjmů, vpravo oblasti výdajů; šířka pásu odpovídá částce. Když obec utratí víc, než v daném roce vybere, rozdíl kryje z úspor minulých let; když méně, přebytek si uloží.</p></div></section>"""
+
+SANKEY_JS = r"""<script>
+(function(){
+const SK=SANKEY_DATA, YRS=Object.keys(SK).map(Number).sort((a,b)=>a-b);
+let yr=YRS[YRS.length-1];
+const W=900,H=440,NW=14,GAP=10,PADT=28,PADB=10,MX=(W-NW)/2;
+const SRC_C=['#7fb7a4','#9cc8b5','#b7d6c8','#8fb0a0','#c9d9cf'], SAV='#b8bcc6';
+const DST_C=['#8fa9cf','#e0a878','#a99bd1','#c9b27f','#86b9c0','#d6a0a0','#a4b98a','#b3a6c9','#b8bcc6'];
+const mil=v=>(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil. Kč';
+const cv=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function col(list,i,name,base){return /úspor|Přebytek/.test(name)?SAV:base[i%base.length];}
+function layout(items,x,total,scale){
+  let y=PADT; const out=[];
+  const free=H-PADT-PADB-GAP*(items.length-1);
+  items.forEach((it,i)=>{const h=Math.max(2,it[1]*scale);out.push({n:it[0],v:it[1],x,y,h});y+=h+GAP;});
+  const used=y-GAP-PADT, off=(H-PADT-PADB-used)/2; out.forEach(o=>o.y+=off);
+  return out;}
+function band(x0,y0,h0,x1,y1,h1){const c=(x0+x1)/2;
+  return `M${x0},${y0} C${c},${y0} ${c},${y1} ${x1},${y1} L${x1},${y1+h1} C${c},${y1+h1} ${c},${y0+h0} ${x0},${y0+h0} Z`;}
+function draw(){
+  const d=SK[yr], tot=d.s.reduce((a,x)=>a+x[1],0);
+  const maxN=Math.max(d.s.length,d.d.length), scale=(H-PADT-PADB-GAP*(maxN-1))/tot;
+  const L=layout(d.s,0,tot,scale), R=layout(d.d,W-NW,tot,scale);
+  const mh=tot*scale, my=(H-PADT-PADB-mh)/2+PADT;
+  const txt=cv('--text'), mut=cv('--muted');
+  let g='';
+  // pásy zdroje → střed
+  let cy=my; L.forEach((n,i)=>{const c=col(d.s,i,n.n,SRC_C);
+    g+=`<path d="${band(n.x+NW,n.y,n.h,MX,cy,n.h)}" fill="${c}" fill-opacity=".45"><title>${n.n}: ${mil(n.v)} (${Math.round(n.v/tot*100)} %)</title></path>`;cy+=n.h;});
+  cy=my; R.forEach((n,i)=>{const c=col(d.d,i,n.n,DST_C);
+    g+=`<path d="${band(MX+NW,cy,n.h,n.x,n.y,n.h)}" fill="${c}" fill-opacity=".45"><title>${n.n}: ${mil(n.v)} (${Math.round(n.v/tot*100)} %)</title></path>`;cy+=n.h;});
+  // uzly
+  L.forEach((n,i)=>{g+=`<rect x="${n.x}" y="${n.y}" width="${NW}" height="${n.h}" rx="3" fill="${col(d.s,i,n.n,SRC_C)}"/>`+
+    `<text x="${n.x+NW+8}" y="${n.y+n.h/2}" dy=".35em" font-size="13" fill="${txt}">${n.n} <tspan fill="${mut}">${mil(n.v)}</tspan></text>`;});
+  R.forEach((n,i)=>{g+=`<rect x="${n.x}" y="${n.y}" width="${NW}" height="${n.h}" rx="3" fill="${col(d.d,i,n.n,DST_C)}"/>`+
+    `<text x="${n.x-8}" y="${n.y+n.h/2}" dy=".35em" text-anchor="end" font-size="13" fill="${txt}">${n.n} <tspan fill="${mut}">${mil(n.v)}</tspan></text>`;});
+  g+=`<rect x="${MX}" y="${my}" width="${NW}" height="${mh}" rx="3" fill="${cv('--accent')}"/>`+
+     `<text x="${MX+NW/2}" y="${my-9}" text-anchor="middle" font-size="13" font-weight="650" fill="${txt}">Rozpočet obce ${yr} · ${mil(tot)}</text>`;
+  document.getElementById('sankey').innerHTML=g;
+}
+const seg=document.getElementById('skYear');
+seg.innerHTML=YRS.map(y=>`<button data-y="${y}"${y===yr?' class="on"':''}>${y}</button>`).join('');
+seg.querySelectorAll('button').forEach(b=>b.onclick=()=>{yr=+b.dataset.y;seg.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x===b));draw();});
+draw();
+new MutationObserver(draw).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+})();
+</script>"""
+SANKEY_CSS = """.skwrap{overflow-x:auto;margin-top:8px}
+#sankey{width:100%;min-width:680px;height:auto;display:block}
+#sankey path{transition:fill-opacity .15s}#sankey path:hover{fill-opacity:.75}
+#skYear{flex-wrap:wrap}"""
+
 chartjs = open(CHARTJS, encoding="utf-8").read()
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
@@ -111,7 +283,7 @@ body{margin:0;color:var(--text);
   background:linear-gradient(135deg,var(--accent),#06b6d4);font-size:15px;box-shadow:var(--shadow)}
 .brand small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;letter-spacing:0}
 .nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
-.nav a{padding:7px 13px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;
+.nav a{padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;
   font-weight:500;transition:.18s;white-space:nowrap}
 .nav a:hover{color:var(--text);background:var(--inset)}
 .nav a.active{color:var(--accent);background:var(--accent-soft)}
@@ -148,11 +320,23 @@ section{margin-top:30px;scroll-margin-top:74px}
 .sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 14px}
 .sec-h h2{font-size:19px;font-weight:640;margin:0;letter-spacing:-.01em}
 .sec-h .hint{color:var(--faint);font-size:12.5px}
+.kostka h2{font-size:16px;margin:0 0 8px}
+.kostka p{margin:0;color:var(--text);font-size:14.5px;line-height:1.65}
+.bz{margin:0 0 12px}.bz.sub{margin-left:14px}.bz.sub .bzh{font-size:12.5px;color:var(--muted)}
+.bzh{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;margin-bottom:4px;flex-wrap:wrap}
+.bzh b{font-variant-numeric:tabular-nums}
+.bzt{position:relative;height:9px;border-radius:5px;background:var(--inset)}
+.bzt i{position:absolute;left:0;top:0;bottom:0;border-radius:5px}
+.bzt em{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--muted);opacity:.7}
+.slov summary{cursor:pointer;font-size:14.5px}
+.slov dl{margin:14px 0 0;display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:8px 18px;font-size:13.5px}
+.slov dt{font-weight:600}.slov dd{margin:0;color:var(--muted);line-height:1.55}
+@media(max-width:560px){.slov dl{grid-template-columns:1fr}.slov dd{margin-bottom:6px}}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
 @media(max-width:820px){
-  .grid2{grid-template-columns:1fr}
   .navtoggle{display:grid}
   .nav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
     background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}
@@ -252,6 +436,9 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 .mh{font-size:13px;font-weight:600;margin:4px 0 2px}
 .msaldo{margin-top:14px;padding:10px 14px;border-radius:10px;background:var(--inset);font-weight:600;text-align:center}
 .mhint{font-size:11.5px;color:var(--faint);margin-top:4px}
+/*SANKEYCSS*/
+.nav{align-items:center}
+/*NAVCSS*/
 </style>
 </head>
 <body>
@@ -260,6 +447,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
     <span id="brand">Jak žijí Střelice<small>otevřená data obce</small></span></a>
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   <nav class="nav" id="nav"><!--NAV--></nav>
+  <!--SEARCHBTN-->
   <button class="iconbtn" id="themeBtn" title="Světlý/tmavý režim">◐</button>
 </div></div>
 
@@ -270,7 +458,10 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
     <div class="chips" id="chips"></div>
   </header>
 
+  <!--KOSTKA-->
   <div class="cards" id="kpis"></div>
+  <!--BEZI-->
+  <!--SANKEY-->
 
   <section id="trend-sec">
     <div class="sec-h"><h2>Vývoj příjmů, výdajů a salda</h2><span class="hint">2013–2025 · klouzni rokem dole</span></div>
@@ -278,16 +469,16 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
       <div class="ctrls">
         <span class="lbl">Ukazatel</span>
         <span class="seg" id="metricSeg">
-          <button class="on" data-m="5">Skutečnost</button>
-          <button data-m="3">Schválený</button>
-          <button data-m="4">Upravený</button>
+          <button class="on" data-m="5" title="Kolik obec opravdu vybrala / utratila">Skutečnost</button>
+          <button data-m="3" title="Plán schválený na začátku roku">Schválený</button>
+          <button data-m="4" title="Plán po změnách během roku (rozpočtová opatření)">Upravený</button>
         </span>
       </div>
       <div class="legend">
         <span><i class="sw" style="background:var(--prijmy)"></i>Příjmy</span>
         <span><i class="sw" style="background:var(--vydaje)"></i>Výdaje</span>
-        <span><i class="sw" style="background:var(--pos)"></i>Saldo +</span>
-        <span><i class="sw" style="background:var(--neg)"></i>Saldo −</span>
+        <span title="Příjmy vyšší než výdaje"><i class="sw" style="background:var(--pos)"></i>Saldo + (přebytek)</span>
+        <span title="Výdaje vyšší než příjmy — hrazeno z úspor"><i class="sw" style="background:var(--neg)"></i>Saldo − (schodek)</span>
       </div>
       <div class="chartbox"><canvas id="trend"></canvas></div>
       <div class="yearctl">
@@ -328,6 +519,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
     </div>
   </section>
 
+  <!--SLOVNICEK-->
   <section id="detail">
     <div class="sec-h"><h2>Detail — rozklikni rozpočet</h2><span class="hint">řaď, hledej, rozbaluj</span></div>
     <div class="panel">
@@ -396,7 +588,7 @@ function kpis(){
     ['','Kapitálové výdaje '+LY,kap(LY),null,'#a855f7','tools'],
   ];
   document.getElementById('kpis').innerHTML = C.map((c,i)=>{
-    const dl = c[3]==null ? (c[2]>=0?'přebytek':'schodek')
+    const dl = c[3]==null ? (c[1].startsWith('Saldo') ? (c[2]>=0?'přebytek':'schodek') : Math.round(c[2]/vy(LY)*100)+' % výdajů')
       : `<span class="${c[3]>=0?'up':'down'}">${c[3]>=0?'▲':'▼'} ${Math.abs(c[3]).toFixed(1)} %</span> ${c[1].includes('Daň')?'vs 2013':'r/r'}`;
     return `<div class="kpi" style="--bar:${c[4]}"><div class="lab">${c[1]}</div>
       <div class="val"><span class="ctr" data-v="${Math.round(scale(c[2]))}">0</span> <span class="unit">${perCap?'Kč/ob.':'Kč'}</span></div>
@@ -618,6 +810,7 @@ kpis(); rebuild(); drill();
 (function(){var t=document.getElementById('navToggle'),n=document.getElementById('nav');
  if(t&&n){t.addEventListener('click',function(){var o=n.classList.toggle('open');t.setAttribute('aria-expanded',o);});
  n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open');});}})();
+/*NAVJS*/
 
 document.getElementById('themeBtn').onclick=()=>{
   const d=isDark(); document.documentElement.setAttribute('data-theme',d?'light':'dark');
@@ -665,14 +858,13 @@ document.addEventListener('keydown',e=>{if(e.key=='Escape')closeModal();});
 </body>
 </html>"""
 
-nav_links = "".join(
-    f'<a href="{href}"{" class=\"active\"" if label == "Rozpočet" else ""}>{label}</a>'
-    for href, label in pc.SECTIONS)
+nav_links = pc.nav_html("Rozpočet")
 updated = ('Data aktualizována k <b style="color:var(--muted)">' + pc.UPDATED + '</b>'
            ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>')
 HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
         .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — Jak žijí Střelice") + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
-        .replace("/*ANALYTICS*/", pc.ANALYTICS + pc.GA).replace("<!--BRANDFOOT-->", pc.BRANDFOOT)
-        .replace("<!--UPDATED-->", updated))
+        .replace("/*ANALYTICS*/", pc.ANALYTICS).replace("<!--BRANDFOOT-->", pc.BRANDFOOT)
+        .replace("<!--UPDATED-->", updated)
+        .replace("<!--SEARCHBTN-->", pc.SEARCH_BTN).replace("/*NAVJS*/", pc.NAV_JS).replace("/*NAVCSS*/", pc.NAV_CSS + pc.SKEL_CSS).replace("<!--KOSTKA-->", KOSTKA).replace("<!--BEZI-->", BEZI).replace("<!--SANKEY-->", SANKEY_HTML).replace("</body>", SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False)) + "</body>").replace("/*SANKEYCSS*/", SANKEY_CSS).replace("<!--SLOVNICEK-->", SLOVNICEK))
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")

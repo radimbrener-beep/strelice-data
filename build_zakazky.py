@@ -85,7 +85,7 @@ body = '''<header class="hero">
     <div class="sec-h" style="margin:0 0 8px;flex-wrap:wrap;gap:10px"><h2 style="font-size:16px">Dodavatelé ve vybraném období</h2>
       <input id="q" type="text" placeholder="🔍 hledat dodavatele / zakázku…" style="margin-left:auto">
       <button class="dlbtn" id="dlBtn" title="Stáhnout všechny zakázky za všechny roky jako CSV">⬇ Stáhnout vše (CSV)</button></div>
-    <div class="tablewrap"><table id="tbl"><thead></thead><tbody></tbody></table></div>
+    <div class="tablewrap"><table id="tbl"><thead></thead><tbody>''' + pc.skel_tr(8) + '''</tbody></table></div>
     <div id="moreWrap"></div>
     <p class="note">Řazeno podle celkové částky za období. <b>Klikni na řádek firmy</b> — rozbalí se její jednotlivé zakázky. Zachyceny jsou jen zakázky, kde usnesení uvádí firmu (s.r.o., a.s., …) i částku — drobné nákupy bez usnesení, platby fyzickým osobám a faktury tu nejsou. Tatáž zakázka schválená radou i zastupitelstvem se počítá jednou. Plné texty najdete v sekcích <a href="zapisy.html" style="color:var(--accent)">Rada obce</a> a <a href="zastupitelstvo.html" style="color:var(--accent)">Zastupitelstvo</a>.</p>
   </div>
@@ -285,6 +285,10 @@ document.getElementById('modalX').onclick=()=>document.getElementById('modal').h
 document.getElementById('modalBd').onclick=()=>document.getElementById('modal').hidden=true;
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').hidden=true;});
 render();
+// proklik z celostránkového hledání: ?firma=Název (otevře historii) nebo ?q=text
+(function(){const u=new URLSearchParams(location.search),f=u.get('firma'),qq=u.get('q');
+  if(qq){const i=document.getElementById('q');i.value=qq;q=qq.trim();shown=PAGE;table();}
+  if(f&&R.some(r=>r[1]===f))firmDetail(f);})();
 bindTheme(render);
 window.addEventListener('load',()=>{Object.values(charts).forEach(c=>{try{c.resize();}catch(e){}});});
 </script>'''.replace("DATA_JSON", data_json)
