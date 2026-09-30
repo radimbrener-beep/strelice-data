@@ -138,6 +138,7 @@ TIMELINE = [
     ("2025-08-29", 21, "650 let obce", "Slavnostní zasedání k 650. výročí založení obce, ocenění bývalých starostů a zastupitelů."),
     ("2026-02-26", 26, "Financování čistírny (ČOV)", "Schváleno financování rozšíření ČOV: stavba 188,9 mil. Kč, podíl obce 130,8 mil. Kč, převážně z úvěru České spořitelny. Obec si tak bere první úvěr za dobu pokrytou daty (od roku 2013)."),
     ("2026-06-23", 28, "Budova pošty", "Obec koupila budovu pošty s pozemkem za 5,37 mil. Kč; od 1. 9. 2026 provozuje Poštu Partner."),
+    ("2026-09-17", 29, "Nový územní plán", "Zastupitelstvo vydalo nový územní plán obce (11:1, jeden se zdržel), který nahradil plán z roku 2009."),
 ]
 
 # --- aktivita zastupitelů ---
@@ -248,7 +249,7 @@ body = f'''<header class="hero">
 </section>
 
 <section id="zastupitele">
-  <div class="sec-h"><h2>Zastupitelé: účast a aktivita</h2><span class="hint">28 zasedání · {Z["n_votes"]} věcných hlasování · přepisy {len(Z["sp_meetings"])} zasedání se záznamem</span></div>
+  <div class="sec-h"><h2>Zastupitelé: účast a aktivita</h2><span class="hint">{n_meet} zasedání · {Z["n_votes"]} věcných hlasování · přepisy {len(Z["sp_meetings"])} zasedání se záznamem</span></div>
   <div class="panel expl">
     <p><b>Co tabulka ukazuje.</b> <b>Účast</b> = na kolika zasedáních byl zastupitel přítomen (ze zasedání během svého mandátu).
     <b>Hlasování</b> = jak hlasoval ve věcných hlasováních, když byl přítomen (bez volby ověřovatelů a komisí, kde se zvolený obvykle zdrží).

@@ -79,6 +79,15 @@ def pdf_text(source):
 
 # ── Pomocné ────────────────────────────────────────────────────────────────────
 def parse_date(raw):
+    # datum zasedání je v hlavičce („… zasedání … dne 17. 9. 2026") — hledat nejdřív tam;
+    # v textu usnesení bývají jiná data (lhůty „do 31. března 2027"), ta nesmí vyhrát
+    head = raw[:400]
+    for rx in (DATE_NUM_RE, DATE_WORD_RE):
+        m = rx.search(head)
+        if m:
+            d = int(m.group(1)); y = int(m.group(3))
+            mn = int(m.group(2)) if rx is DATE_NUM_RE else _MONTHS[m.group(2).lower()]
+            return f"{y}-{mn:02d}-{d:02d}", f"{d}. {mn}. {y}", y
     m = DATE_WORD_RE.search(raw)
     if m:
         d, mn, y = int(m.group(1)), _MONTHS[m.group(2).lower()], int(m.group(3))
