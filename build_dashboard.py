@@ -89,51 +89,6 @@ KOSTKA = (f'<section><div class="panel kostka"><h2>V kostce: rok {_LY}</h2><p>'
           'Obec do konce roku 2025 <b>neměla žádný úvěr</b>; na rozšíření čistírny odpadních vod schválilo zastupitelstvo v roce 2026 úvěr u České spořitelny.'
           '</p></div></section>')
 
-# --- průběžné plnění aktuálního roku (FinM2026, build_fin2026.py) ---
-BEZI = ""
-_F26 = "data/strelice_fin_2026.csv"
-if os.path.exists(_F26):
-    _r26 = list(csv.DictReader(open(_F26, encoding="utf-8-sig"), delimiter=";"))
-    _mon = int(_r26[0]["obdobi"]) if _r26 else 0
-    _MD = {3: "31. 3.", 6: "30. 6.", 9: "30. 9.", 12: "31. 12."}.get(_mon, f"konci {_mon}. měsíce")
-    _K3 = ("schvaleny_rozpocet", "upraveny_rozpocet", "skutecnost")
-    def _agg26(pred):
-        a = [0, 0, 0]
-        for r in _r26:
-            if pred(r):
-                for i, k in enumerate(_K3):
-                    a[i] += num(r[k])
-        return a
-    _lines = [("Příjmy celkem", _agg26(lambda r: r["druh"] == "Příjmy"), "var(--prijmy)", False),
-              ("z toho daně", _agg26(lambda r: r["trida"] == "Daňové příjmy"), "var(--prijmy)", True),
-              ("Výdaje celkem", _agg26(lambda r: r["druh"] == "Výdaje"), "var(--vydaje)", False),
-              ("běžné (provoz)", _agg26(lambda r: r["trida"] == "Běžné výdaje"), "var(--vydaje)", True),
-              ("investice", _agg26(lambda r: r["trida"] == "Kapitálové výdaje"), "#a855f7", True)]
-    _odd26 = {}
-    for r in _r26:
-        if r["druh"] == "Výdaje" and r["par_oddil"]:
-            a = _odd26.setdefault(r["par_oddil"], [0, 0, 0])
-            for i, k in enumerate(_K3):
-                a[i] += num(r[k])
-    _odd26 = sorted(_odd26.items(), key=lambda x: -x[1][1])[:8]
-    def _bar(name, a, col, sub=False):
-        pct = (a[2] / a[1] * 100) if a[1] else 0
-        return (f'<div class="bz{" sub" if sub else ""}"><div class="bzh"><span>{name}</span>'
-                f'<span><b>{_fmt_mil(a[2])}</b> z {_fmt_mil(a[1])} · <b>{pct:.0f} %</b></span></div>'
-                f'<div class="bzt"><i style="width:{min(pct, 100):.1f}%;background:{col}"></i>'
-                f'<em style="left:{_mon/12*100:.1f}%" title="uplynulá část roku"></em></div></div>')
-    BEZI = (f'<section id="letos"><div class="sec-h"><h2>Letošní rok 2026 — jak se plní rozpočet</h2>'
-            f'<span class="hint">stav k {_MD} 2026 · MONITOR SP</span></div>'
-            '<div class="grid2"><div class="panel">'
-            '<div class="lbl" style="margin-bottom:10px">Skutečnost vs. upravený rozpočet</div>'
-            + "".join(_bar(n, a, c, sub) for n, a, c, sub in _lines) +
-            f'<p class="note">Svislá čárka = uplynulá část roku ({_mon/12*100:.0f} %). Schválený rozpočet 2026 počítal s příjmy {_fmt_mil(_lines[0][1][0])} '
-            f'a výdaji {_fmt_mil(_lines[2][1][0])}; rozpočtovými opatřeními byly výdaje navýšeny na {_fmt_mil(_lines[2][1][1])} '
-            '(rozdíl kryjí úspory z minulých let). Investice se obvykle platí až po dokončení staveb, proto bývá jejich plnění v pololetí nízké.</p>'
-            '</div><div class="panel"><div class="lbl" style="margin-bottom:10px">Výdaje podle oblasti (největší dle upraveného rozpočtu)</div>'
-            + "".join(_bar(_fr(n), a, "var(--vydaje)") for n, a in _odd26) +
-            '</div></div></section>')
-
 SLOVNICEK = """<section id="slovnicek"><details class="panel slov"><summary><b>Slovníček pojmů</b> — co znamenají čísla v rozpočtu</summary><dl>
 <dt>Schválený rozpočet</dt><dd>Plán příjmů a výdajů, který zastupitelstvo schválí na začátku roku (obvykle v prosinci předchozího roku).</dd>
 <dt>Upravený rozpočet</dt><dd>Plán po všech změnách během roku. Mění se <i>rozpočtovými opatřeními</i> — např. když obec získá dotaci nebo se rozhodne pro novou stavbu.</dd>
@@ -460,7 +415,6 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 
   <!--KOSTKA-->
   <div class="cards" id="kpis"></div>
-  <!--BEZI-->
   <!--SANKEY-->
 
   <section id="trend-sec">
@@ -865,6 +819,6 @@ HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
         .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — Jak žijí Střelice") + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
         .replace("/*ANALYTICS*/", pc.ANALYTICS).replace("<!--BRANDFOOT-->", pc.BRANDFOOT)
         .replace("<!--UPDATED-->", updated)
-        .replace("<!--SEARCHBTN-->", pc.SEARCH_BTN).replace("/*NAVJS*/", pc.NAV_JS).replace("/*NAVCSS*/", pc.NAV_CSS + pc.SKEL_CSS).replace("<!--KOSTKA-->", KOSTKA).replace("<!--BEZI-->", BEZI).replace("<!--SANKEY-->", SANKEY_HTML).replace("</body>", SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False)) + "</body>").replace("/*SANKEYCSS*/", SANKEY_CSS).replace("<!--SLOVNICEK-->", SLOVNICEK))
+        .replace("<!--SEARCHBTN-->", pc.SEARCH_BTN).replace("/*NAVJS*/", pc.NAV_JS).replace("/*NAVCSS*/", pc.NAV_CSS + pc.SKEL_CSS).replace("<!--KOSTKA-->", KOSTKA).replace("<!--SANKEY-->", SANKEY_HTML).replace("</body>", SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False)) + "</body>").replace("/*SANKEYCSS*/", SANKEY_CSS).replace("<!--SLOVNICEK-->", SLOVNICEK))
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")

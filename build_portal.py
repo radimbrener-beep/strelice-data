@@ -29,7 +29,7 @@ tiles = [
      "Jedno hledání přes celý portál — usnesení, diskuze na zastupitelstvu, firmy, dotace i rozpočet. A přehled všeho, co se řešilo ve vaší ulici, na mapě.",
      "Hledat →", "nové"),
     ("rozpocet.html", "Rozpočet", "ti", True,
-     "Příjmy, výdaje a saldo 2013–2025 a průběžné plnění rozpočtu 2026, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail a slovníček pojmů.",
+     "Příjmy, výdaje a saldo 2013–2025, tok peněz, struktura podle oblastí a položek, dotace přijaté i poskytnuté. Rozklikávací detail a slovníček pojmů.",
      "Otevřít rozpočet →", None),
     ("srovnani.html", "Srovnání se sousedy", "sr", True,
      "Jak si Střelice vedou vedle okolních obcí — příjmy, investice, dluh a rezervy na obyvatele. A karty finančního zdraví obce podle metodiky MF.",

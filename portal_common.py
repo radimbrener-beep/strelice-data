@@ -31,7 +31,7 @@ NAV = [
     ("skolstvi.html", "Školství"),
 ]
 # popisky v rozbalovacím menu (krátká vysvětlivka pod názvem)
-NAV_HINT = {"rozpocet.html": "příjmy, výdaje, rok 2026", "srovnani.html": "se sousedními obcemi",
+NAV_HINT = {"rozpocet.html": "příjmy, výdaje, tok peněz", "srovnani.html": "se sousedními obcemi",
             "investice.html": "co se staví, mapa", "zakazky.html": "komu obec platí",
             "dotace.html": "komu obec přispívá", "zastupitelstvo.html": "usnesení, hlasování, video",
             "zapisy.html": "zápisy z jednání rady", "obdobi.html": "bilance období, zastupitelé"}

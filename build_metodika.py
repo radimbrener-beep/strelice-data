@@ -26,7 +26,7 @@ body = '''<header class="hero">
   <div class="panel">
     <p>Datum poslední aktualizace je v patičce každé stránky. Jednotlivé sekce se obnovují různým tempem podle toho, kdy jejich zdroj zveřejní nová data:</p>
     <table class="mtab"><tbody>
-      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku; průběžné plnění aktuálního roku (panel „Letošní rok") po zveřejnění čtvrtletních dat</td></tr>
+      <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku</td></tr>
       <tr><td><b>Zápisy rady, Zastupitelstvo</b></td><td>průběžně — automatická kontrola nových zápisů na webu obce několikrát denně</td></tr>
       <tr><td><b>Dotace spolkům</b></td><td>průběžně — po zveřejnění veřejnoprávních smluv obcí</td></tr>
       <tr><td><b>Školství</b></td><td>ročně — po zveřejnění výročních zpráv škol a dat ČSÚ</td></tr>
@@ -37,7 +37,7 @@ body = '''<header class="hero">
 <section>
   <div class="sec-h"><h2>Rozpočet</h2><span class="hint">sekce Rozpočet a Srovnání</span></div>
   <div class="panel">
-    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618. Rok 2026 je zobrazen zvlášť jako <b>průběžný stav</b> (poslední zveřejněné čtvrtletí) z nového extraktu FIN 2-12 M 2026 — od roku 2026 platí nová rozpočtová skladba, číselníky paragrafů a položek jsou dekódovány podle jejich aktuální verze.</p>
+    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618. Na stránce Bilance je rok 2026 zobrazen podle upraveného rozpočtu (plán) z extraktu FIN 2-12 M 2026.</p>
     <p><b>Tři varianty čísel</b>, které v grafech přepínáte:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Schválený rozpočet</b></td><td>plán, který zastupitelstvo schválilo na začátku roku</td></tr>
