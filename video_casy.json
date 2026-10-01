@@ -1,9 +1,210 @@
 {
  "29": {
   "vid": "JXdZGd0tuyM",
-  "dur": null,
-  "has_caps": false,
-  "chapters": []
+  "dur": 8016,
+  "has_caps": true,
+  "chapters": [
+   {
+    "t": 87,
+    "bod": 1,
+    "label": "Zahájení",
+    "src": "fix"
+   },
+   {
+    "t": 426,
+    "bod": 2,
+    "label": "Schválení programu",
+    "src": "fix"
+   },
+   {
+    "t": 933,
+    "bod": 3,
+    "label": "Volba ověřovatelů a návrhové komise",
+    "src": "fix"
+   },
+   {
+    "t": 1058,
+    "bod": 4,
+    "src": "snip",
+    "label": "Správa o Rady obce Střelice. každé zastupitelstvo obce je bodem správa…"
+   },
+   {
+    "t": 1371,
+    "bod": 5,
+    "label": "Rozpočtové opatření č. 6/2026, které schválila rada obce č. 96 dne 24. 6. 2026",
+    "src": "prog",
+    "gi": 2
+   },
+   {
+    "t": 1686,
+    "bod": 6,
+    "label": "Rozpočtové opatření č. 7/2026, které schválila rada obce č. 98 dne 27. 7. 2026",
+    "src": "prog",
+    "gi": 3
+   },
+   {
+    "t": 1740,
+    "bod": 7,
+    "label": "Rozpočtové opatření č. 8/2026, které schválila rada obce č. 100 dne 26. 8. 2026",
+    "src": "prog",
+    "gi": 4
+   },
+   {
+    "t": 1813,
+    "bod": 8,
+    "label": "Návrh Kupní smlouvy na nákup pozemku p. č. 1433/1 o výměře 1 820 m2, k. ú.…",
+    "src": "prog",
+    "gi": 5
+   },
+   {
+    "t": 1978,
+    "bod": 9,
+    "label": "Smlouvu o dílo na zakázku: Zhotovení projektové dokumentace pro stavební povolení…",
+    "src": "fill",
+    "gi": 6
+   },
+   {
+    "t": 2644,
+    "bod": 10,
+    "label": "Smlouvu o dílo, na zakázku: Skatepark – monolitní platforma pro freestylové…",
+    "src": "prog",
+    "gi": 7
+   },
+   {
+    "t": 3240,
+    "bod": 11,
+    "label": "Návrh Kupní smlouvy na nákup části pozemku p. č. 7037 – druh pozemku trvalý…",
+    "src": "prog",
+    "gi": 8
+   },
+   {
+    "t": 3412,
+    "bod": null,
+    "label": "Návrh směnné smlouvy na směnu pozemku p. č. 3419/18, o výměře 102 m2, druh…",
+    "src": "fill",
+    "gi": 11
+   },
+   {
+    "t": 3463,
+    "bod": 12,
+    "label": "Návrh směnné smlouvy. Předmětem Směnné smlouvy je směna pozemku p. č. 78/5 část…",
+    "src": "prog",
+    "gi": 12
+   },
+   {
+    "t": 4073,
+    "bod": 15,
+    "src": "snip",
+    "label": "Další smlouva. Směna pozemku parcelní 78/5 stejnou výměru eh 98 m² za…"
+   },
+   {
+    "t": 4337,
+    "bod": 16,
+    "label": "Aktualizaci Programu rozvoje obce Střelice na období 2024–2030 o projekt…",
+    "src": "prog",
+    "gi": 13
+   },
+   {
+    "t": 4465,
+    "bod": 17,
+    "label": "Navýšení příspěvku zřizovatele na platy zaměstnanců Základní školy a Mateřské…",
+    "src": "prog",
+    "gi": 14
+   },
+   {
+    "t": 4627,
+    "bod": 18,
+    "label": "Ověřilo ve smyslu s ust. § 104 odst. 1 zákona č. 283/2021 Sb. o územním plánování…",
+    "src": "prog",
+    "gi": 17
+   },
+   {
+    "t": 5628,
+    "bod": null,
+    "label": "V souladu s ust. § 172 odst. 5 zákona č. 500/2004 Sb., správní řád, ve znění…",
+    "src": "fill",
+    "gi": 18
+   },
+   {
+    "t": 5670,
+    "bod": null,
+    "label": "Ve smyslu ustanovení § 104 odst. 2 stavebního zákona č. 283/2021 Sb., za použití…",
+    "src": "fill",
+    "gi": 19
+   },
+   {
+    "t": 5775,
+    "bod": null,
+    "label": "Ukončení platnosti Územního plánu Střelice u Brna, ze dne 24. 3. 2009, včetně…",
+    "src": "fill",
+    "gi": 20
+   },
+   {
+    "t": 5860,
+    "bod": 19,
+    "src": "snip",
+    "label": "Klub při ZŠ a MŠ Střelice. do zřízovací listiny dodatkem jna. Prosím…"
+   },
+   {
+    "t": 5886,
+    "bod": null,
+    "label": "Dodatek č. 1 ke Zřizovací listině Základní školy a Mateřské školy Střelice, okres…",
+    "src": "fill",
+    "gi": 21
+   },
+   {
+    "t": 5990,
+    "bod": 20,
+    "label": "Předávací protokol. Obec Střelice tímto protokolem převádí do hospodaření…",
+    "src": "prog",
+    "gi": 22
+   },
+   {
+    "t": 6127,
+    "bod": 21,
+    "label": "Smlouvu o bezúplatném převodu, pozemek p. č. 3466/5 o výměře 284 m2, k. ú.…",
+    "src": "prog",
+    "gi": 23
+   },
+   {
+    "t": 6131,
+    "bod": 22,
+    "label": "Smlouvu o bezúplatném převodu, pozemek p. č. 3465/30 o výměře 4 m2 a pozemek p.…",
+    "src": "fill",
+    "gi": 24
+   },
+   {
+    "t": 6363,
+    "bod": 23,
+    "label": "Dodatek č. 1 ke Smlouvě o dílo mezi obcí Střelice, nám. Svobody 111/1, Střelice,…",
+    "src": "prog",
+    "gi": 25
+   }
+  ],
+  "bodytimes": {
+   "5": 1371,
+   "6": 1686,
+   "7": 1740,
+   "8": 1813,
+   "9": 1978,
+   "10": 2644,
+   "11": 3240,
+   "14": 3412,
+   "15": 3463,
+   "16": 4337,
+   "17": 4465,
+   "20": 4627,
+   "21": 5628,
+   "22": 5670,
+   "23": 5670,
+   "24": 5775,
+   "25": 5775,
+   "26": 5886,
+   "27": 5990,
+   "28": 6127,
+   "29": 6131,
+   "30": 6363
+  }
  },
  "28": {
   "vid": "toSbwZ1OggI",

@@ -1,0 +1,688 @@
+{
+ "cislo_zasedani": 29,
+ "vid": "JXdZGd0tuyM",
+ "body": [
+  {
+   "index": 5,
+   "start": 1371,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Rozpočtové opatření č. 6/2026 — poprosím pana místostarostu."
+    },
+    {
+     "who": "Místostarosta",
+     "role": "s",
+     "text": "Předkládáme vám podrobněji rozepsané rozpočtové opatření č. 6/2026. Reaguje na skutečný vývoj finančních operací obce za měsíc červen a zpracovaly ho naše účetní. Finanční výbor i rada obce doporučují vzít je na vědomí."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji. Má někdo dotaz k tomuto rozpočtovému opatření? Paní Bartoňová."
+    },
+    {
+     "who": "Eva Bartoňová",
+     "role": "z",
+     "text": "Děkuji. V červnu byly navýšené náklady na sběr odpadu. Okrajově jsme se o tom bavili na pracovní schůzce — obec už musela část uhradit firmě Recovera. Jak to vlastně vychází a budete nás jako občany informovat?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Finančně to žádná katastrofa není. Nárůst je měsíčně nějakých 80 až 100 tisíc, ale vzhledem k tomu, co se vytřídí, to katastrofa není. Dám slovo panu místostarostovi, který to má na starosti a seznámí vás s tím, o kolik procent nám poklesl komunální odpad."
+    },
+    {
+     "who": "Místostarosta",
+     "role": "s",
+     "text": "Dalo se čekat, že poplatky za odpad porostou — víc se vyváží, jezdí víc aut, je víc svozů. Velmi pozitivní ale je, že se podařilo snížit objem směsného komunálního odpadu, který je nejvíc zatěžující složkou obecního třídění. Od loňského roku se zpřísnily třídicí cíle — má jít o zhruba 60% vytříděnost a bude se to zvyšovat; za nevytříděné množství hrozí pokuty, které jdou do vysokých částek. Směsný komunální odpad se podařilo snížit o 34,66 %. Za první pololetí vychází zdražení u směsného komunálního odpadu navíc o 138 992 Kč a u sběrného dvora o 146 tisíc, celkem tedy zhruba 285 tisíc. Navýšení jsme čekali, jen jsme nevěděli, v jaké výši. Zavedený systém má ale i pozitivní stránku: sběrná hnízda, která hyzdila obec, jsou zrušená, občané úspěšně třídí v místech svých domácností a nepořádek, který nedělal naší obci dobrou vizitku, zmizel."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Jen doplním, že vzrostl objem bioodpadu, protože lidé byli zvyklí dávat ho do popelnic. Dnes za to musí platit, takže využívají kontejner u sběrného dvora — tam je nárůst docela znatelný, ale určitě je dobře, že je bioodpad vytříděný od komunálu. Občany určitě seznámíme. Ideální by bylo až v lednu, za celý rok, ale přemýšlíme, že to uděláme i v blízké době — grafy už máme připravené a myslím, že to bude pro občany přínosné. Pokud nejsou další dotazy, zastupitelstvo bere rozpočtové opatření č. 6/2026 na vědomí."
+    }
+   ]
+  },
+  {
+   "index": 6,
+   "start": 1686,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Předkládáme rozpočtové opatření č. 7/2026, které reaguje na skutečný vývoj finančních operací obce za červenec 2026 (materiál č. 2). Rada obce i finanční výbor je projednaly. Otevírám diskuzi."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bez dotazů zastupitelstvo bere rozpočtové opatření č. 7/2026 na vědomí."
+    }
+   ]
+  },
+  {
+   "index": 7,
+   "start": 1740,
+   "turns": [
+    {
+     "who": "Místostarosta",
+     "role": "s",
+     "text": "V materiálu č. 3 předkládáme podrobně rozepsané rozpočtové opatření č. 8/2026, zpracované společně s našimi účetními. Reaguje na skutečný vývoj finančních operací v srpnu 2026. Rada obce i finanční výbor doporučují vzít je na vědomí."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji. Otevírám diskuzi. Bez dotazů zastupitelstvo bere rozpočtové opatření č. 8/2026 na vědomí."
+    }
+   ]
+  },
+  {
+   "index": 8,
+   "start": 1813,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Na základě nabídky majitele rozhodla rada obce o nákupu pozemku p. č. 1433/1 o výměře 1 820 m², druh pozemku zahrada, k. ú. Střelice u Brna, v lokalitě Rybníky. Pozemek se nachází v zastavitelném území, pro které byla zhotovena územní studie. Cena je 3 200 Kč/m², celkem 5 824 000 Kč (materiál č. 4). Rada obce doporučuje kupní smlouvu schválit. Otevírám diskuzi. Radim Brener."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Koupi pozemku podporuji — přijde mi to jako vhodný nákup do majetkové rezervy obce pro případnou směnu. Už v pondělí jsme se o tom ale bavili a byl bych rád, kdyby vedení veřejně deklarovalo, že pozemek nebude využit na výstavbu parkoviště pro přilehlé koupaliště."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Ano, je to stavební pozemek. Obec ho bude vlastnit a udržovat, bude to zelená louka, ale v případě potřeby ho může na přechodnou dobu nějak využít. Přednost bude mít vždy buď výhodná směna za stavební pozemek, nebo stavba podle územní studie, kde by obec byla podílníkem investice. Parkoviště není na prvním místě; ale pokud pozemek nebude využit, proč bychom tam sezónně, přes červenec a srpen, výjimečně nemohli parkovat? Netvrdím, že to bude připravené parkoviště se zpevněnou či betonovou plochou — to ne."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Chápu, že tam třeba dočasně něco bude, aby byl pozemek využitý. Obec ale má celkem velké parkoviště u školy, které mohou návštěvníci koupaliště klidně využít. Chápu, že je to teď výhodná koupě, jen bych nerad, aby tam vzniklo asfaltové parkoviště. Děkuji."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Úplně souhlasím. Paní Eva Bartoňová."
+    },
+    {
+     "who": "Eva Bartoňová",
+     "role": "z",
+     "text": "Chtěla jsem se zeptat na územní studii — byla schválena a jsou o ní majitelé okolních pozemků zpraveni?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Územní studie byla schválena už někdy kolem roku 2012, ještě než se tam začalo stavět. Majitelé, kteří chtěli pozemky prodat jako stavební, museli územní studii předložit. Je zaregistrovaná na úřadu územního plánování ORP Šlapanice, takže je platná."
+    },
+    {
+     "who": "Eva Bartoňová",
+     "role": "z",
+     "text": "Na poslední verzi, kterou máme teď na webu, je vidět, že se parkoviště zvětšilo oproti tomu, co je ve Šlapanicích. Myslím si, že by bylo velmi nešťastné udělat tam i dočasné parkoviště. Pokud jste tam někdy byli, vidíte, jak se návštěvníci chovají — když je nikdo nezastaví, nerozlišují, kde se parkovat smí a kde už ne, a takový pozemek se pak těžko čistí."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bude na vedení obce, jak se k tomu postaví, ale jak jsem řekl za sebe — není na prvním místě, že by se pozemek využíval jako parkoviště, a nebude to ani stavba parkoviště. Mluvil jsem jen o přechodném využití. K pozemku bude zrealizovaná komunikace — projekt na ni je na stavebním úřadě ve Šlapanicích a je legálně připravený. Na prvním místě ale platí stavební pozemek."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Na dotaz, zda už bude zbudován sjezd z komunikace, která se nyní staví: nebude — není na to stavební povolení a stavba krajské silnice by se pak nemohla zkolaudovat. Ani na osazení snížených obrubníků se s nimi domluvit nepodařilo. Pokud nejsou další dotazy, prosím návrhovou komisi."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Po přečtení usnesení byl nákup pozemku p. č. 1433/1 za celkovou cenu 5 824 000 Kč schválen."
+    }
+   ]
+  },
+  {
+   "index": 9,
+   "start": 1978,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Na rozšíření jídelny základní školy byla zhotovena studie, kterou si můžete prohlédnout na obecním webu. Podle ní je nutné zhotovit projektovou dokumentaci pro stavební povolení a prováděcí dokumentaci. Do výběrového řízení se přihlásilo osm uchazečů; nejnižší nabídku podala společnost INVENTE, s.r.o., Žerotínova 483/1, České Budějovice, IČ 25171232, za cenu 1 768 000 Kč bez DPH (materiál č. 5). Rada obce doporučuje smlouvu o dílo schválit. Otevírám diskuzi. Pan Smištík byl první."
+    },
+    {
+     "who": "Radovan Smištík",
+     "role": "z",
+     "text": "Jaká je předpokládaná cena samotné stavby?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Přesnou cenu teď neznáme. Až projektanti udělají prováděcí dokumentaci, zpracují i rozpočet a z něj cenu poznáme."
+    },
+    {
+     "who": "Radovan Smištík",
+     "role": "z",
+     "text": "Projektant si ale obvykle bere procenta z ceny zakázky. Z čeho tedy vycházel? Nerozporuji to, jen se ptám, jestli se pohybujeme kolem 20, 30 nebo 40 milionů."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Projektant vycházel ze studie, ale odhad mi říct nechtěl, protože odhady nikdy nejsou přesné — a samozřejmě mě to zajímalo. Můj osobní názor je, že méně než 30 milionů to asi nebude, ale nemám to nijak podložené, takže nechtějte, abych tady řekl částku. Musíme vyčkat na prováděcí dokumentaci a rozpočet s výkazem výměr — to bude cena, která půjde do soutěže. Má někdo další dotaz? Pan Pernikář."
+    },
+    {
+     "who": "Jan Pernikář",
+     "role": "z",
+     "text": "Na pracovním zastupitelstvu jste říkal, že jídelna bude sloužit žákům i veřejnosti. Pokračuje to tak? Už na začátku se ale říkalo, že je potřeba spolupracovat s hygienou — cizí osoby nemohou vstupovat do jídelny, chodit tam v botách. Bude tam nějaký samostatný výdej nebo okénko?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Je to věc vedení obce, tedy zastupitelstva, a vedení základní školy, jak se k tomu postaví, ale myšlenka, že by jídelna v budoucnu sloužila nejen škole, ale i občanům, tam existuje a byla by za mě velice vhodná. Pane Pernikáři, toto už řešila studie — je tam samostatný vchod zvenku, samostatné záchody a tak dále. Nechme to na odbornících; zadání znělo, že má jídelna v budoucnu sloužit i veřejnosti. David Dvořák."
+    },
+    {
+     "who": "David Dvořák",
+     "role": "z",
+     "text": "Jen to potvrdím. Když jsme schvalovali novou zřizovací listinu školy, počítá s doplňkovou činností. Výhledově, bude-li vedení školy chtít zajistit další příjem nebo nabídnout službu občanům, je možné tam provozovat hostinskou činnost. I zadání projektu počítalo s cizími strávníky — počítají s tím okénka i dveře."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkujeme, máte to potvrzené. Pokud nejsou další dotazy, prosím návrhovou komisi o přečtení usnesení. Po hlasování byla smlouva o dílo se společností INVENTE, s.r.o., schválena."
+    }
+   ]
+  },
+  {
+   "index": 10,
+   "start": 2644,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Na dodávku a montáž skateparku bylo vypsáno otevřené výběrové řízení, přihlásil se jediný uchazeč s nabídkovou cenou 1 948 000 Kč bez DPH. Skatepark bude umístěn na obecním pozemku p. č. 3441/60 v lokalitě směrem ke sběrnému dvoru. Projekt se v participativním rozpočtu obce v roce 2026 umístil na prvním místě. Pro celou plochu je zadána studie parku zaměřeného na teenagery; jako první bude zhotovena platforma pro skateboarding, in-line brusle a koloběžky (materiál č. 6). Rada obce doporučuje schválit smlouvu o dílo s firmou Zdeněk Kotyza za 1 948 000 Kč bez DPH. Otevírám diskuzi. Pan Smištík."
+    },
+    {
+     "who": "Radovan Smištík",
+     "role": "z",
+     "text": "Jaká je předpokládaná doba realizace?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Realizace proběhne v jarních měsících, do konce května 2027. Paní Bartoňová."
+    },
+    {
+     "who": "Eva Bartoňová",
+     "role": "z",
+     "text": "Děkuji, ještě jednou dobrý večer. Tento projekt můžeme vzít jako pozitivní příklad, kdy se obec projektu z participativního rozpočtu chopí takto proaktivně — může to motivovat budoucí navrhovatele. Rozpočet se dává do oběhu koncem března, v dubnu se hlasuje a v červnu jsme se všichni zastupitelé shodli, že by bylo vhodné, aby obec tento projekt podpořila a prostor vybudovala. Rozešli jsme se ale také s tím, že projekt bude zařazen do rozpočtu na rok 2027."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bude zařazen."
+    },
+    {
+     "who": "Eva Bartoňová",
+     "role": "z",
+     "text": "A také, že se pobavíme o lokalitě, protože té se obávám nejvíc, a přiznám se, že mě to nepřešlo. Letní měsíce ukázaly, že provoz na této ulici je dost nepřehledný, jezdí tam hlavně těžké stroje na zahrady a pole. Bude to vyžadovat velkou obezřetnost, dbát na bezpečnost i ohleduplnost, která tam i dnes mezi motoristy a pěšími chybí. Dnes jsme konečně mohli vidět vizualizaci na webu, která je velmi pěkná a profesionální, a je vidět odsazení od silnice, ale bavili jsme se, že bude určitě potřeba vybudovat plot. Zazněl také názor snížit rychlost projíždějících vozidel, což by některým mohlo trochu pomoci. Chápu, proč se to místo vybírá — je mimo zástavbu a je tam velký prostor, i kdyby se sběrný dvůr rozšířil. Obávám se ale bezpečnosti, a proto bohužel pro to nemohu hlasovat. Děkuji."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji za názor, paní Bartoňová. Studii jsme zadali právě proto, že jsme si vědomi, že to není úplně bezpečné místo. Upřednostnili jsme ale zkušenosti z jiných měst, kde skatepark uprostřed bytové zástavby nakonec zrušili. Udělejme proto maximum, aby byla bezpečnost zajištěná. Už máme předběžný souhlas Správy železnic, která nám pozemek prodávala. Věřím, že zpracovatelka studie, která se zabývá dětskými hřišti, sportovními areály a zelení, navrhne řešení co nejlépe, a zastupitelé i radní se k tomu budou v budoucnu vyjadřovat."
+    },
+    {
+     "who": "Eva Bartoňová",
+     "role": "z",
+     "text": "Chápu, je to i rychlé řešení. K workoutovému hřišti po těch letech nemáme ani chodník a tady bude silnice. Obec bude muset připravit podestu — na kolik to vyjde?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Určitě bych na první místo dal bezpečnost. Snažíme se proto skatepark dostat co nejblíž ulici Brněnské, měl by tam navazovat chodník a za mě by tam měl být plot. To vše má zpracovatelka v zadání a věřím, že to zohlední. Radim Brener."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Jen doplnění: byl bych rád, kdyby se obec zaměřila i na přípravu kamerového systému. Myslím, že tam bude do budoucna potřeba."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Souhlasím, to je velké téma. Jednáme i s městskou policií Modřice, která tuto službu občanům zahájila. Jsou na to připraveni, mají své požadavky — chtějí kvalitní kamery a podobně, je to složité. Myslím si ale, že vedení obce musí udělat maximum, protože vzhledem k tomu, co se v poslední době děje nejen ve Střelicích, je kamerový systém potřeba. Bez toho se dnes obec už neobejde."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Mně nejde o zloděje — jedna obec má stejný prvek od stejného dodavatele a myslím, že do dvou měsíců tam zřizovali kamerový systém, jen aby tam byl pořádek."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Přidám zkušenost ze sousedních Tetčic: i tam došlo mezi teenagery ke rvačce, starosta mi volal ještě v deset večer kvůli kamerovým záznamům a řešili jsme to mezi chlapci ze Střelic a Tetčic. Takže ano, i kvůli mládeži jsou kamery potřeba, souhlasím."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "K dotazu, zda by se dopravní situace dala řešit retardéry, aby tam auta tolik nejezdila: souhlasím s vámi, osobní auta tam dělají závody. Bezpečnost je na prvním místě a zpracovatelka spolupracuje s dopravními odborníky, takže se určitě posoudí, jak provoz zpomalit — snížením rychlosti, kontrolami městské policie, nebo retardéry. Nechme to ale na odbornících, nebudu to konkretizovat. Má někdo další dotaz ke skateparku? Pokud ne, prosím návrhovou komisi o přečtení usnesení."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Hlasování: zdržela se paní Eva Bartoňová. Smlouva o dílo na dodávku skateparku ve Střelicích byla schválena — někteří teenageři se už mohou radovat."
+    }
+   ]
+  },
+  {
+   "index": 11,
+   "start": 3240,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Majitel pozemku p. č. 7037 (trvalý travní porost, k. ú. Střelice u Brna) — přes jeho část historicky vede polní cesta. Na základě dohody s majitelem zajistí obec oddělení pozemku pro danou část cesty: podle geometrického plánu vznikne nový pozemek p. č. 7037/2 o výměře 71 m², který je předmětem kupní smlouvy. Cena 500 Kč/m², celkem 35 500 Kč (materiál č. 7). Rada obce doporučuje kupní smlouvu schválit. Otevírám diskuzi."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Jde o místo, kde končí asfaltová cesta a kde máme stanoviště pro majitele rekreačních objektů. Cesta tam historicky vznikla — sám nevím kdy — a všichni, kdo tam jezdíte a chodíte, jste jezdili přes soukromý pozemek. Když jsme na to přišli při realizaci stanoviště, dohodli jsme se s majitelem, že to vyřešíme. Bez dalších dotazů návrhová komise přečetla usnesení a nákup pozemku byl schválen."
+    }
+   ]
+  },
+  {
+   "index": 14,
+   "start": 3412,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Vlastník pozemku p. č. 3419/18 o výměře 102 m² (ostatní plocha, k. ú. Střelice u Brna), který se nachází u sběrného dvora, žádá o směnu. Obec vlastní pozemek p. č. 6653/4 o výměře 295 m²; podle geometrického plánu se od něj oddělí nový pozemek p. č. 6653/5 o výměře 102 m², který je předmětem směny (materiál č. 10). Rada obce doporučuje směnnou smlouvu schválit. Otevírám diskuzi. Pan Smištík."
+    },
+    {
+     "who": "Radovan Smištík",
+     "role": "z",
+     "text": "Dotázal se, o jaký obecní pozemek jde."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Je to zeleň, jsou tam keře. Dlouho jsme o tom uvažovali, ale po výkupu od Správy železnic je tento pozemek u sběrného dvora v podstatě jediný, který obci chybí — chtěli jsme, aby obec vlastnila všechny pozemky podél trati od sběrného dvora až k ulici Brněnské. Zdůrazňuji, že směna byla na žádost vlastníka. Bez dalších dotazů návrhová komise přečetla usnesení a směnná smlouva byla schválena."
+    }
+   ]
+  },
+  {
+   "index": 15,
+   "start": 3463,
+   "turns": [
+    {
+     "who": "Místostarosta",
+     "role": "s",
+     "text": "Tady je to trošku složitější, kdyžtak rád doplním a vysvětlím. Vlastník pozemku p. č. 78/5 žádá o směnu části svého pozemku za část obecního pozemku p. č. 78/1, oba ostatní plocha v k. ú. Střelice u Brna. Podle geometrického plánu se od pozemku p. č. 78/1 oddělí nový pozemek p. č. 78/14 o výměře 90 m², který zůstává mimo směnu ve vlastnictví obce. Zbytek pozemku p. č. 78/1 se rozdělí na část „a“ o výměře 114 m² a část „b“ o výměře 98 m²; pozemek p. č. 78/5 se rozdělí na část „c“ o výměře 98 m² a část „d“ o výměře 47 m². Směnná smlouva řeší směnu části „c“ pozemku p. č. 78/5 za část „b“ obecního pozemku p. č. 78/1, obě o výměře 98 m². Znalecký posudek potvrdil, že jde o pozemky stejného typu a stejné hodnoty. Zjednodušeně tedy 98 m² za 98 m². Rada obce doporučuje směnnou smlouvu schválit."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Jak řekl pan místostarosta, je to složité — diskuze se táhla snad celé volební období. Původně jsme mu chtěli pozemek prodat, on hledal řešení, protože tam část pozemku vlastnil a další dokoupil. Nakonec jsme se dohodli na této směně a doporučili ji zastupitelstvu. Bez dotazů návrhová komise přečetla usnesení a směnná smlouva byla schválena."
+    }
+   ]
+  },
+  {
+   "index": 16,
+   "start": 4337,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Společenství obcí na Šlapanicku, se kterým obec řeší projekt cyklostezky do Troubska, vyzývá obec k doplnění tohoto projektu do Programu rozvoje obce Střelice na období 2024–2030. Kvůli získání dotace na stavbu je nutné doplnění schválit. Citaci najdete v materiálu č. 12 — konzultoval jsem to i s Ministerstvem pro místní rozvoj, protože jsem nechtěl do usnesení přepisovat dvě stránky textu. Jde o dotaci 85 %, takže by bylo škoda ji nezískat. Bez dotazů návrhová komise přečetla usnesení a doplnění Programu rozvoje obce bylo schváleno."
+    }
+   ]
+  },
+  {
+   "index": 17,
+   "start": 4465,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Ředitel školy žádá po dohodě s radou obce o navýšení příspěvku na platy zaměstnanců ZŠ a MŠ Střelice na období od 1. září do 31. prosince 2026 (materiál č. 13). Rada obce doporučuje schválit navýšení příspěvku zřizovatele ve výši 1 710 000 Kč. Jistě si vzpomenete, že v červnu jsme schvalovali určité navýšení a diskutovali jsme, že by si nepedagogičtí pracovníci i ostatní zaměstnanci školy zasloužili vyšší odměny. Pozvali jsme proto ředitele na radu a probrali s ním nejen platy, ale i další záležitosti školy, a slíbili jsme, že to předneseme zastupitelstvu. Otevírám diskuzi."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji za poděkování, není zač — všichni jsme rádi, že pro to můžeme zvednout ruku. Po přečtení usnesení hlasovali všichni pro: podpořili jsme školu navýšením příspěvku o 1 710 000 Kč."
+    }
+   ]
+  },
+  {
+   "index": 20,
+   "start": 4627,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Za radu obce předkládám návrh nového územního plánu obce Střelice. Jeho pořízení schválilo zastupitelstvo v minulém volebním období v roce 2022. Původní územní plán je z roku 2009 a jeho změna z roku 2014 už neodpovídají současným potřebám obce a jejímu rozvoji. Práci zkomplikoval nový stavební zákon i řada změn předpisů v průběhu pořizování, které se musely do plánu promítnout; některé věci se musely zapracovat na požadavek dotčených orgánů a strategických plánů rozvoje území. Nebylo to vůbec jednoduché, ale nakonec se podařilo zpracovat územní plán podle našich představ o rozvoji obce. Ukáže to až praxe — případné dílčí chyby lze napravit změnou územního plánu, jak je obvyklé i v okolních obcích; žádný územní plán není napoprvé ideální, ale podle mého názoru bude pro obec i občany přínosem. V tomto volebním období proběhla řada jednání s žadateli o změny z řad občanů, developerů i dalších majitelů pozemků. První veřejné projednání se konalo 4. srpna 2025, poté jsme vypořádali všechny připomínky, druhé veřejné projednání proběhlo 25. června 2026. Všechny podmínky stavebního zákona byly splněny. Všem žádostem o změny jsme vyhovět nemohli, ale snažili jsme se, aby podmínky byly pro stavebníky jasně dané. Je na každém z vás, vážení zastupitelé, jak se rozhodnete — vím, že je to složitý bod. Podklady máte v materiálu č. 14 a byly všem zastupitelům odeslány přes Úschovnu. Rada obce doporučuje návrh územního plánu schválit. Otevírám diskuzi. Pan Pernikář."
+    },
+    {
+     "who": "Jan Pernikář",
+     "role": "z",
+     "text": "Vážený pane starosto, vážené zastupitelstvo, podávám procedurální návrh na stažení bodu týkajícího se územního plánu z dnešního programu a jeho odložení na příští zasedání. Žádám, aby mé odůvodnění bylo doslovně zaneseno do zápisu. Podle jednacího řádu nám mají být materiály doručeny sedm dní předem, k čemuž v mém případě nedošlo. Tím bylo porušeno mé právo na informace související s výkonem funkce, které mi garantuje § 82 písm. c) zákona o obcích. Důrazně odmítám tvrzení, že automatický e-mail s odkazem na komerční službu Úschovna.cz představuje řádné doručení. Obecní úřad je vázán zákonem o spisové službě; odkaz na třetí stranu zaslaný běžným e-mailem bez doručenky nebo potvrzení o stažení nesplňuje požadavky na evidenci a doručování úředních dokumentů. Důkazní břemeno doručení nese vždy odesílatel a úřad svou povinnost neprokázal. Upozorňuji na následky, pokud dnes tento bod odhlasujete: územní plán je opatření obecné povahy a soud bude podle soudního řádu správního primárně zkoumat, zda byl vydán zákonem stanoveným postupem. Pokud ze zápisu vyplyne, že část zastupitelů neměla k podkladům přístup a hlasovala naslepo, jde o hrubou procesní vadu, kvůli které může krajský soud celý územní plán zrušit a zmařit roky práce a miliony korun obce. Odmítám se podílet na porušení zákona — podle § 159 občanského zákoníku mám povinnost vykonávat funkci s péčí řádného hospodáře, a hlasovat o územním plánu bez podkladů je jejím přímým porušením. Proto se projednávání ani hlasování neúčastním. Veškerá politická, právní i finanční odpovědnost za případné zrušení plánu soudem padá na ty, kdo tento postup dnes podpoří. Děkuji."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji panu Pernikářovi za vyjádření. Má někdo další dotaz? David Dvořák."
+    },
+    {
+     "who": "David Dvořák",
+     "role": "z",
+     "text": "Kolegyně, kolegové, na tomto územním plánu obec pracuje od minulého volebního období. Proběhl nespočet schůzek, veřejných projednání a odborných debat. Územní plán je ze své podstaty dokument, na kterém se střetávají stovky, možná tisíce protichůdných názorů, potřeb a osobních zájmů, a je prakticky nemožné vytvořit znění, se kterým by byl v každém detailu spokojen každý. Upřímně, i já v návrhu mám několik věcí, se kterými vnitřně nesouhlasím. To ale není důvod, abychom po letech práce potopili celý dokument. Dnes už zazněly a asi ještě zazní argumenty pro odložení. Všechna zákonná i veřejná projednání však proběhla řádně, všechny připomínky byly posouzeny a procesně je vše připraveno. Na nový územní plán čeká už dlouho řada našich občanů a další odkládání by pro ně znamenalo nejistotu a zablokování jejich záměrů. Dokonalý územní plán pro sto procent lidí neexistuje, ale máme před sebou odpovědný a poctivě odpracovaný kompromis. Ukažme odpovědnost a pojďme ho podpořit."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji Davidu Dvořákovi. Chce se někdo přidat? Radim Brener."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "K tomuto bodu bych chtěl předložit samostatný návrh doprovodného usnesení. Nemění územní plán ani podmínky v něm obsažené a schválení územního plánu jeho přijetím nepodmiňuji. Územní plán ale na řadě míst pracuje s podmínkou uzavření plánovací smlouvy, a proto považuji za vhodné, aby obec následně vytvořila alespoň stručná obecná pravidla, podle kterých bude při jejich projednávání postupovat. Navržené usnesení ponechává radě dostatek času a volnosti, aby připravila řešení přiměřené velikosti naší obce. Prosím návrhovou komisi o převzetí návrhu jako samostatného doplňujícího usnesení k bodu 18: Zastupitelstvo obce ukládá Radě obce Střelice zajistit zpracování a nejpozději do 31. března 2027, v každém případě však před předložením první nové plánovací smlouvy uzavírané podle kapitoly K Územního plánu Střelice u Brna, předložit zastupitelstvu ke schválení stručné obecné zásady postupu obce při projednávání a uzavírání plánovacích smluv. Zásady zachovají možnost individuálního posouzení každého záměru a neomezí oprávnění rady a zastupitelstva sjednat podmínky odpovídající konkrétní lokalitě, rozsahu záměru a jeho dopadům na obec. Návrh jsem vám předal před zastupitelstvem a po krátké diskuzi jsem z něj vyřadil výčet toho, co zásady stanoví — dává to radě i zastupitelstvu větší volnost."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji Radimu Brenerovi za návrh. Osobně s ním problém nemám. Bod 18 má sedm hlasování, protože bylo trváno na tom, aby se hlasovalo o každém odstavci zvlášť tak, jak je usnesení připraveno podle stavebního zákona. Navrhuji proto, aby to byl samostatný bod římská VIII a hlasovalo se o něm také samostatně. Má někdo další dotaz, připomínku? Pan Smištík."
+    },
+    {
+     "who": "Radovan Smištík",
+     "role": "z",
+     "text": "Já osobně bych tento plán nepřijal. Jdeme proti místním občanům a zvýhodňujeme developery a cizí — přitom máme bojovat za to, aby místní měli lepší podmínky než cizí. Nelíbí se mi přístup vedení obce k tomu a k diskuzi, kterou jsme vedli. Nevzali jste na vědomí žádnou z našich připomínek a nechcete diskutovat — když jste rozhodli, tak to tak bude. Jsme v menšině, prohrajeme, to je jedno, ale ta spolupráce se mi nelíbí."
+    },
+    {
+     "who": "David Dvořák",
+     "role": "z",
+     "text": "Chtěl bych se zeptat, v čem je ten problém. V čem územní plán jde proti občanům Střelic a naproti developerům?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Jen k tomu: dnes jsme měli asi čtyři telefonáty od lidí, kteří chtějí stavět a čekají právě na zastavitelnost. Opravdu jsou lidé, kteří na to čekají, a nejsou to jen developeři. Co se týká plánovacích smluv — když mi to Radim poslal, hodně jsem o tom přemýšlel. Myslím si, že každá plánovací smlouva je dána konkrétně pro danou stavbu, ale není nic proti ničemu, když toto bude připravené, takže s tím v této fázi nemám problém. Další dotazy? Poprosím tedy návrhovou komisi, aby postupně četla usnesení pod body I až VIII a budeme hlasovat jednotlivě."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Hlasování o bodech I (vyhodnocení připomínek) a II (vyhodnocení stanovisek dotčených orgánů): proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář odmítl hlasovat — máme to zapsané. Následovalo hlasování o bodu III — ověření, že návrh územního plánu není v rozporu s politikou územního rozvoje, územně plánovací dokumentací kraje ani se stanovisky dotčených orgánů: proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář nehlasuje."
+    }
+   ]
+  },
+  {
+   "index": 21,
+   "start": 5628,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod IV — rozhodnutí o připomínkách podle § 172 odst. 5 správního řádu: návrhová komise přečetla usnesení; proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář nehlasuje."
+    }
+   ]
+  },
+  {
+   "index": 22,
+   "start": 5670,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod V — vydání Územního plánu Střelice u Brna formou opatření obecné povahy č. 01/2026: návrhová komise přečetla usnesení; proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář nehlasoval."
+    }
+   ]
+  },
+  {
+   "index": 23,
+   "start": 5670,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod VI — uložení starostovi zveřejnit veřejnou vyhlášku o vydání opatření obecné povahy č. 01/2026: proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář nehlasuje."
+    }
+   ]
+  },
+  {
+   "index": 24,
+   "start": 5775,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod VII — ukončení platnosti Územního plánu Střelice u Brna ze dne 24. 3. 2009 včetně změny č. 1 ze dne 7. 10. 2014: proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář nehlasuje."
+    }
+   ]
+  },
+  {
+   "index": 25,
+   "start": 5775,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod VIII, jak jej navrhl pan Radim Brener — uložení radě obce předložit do 31. března 2027 zásady postupu při projednávání a uzavírání plánovacích smluv: proti pan Smištík, zdržela se paní Bartoňová, pan Pernikář nehlasuje. Územní plán byl schválen."
+    }
+   ]
+  },
+  {
+   "index": 26,
+   "start": 5886,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod 19 — školní klub při ZŠ a MŠ Střelice, doplnění zřizovací listiny dodatkem č. 1. Prosím pana radního Davida Dvořáka."
+    },
+    {
+     "who": "David Dvořák",
+     "role": "z",
+     "text": "Vážení zastupitelé, vážení občané, předkládám ke schválení návrh dodatku č. 1 ke zřizovací listině Základní školy a Mateřské školy Střelice. Jde o formální, ale důležitý krok, kterým se do hlavní činnosti naší příspěvkové organizace doplňuje provozování školního klubu. Cílem je rozšířit nabídku zájmového vzdělávání pro žáky druhého stupně. Zatímco pro mladší děti funguje klasická školní družina, pro starší žáky chceme vytvořit organizovaný prostor pro využití volného času mezi vyučováním a odpoledními kroužky či cestou domů. Vycházíme přitom i z konkrétního doporučení České školní inspekce. Školní klub pomůže lépe organizačně i pedagogicky zastřešit aktivity starších žáků a škola získá nárok na normativní financování. Prosím vás o podporu."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji Davidu Dvořákovi. Jistě víte, že tuto záležitost řešila a doporučila i Česká školní inspekce, proto pan ředitel navrhl zřízení školního klubu. Bez dotazů návrhová komise přečetla usnesení a školní klub při ZŠ Střelice byl schválen."
+    }
+   ]
+  },
+  {
+   "index": 27,
+   "start": 5990,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Obec během prázdnin zakoupila nové šatní skříňky do šatny v budově školy a byla provedena nová venkovní relaxační zóna včetně nové brány na zahradě školy. Protože investice už byla zrealizována, je nutné na základě předávacího protokolu převést do hospodaření ZŠ a MŠ Střelice majetek v celkové výši 471 171,94 Kč — šatní skříňky v hodnotě 380 419,16 Kč a bránu na zahradě v hodnotě 90 752,78 Kč. Rada obce doporučuje předávací protokol schválit. Bez dotazů návrhová komise přečetla usnesení a předávací protokol byl schválen."
+    }
+   ]
+  },
+  {
+   "index": 28,
+   "start": 6127,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bod 21 — smlouva o bezúplatném převodu pozemku p. č. 3466/5, který je ve vlastnictví České republiky. Prosím pana místostarostu."
+    },
+    {
+     "who": "Místostarosta",
+     "role": "s",
+     "text": "Úřad pro zastupování státu ve věcech majetkových předkládá smlouvu o bezúplatném převodu pozemku p. č. 3466/5 o výměře 284 m² v k. ú. Střelice u Brna, který je nyní ve vlastnictví České republiky. Jde o pozemek pod chodníkem a přilehlým travnatým pásem u křižovatky u náměstí Svobody. Rada obce doporučuje smlouvu schválit."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bez dotazů návrhová komise přečetla usnesení a smlouva s Úřadem pro zastupování státu ve věcech majetkových byla schválena."
+    }
+   ]
+  },
+  {
+   "index": 29,
+   "start": 6131,
+   "turns": [
+    {
+     "who": "Místostarosta",
+     "role": "s",
+     "text": "Úřad pro zastupování státu ve věcech majetkových předkládá smlouvu o bezúplatném převodu pozemků p. č. 3465/30 (4 m²) a p. č. 3465/32 (2 m²) v k. ú. Střelice u Brna, které jsou nyní ve vlastnictví České republiky. Jde o pozemek pod chodníkem a přilehlým travnatým pásem u bývalého drážního domku za obcí. Rada obce doporučuje smlouvu schválit."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Bez dotazů návrhová komise přečetla usnesení a smlouva byla schválena."
+    }
+   ]
+  },
+  {
+   "index": 30,
+   "start": 6363,
+   "turns": [
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Dodatek č. 1 ke smlouvě o dílo se společností BS - IMEX, spol. s r.o., na chodník v ulici Antonína Smutného včetně části navazující ulice řeší změnu ceny díla z důvodu víceprací a méněprací. Vícepráce činí 1 211 658,98 Kč: jde o chráničky pro distribuční síť EG.D, které si v konečné fázi vymohla a bez nichž by stavba nemohla pokračovat; dále o sondy na zemní plyn — i tam měly být chráničky, ale díky výkopům jsme plynaře přesvědčili, že plyn je v dostatečné hloubce; dále o přesun sloupu veřejného osvětlení a propoj kabelového vedení u parkoviště, úpravu schodů, úpravu kanalizační šachty a výměnu některých poklopů — vše je v příloze dodatku. Méněpráce činí 1 318 927,55 Kč: obrubníky podél silnice včetně práce, které nakonec zhotovila jiná firma, a stanoviště na odpad včetně přístřešku, které se nerealizovalo. Cena dle smlouvy o dílo 8 423 111 Kč se tak sníží na konečných 8 315 842,43 Kč bez DPH. Dodatek také prodlužuje termín realizace o 50 dní, do 20. listopadu 2026 (materiál č. 19). Rada obce doporučuje dodatek schválit. Otevírám diskuzi."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Na technický dotaz, zda jde už o konečnou cenu: ano, je to konečná cena. Podklad pod chodníkem mají odkopaný až do konce, takže všechny sítě, kanalizace i přípojky k domům byly ověřeny. Opravdu jsme tlačili na to, aby to dokopali až do konce, aby nebyl potřeba další dodatek. Bez dalších dotazů návrhová komise přečetla usnesení a dodatek č. 1 byl schválen."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Přistupujeme k bodu Různé. Otevírám diskuzi pro zastupitele. Radim Brener."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Chtěl jsem vás poprosit, jestli byste mohl okomentovat plot u mateřské školky na ulici Školní. Situace s plotem teď vypadá celkem děsivě, tak jestli byste ji nastínil, případně i další představu. Děkuji."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji za dotaz, je to velké téma. Není to úplně šťastné, ale bylo to jedno z nejrychleji proveditelných opatření — opěrná zeď vznikla během čtrnácti dní. Nezpůsobilo to ideální podmínky pro občany bydlící v blízkosti zahrady, protože polská firma pracovala i v sobotu a v neděli, o čemž jsme nevěděli, protože investorem nejsme my. Víte, že obec má připravený projekt revitalizace zahrady mateřské školy: chceme ji osázet zelení, doplnit další herní prvky, vyvýšené záhony a podobně, a snažíme se to zapracovat i do poslední fáze opěrné zdi. Nejsme z toho úplně nadšení, ale bohužel jsme na to přistoupili. Pokud se nepletu, v pondělí proběhne další jednání s majiteli a budeme chtít tuto situaci, která není ideální pro děti v mateřské škole, dořešit."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Děkuji. Ještě se zeptám — má se s investorem řešit i nějaké vizuální vylepšení toho, jak to bude vypadat?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Teď to ještě nevím, protože jsme před jednáním, ale nechtěl bych, aby to takto skončilo. Máme svou představu, kterou předložíme, a budeme diskutovat, co by bylo nejvhodnější, za přítomnosti paní vedoucí učitelky Zuzany Hlouškové. Budeme se snažit prosadit zájmy obce tak, jak jsme se o tom bavili na pracovním setkání zastupitelů. Jestli chceš, Zuzko, krátce."
+    },
+    {
+     "who": "Zuzana Hloušková",
+     "role": "z",
+     "text": "Chtěla bych říct, že jsme za ten plot vděční. Je nám slibovaný už pátý rok a celou dobu jsme kvůli tomu nemohli na hřišti nic dalšího budovat. Když majitelé sousedního pozemku přišli s tím, že ho udělají, chopili jsme se toho, i když přišli 20. srpna a my jsme potřebovali, aby bylo hotovo aspoň do 1. září. Teď je plot v takovém stavu, v jakém je, ale předpokládám, že celkový efekt bude dobrý, protože se osází popínavými rostlinami a keři. A jak říkal pan starosta, částečně tam bude lezecká stěna pro děti a kreslicí plocha, takže efekt bude jiný než teď. Díky tomu máme plot — ze sousedního pozemku by ho už nikdy neudělali, protože by se na něj nedostali, takže museli využít zahradu školky. Zítra dodělají poslední úpravy, protože tam zajížděli s těžkou technikou, uvedou to do původního stavu a o příštích prázdninách bychom pokračovali v revitalizaci zahrady."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji. Jen dodám, co jsem říkal už v pondělí: drátěný plot nebyl pro provoz školky ideální, prorůstaly jím náletové dřeviny, stále jsme majitele upomínali, aby ho udržovali, a chtěli jsme se dohodnout na řešení, ale oni to stále odkládali, až jsme jim dali poslední termín do konce srpna, jak už řekla paní Hloušková. Budeme s nimi dál jednat, to můžeme slíbit. Má někdo další dotaz ze zastupitelů? Pan Pernikář."
+    },
+    {
+     "who": "Jan Pernikář",
+     "role": "z",
+     "text": "Chtěl jsem se zeptat, jak to dopadlo s pračkou vzduchu v JZD — v jakém je to stadiu, jestli už jede naplno, nebo je zatím v částečném provozu."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Jak jsme slíbili, zainteresovali jsme se do toho a obec uhradila měření pachových látek, které provedla firma z Černošic. Výsledky byly zveřejněny na webu obce. Účinnost se opravdu velice zlepšila — nevím, jak to sledujete na dolním konci, ale myslím si, že je to v posledních dnech skutečně lepší. Zpráva ale doporučila další opatření: zakrytí přečerpávací jímky a zakrytí biofiltru plachtou, aby vodní aerosol neunikal do ovzduší. Jsme stále v jednání a je potřeba na tom dál pracovat."
+    },
+    {
+     "who": "Jan Pernikář",
+     "role": "z",
+     "text": "Je nějaký horizont, kdy mají být poslední úpravy dokončeny?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "To vám teď neřeknu, je to uvedeno v opatřeních. Zprávu o měření jsme jim teprve předali a budeme s nimi dál jednat. David Dvořák chtěl něco říct."
+    },
+    {
+     "who": "David Dvořák",
+     "role": "z",
+     "text": "Doplním k přečerpávací jímce: rada obce provedla místní šetření a na místě byl znatelný zápach z té malé jímky uprostřed areálu, která byla podle mě celou dobu mimo náš zájem. Zapáchá jen občas, když z ní odčerpávají, ale zápachy mají různé zdroje — když to pokaždé smrdí z jiného zdroje, vypadá to, že to smrdí pořád. Jsem si jistý, že zakrytím přečerpávací jímky se to znatelně zlepší; bylo nám přislíbeno, že ji zakryjí."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji za doplnění. Pokud nemá nikdo ze zastupitelů další dotaz, otevírám diskuzi pro občany."
+    },
+    {
+     "who": "Občan",
+     "role": "o",
+     "text": "Stále tu zaznívá pojem plánovací smlouva. Co to pro nás znamená? Bude tu šest lidí rozhodovat o tom, kdo bude ve Střelicích stavět? Chápu, že každý stavebník přispěje nějakou částkou na napojení na sítě a podobně. Ale platí to i pro jednotlivého stavebníka, když už je u jeho pozemku komunikace a sítě, nebo musí jít o větší skupinu lidí? Co ta smlouva obsahuje?"
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Každá smlouva je konkrétní. Může se stát, že v lokalitě, kde územní plán umožňuje výstavbu, bude první stavět jeden člověk a bude muset protáhnout sítě a udělat komunikaci — i kdyby šlo o 20 nebo 30 metrů. V tom případě s ním obec uzavře plánovací smlouvu, ve které je i termín, do kdy a jakým způsobem to musí být hotovo. Jsou to ale konkrétní smlouvy pro dané stavby a lokality. Něco jiného je developer, něco jiného třeba spolek, který se založil na Žlebech — tam se plánovací smlouva dělala se spolkem. Každá smlouva je za mě konkrétní a jiná."
+    },
+    {
+     "who": "Občan",
+     "role": "o",
+     "text": "Ptal se, jak se bude řešit situace v jeho ulici, kde dříve platila jiná stavební povolení a podmínky, a uvedl, že jeho syn zvažuje stavbu modulového domu na pilířích a slyšel, že obec modulové domy zakazuje."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "U vás stavební povolení nepropadlo — část stavby byla zahájena a část zkolaudována, takže povolení platí dál podle projektu. Nedokážu teď konkrétně říct, jak to bude s odbočkou z ulice Jaroslava Svobody; nevím, kdo tam bude dál stavět, a pokud nebudou mít zájem majitelé zahrad, stavět se tam teď nebude. Územní plán modulové domy určitě nezakazuje — to je dotaz spíš na stavební úřad. Pokud bude syn chtít stavět, rada obce s ním bude řešit napojení na sítě; sítě tam jsou, předmětem jednání bude komunikace."
+    },
+    {
+     "who": "Občan",
+     "role": "o",
+     "text": "Namítl, že původně se měla komunikace dělat celá a že obec ustoupila developerovi, zatímco občanům nechá štěrk. Podle něj nemá každý občan na to, aby postavil 30 až 50 metrů veřejné komunikace, která stojí statisíce, a ptal se obecně, jak se bude obec k občanům stavět."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Kde jsme ustoupili developerovi? To jsou opravdu konkrétní věci, které je potřeba konkrétně řešit. Právě o tom bude jednání: dnes jsme schválili usnesení k plánovacím smlouvám s termínem do 31. března 2027 a na zastupitelstvu v tomto termínu se dozvíte více. Pro mě to byla taky nová věc, o které jsem se dozvěděl včera, a hodně jsem přemýšlel, jestli ji podpořit, ale určité kompromisy musí platit i v tomto. Nejdřív má ale slovo pan zastupitel Robert Ströbinger."
+    },
+    {
+     "who": "Robert Ströbinger",
+     "role": "z",
+     "text": "Chci doplnit, co říkal pan starosta. V textové části územního plánu jsou vymezené plochy, kterých se plánovací smlouva týká — nemůžeme tedy tvrdit, že se týká všech ploch. Ve stejné části je uveden i základní obsah plánovacích smluv, tedy co jimi musí být řešeno, takže obecné vymezení už v územním plánu máme. Dnes schváleným doplňujícím usnesením vznikne další vodítko v podobě pravidel, kterými se bude zabývat už nová rada a která budou předložena zastupitelstvu. Děláme opravdu všechno pro to, aby transparentnost plánovacích smluv byla pro všechny maximální."
+    },
+    {
+     "who": "Občan",
+     "role": "o",
+     "text": "Popsal svou zkušenost z doby, kdy před lety stavěl: přispíval na komunikaci, obec mu stanovila podmínky, byl podle svých slov přinucen prodat pozemek pod cenou a komunikace dodnes není dokončena. Nechce, aby se podobné věci opakovaly."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Vaše konkrétní podmínky z doby před dvaceti lety neznám, opravdu to nevím. Tenkrát vám asi rada dala nějaké podmínky a vy jste je přijal, když jste chtěl stavět. Až to budete — vy nebo syn — chtít řešit, přijďte s tím. Rozumím vám, jsou to konkrétní věci, které je potřeba zvážit a vzít v úvahu, ale tady vám na ně konkrétně odpovědět nedokážu. Například v ulici Pod Lesem, mám za to, že v roce 2021, každý opravdu přispíval na svůj úsek před domem a nebyly to malé částky — řádově 200 tisíc."
+    },
+    {
+     "who": "Občan",
+     "role": "o",
+     "text": "Namítl, že tam už domy stály a šlo o místní občany, a že v jiné ulici nikdo nepřispíval — podle něj se každému měří jinak. Nevadí mu, když se přispívá, ale ať platí pro všechny stejná pravidla, a to i s ohledem na možnosti lidí; pro jednotlivce, který si chce postavit dům, jsou desítky metrů komunikace statisícové náklady."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Dnes jsme přijali usnesení k plánovacím smlouvám, tak vyčkejte. Rada obce to bude muset řešit i s právním zastoupením obce — není to jednoduchá věc a vidím, že diskuze bude velká a široká. Radim to myslí dobře. Dnes už to tak opravdu chodí — třeba Rosice to mají dané tak, že každý stavebník musí přispívat. Neříkám, že to tak musí být ve Střelicích. Asi budeme chytřejší později, ale znovu říkám, každá plánovací smlouva bude konkrétně řešit danou lokalitu. Radim Brener chtěl něco říct."
+    },
+    {
+     "who": "Radim Brener",
+     "role": "z",
+     "text": "Nechci obhajovat plánovací smlouvy. Spíš mi jde o to, že tím doplňujícím bodem jsme dali prostor, aby se vytvořily nějaké zásady. Za mě by jednou z nich mohla být transparentnost a zveřejňování — aby každý viděl, jaké smlouvy už byly podepsány, mohl se jimi inspirovat a měl lepší pozici při vyjednávání. Ale jak řekl pan starosta, to bude na dalším jednání rady a zastupitelstva."
+    },
+    {
+     "who": "Starosta",
+     "role": "s",
+     "text": "Děkuji. Pokud nemá nikdo z občanů další dotaz, dovolte mi ukončit dnešní zasedání. Děkuji vám všem za účast. Vážené kolegyně zastupitelky a kolegové zastupitelé, děkuji vám za spolupráci při řešení naléhavých úkolů za celé volební období 2022–2026. Všem občanům Střelic děkuji za příkladný přístup k obecním záležitostem. Přeji vám pevné zdraví, hodně štěstí a ať se vám daří v osobním životě. Hezký večer."
+    },
+    {
+     "who": "Robert Ströbinger",
+     "role": "z",
+     "text": "Pan starosta, místostarosta a radní jsou tak slušní, že si sami nepoděkují, takže bych chtěl poděkovat i jim. Kus práce, který jste za toto volební období odvedli a který ležel především na vašich bedrech, je fenomenální. Díky."
+    }
+   ]
+  }
+ ]
+}
