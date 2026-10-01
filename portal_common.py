@@ -249,17 +249,8 @@ ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.mi
              ' data-cf-beacon=\'{"token": "c6b572a87a11472db1d63e8281478708"}\'></script>')
 
 
-# logo Střeličníku (jen ruce, bez nápisu) v patičce — odkaz na strelicnik.cz.
-# Vkládáme jako data-URI přímo do HTML → stránka je samostatná, deploy je jen
-# ploché HTML (žádná FTP podsložka, žádný extra soubor k nahrání).
-_logo_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets", "strelicnik_ruce.png")
-with open(_logo_path, "rb") as _f:
-    LOGO_URI = "data:image/png;base64," + base64.b64encode(_f.read()).decode("ascii")
-BRANDFOOT = ('<div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center">'
-             '<a href="https://www.strelicnik.cz" target="_blank" rel="noopener" '
-             'title="Součást webu Střeličník — strelicnik.cz" '
-             'style="display:inline-block;transition:transform .2s" onmouseover="this.style.transform=\'translateY(-2px)\'" onmouseout="this.style.transform=\'\'">'
-             '<img src="' + LOGO_URI + '" alt="Střeličník" loading="lazy" style="height:46px;width:auto;opacity:.9"></a></div>')
+# oddělovač nad patičkou (logo a odkaz na Střeličník byly na přání odebrány)
+BRANDFOOT = '<div style="margin-top:34px;padding-top:6px;border-top:1px solid var(--line)"></div>'
 
 def topbar(active):
     links = nav_html(active)

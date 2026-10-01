@@ -61,10 +61,10 @@ body = '''<header class="hero">
   <div class="sec-h"><h2>Investice</h2></div>
   <div class="panel">
     <p><b>Kapitálové výdaje</b> (grafy) jsou z výkazu FIN 2-12 M — jde o výdaje na pořízení a zhodnocení majetku (stavby, pozemky, projekty), na rozdíl od běžných provozních výdajů.</p>
-    <p><b>Konkrétní akce</b> (tabulka a mapa) jsou automaticky vytažené z textů usnesení rady a zastupitelstva: bereme body s uvedenou částkou od 100&nbsp;tis.&nbsp;Kč v tématech stavby, doprava a pozemky. Z toho plynou omezení:</p>
+    <p><b>Konkrétní akce</b> (tabulka a mapa) jsou automaticky vytažené z textů usnesení rady a zastupitelstva: zahrnuty jsou body s uvedenou částkou od 100&nbsp;tis.&nbsp;Kč v tématech stavby, doprava a pozemky. Z toho plynou omezení:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Částka je orientační</b></td><td>je z textu usnesení (cena smlouvy o dílo, kupní cena…), ne z účetnictví — skutečně proplacená částka se může lišit o dodatky a vícepráce</td></tr>
-      <tr><td><b>Deduplikace</b></td><td>tatáž stavba prochází radou i zastupitelstvem; záznamy se stejnou částkou v okně 90 dnů nebo se stejnou parcelou slučujeme do jednoho</td></tr>
+      <tr><td><b>Deduplikace</b></td><td>tatáž stavba prochází radou i zastupitelstvem; záznamy se stejnou částkou v okně 90 dnů nebo se stejnou parcelou se slučují do jednoho</td></tr>
       <tr><td><b>Úplnost</b></td><td>akce bez částky v usnesení (nebo pod prahem) v tabulce nejsou — souhrnné roční investice v grafu ale úplné jsou</td></tr>
     </tbody></table>
   </div>

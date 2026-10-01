@@ -53,8 +53,8 @@ tiles = [
      "Usnesení zastupitelstva 2022–2026 — shrnutí každého zasedání, výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
      "Procházet usnesení →", None),
     ("#", "Další sekce", "pl", False,
-     "Připravujeme — např. výsledky voleb ve Střelicích, životní prostředí a odpadové hospodářství.",
-     "", "připravujeme"),
+     "V přípravě — např. výsledky voleb ve Střelicích, životní prostředí a odpadové hospodářství.",
+     "", "v přípravě"),
 ]
 tile_html = ""
 for href, name, ic, active, desc, go, badge in tiles:
