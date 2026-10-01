@@ -52,16 +52,19 @@ tiles = [
     ("zastupitelstvo.html", "Zastupitelstvo", "zo", True,
      "Usnesení zastupitelstva 2022–2026 — shrnutí každého zasedání, výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
      "Procházet usnesení →", None),
-    ("#", "Další sekce", "pl", False,
-     "V přípravě — např. výsledky voleb ve Střelicích, životní prostředí a odpadové hospodářství.",
-     "", "v přípravě"),
+    ("demografie.html", "Demografie", "de", True,
+     "Jak Střelice rostou — počet obyvatel od roku 1971, narození a úmrtí, kolik lidí se přistěhovalo a odstěhovalo.",
+     "Otevřít demografii →", "nové"),
+    ("volby.html", "Volby", "vo", True,
+     "Jak Střelice volí — složení zastupitelstva z komunálních voleb 2022, zvolení zastupitelé, sněmovní a prezidentské volby v obci.",
+     "Otevřít volby →", "nové"),
 ]
 tile_html = ""
 for href, name, ic, active, desc, go, badge in tiles:
     cls = "tile" + ("" if active else " soon")
     badge_html = f'<span class="badge">{badge}</span>' if badge else ""
     go_html = f'<span class="go">{go}</span>' if go else ""
-    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "za": "🧾", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+", "bi": "🗳", "hl": "⌕"}.get(ic, "•")
+    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "za": "🧾", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+", "bi": "📊", "hl": "⌕", "de": "👥", "vo": "🗳"}.get(ic, "•")
     tile_html += f'''<a class="{cls}" href="{href}">{badge_html}
       <span class="ic">{icon}</span><h3>{name}</h3><p>{desc}</p>{go_html}</a>'''
 

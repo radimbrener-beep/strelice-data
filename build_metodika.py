@@ -99,6 +99,13 @@ body = '''<header class="hero">
 </section>
 
 <section>
+  <div class="sec-h"><h2>Demografie a volby</h2></div>
+  <div class="panel">
+    <p><b>Demografie:</b> počet obyvatel k 1.&nbsp;1. a pohyb obyvatelstva (narození, zemřelí, přistěhovalí, vystěhovalí) z ČSÚ — demografie obcí okresu Brno-venkov od roku 1971. Přirozený přírůstek = narození − zemřelí, migrační = přistěhovalí − vystěhovalí. <b>Volby:</b> výsledky voleb v obci z <a href="https://www.volby.cz" target="_blank" rel="noopener" style="color:var(--accent)">volby.cz</a> (ČSÚ) — komunální 2022, sněmovní 2021 a 2025, prezidentské 2023 (2. kolo).</p>
+  </div>
+</section>
+
+<section>
   <div class="sec-h"><h2>Rada obce a Zastupitelstvo</h2></div>
   <div class="panel">
     <p><b>Zdroj:</b> oficiální zápisy (PDF) z webu obce. Texty usnesení se z PDF vytahují automaticky, proto se mohou ojediněle objevit drobné chyby převodu. U každého usnesení je odkaz na originální PDF — to je vždy rozhodující verze. Zápisy anonymizuje obec (GDPR) ještě před zveřejněním.</p>

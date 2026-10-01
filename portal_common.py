@@ -16,6 +16,8 @@ SECTIONS = [
     ("zakazky.html",  "Zakázky"),
     ("dotace.html",   "Dotace spolkům"),
     ("skolstvi.html", "Školství"),
+    ("demografie.html", "Demografie"),
+    ("volby.html",    "Volby"),
     ("zapisy.html",   "Rada obce"),
     ("zastupitelstvo.html", "Zastupitelstvo"),
 ]
@@ -28,13 +30,15 @@ NAV = [
     ("zastupitelstvo.html", "Zastupitelstvo"),
     ("zapisy.html", "Rada obce"),
     ("obdobi.html", "Bilance 2022–26"),
-    ("skolstvi.html", "Školství"),
+    ("Obec", [("skolstvi.html", "Školství"), ("demografie.html", "Demografie"), ("volby.html", "Volby")]),
 ]
 # popisky v rozbalovacím menu (krátká vysvětlivka pod názvem)
 NAV_HINT = {"rozpocet.html": "příjmy, výdaje, tok peněz", "srovnani.html": "se sousedními obcemi",
             "investice.html": "co se staví, mapa", "zakazky.html": "komu obec platí",
             "dotace.html": "komu obec přispívá", "zastupitelstvo.html": "usnesení, hlasování, video",
-            "zapisy.html": "zápisy z jednání rady", "obdobi.html": "bilance období, zastupitelé"}
+            "zapisy.html": "zápisy z jednání rady", "obdobi.html": "bilance období, zastupitelé",
+            "skolstvi.html": "ZŠ, MŠ, ZUŠ, kapacity", "demografie.html": "počet obyvatel, narození, stěhování",
+            "volby.html": "komunální, sněmovní, prezident"}
 
 
 def nav_html(active):

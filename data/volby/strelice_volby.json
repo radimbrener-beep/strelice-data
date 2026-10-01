@@ -1,0 +1,74 @@
+{
+  "obec": "Střelice",
+  "kod_obce": "583910",
+  "zdroj": "Český statistický úřad — volby.cz",
+  "komunalni": {
+    "rok": 2022,
+    "ucast": 60.8,
+    "mandaty_celkem": 15,
+    "strany": [
+      {"nazev": "KDU-ČSL a nestraníci", "zkratka": "KDU-ČSL a nestraníci", "hlasy": 8102, "pct": 40.07, "mandaty": 7, "barva": "--c0"},
+      {"nazev": "Sdružení občanů Střeličník", "zkratka": "Sdružení občanů Střeličník", "hlasy": 4886, "pct": 24.16, "mandaty": 4, "barva": "--c1"},
+      {"nazev": "Sdružení nezávislých kandidátů Střelice", "zkratka": "Sdružení nez. kandid. Střelice", "hlasy": 4178, "pct": 20.66, "mandaty": 3, "barva": "--c2"},
+      {"nazev": "STAROSTOVÉ A NEZÁVISLÍ", "zkratka": "STAROSTOVÉ A NEZÁVISLÍ", "hlasy": 2048, "pct": 10.12, "mandaty": 1, "barva": "--c3"},
+      {"nazev": "Občanská demokratická strana", "zkratka": "Občanská demokratická strana", "hlasy": 1005, "pct": 4.97, "mandaty": 0, "barva": "--c4"}
+    ],
+    "zastupitele": [
+      {"jmeno": "Jiří Vašulín", "hlasy": 721, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Mgr. Petra Zoubková", "hlasy": 604, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Vojtěch Liška", "hlasy": 566, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Jan Dlapka", "hlasy": 548, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Mgr. Helena Fialová", "hlasy": 543, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Mgr. Robert Ströbinger", "hlasy": 535, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Ing. Alois Liška", "hlasy": 520, "strana": "KDU-ČSL a nestraníci"},
+      {"jmeno": "Mgr. Eva Bartoňová", "hlasy": 464, "strana": "Sdružení občanů Střeličník"},
+      {"jmeno": "Ing. Martin Klíma, Ph.D.", "hlasy": 383, "strana": "Sdružení občanů Střeličník"},
+      {"jmeno": "Radim Brener", "hlasy": 348, "strana": "Sdružení občanů Střeličník"},
+      {"jmeno": "Jan Pernikář", "hlasy": 337, "strana": "Sdružení občanů Střeličník"},
+      {"jmeno": "Petr Rozsíval", "hlasy": 358, "strana": "Sdružení nezávislých kandidátů Střelice"},
+      {"jmeno": "Josef Tichý", "hlasy": 348, "strana": "Sdružení nezávislých kandidátů Střelice"},
+      {"jmeno": "Zuzana Hloušková", "hlasy": 322, "strana": "Sdružení nezávislých kandidátů Střelice"},
+      {"jmeno": "Mgr. Ing. David Dvořák", "hlasy": 202, "strana": "STAROSTOVÉ A NEZÁVISLÍ"}
+    ]
+  },
+  "snemovna": [
+    {
+      "rok": 2025, "ucast": 75.55,
+      "strany": [
+        {"n": "SPOLU", "pct": 40.17, "hlasy": 722},
+        {"n": "ANO", "pct": 21.75, "hlasy": 391},
+        {"n": "STAN", "pct": 10.23, "hlasy": 184},
+        {"n": "Piráti", "pct": 9.79, "hlasy": 176},
+        {"n": "SPD", "pct": 6.17, "hlasy": 111},
+        {"n": "AUTO", "pct": 4.73, "hlasy": 85},
+        {"n": "Stačilo!", "pct": 3.67, "hlasy": 66},
+        {"n": "PŘÍSAHA", "pct": 1.83, "hlasy": 33}
+      ]
+    },
+    {
+      "rok": 2021, "ucast": 74.23,
+      "strany": [
+        {"n": "SPOLU", "pct": 42.82, "hlasy": 746},
+        {"n": "ANO", "pct": 18.54, "hlasy": 323},
+        {"n": "Piráti+STAN", "pct": 14.58, "hlasy": 254},
+        {"n": "SPD", "pct": 6.43, "hlasy": 112},
+        {"n": "PŘÍSAHA", "pct": 6.2, "hlasy": 108},
+        {"n": "ČSSD", "pct": 3.73, "hlasy": 65},
+        {"n": "TSS", "pct": 2.41, "hlasy": 42},
+        {"n": "KSČM", "pct": 1.84, "hlasy": 32},
+        {"n": "Volný blok", "pct": 1.09, "hlasy": 19}
+      ]
+    }
+  ],
+  "prezident": {
+    "rok": 2023,
+    "pozn": "Zobrazeno 2. kolo.",
+    "kolo2": {
+      "ucast": 77.81,
+      "kandidati": [
+        {"n": "Petr Pavel", "pct": 72.88, "hlasy": 1333},
+        {"n": "Andrej Babiš", "pct": 27.12, "hlasy": 496}
+      ]
+    }
+  }
+}

@@ -12,6 +12,8 @@ data/skolstvi/*
 !data/skolstvi/strelice_demografie.csv
 !data/*.json
 !data/*.csv
+# výsledky voleb v obci (volby.cz) — vstup build_volby.py
+!data/volby/
 # shrnutí zasedání (psaná jazykovým modelem, nelze regenerovat skriptem)
 !data/shrnuti/
 zapisy_RO/
