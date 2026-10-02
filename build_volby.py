@@ -77,7 +77,7 @@ const D=DATA_JSON, KV=D.komunalni, PS=D.snemovna, PZ=D.prezident;
 const nf=new Intl.NumberFormat('cs-CZ');
 const pct=v=>v.toLocaleString('cs-CZ',{minimumFractionDigits:2,maximumFractionDigits:2})+' %';
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 const PCOL={'SPOLU':'--c0','ANO':'--c3','STAN':'--c2','Piráti':'--c8','Piráti+STAN':'--c1',
   'SPD':'--c4','AUTO':'--c9','Stačilo!':'--c7','PŘÍSAHA':'--c6'};

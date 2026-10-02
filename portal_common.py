@@ -109,41 +109,69 @@ UPDATED = f"{_d.day}. {_d.month}. {_d.year}"
 MAIL_LINK = ('<a class="mailme" data-m="emMubWFuemVzQHJlbmVyYg==" '
              'style="color:var(--accent)">e-mail (zapněte si JavaScript)</a>')
 
-SHARED_CSS = r"""
+# --- vizuální identita „jak se máme" (brand/README.md): petrolej + jantar, Bricolage / Atkinson ---
+OLD_NAME = "Jak žijí Střelice"
+OBEC_SLUG = "strelice"
+BRAND = "Jak se máme, Střelice?"
+_HERE = os.path.dirname(os.path.abspath(__file__))
+# písma hostovaná u webu (složka fonts/, žádné volání Google) — podmnožiny latin + latin-ext
+FONTS_CSS = open(os.path.join(_HERE, "fonts", "fonts.css"), encoding="utf-8").read()
+TOKENS_CSS = r"""
 :root{
-  --bg1:#eef2f9; --bg2:#f8fafc; --surface:#fff; --surface2:#f8fafc; --inset:#f1f5f9;
-  --text:#0f172a; --muted:#64748b; --faint:#94a3b8; --line:#e7ebf1;
-  --accent:#3d6c9e; --accent-soft:#e9f0f8;
-  --prijmy:#2563eb; --vydaje:#f97316; --pos:#10b981; --neg:#ef4444;
-  --shadow:0 1px 2px rgba(15,23,42,.04), 0 4px 16px rgba(15,23,42,.06);
-  --shadow-h:0 6px 28px rgba(15,23,42,.12);
-  --radius:18px; --radius-sm:12px;
-  --c0:#3d6c9e; --c1:#4e9a96; --c2:#7aa05e; --c3:#c2925a; --c4:#9d6f93;
-  --c5:#6b7f99; --c6:#5fa3ab; --c7:#b0805f; --c8:#8489ad; --c9:#92a06b;
+  --bg1:#f2f5f4; --bg2:#f2f5f4; --surface:#fff; --surface2:#f7f9f8; --inset:#e9eeec;
+  --text:#1b2b31; --ink:#142f3a; --muted:#58696e; --faint:#8a9a9e; --line:#d9e1de;
+  --accent:#1d6b73; --accent-soft:#dcebeb; --amber:#efa42a; --amber-ink:#8a5a08;
+  --prijmy:#4fa8ae; --vydaje:#e58a64; --pos:#3b8a5a; --neg:#c0533e;
+  --shadow:0 1px 2px rgba(20,47,58,.04), 0 2px 10px rgba(20,47,58,.05);
+  --shadow-h:0 6px 22px rgba(20,47,58,.11);
+  --radius:14px; --radius-sm:10px;
+  --c0:#7cc4c8; --c1:#f2a7a0; --c2:#a5d19a; --c3:#f4c878; --c4:#b9aee6;
+  --c5:#a3b8c4; --c6:#8fcde6; --c7:#e3b394; --c8:#a4b9e8; --c9:#cfd58f;
+  --font-d:"Bricolage Grotesque","Segoe UI Variable","Segoe UI",system-ui,sans-serif;
+  --font-b:"Atkinson Hyperlegible","Segoe UI Variable","Segoe UI",-apple-system,Roboto,Arial,sans-serif;
+  --font-m:"IBM Plex Mono",ui-monospace,Consolas,monospace;
 }
 html[data-theme="dark"]{
-  --bg1:#0a0f1d; --bg2:#0b1120; --surface:#121a2c; --surface2:#0f1626; --inset:#0d1424;
-  --text:#e8edf6; --muted:#93a1b8; --faint:#64748b; --line:#1f2a40;
-  --accent:#6fa0d0; --accent-soft:#1b2740;
-  --prijmy:#60a5fa; --vydaje:#fb923c; --pos:#34d399; --neg:#f87171;
-  --c0:#6fa0d0; --c1:#5fc2bd; --c2:#a3cb86; --c3:#e0b277; --c4:#c79ac0;
-  --c5:#93a8c6; --c6:#84cdd4; --c7:#d7a585; --c8:#aab0d6; --c9:#bcc78e;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.45);
-  --shadow-h:0 10px 36px rgba(0,0,0,.6);
+  --bg1:#0d191e; --bg2:#0d191e; --surface:#13242a; --surface2:#102026; --inset:#0f1f24;
+  --text:#d6e2e0; --ink:#e4eeec; --muted:#8fa4a7; --faint:#62777b; --line:#22373e;
+  --accent:#5fb0b5; --accent-soft:#173338; --amber:#f4b547; --amber-ink:#f4b547;
+  --prijmy:#6fbfc4; --vydaje:#ee9a76; --pos:#6bc08c; --neg:#e58a75;
+  --c0:#6fbfc4; --c1:#ee9f98; --c2:#9bcb8f; --c3:#f0c16a; --c4:#afa4e0;
+  --c5:#9aafbc; --c6:#84c6e0; --c7:#dda988; --c8:#9ab0e2; --c9:#c7ce84;
+  --shadow:0 1px 2px rgba(0,0,0,.35), 0 6px 22px rgba(0,0,0,.35);
+  --shadow-h:0 10px 32px rgba(0,0,0,.5);
+  color-scheme:dark;
 }
+"""
+# nadpisy a velká čísla display písmem; logo v hlavičce (barvy SVG přes třídy → přepínají se s tématem)
+TYPE_CSS = r"""
+h1,h2,h3,.hero h1,.sec-h h2,.tile h3,.kpi .val,.yearctl .yv,.donut-center .v{font-family:var(--font-d);letter-spacing:-.015em}
+h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
+.hero h1{font-weight:720;letter-spacing:-.025em}
+.brand{display:flex;align-items:center;text-decoration:none;color:var(--ink);flex:none;border-radius:8px}
+.brand svg{height:30px;width:auto;display:block}
+.lg-i{fill:var(--ink)}.lg-o{fill:var(--accent)}.lg-a{fill:var(--amber)}.lg-q{fill:var(--muted)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.tile .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+/* drobná linková ikona v textu (místo barevných emoji) */
+.ico{width:1.05em;height:1.05em;vertical-align:-.17em;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:560px){.brand svg{height:24px}}
+@media(max-width:400px){.brand svg{height:20px}}
+"""
+BRAND_SVG = open(os.path.join(_HERE, "brand", "logo", "web", f"{OBEC_SLUG}-header.svg"),
+                 encoding="utf-8").read().strip()
+BRAND_HTML = f'<a class="brand" href="index.html" aria-label="{BRAND} – úvod">{BRAND_SVG}</a>'
+
+SHARED_CSS = FONTS_CSS + TOKENS_CSS + r"""
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;color:var(--text);
-  font-family:"Segoe UI Variable","Segoe UI",-apple-system,BlinkMacSystemFont,Inter,Roboto,Arial,sans-serif;
-  font-size:15px;line-height:1.55;background:radial-gradient(1200px 600px at 80% -10%, var(--bg1), var(--bg2)) no-repeat;
+  font-family:var(--font-b);
+  font-size:15px;line-height:1.55;background:var(--bg2);
   min-height:100vh;-webkit-font-smoothing:antialiased}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px 20px}
 .ptop{position:sticky;top:0;z-index:50;background:var(--surface);border-bottom:1px solid var(--line)}
 .ptop .in{max-width:1160px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em;text-decoration:none;color:var(--text)}
-.brand .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;
-  background:linear-gradient(135deg,var(--accent),#5fa3ab);font-size:14px;box-shadow:var(--shadow)}
-.brand small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;letter-spacing:0}
 .pnav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
 .pnav a{padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;font-weight:500;transition:.18s;white-space:nowrap}
 .pnav a:hover{color:var(--text);background:var(--inset)}
@@ -211,7 +239,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   padding:22px 22px;box-shadow:var(--shadow);text-decoration:none;color:var(--text);transition:transform .2s,box-shadow .2s;position:relative}
 .tile:hover{transform:translateY(-4px);box-shadow:var(--shadow-h)}
 .tile.soon{opacity:.65;pointer-events:none}
-.tile .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:22px;color:#fff;background:linear-gradient(135deg,var(--accent),#5fa3ab)}
+.tile .ic{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;font-size:22px;color:var(--accent);background:var(--accent-soft)}
 .tile h3{margin:4px 0 0;font-size:18px;font-weight:640}
 .tile p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
 .tile .go{margin-top:auto;font-size:13px;color:var(--accent);font-weight:600}
@@ -221,7 +249,7 @@ section{margin-top:30px;scroll-margin-top:74px}
 /* modal */
 .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
 .modal[hidden]{display:none}
-.modal-bd{position:absolute;inset:0;background:rgba(15,23,42,.5)}
+.modal-bd{position:absolute;inset:0;background:rgba(13,25,30,.55)}
 .modal-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);max-width:640px;width:100%;max-height:84vh;display:flex;flex-direction:column;box-shadow:0 24px 70px rgba(0,0,0,.4)}
 .modal-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line)}
 .modal-h b{font-size:15.5px;font-weight:600}
@@ -233,20 +261,27 @@ section{margin-top:30px;scroll-margin-top:74px}
 .mtab tr.total td{font-weight:680;border-top:2px solid var(--text);background:var(--surface2)}
 """
 
-TARGET_SVG = ('<svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="#fff" '
-    'stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">'
-    '<circle cx="27" cy="21" r="15"/><circle cx="27" cy="21" r="8"/>'
-    '<circle cx="27" cy="21" r="3.4" fill="#fff" stroke="none"/>'
-    '<line x1="5" y1="43" x2="27" y2="21"/><path d="M5 43 l7 -1.4 M5 43 l1.4 -7"/></svg>')
+# favikona: SVG z brand/favicon (sama se přepne v tmavém režimu prohlížeče) jako data URI → funguje i offline;
+# ostatní ikony (ico, apple-touch, manifest) nahrává deploy.yml z brand/favicon/ do kořene webu
+_FAV_SVG = open(os.path.join(_HERE, "brand", "favicon", "favicon.svg"), encoding="utf-8").read().strip()
+FAVICON_LINK = ('<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote(_FAV_SVG) + '" type="image/svg+xml">'
+                '<link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest">'
+                '<meta name="theme-color" content="#142f3a">')
 
-# favikona — terč se šípem na zaobleném čtverci (SVG data URI, funguje offline)
-_FAV_SVG = ("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'>"
-    "<rect width='48' height='48' rx='11' fill='#3d6c9e'/>"
-    "<circle cx='27' cy='21' r='13' fill='none' stroke='#fff' stroke-width='3.4'/>"
-    "<circle cx='27' cy='21' r='7' fill='none' stroke='#fff' stroke-width='3.4'/>"
-    "<line x1='6' y1='42' x2='27' y2='21' stroke='#fff' stroke-width='3.4' stroke-linecap='round'/>"
-    "<circle cx='27' cy='21' r='3' fill='#fff'/></svg>")
-FAVICON_LINK = '<link rel="icon" href="data:image/svg+xml,' + urllib.parse.quote(_FAV_SVG) + '">'
+# grafy Chart.js: písmo podle CI; po načtení webových písem se překreslí
+CHART_FONT_JS = ("<script>if(window.Chart){Chart.defaults.font.family=getComputedStyle(document.documentElement)"
+                 ".getPropertyValue('--font-b').trim();if(document.fonts)document.fonts.ready.then(function(){"
+                 "Object.values(Chart.instances||{}).forEach(function(c){c.update('none');});});}</script>")
+
+
+def inject_chart_font(html):
+    """Vloží CHART_FONT_JS hned za vložený Chart.js (pokud ho stránka má)."""
+    i = html.find("* Chart.js v")
+    if i < 0:
+        return html
+    j = html.find("</script>", i) + len("</script>")
+    return html[:j] + CHART_FONT_JS + html[j:]
+
 
 # Cloudflare Web Analytics (bez cookies) — beacon přes JS snippet, web zůstává na Wedosu
 ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
@@ -259,7 +294,7 @@ BRANDFOOT = '<div style="margin-top:34px;padding-top:6px;border-top:1px solid va
 def topbar(active):
     links = nav_html(active)
     return f'''<div class="ptop"><div class="in">
-  <a class="brand" href="index.html"><span class="dot">{TARGET_SVG}</span><span>Jak žijí Střelice<small>otevřená data obce</small></span></a>
+  {BRAND_HTML}
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   <nav class="pnav" id="pnav">{links}</nav>
   {SEARCH_BTN}
@@ -302,12 +337,12 @@ def og_meta(active, title):
     """Meta značky pro hezký náhled při sdílení (obrázek og-image.png je plochý soubor v kořeni)."""
     fn = next((f for f, n in SECTIONS + EXTRA_PAGES if n == active), "index.html")
     url = SITE + "/" + ("" if fn == "index.html" else fn)
-    t = (title or "Jak žijí Střelice").replace('"', '&quot;')
+    t = (title or BRAND).replace('"', '&quot;')
     img = SITE + "/og-image.png"
     return (
         f'<link rel="canonical" href="{url}">'
         '<meta property="og:type" content="website">'
-        '<meta property="og:site_name" content="Jak žijí Střelice">'
+        f'<meta property="og:site_name" content="{BRAND}">'
         f'<meta property="og:title" content="{t}">'
         f'<meta property="og:description" content="{OG_DESC}">'
         f'<meta property="og:image" content="{img}">'
@@ -322,6 +357,10 @@ def og_meta(active, title):
 
 
 def page(active, title, body, head_scripts="", body_scripts=""):
+    # starý název portálu v titulcích a textech builderů → název značky (změna na jednom místě)
+    title = title.replace(OLD_NAME, BRAND)
+    body = body.replace(OLD_NAME, BRAND)
+    head_scripts, body_scripts = inject_chart_font(head_scripts), inject_chart_font(body_scripts)
     footer = ('<footer class="footer">Data aktualizována k <b style="color:var(--muted)">' + UPDATED + '</b>'
               ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>'
               'Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>')
@@ -351,7 +390,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
 </html>'''
 
 # rozbalovací menu: CSS a JS připojené ke sdíleným blokům
-SHARED_CSS = SHARED_CSS + NAV_CSS
+SHARED_CSS = SHARED_CSS + TYPE_CSS + NAV_CSS
 THEME_JS = THEME_JS + NAV_JS
 
 # --- jednotné barvy a ikony témat napříč portálem (Rada obce, Zastupitelstvo, Hledat, Bilance) ---
@@ -368,26 +407,13 @@ TEMA_COL = {
     "Jednání a formality": "--c9",
     "Ostatní": "--faint",
 }
-TEMA_ICO = {
-    "Pozemky, majetek a bydlení": "🏡",
-    "Stavby, investice a územní rozvoj": "🏗️",
-    "Dotace a finance": "💰",
-    "Školství": "🎓",
-    "Životní prostředí a odpady": "🌳",
-    "Kultura, sport a spolky": "⚽",
-    "Správa obce a úřad": "🏛️",
-    "Doprava a sítě": "🚌",
-    "Sociální a zdravotní oblast": "🩺",
-    "Jednání a formality": "📋",
-    "Ostatní": "",
-}
-TEMA_JS = ("const TCOL=" + json.dumps(TEMA_COL, ensure_ascii=False) + ",TICO=" + json.dumps(TEMA_ICO, ensure_ascii=False) + ";"
+# témata se rozlišují jen barevnou tečkou (emoji ikony na přání odebrány); temaIco/TICO zůstávají
+# kvůli builderům, které je volají, ale vrací prázdno
+TEMA_JS = ("const TCOL=" + json.dumps(TEMA_COL, ensure_ascii=False) + ",TICO={};"
            "function temaName(n){return TCOL[n]||'--faint';}"
            "function temaVar(n){return 'var('+temaName(n)+')';}"
            "function temaRGB(n){return cssv(temaName(n));}"
-           "function temaIco(n){return TICO[n]?'<span class=\"tic\" aria-hidden=\"true\">'+TICO[n]+'</span>':'';}")
-TEMA_CSS = ".tic{font-size:12px;line-height:1;margin-right:1px;filter:saturate(.85)}"
-SHARED_CSS = SHARED_CSS + TEMA_CSS
+           "function temaIco(n){return '';}")
 
 # --- skeleton: jemný „shimmer" místo prázdných míst, než JS vykreslí data (velké stránky) ---
 SKEL_CSS = """

@@ -225,6 +225,7 @@ PAGE_CSS = r"""<style>
   background:var(--surface);color:var(--text);font:inherit;font-size:14.5px;outline:none;transition:.16s}
 .zsearch input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .zsearch .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:15px;pointer-events:none}
+.zsearch .si svg{width:16px;height:16px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .zsearch .clr{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--faint);
   cursor:pointer;font-size:16px;padding:4px 7px;border-radius:8px;display:none}
 .zsearch .clr:hover{color:var(--text);background:var(--inset)}
@@ -367,7 +368,7 @@ body = '''<header class="hero">
   <div class="panel">
     <div class="ctrlrow">
       <div class="zsearch">
-        <span class="si">&#128269;</span>
+        <span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span>
         <input id="q" type="search" placeholder="Hledat v usneseních… (např. rozpočet, smlouva, pozemek, dotace)" autocomplete="off">
         <button class="clr" id="clr" title="Vymazat">&#10005;</button>
       </div>
@@ -469,7 +470,7 @@ function linkifyParc(html, allow){
   });
 }
 
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 const _yset=[...new Set(MEET.map(m=>m.y))].sort((a,b)=>a-b);
 
@@ -538,7 +539,7 @@ function prepHTML(mn, idx){
     const ocls=t.role==='o'?' o':'';
     return `<div class="ptrn"><span class="pwho${ocls}" style="color:${col}">${esc(t.who||'')}</span><span class="ptxt">${esc(t.text||'')}</span></div>`;
   }).join('');
-  return `<div class="prepwrap"><button type="button" class="prep-toggle">&#128172; <span class="plabel">Otevřít přepis diskuze</span> <span class="pchev">&#9662;</span></button>`+
+  return `<div class="prepwrap"><button type="button" class="prep-toggle"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> <span class="plabel">Otevřít přepis diskuze</span> <span class="pchev">&#9662;</span></button>`+
          `<div class="prep" hidden><p class="pdisc">Redakčně upravený přepis z automatických titulků záznamu — orientační, není doslovný ani úřední záznam. Zastupitelé jsou uvedeni jménem, občané anonymizováni.</p>${inner}</div></div>`;
 }
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
@@ -581,7 +582,7 @@ function cardHTML(m,items,open,qf){
              `<div class="ztags">${cat}<span class="ztag" data-t="${esc(th)}"><i style="background:${temaVar(th)}"></i>${temaIco(th)}${esc(th)}</span>${money}${voteBadge(vts,it[7])}${sign}${tl}</div>${votePanel(vts,it[7])}${prepHTML(m.n,it[8])}</div>`;
     }).join('');
     const hasPrep = PREP[m.n] && Object.keys(PREP[m.n]).length>0;
-    const prepAllBtn = hasPrep ? '<div class="prepall-row"><button type="button" class="prepall">&#128172; Rozbalit všechny přepisy diskuze</button></div>' : '';
+    const prepAllBtn = hasPrep ? '<div class="prepall-row"><button type="button" class="prepall"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Rozbalit všechny přepisy diskuze</button></div>' : '';
     bodyHTML='<div class="zmt-body">'+recHTML(m)+prepAllBtn+rows+'</div>';
   }
   const pdf=m.u?`<a class="zpdf" href="${esc(m.u)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">PDF&nbsp;&#8599;</a>`:'';
@@ -639,7 +640,7 @@ function render(){
     const toggles=[...card.querySelectorAll('.prep-toggle')];
     const anyClosed=toggles.some(t=>t.parentElement.querySelector('.prep').hidden);
     toggles.forEach(t=>setPrep(t, anyClosed));
-    btn.innerHTML = (anyClosed ? '&#128172; Sbalit všechny přepisy diskuze' : '&#128172; Rozbalit všechny přepisy diskuze');
+    btn.innerHTML = (anyClosed ? '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Sbalit všechny přepisy diskuze' : '<svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg> Rozbalit všechny přepisy diskuze');
   });
 }
 

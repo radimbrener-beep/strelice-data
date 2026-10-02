@@ -136,7 +136,7 @@ scripts = styles + '<script>' + CHARTJS + '''</script>
 const D=DATA_JSON, YRS=D.years, OB=D.obce, LYI=YRS.length-1;
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 
 const MET=[

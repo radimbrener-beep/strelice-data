@@ -192,39 +192,17 @@ HTML = r"""<!DOCTYPE html>
 <script>(function(){try{var t=localStorage.getItem('strelice-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rozpočet — Jak žijí Střelice</title>
+<title>Rozpočet — /*BRANDNAME*/</title>
 /*FAVICON*/
 /*ANALYTICS*/
 <style>
-:root{
-  --bg1:#eef2f9; --bg2:#f8fafc;
-  --surface:#ffffff; --surface2:#f8fafc; --inset:#f1f5f9;
-  --text:#0f172a; --muted:#64748b; --faint:#94a3b8; --line:#e7ebf1;
-  --accent:#3d6c9e; --accent-soft:#e9f0f8;
-  --prijmy:#2563eb; --vydaje:#f97316; --pos:#10b981; --neg:#ef4444;
-  --shadow:0 1px 2px rgba(15,23,42,.04), 0 4px 16px rgba(15,23,42,.06);
-  --shadow-h:0 6px 28px rgba(15,23,42,.12);
-  --radius:18px; --radius-sm:12px;
-  --c0:#3d6c9e; --c1:#4e9a96; --c2:#7aa05e; --c3:#c2925a; --c4:#9d6f93;
-  --c5:#6b7f99; --c6:#5fa3ab; --c7:#b0805f; --c8:#8489ad; --c9:#92a06b;
-}
-html[data-theme="dark"]{
-  --bg1:#0a0f1d; --bg2:#0b1120;
-  --surface:#121a2c; --surface2:#0f1626; --inset:#0d1424;
-  --text:#e8edf6; --muted:#93a1b8; --faint:#64748b; --line:#1f2a40;
-  --accent:#6fa0d0; --accent-soft:#1b2740;
-  --prijmy:#60a5fa; --vydaje:#fb923c; --pos:#34d399; --neg:#f87171;
-  --c0:#6fa0d0; --c1:#5fc2bd; --c2:#a3cb86; --c3:#e0b277; --c4:#c79ac0;
-  --c5:#93a8c6; --c6:#84cdd4; --c7:#d7a585; --c8:#aab0d6; --c9:#bcc78e;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 28px rgba(0,0,0,.45);
-  --shadow-h:0 10px 36px rgba(0,0,0,.6);
-}
+/*TOKENS*/
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;color:var(--text);
-  font-family:"Segoe UI Variable","Segoe UI",-apple-system,BlinkMacSystemFont,Inter,Roboto,Arial,sans-serif;
+  font-family:var(--font-b);
   font-size:15px;line-height:1.55;
-  background:radial-gradient(1200px 600px at 80% -10%, var(--bg1), var(--bg2)) no-repeat;
+  background:var(--bg2);
   background-attachment:scroll; min-height:100vh;
   -webkit-font-smoothing:antialiased}
 .wrap{max-width:1160px;margin:0 auto;padding:0 20px 20px}
@@ -233,10 +211,6 @@ body{margin:0;color:var(--text);
 .topbar{position:sticky;top:0;z-index:50;background:var(--surface);
   border-bottom:1px solid var(--line)}
 .topbar .inner{max-width:1160px;margin:0 auto;padding:11px 20px;display:flex;align-items:center;gap:16px}
-.brand{display:flex;align-items:center;gap:11px;font-weight:600;letter-spacing:-.01em}
-.brand .dot{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;color:#fff;
-  background:linear-gradient(135deg,var(--accent),#06b6d4);font-size:15px;box-shadow:var(--shadow)}
-.brand small{display:block;font-weight:400;color:var(--muted);font-size:11.5px;letter-spacing:0}
 .nav{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
 .nav a{padding:7px 12px;border-radius:10px;color:var(--muted);text-decoration:none;font-size:13.5px;
   font-weight:500;transition:.18s;white-space:nowrap}
@@ -357,7 +331,7 @@ tbody td .nm{display:flex;align-items:center;gap:7px}
 tbody td .nm i{color:var(--faint);font-size:14px;transition:.15s}
 .barcell{position:relative;min-width:120px}
 .barcell .b{position:absolute;left:12px;top:50%;transform:translateY(-50%);height:7px;border-radius:4px;
-  background:linear-gradient(90deg,var(--accent),#06b6d4);opacity:.85}
+  background:var(--accent);opacity:.85}
 .pill{font-size:11px;padding:2px 9px;border-radius:999px;font-weight:600}
 .pill.ok{background:rgba(16,185,129,.15);color:var(--pos)}
 .pill.warn{background:rgba(249,115,22,.16);color:var(--vydaje)}
@@ -373,7 +347,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 /* modal */
 .modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:18px}
 .modal[hidden]{display:none}
-.modal-bd{position:absolute;inset:0;background:rgba(15,23,42,.5)}
+.modal-bd{position:absolute;inset:0;background:rgba(13,25,30,.55)}
 .modal-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   max-width:640px;width:100%;max-height:84vh;display:flex;flex-direction:column;
   box-shadow:0 24px 70px rgba(0,0,0,.4);animation:pop .18s ease}
@@ -398,8 +372,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 </head>
 <body>
 <div class="topbar"><div class="inner">
-  <a class="brand" href="index.html" style="text-decoration:none;color:inherit"><span class="dot"><svg width="18" height="18" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="27" cy="21" r="15"/><circle cx="27" cy="21" r="8"/><circle cx="27" cy="21" r="3.4" fill="#fff" stroke="none"/><line x1="5" y1="43" x2="27" y2="21"/><path d="M5 43 l7 -1.4 M5 43 l1.4 -7"/></svg></span>
-    <span id="brand">Jak žijí Střelice<small>otevřená data obce</small></span></a>
+  <!--BRAND-->
   <button class="navtoggle" id="navToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   <nav class="nav" id="nav"><!--NAV--></nav>
   <!--SEARCHBTN-->
@@ -539,7 +512,7 @@ function kpis(){
     ['','Výdaje '+LY,vy(LY),dd(vy(LY),vy(LY-1)),'var(--vydaje)','arrow-down-right'],
     ['','Saldo '+LY,saldo,null,saldo>=0?'var(--pos)':'var(--neg)','wallet'],
     ['','Daňové příjmy '+LY,dan(LY),dd(dan(LY),dan(FY)),'var(--accent)','coins'],
-    ['','Kapitálové výdaje '+LY,kap(LY),null,'#a855f7','tools'],
+    ['','Kapitálové výdaje '+LY,kap(LY),null,'var(--amber)','tools'],
   ];
   document.getElementById('kpis').innerHTML = C.map((c,i)=>{
     const dl = c[3]==null ? (c[1].startsWith('Saldo') ? (c[2]>=0?'přebytek':'schodek') : Math.round(c[2]/vy(LY)*100)+' % výdajů')
@@ -575,7 +548,7 @@ const focusPlugin={id:'focus',afterDatasetsDraw(c){
   ctx.beginPath();ctx.moveTo(px,ya.top);ctx.lineTo(px,ya.bottom);ctx.stroke();ctx.restore();
 }};
 
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){ if(charts[id])charts[id].destroy(); charts[id]=new Chart(document.getElementById(id),cfg); }
 
 /* ---------- detail v popup okně (klik na graf) ---------- */
@@ -641,8 +614,8 @@ function trend(){
     scales:{x:Object.assign(axis(),{ticks:{color:cssv('--muted'),autoSkip:false,maxRotation:40}}),
       y:Object.assign(axis(),{ticks:{color:cssv('--muted'),callback:v=>v+' '+unitM()}})}}});
 }
-function tt(milly){return {backgroundColor:isDark()?'#0b1120':'#0f172a',padding:11,cornerRadius:10,
-  titleColor:'#fff',bodyColor:'#e2e8f0',borderColor:cssv('--accent'),borderWidth:1,
+function tt(milly){return {backgroundColor:isDark()?'#0a1418':'#142f3a',padding:11,cornerRadius:10,
+  titleColor:'#fff',bodyColor:'#d6e2e0',borderColor:cssv('--accent'),borderWidth:1,
   callbacks:{label:c=>` ${c.dataset.label}: `+(milly?(perCap?nf.format(Math.round(c.parsed.y))+' Kč/ob.':c.parsed.y.toLocaleString('cs-CZ',{maximumFractionDigits:1})+' mil. Kč'):c.parsed.y.toLocaleString('cs-CZ',{maximumFractionDigits:1})+' %')}};}
 
 /* ---------- stacked struktura ---------- */
@@ -741,7 +714,7 @@ function setSort(i){dSort=[i,dSort[0]==i?!dSort[1]:true];drill();}
 /* ---------- init + události ---------- */
 function header(){
   document.getElementById('title').textContent=DATA.obec;
-  document.getElementById('meta').textContent='Rozpočtové hospodaření 2013–2025 podle výkazu FIN 2-12 M · 💡 klikni na sloupec/výseč grafu pro detail';
+  document.getElementById('meta').textContent='Rozpočtové hospodaření 2013–2025 podle výkazu FIN 2-12 M · klikni na sloupec/výseč grafu pro detail';
   document.getElementById('chips').innerHTML=['IČO '+DATA.ico, DATA.nuts, 'Jihomoravský kraj',
     '≈ '+nf.format(POP)+' obyvatel','zdroj: MONITOR Státní pokladny']
     .map(c=>`<span class="chip">${c}</span>`).join('');
@@ -815,10 +788,12 @@ document.addEventListener('keydown',e=>{if(e.key=='Escape')closeModal();});
 nav_links = pc.nav_html("Rozpočet")
 updated = ('Data aktualizována k <b style="color:var(--muted)">' + pc.UPDATED + '</b>'
            ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>')
-HTML = (HTML.replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
-        .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — Jak žijí Střelice") + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
+HTML = (HTML.replace("/*TOKENS*/", pc.FONTS_CSS + pc.TOKENS_CSS).replace("<!--BRAND-->", pc.BRAND_HTML)
+        .replace("/*BRANDNAME*/", pc.BRAND).replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
+        .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — " + pc.BRAND) + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)
         .replace("/*ANALYTICS*/", pc.ANALYTICS).replace("<!--BRANDFOOT-->", pc.BRANDFOOT)
         .replace("<!--UPDATED-->", updated)
-        .replace("<!--SEARCHBTN-->", pc.SEARCH_BTN).replace("/*NAVJS*/", pc.NAV_JS).replace("/*NAVCSS*/", pc.NAV_CSS + pc.SKEL_CSS).replace("<!--KOSTKA-->", KOSTKA).replace("<!--SANKEY-->", SANKEY_HTML).replace("</body>", SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False)) + "</body>").replace("/*SANKEYCSS*/", SANKEY_CSS).replace("<!--SLOVNICEK-->", SLOVNICEK))
+        .replace("<!--SEARCHBTN-->", pc.SEARCH_BTN).replace("/*NAVJS*/", pc.NAV_JS).replace("/*NAVCSS*/", pc.TYPE_CSS + pc.NAV_CSS + pc.SKEL_CSS).replace("<!--KOSTKA-->", KOSTKA).replace("<!--SANKEY-->", SANKEY_HTML).replace("</body>", SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False)) + "</body>").replace("/*SANKEYCSS*/", SANKEY_CSS).replace("<!--SLOVNICEK-->", SLOVNICEK))
+HTML = pc.inject_chart_font(HTML)
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")

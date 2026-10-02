@@ -73,7 +73,7 @@ scripts = '<script>' + CHARTJS + '''</script>
 const D=DATA_JSON, R=D.rows, YRS=R.map(d=>d.rok);
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 function kpis(){
   const L=R[R.length-1], F=R[0], P=R[R.length-2];

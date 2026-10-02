@@ -61,6 +61,7 @@ PAGE_CSS = r"""<style>
   background:var(--surface);color:var(--text);font:inherit;font-size:14.5px;outline:none;transition:.16s}
 .zsearch input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
 .zsearch .si{position:absolute;left:13px;top:50%;transform:translateY(-50%);color:var(--faint);font-size:15px;pointer-events:none}
+.zsearch .si svg{width:16px;height:16px;display:block;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .zsearch .clr{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--faint);
   cursor:pointer;font-size:16px;padding:4px 7px;border-radius:8px;display:none}
 .zsearch .clr:hover{color:var(--text);background:var(--inset)}
@@ -143,7 +144,7 @@ body = '''<header class="hero">
   <div class="panel">
     <div class="ctrlrow">
       <div class="zsearch">
-        <span class="si">&#128269;</span>
+        <span class="si"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></span>
         <input id="q" type="search" placeholder="Hledat v usneseních… (např. chodník, dotace, pozemek, smlouva)" autocomplete="off">
         <button class="clr" id="clr" title="Vymazat">&#10005;</button>
       </div>
@@ -244,7 +245,7 @@ function linkifyParc(html, allow){
   });
 }
 
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 const _yset=[...new Set(MEET.map(m=>m.y))].sort((a,b)=>a-b);
 

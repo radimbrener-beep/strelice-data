@@ -289,7 +289,7 @@ html[data-theme="dark"] .leaflet-container{background:#0d1424}
 const D=DATA_JSON;
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 function mil(v){return (v/1e6).toLocaleString('cs-CZ',{minimumFractionDigits:1,maximumFractionDigits:1})+' mil';}
 function castka(v){return v>=1e6?mil(v)+' Kč':nf.format(Math.round(v/1000))+' tis. Kč';}
@@ -497,7 +497,7 @@ function renderMap(){
     const txt=_esc(x[4].length>190?x[4].slice(0,187)+'…':x[4]);
     const pop=`<div class="mpop"><div class="dt">${fmtDate(x[0])} · ${x[7]}${x[6]?' · '+_esc(x[6]):''}</div>
       <p>${txt}</p><div class="amt">${castka(x[1])}</div>
-      ${fb?'<div class="dt">📌 akce bez konkrétního místa — zobrazena u obecního úřadu</div>':''}
+      ${fb?'<div class="dt"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg> akce bez konkrétního místa — zobrazena u obecního úřadu</div>':''}
       <p><a href="${secUrl}" style="color:var(--accent)">${x[2]} č. ${x[3]} →</a>${x[5]?` · <a href="${x[5]}" target="_blank" rel="noopener" style="color:var(--accent)">PDF ↗</a>`:''}</p></div>`;
     L.circleMarker([lat,lon],{radius:r,color:clr,weight:1.6,fillColor:clr,fillOpacity:fb?.22:.5,dashArray:fb?'4 4':null})
       .bindPopup(pop).addTo(mapLayer);

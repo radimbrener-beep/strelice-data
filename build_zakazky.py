@@ -83,7 +83,7 @@ body = '''<header class="hero">
   </div>
   <div class="panel" style="margin-top:18px">
     <div class="sec-h" style="margin:0 0 8px;flex-wrap:wrap;gap:10px"><h2 style="font-size:16px">Dodavatelé ve vybraném období</h2>
-      <input id="q" type="text" placeholder="🔍 hledat dodavatele / zakázku…" style="margin-left:auto">
+      <input id="q" type="text" placeholder="hledat dodavatele / zakázku…" style="margin-left:auto">
       <button class="dlbtn" id="dlBtn" title="Stáhnout všechny zakázky za všechny roky jako CSV">⬇ Stáhnout vše (CSV)</button></div>
     <div class="tablewrap"><table id="tbl"><thead></thead><tbody>''' + pc.skel_tr(8) + '''</tbody></table></div>
     <div id="moreWrap"></div>
@@ -139,7 +139,7 @@ scripts = '<script>' + CHARTJS + '''</script>
 const D=DATA_JSON, R=D.rows, YRS=D.years;
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 function castka(v){return v>=1e6?(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:2})+' mil. Kč':nf.format(Math.round(v/1000))+' tis. Kč';}
 function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return p[2]+'. '+(+p[1])+'. '+p[0];}

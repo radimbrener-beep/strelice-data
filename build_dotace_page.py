@@ -85,9 +85,9 @@ const D=DATA_JSON, R=D.rows, YRS=D.years;
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
 function cv(n){return getComputedStyle(document.documentElement).getPropertyValue(n).trim();}
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
-const tt={backgroundColor:isDark()?'#0b1120':'#0f172a',titleColor:'#fff',bodyColor:'#e2e8f0',borderColor:cv('--accent'),borderWidth:1,padding:10,cornerRadius:9};
+const tt={backgroundColor:isDark()?'#0a1418':'#142f3a',titleColor:'#fff',bodyColor:'#e2e8f0',borderColor:cv('--accent'),borderWidth:1,padding:10,cornerRadius:9};
 let year=YRS[YRS.length-1];
 
 const barLabels={id:'barLabels',afterDatasetsDraw(ch){

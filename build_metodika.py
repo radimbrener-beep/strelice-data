@@ -112,7 +112,7 @@ body = '''<header class="hero">
     <table class="mtab"><tbody>
       <tr><td><b>Témata</b></td><td>přiřazují se automaticky podle klíčových slov v textu — orientační pomůcka pro filtrování, ne úřední kategorizace</td></tr>
       <tr><td><b>Částky</b></td><td>vytažené z textu usnesení, orientační (viz Investice)</td></tr>
-      <tr><td><b>Parcely 📍</b></td><td>čísla parcel v k.ú. Střelice u Brna jsou proklikávací do katastrální mapy (ikatastr.cz)</td></tr>
+      <tr><td><b>Parcely <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z"/><circle cx="12" cy="10" r="2"/></svg></b></td><td>čísla parcel v k.ú. Střelice u Brna jsou proklikávací do katastrální mapy (ikatastr.cz)</td></tr>
       <tr><td><b>Video ▶</b></td><td>u zasedání zastupitelstva se záznamem vede odkaz na přesný čas projednávání bodu na YouTube</td></tr>
       <tr><td><b>Shrnutí „V kostce"</b></td><td>krátké shrnutí každého jednání napsal <b>jazykový model (AI)</b> výhradně z textu usnesení podle pevných pravidel (jen fakta, bez hodnocení, bez jmen fyzických osob) a bylo namátkově zkontrolováno. Může obsahovat zjednodušení — rozhoduje vždy text usnesení a originální PDF.</td></tr>
       <tr><td><b>Jednání a formality</b></td><td>samostatné téma pro procedurální body (program, ověřovatelé zápisu, návrhová komise, zprávy o činnosti rady), aby nezahlcovaly věcná témata</td></tr>

@@ -59,12 +59,28 @@ tiles = [
      "Jak Střelice volí — složení zastupitelstva z komunálních voleb 2022, zvolení zastupitelé, sněmovní a prezidentské volby v obci.",
      "Otevřít volby →", "nové"),
 ]
+# jednobarevné linkové ikony dlaždic (24×24, tah currentColor — barvu dává CSS .tile .ic)
+TILE_ICONS = {
+    "ti": '<ellipse cx="12" cy="6" rx="7" ry="3"/><path d="M5 6v6c0 1.7 3.1 3 7 3s7-1.3 7-3V6M5 12v6c0 1.7 3.1 3 7 3s7-1.3 7-3v-6"/>',
+    "sr": '<path d="M12 4v16M7 20h10M5 7h14M5 7l-3 6a3 3 0 0 0 6 0zM19 7l-3 6a3 3 0 0 0 6 0z"/>',
+    "in": '<path d="M3 21h18M5 21V11l5-3v13M10 21V4l9 4v13M14 11h2M14 15h2"/>',
+    "za": '<path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6M9 16h3"/>',
+    "sk": '<path d="M2 9l10-5 10 5-10 5zM6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5M22 9v6"/>',
+    "ra": '<rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1M9 10h6M9 14h6M9 18h3"/>',
+    "do": '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+    "zo": '<path d="M3 10l9-6 9 6M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 21h18"/>',
+    "pl": '<path d="M12 5v14M5 12h14"/>',
+    "bi": '<path d="M4 20h16M7 16v-4M12 16V8M17 16V5"/>',
+    "hl": '<circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/>',
+    "de": '<circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 5.5a3 3 0 0 1 0 5.5M18 14.5c1.8.9 3 2.9 3 5.5"/>',
+    "vo": '<path d="M4 12h16v8H4zM8 12V5h8v7M10 8.5l1.5 1.5L14 7.5"/>',
+}
 tile_html = ""
 for href, name, ic, active, desc, go, badge in tiles:
     cls = "tile" + ("" if active else " soon")
     badge_html = f'<span class="badge">{badge}</span>' if badge else ""
     go_html = f'<span class="go">{go}</span>' if go else ""
-    icon = {"ti": "Kč", "sr": "⚖", "in": "🏗", "za": "🧾", "sk": "🎓", "ra": "📋", "do": "🤝", "zo": "🏛", "pl": "+", "bi": "📊", "hl": "⌕", "de": "👥", "vo": "🗳"}.get(ic, "•")
+    icon = '<svg viewBox="0 0 24 24" aria-hidden="true">' + TILE_ICONS.get(ic, TILE_ICONS["pl"]) + '</svg>'
     tile_html += f'''<a class="{cls}" href="{href}">{badge_html}
       <span class="ic">{icon}</span><h3>{name}</h3><p>{desc}</p>{go_html}</a>'''
 
@@ -305,7 +321,7 @@ skol_scripts = '<script>' + CHARTJS + '''</script>
 const D=DATA_JSON, dem=D.dem, YRS=dem.map(d=>d.rok);
 const nf=new Intl.NumberFormat('cs-CZ');
 const charts={};
-function axis(){return {grid:{color:isDark()?'#1f2a40':'#eef2f7'},ticks:{color:cssv('--muted')}};}
+function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 
 function kpis(){
