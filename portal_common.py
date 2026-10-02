@@ -150,6 +150,8 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
 .hero h1{font-weight:720;letter-spacing:-.025em}
 .brand{display:flex;align-items:center;text-decoration:none;color:var(--ink);flex:none;border-radius:8px}
 .brand svg{height:30px;width:auto;display:block}
+.brand .tagline{margin-left:12px;padding-left:12px;border-left:1px solid var(--line);font-size:12px;line-height:1.25;color:var(--muted);white-space:nowrap}
+@media(max-width:1100px){.brand .tagline{display:none}}
 .lg-i{fill:var(--ink)}.lg-o{fill:var(--accent)}.lg-a{fill:var(--amber)}.lg-q{fill:var(--muted)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tile .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -160,7 +162,9 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
 """
 BRAND_SVG = open(os.path.join(_HERE, "brand", "logo", "web", f"{OBEC_SLUG}-header.svg"),
                  encoding="utf-8").read().strip()
-BRAND_HTML = f'<a class="brand" href="index.html" aria-label="{BRAND} – úvod">{BRAND_SVG}</a>'
+TAGLINE = "občanský datový portál"
+BRAND_HTML = (f'<a class="brand" href="index.html" aria-label="{BRAND} – {TAGLINE}, úvod">{BRAND_SVG}'
+              f'<span class="tagline" aria-hidden="true">{TAGLINE}</span></a>')
 
 SHARED_CSS = FONTS_CSS + TOKENS_CSS + r"""
 *{box-sizing:border-box}
@@ -289,7 +293,9 @@ ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.mi
 
 
 # oddělovač nad patičkou (logo a odkaz na Střeličník byly na přání odebrány)
-BRANDFOOT = '<div style="margin-top:34px;padding-top:6px;border-top:1px solid var(--line)"></div>'
+BRANDFOOT = ('<div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);'
+             'text-align:center;color:var(--faint);font-size:12px">'
+             'Občanský datový portál obce Střelice · data z veřejných zdrojů</div>')
 
 def topbar(active):
     links = nav_html(active)

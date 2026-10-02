@@ -207,7 +207,7 @@ POUTAC_JS = r"""<script>
  els.forEach(function(el){io.observe(el);});   // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět})();
 </script>"""
 index_body = f'''<header class="hero">
-  <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· obec v datech</span></h1>
+  <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· občanský datový portál</span></h1>
   <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ {pop_fmt} obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
   {POUTAC}
