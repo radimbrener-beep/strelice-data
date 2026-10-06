@@ -7,7 +7,6 @@
 | **strelice.jaksemame.cz** | `/www/subdom/strelice/` | hlavní adresa Střelic (canonical) |
 | **ostopovice.jaksemame.cz** | `/www/subdom/ostopovice/` | repo ostopovice-data |
 | jakzijistrelice.cz | `/www/domains/jakzijistrelice.cz/` | stará adresa → 301 na https://strelice.jaksemame.cz (`redirect/jakzijistrelice/.htaccess`) |
-| data.strelicnik.cz | secret `FTP_DIR` (už se nepoužívá) | původní adresa, už se nenasazuje |
 
 Subdomény na Wedosu sdílí složku `/www/subdom/<název>/` napříč doménami hostingu —
 proto `ostopovice.jaksemame.cz` i `ostopovice.jakzijistrelice.cz` jedou ze stejné složky.
@@ -20,18 +19,22 @@ Nasazení běží přes **GitHub Actions → FTP na Wedos**: po každém `git pu
 1. Lokálně se z dat vygenerují HTML (`python build_*.py`).
 2. Změny se commitnou a pushnou do GitHubu (větev `main`).
 3. GitHub Action [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) vezme
-   všechny `*.html` z kořene (kromě `_*.html`) a nahraje je přes FTP do docrootu subdomény.
+   všechny `*.html` z kořene (kromě `_*.html`), písma a favikony a nahraje je přes FTP
+   do složek podle tabulky domén výše (portál, rozcestník, přesměrování staré domény).
 
 ---
 
 ## Jednorázové nastavení (musíš udělat ty)
 
-### 1) Wedos — subdoména a FTP
-- V administraci Wedos (WAPI/WebAdmin) u hostingu vytvoř **subdoménu `data.strelicnik.cz`**
-  a nasměruj její **docroot** do vyhrazené složky (ať tam nic jiného není).
-- Zjisti **FTP přístup**: server (např. `wfilesXX.wedos.net` nebo `ftp.strelicnik.cz`),
-  **login** a **heslo**. Pozn. cílové složky (server-dir) — typicky cesta k docrootu
-  subdomény (musí v secretu končit lomítkem `/`).
+### 1) Wedos — domény, subdomény a FTP
+- Doména `jaksemame.cz` je na hostingu jako alias; vlastní web aliasu = složka
+  `/www/domains/jaksemame.cz/` (stačí, aby existovala).
+- Subdomény (`strelice`, `ostopovice`, …) se zakládají v administraci hostingu a mapují
+  se do `/www/subdom/<název>/`. Nová obec = nová subdoména + nový deploy krok.
+- HTTPS: administrace hostingu → **HTTPS** → *nastavení domén certifikátu* → přidat doménu
+  a subdomény → **Aplikovat změny** (šíření na server trvá až desítky minut).
+- Zjisti **FTP přístup**: server (např. `wfilesXX.wedos.net`), **login** a **heslo**.
+  Cílové složky jsou přímo v `deploy.yml` (`server-dir`, končí lomítkem).
 
 ### 2) GitHub — repozitář a secrets
 - Vytvoř repozitář (může být **Private**).
@@ -41,7 +44,6 @@ Nasazení běží přes **GitHub Actions → FTP na Wedos**: po každém `git pu
   | `FTP_SERVER` | FTP server z Wedosu |
   | `FTP_USERNAME` | FTP login |
   | `FTP_PASSWORD` | FTP heslo |
-  | `FTP_DIR` | docroot subdomény, končí `/` (např. `/` nebo `/data.strelicnik.cz/www/`) |
 
 ### 3) Push a první deploy
 - Po napojení repa stačí pushnout do `main`; Action se spustí sama.

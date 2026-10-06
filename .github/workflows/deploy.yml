@@ -53,7 +53,7 @@ jobs:
           cp redirect/jakzijistrelice/.htaccess public_old/.htaccess
 
       # Web se nasazuje jen do podsložky subdomény strelice.jaksemame.cz.
-      # Staré adresy (jakzijistrelice.cz, data.strelicnik.cz) se už neaktualizují — budou přesměrované.
+      # Stará adresa jakzijistrelice.cz se přesměrovává (krok níže); data.strelicnik.cz je zrušená.
       - name: Deploy přes FTP na Wedos (strelice.jaksemame.cz)
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
