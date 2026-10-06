@@ -3,9 +3,10 @@
 ## Domény (od 10/2026)
 | adresa | složka na Wedosu | poznámka |
 |---|---|---|
+| **jaksemame.cz** | `/www/domains/jaksemame.cz/` | rozcestník obcí (`build_jaksemame.py`) |
 | **strelice.jaksemame.cz** | `/www/subdom/strelice/` | hlavní adresa Střelic (canonical) |
 | **ostopovice.jaksemame.cz** | `/www/subdom/ostopovice/` | repo ostopovice-data |
-| jakzijistrelice.cz | `/www/domains/jakzijistrelice.cz/` | stará adresa, už se nenasazuje → 301 na strelice.jaksemame.cz (až bude SSL) |
+| jakzijistrelice.cz | `/www/domains/jakzijistrelice.cz/` | stará adresa → 301 na https://strelice.jaksemame.cz (`redirect/jakzijistrelice/.htaccess`) |
 | data.strelicnik.cz | secret `FTP_DIR` (už se nepoužívá) | původní adresa, už se nenasazuje |
 
 Subdomény na Wedosu sdílí složku `/www/subdom/<název>/` napříč doménami hostingu —

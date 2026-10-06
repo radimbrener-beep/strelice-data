@@ -45,6 +45,13 @@ jobs:
           cp brand/favicon/* public_hub/
           ls -la public_hub/
 
+      - name: Sestavit starou doménu jakzijistrelice.cz (přesměrování)
+        run: |
+          # celý web + .htaccess s Redirect 301 → stránky zůstanou na serveru (sync je nesmaže),
+          # ale návštěvníky přesměruje na strelice.jaksemame.cz
+          cp -r public public_old
+          cp redirect/jakzijistrelice/.htaccess public_old/.htaccess
+
       # Web se nasazuje jen do podsložky subdomény strelice.jaksemame.cz.
       # Staré adresy (jakzijistrelice.cz, data.strelicnik.cz) se už neaktualizují — budou přesměrované.
       - name: Deploy přes FTP na Wedos (strelice.jaksemame.cz)
@@ -72,3 +79,15 @@ jobs:
           port: 21
           server-dir: /www/domains/jaksemame.cz/   # docroot domény (Wedos konvence /www/domains/<doména>/)
           local-dir: ./public_hub/
+
+      # Stará adresa jakzijistrelice.cz → 301 na https://strelice.jaksemame.cz (redirect/jakzijistrelice/.htaccess)
+      - name: Deploy přes FTP na Wedos (přesměrování jakzijistrelice.cz)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: /www/domains/jakzijistrelice.cz/
+          local-dir: ./public_old/

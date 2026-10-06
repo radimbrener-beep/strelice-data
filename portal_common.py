@@ -334,7 +334,7 @@ function dlCSV(name,header,rows){
 """
 
 # --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
-SITE = "https://jakzijistrelice.cz"  # → https://strelice.jaksemame.cz, až bude mít SSL
+SITE = "https://strelice.jaksemame.cz"
 OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, "
            "dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.")
 

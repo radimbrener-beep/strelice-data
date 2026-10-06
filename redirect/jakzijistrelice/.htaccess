@@ -1,0 +1,3 @@
+# Stará doména jakzijistrelice.cz (i www.) → nová adresa portálu, se zachováním cesty.
+# mod_alias (Redirect), ne mod_rewrite — interní přepisy na Wedosu dřív vracely 500.
+Redirect 301 / https://strelice.jaksemame.cz/
