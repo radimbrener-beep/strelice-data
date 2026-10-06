@@ -1,4 +1,4 @@
-name: Deploy na Wedos (strelice.jaksemame.cz)
+name: Deploy na Wedos (strelice.jaksemame.cz + rozcestník jaksemame.cz)
 
 # Při každém pushi do main se vezmou statické HTML stránky portálu
 # a nahrají přes FTP na Wedos hosting. Spustit lze i ručně (workflow_dispatch).
@@ -37,6 +37,14 @@ jobs:
           echo "Nasazované soubory:"
           ls -la public/
 
+      - name: Sestavit rozcestník jaksemame.cz
+        run: |
+          mkdir -p public_hub
+          cp jaksemame/index.html public_hub/
+          cp -r fonts public_hub/
+          cp brand/favicon/* public_hub/
+          ls -la public_hub/
+
       # Web se nasazuje jen do podsložky subdomény strelice.jaksemame.cz.
       # Staré adresy (jakzijistrelice.cz, data.strelicnik.cz) se už neaktualizují — budou přesměrované.
       - name: Deploy přes FTP na Wedos (strelice.jaksemame.cz)
@@ -51,3 +59,16 @@ jobs:
           local-dir: ./public/
           # pozn.: akce dělá inkrementální sync (stav drží v .ftp-deploy-sync-state.json na serveru);
           # složka musí být vyhrazená jen tomuto webu (sync může mazat cizí soubory).
+
+      # Rozcestník obcí na hlavní doméně. Doména jaksemame.cz musí mít na Wedosu VLASTNÍ složku
+      # (ne alias hlavní domény — ta sdílí kořen s WordPressem strelicnik.cz).
+      - name: Deploy přes FTP na Wedos (rozcestník jaksemame.cz)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server:   ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: /www/domains/jaksemame.cz/   # docroot domény (Wedos konvence /www/domains/<doména>/)
+          local-dir: ./public_hub/
