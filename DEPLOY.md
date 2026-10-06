@@ -1,4 +1,15 @@
-# Nasazení portálu „Jak žijí Střelice" na data.strelicnik.cz
+# Nasazení portálu „Jak se máme, Střelice?"
+
+## Domény (od 10/2026)
+| adresa | složka na Wedosu | poznámka |
+|---|---|---|
+| **strelice.jaksemame.cz** | `/www/subdom/strelice/` | hlavní adresa Střelic (canonical) |
+| **ostopovice.jaksemame.cz** | `/www/subdom/ostopovice/` | repo ostopovice-data |
+| jakzijistrelice.cz | `/www/domains/jakzijistrelice.cz/` | stará adresa, už se nenasazuje → 301 na strelice.jaksemame.cz (až bude SSL) |
+| data.strelicnik.cz | secret `FTP_DIR` (už se nepoužívá) | původní adresa, už se nenasazuje |
+
+Subdomény na Wedosu sdílí složku `/www/subdom/<název>/` napříč doménami hostingu —
+proto `ostopovice.jaksemame.cz` i `ostopovice.jakzijistrelice.cz` jedou ze stejné složky.
 
 Web je sada **statických HTML stránek** (vše inlinované — CSS, Chart.js i data).
 Nasazení běží přes **GitHub Actions → FTP na Wedos**: po každém `git push` do větve

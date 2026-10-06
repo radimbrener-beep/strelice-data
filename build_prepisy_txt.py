@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Sestaví jeden textový soubor 'prepisy-zo.txt' s PLNÝMI přepisy diskuze
 všech zasedání zastupitelstva (ze záznamů). Nasazuje se jako statický soubor
-→ dostupný přímo na https://jakzijistrelice.cz/prepisy-zo.txt (neuvedený,
+→ dostupný přímo na https://strelice.jaksemame.cz/prepisy-zo.txt (neuvedený,
 odnikud neodkazovaný). UTF-8 s BOM, ať se diakritika správně zobrazí i při
 otevření přímo v prohlížeči / Poznámkovém bloku."""
 import sys, json, glob, os, datetime
@@ -49,7 +49,7 @@ def build_text(cislo, pj):
         for t in b.get("turns", []):
             L.append(f"  {t.get('who','').strip()}: {t.get('text','').strip()}")
         L.append("")
-    L += [SEP, "Zdroj: videozáznam obce (YouTube @tvstreliceubrna) + ověřená data portálu jakzijistrelice.cz."]
+    L += [SEP, "Zdroj: videozáznam obce (YouTube @tvstreliceubrna) + ověřená data portálu strelice.jaksemame.cz."]
     return "\n".join(L)
 
 meetings = []
@@ -66,7 +66,7 @@ meetings.sort(key=lambda x: x[0])
 
 today = datetime.date.today()
 head = ("PŘEPISY JEDNÁNÍ ZASTUPITELSTVA OBCE STŘELICE\n"
-        f"Staženo z jakzijistrelice.cz · {today.day}. {today.month}. {today.year}\n"
+        f"Staženo ze strelice.jaksemame.cz · {today.day}. {today.month}. {today.year}\n"
         f"Obsahuje {len(meetings)} zasedání se záznamem. Orientační přepisy z videozáznamů, "
         "redakčně upravené — nejsou úředním záznamem.\n\n\n")
 joined = ("\n\n\n" + "=" * 60 + "\n\n\n").join(t for _, t, _ in meetings)

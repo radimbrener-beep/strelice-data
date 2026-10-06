@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Automatická aktualizace portálu jakzijistrelice.cz.
+Automatická aktualizace portálu strelice.jaksemame.cz.
 
 Postup:
   1. Prohledá web obce – najde nové ZO usnesení a RO zápisy.
