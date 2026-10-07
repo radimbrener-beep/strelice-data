@@ -297,7 +297,7 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .parc{color:var(--accent);text-decoration:none;border-bottom:1px dashed var(--accent);
   white-space:nowrap;font-variant-numeric:tabular-nums;cursor:pointer}
 .parc:hover{background:var(--accent-soft);border-bottom-style:solid}
-.parc::after{content:"\1F4CD";font-size:9px;margin-left:1px;vertical-align:super;opacity:.7}
+.parc::after{content:"";display:inline-block;width:.72em;height:.72em;margin-left:2px;vertical-align:.25em;background:currentColor;opacity:.75;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z'/%3E%3Ccircle cx='12' cy='10' r='2'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 21s-6-5.5-6-11a6 6 0 0 1 12 0c0 5.5-6 11-6 11z'/%3E%3Ccircle cx='12' cy='10' r='2'/%3E%3C/svg%3E") center/contain no-repeat}
 .zpdf{font-size:12px;color:var(--accent);text-decoration:none;font-weight:600;white-space:nowrap;
   padding:3px 8px;border-radius:8px;border:1px solid var(--line)}
 .zpdf:hover{border-color:var(--accent);background:var(--accent-soft)}

@@ -102,8 +102,9 @@ def trees(xs, base, rng, p):
     return s
 
 
-def scene(wide=False, preserve="xMidYMax meet", themed=False):
-    """SVG scény. Základ má viewBox 680×360; `wide` ho rozšíří na -300…980."""
+def scene(wide=False, preserve="xMidYMax meet", themed=False, villages="both"):
+    """SVG scény. Základ má viewBox 680×360; `wide` ho rozšíří na -300…980.
+    `villages="ostopovice"` = jen Ostopovice uprostřed (bez Střelic s kostelem)."""
     p = _Paint(themed)
     rng = random.Random(7)
     x0, x1 = (-300, 980) if wide else (0, 680)
@@ -132,10 +133,14 @@ def scene(wide=False, preserve="xMidYMax meet", themed=False):
     s += f'<path d="M150 300 C 250 250, 400 250, 520 230" {p.stroke("road")} stroke-width="16" fill="none" stroke-linecap="round"/>'
     s += (f'<path d="M150 300 C 250 250, 400 250, 520 230" {p.stroke("dash")} stroke-opacity=".55" stroke-width="2" '
           'stroke-dasharray="10 10" fill="none"/>')
-    s += trees([40, 66, 262, 300, 420, 640], 214, rng, p)
-    if wide:
-        s += trees([-240, -205, -120, 740, 790, 900], 222, random.Random(5), p)
-    s += village(170, 218, rng, p, church=True, n=6)      # Střelice
-    s += village(540, 200, rng, p, school=True, n=4)      # Ostopovice
+    if villages == "ostopovice":
+        s += trees([40, 72, 110, 590, 625, 660], 214, rng, p)
+        s += village(250, 205, rng, p, school=True, n=8)  # Ostopovice (škola s praporkem), vycentrováno
+    else:
+        s += trees([40, 66, 262, 300, 420, 640], 214, rng, p)
+        if wide:
+            s += trees([-240, -205, -120, 740, 790, 900], 222, random.Random(5), p)
+        s += village(170, 218, rng, p, church=True, n=6)      # Střelice
+        s += village(540, 200, rng, p, school=True, n=4)      # Ostopovice
     s += '</g></svg>'
     return s

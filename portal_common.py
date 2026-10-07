@@ -287,9 +287,9 @@ def inject_chart_font(html):
     return html[:j] + CHART_FONT_JS + html[j:]
 
 
-# Cloudflare Web Analytics (bez cookies) — beacon přes JS snippet, web zůstává na Wedosu
-ANALYTICS = ('<script defer src="https://static.cloudflareinsights.com/beacon.min.js"'
-             ' data-cf-beacon=\'{"token": "c6b572a87a11472db1d63e8281478708"}\'></script>')
+# Cloudflare Web Analytics (bez cookies) — web strelice.jaksemame.cz; token je veřejný (je v HTML každé stránky)
+ANALYTICS = ("<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js'"
+             " data-cf-beacon='{\"token\": \"6933a7704eea40fb96f9f52c6f0e10e0\"}'></script>")
 
 
 # oddělovač nad patičkou (logo a odkaz na Střeličník byly na přání odebrány)
