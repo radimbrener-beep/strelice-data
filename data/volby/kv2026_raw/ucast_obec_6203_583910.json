@@ -1,0 +1,50 @@
+{
+ "id": "20261009/ucast/obec/6203/583910.json",
+ "param": {
+  "typ": "UCAST_OBEC",
+  "datumvoleb": 20261009,
+  "kodzastup": 583910,
+  "cobvodu": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-10T19:40:01",
+ "popis": "Přehled o volební účasti za obec a její okrsky",
+ "obec": 583910,
+ "obecNazev": "Střelice",
+ "okrsky": [
+  [
+   1,
+   1181,
+   792,
+   67.06,
+   0,
+   791,
+   786,
+   99.37,
+   11157
+  ],
+  [
+   2,
+   1271,
+   709,
+   55.78,
+   0,
+   708,
+   698,
+   98.59,
+   9671
+  ]
+ ],
+ "celkem": [
+  2452,
+  1501,
+  61.22,
+  0,
+  1499,
+  1484,
+  99,
+  20828
+ ],
+ "celkem_mc": []
+}

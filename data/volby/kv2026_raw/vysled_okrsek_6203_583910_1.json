@@ -1,0 +1,499 @@
+{
+ "id": "20261009/vysled/okrsek/6203/583910_1.json",
+ "param": {
+  "typ": "VYSL_OKRSEK",
+  "datumvoleb": 20261009,
+  "kodzastup": 583910,
+  "okrsek": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-10T19:01:25",
+ "popis": "Výsledek za volební okrsek",
+ "obecNazev": "Střelice",
+ "dz": 1,
+ "prehled": [
+  1181,
+  792,
+  67.06,
+  1181,
+  791,
+  786,
+  99.37,
+  11157
+ ],
+ "vysledky": [
+  [
+   1,
+   "KDU-ČSL a nestraníci",
+   5716,
+   51.23
+  ],
+  [
+   2,
+   "STŘELIČNÍK A NEZÁVISLÍ KANDIDÁTI",
+   2656,
+   23.8
+  ],
+  [
+   3,
+   "Sdružení nezávislých kandidátů Střelice",
+   1775,
+   15.9
+  ],
+  [
+   4,
+   "STAROSTOVÉ A NEZÁVISLÍ",
+   1010,
+   9.05
+  ]
+ ],
+ "hlasy": {
+  "1": [
+   [
+    1,
+    "Vašulín Jiří",
+    61,
+    497,
+    8.69
+   ],
+   [
+    2,
+    "Liška Alois Ing.",
+    60,
+    374,
+    6.54
+   ],
+   [
+    3,
+    "Ströbinger Robert Mgr.",
+    40,
+    407,
+    7.12
+   ],
+   [
+    4,
+    "Drábková Lucie MUDr.",
+    46,
+    431,
+    7.54
+   ],
+   [
+    5,
+    "Liška Vojtěch",
+    56,
+    430,
+    7.52
+   ],
+   [
+    6,
+    "Dlapka Jan",
+    55,
+    377,
+    6.59
+   ],
+   [
+    7,
+    "Vašulín Jakub Ing.",
+    28,
+    452,
+    7.9
+   ],
+   [
+    8,
+    "Stehno Pavel Ing.",
+    46,
+    412,
+    7.2
+   ],
+   [
+    9,
+    "Bartlová Magdalena MUDr.",
+    44,
+    386,
+    6.75
+   ],
+   [
+    10,
+    "Palát Tomáš",
+    46,
+    348,
+    6.08
+   ],
+   [
+    11,
+    "Misáková Monika Mgr.",
+    46,
+    332,
+    5.8
+   ],
+   [
+    12,
+    "Dlapka Jiří Ing.",
+    29,
+    336,
+    5.87
+   ],
+   [
+    13,
+    "Urbánková Lucie",
+    51,
+    307,
+    5.37
+   ],
+   [
+    14,
+    "Kavalec Martin",
+    22,
+    332,
+    5.8
+   ],
+   [
+    15,
+    "Zwienerová Jana Mgr.",
+    43,
+    295,
+    5.16
+   ]
+  ],
+  "2": [
+   [
+    1,
+    "Bartoňová Eva Mgr.",
+    45,
+    228,
+    8.58
+   ],
+   [
+    2,
+    "Daněk Roman Mgr.",
+    52,
+    182,
+    6.85
+   ],
+   [
+    3,
+    "Valouch Petr",
+    43,
+    182,
+    6.85
+   ],
+   [
+    4,
+    "Smištík Radovan",
+    57,
+    198,
+    7.45
+   ],
+   [
+    5,
+    "Pernikář Jan",
+    47,
+    185,
+    6.96
+   ],
+   [
+    6,
+    "Otoupalík David",
+    44,
+    174,
+    6.55
+   ],
+   [
+    7,
+    "Gadas Petr Mgr. Ph.D.",
+    54,
+    184,
+    6.92
+   ],
+   [
+    8,
+    "Novotný Jiří",
+    41,
+    190,
+    7.15
+   ],
+   [
+    9,
+    "Škoda Martin Ing.",
+    36,
+    184,
+    6.92
+   ],
+   [
+    10,
+    "Papulová Martina Ing. Mgr.",
+    40,
+    171,
+    6.43
+   ],
+   [
+    11,
+    "Lochman Karel",
+    49,
+    153,
+    5.76
+   ],
+   [
+    12,
+    "Smištíková Jana",
+    56,
+    160,
+    6.02
+   ],
+   [
+    13,
+    "Záboj Martin Ing.",
+    36,
+    155,
+    5.83
+   ],
+   [
+    14,
+    "Korbičková Romana Mgr.",
+    28,
+    150,
+    5.64
+   ],
+   [
+    15,
+    "Brener Radim",
+    42,
+    160,
+    6.02
+   ]
+  ],
+  "3": [
+   [
+    1,
+    "Tichý Josef",
+    57,
+    236,
+    13.29
+   ],
+   [
+    2,
+    "Rozsíval Petr",
+    51,
+    194,
+    10.92
+   ],
+   [
+    3,
+    "Vidláková Petra",
+    59,
+    120,
+    6.76
+   ],
+   [
+    4,
+    "Sládek Miroslav",
+    47,
+    161,
+    9.07
+   ],
+   [
+    5,
+    "Karafiát Kamil",
+    39,
+    94,
+    5.29
+   ],
+   [
+    6,
+    "Chloupek Jiří",
+    45,
+    83,
+    4.67
+   ],
+   [
+    7,
+    "Svoboda Tomáš",
+    57,
+    98,
+    5.52
+   ],
+   [
+    8,
+    "Smutná Renata",
+    52,
+    85,
+    4.78
+   ],
+   [
+    9,
+    "Švestka Pavel",
+    65,
+    111,
+    6.25
+   ],
+   [
+    10,
+    "Štveráček Jaroslav",
+    65,
+    144,
+    8.11
+   ],
+   [
+    11,
+    "Tomšů Radek",
+    56,
+    101,
+    5.69
+   ],
+   [
+    12,
+    "Holas Josef",
+    65,
+    71,
+    4
+   ],
+   [
+    13,
+    "Benáček Martin",
+    56,
+    64,
+    3.6
+   ],
+   [
+    14,
+    "Stehno Zdeněk",
+    68,
+    90,
+    5.07
+   ],
+   [
+    15,
+    "Hloušková Zuzana",
+    62,
+    123,
+    6.92
+   ]
+  ],
+  "4": [
+   [
+    1,
+    "Marek David",
+    55,
+    136,
+    13.46
+   ],
+   [
+    2,
+    "Holešovský Jindřich",
+    46,
+    126,
+    12.47
+   ],
+   [
+    3,
+    "Mazal Jiří",
+    48,
+    58,
+    5.74
+   ],
+   [
+    4,
+    "Havel Petr Ing.",
+    49,
+    50,
+    4.95
+   ],
+   [
+    5,
+    "Raitmajer Aleš",
+    44,
+    53,
+    5.24
+   ],
+   [
+    6,
+    "Krejčí Jiří",
+    47,
+    62,
+    6.13
+   ],
+   [
+    7,
+    "Helán Jan Ing.",
+    51,
+    71,
+    7.02
+   ],
+   [
+    8,
+    "Vostal Luděk Ing.",
+    54,
+    56,
+    5.54
+   ],
+   [
+    9,
+    "Bartoněk Petr",
+    44,
+    96,
+    9.5
+   ],
+   [
+    10,
+    "Holešovský Martin",
+    20,
+    47,
+    4.65
+   ],
+   [
+    11,
+    "Skoupý Martin",
+    40,
+    45,
+    4.45
+   ],
+   [
+    12,
+    "Mrůzek Martin Ing. Ph.D.",
+    56,
+    45,
+    4.45
+   ],
+   [
+    13,
+    "Vykoukalová Marika",
+    25,
+    59,
+    5.84
+   ],
+   [
+    14,
+    "Pacalová Tereza",
+    18,
+    42,
+    4.15
+   ],
+   [
+    15,
+    "Vykoukal Jaroslav",
+    62,
+    64,
+    6.33
+   ]
+  ]
+ },
+ "plne_nazvy_stran": [
+  [
+   1,
+   "KDU-ČSL a nestraníci"
+  ],
+  [
+   2,
+   "STŘELIČNÍK A NEZÁVISLÍ KANDIDÁTI"
+  ],
+  [
+   3,
+   "Sdružení nezávislých kandidátů Střelice"
+  ],
+  [
+   4,
+   "STAROSTOVÉ A NEZÁVISLÍ"
+  ]
+ ]
+}

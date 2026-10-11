@@ -56,7 +56,7 @@ tiles = [
      "Jak Střelice rostou — počet obyvatel od roku 1971, narození a úmrtí, kolik lidí se přistěhovalo a odstěhovalo.",
      "Otevřít demografii →", "nové"),
     ("volby.html", "Volby", "vo", True,
-     "Jak Střelice volí — složení zastupitelstva z komunálních voleb 2022, zvolení zastupitelé, sněmovní a prezidentské volby v obci.",
+     "Komunální volby 2026 — nové zastupitelstvo, zvolení zastupitelé, srovnání s rokem 2022, preferenční hlasy a výpočet mandátů.",
      "Otevřít volby →", "nové"),
 ]
 # jednobarevné linkové ikony dlaždic (24×24, tah currentColor — barvu dává CSS .tile .ic)

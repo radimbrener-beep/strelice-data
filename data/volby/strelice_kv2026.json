@@ -1,0 +1,1440 @@
+{
+ "rok": 2026,
+ "datum": "9.–10. 10. 2026",
+ "obec": "Střelice",
+ "generovano": "2026-10-11T08:35:14",
+ "zdroj": "https://volby.gov.cz/appdata/kv2026/20261009/vysled/6203/583910.json",
+ "mandaty": 15,
+ "ucast": {
+  "volici": 2452,
+  "obalky": 1501,
+  "pct": 61.22,
+  "odevzdane": 1499,
+  "platne_obalky": 1484,
+  "pct_platnych": 99,
+  "platne_hlasy": 20828
+ },
+ "strany": [
+  {
+   "c": 1,
+   "nazev": "KDU-ČSL a nestraníci",
+   "hlasy": 9563,
+   "pct": 45.91,
+   "mandaty": 7,
+   "hranice": 700.7,
+   "podily": [
+    9563,
+    4781.5,
+    3187.66,
+    2390.75,
+    1912.6,
+    1593.83,
+    1366.14,
+    1195.37,
+    1062.55,
+    956.3,
+    869.36,
+    796.91,
+    735.61,
+    683.07,
+    637.53
+   ],
+   "kandidatu": 15
+  },
+  {
+   "c": 2,
+   "nazev": "STŘELIČNÍK A NEZÁVISLÍ KANDIDÁTI",
+   "hlasy": 5542,
+   "pct": 26.61,
+   "mandaty": 4,
+   "hranice": 405.9,
+   "podily": [
+    5542,
+    2771,
+    1847.33,
+    1385.5,
+    1108.4,
+    923.66,
+    791.71,
+    692.75,
+    615.77,
+    554.2,
+    503.81,
+    461.83,
+    426.3,
+    395.85,
+    369.46
+   ],
+   "kandidatu": 15
+  },
+  {
+   "c": 3,
+   "nazev": "Sdružení nezávislých kandidátů Střelice",
+   "hlasy": 3872,
+   "pct": 18.59,
+   "mandaty": 3,
+   "hranice": 283.8,
+   "podily": [
+    3872,
+    1936,
+    1290.66,
+    968,
+    774.4,
+    645.33,
+    553.14,
+    484,
+    430.22,
+    387.2,
+    352,
+    322.66,
+    297.84,
+    276.57,
+    258.13
+   ],
+   "kandidatu": 15
+  },
+  {
+   "c": 4,
+   "nazev": "STAROSTOVÉ A NEZÁVISLÍ",
+   "hlasy": 1851,
+   "pct": 8.89,
+   "mandaty": 1,
+   "hranice": 135.3,
+   "podily": [
+    1851,
+    925.5,
+    617,
+    462.75,
+    370.2,
+    308.5,
+    264.42,
+    231.37,
+    205.66,
+    185.1,
+    168.27,
+    154.25,
+    142.38,
+    132.21,
+    123.4
+   ],
+   "kandidatu": 15
+  }
+ ],
+ "kandidati": [
+  {
+   "strana": 1,
+   "poradi": 1,
+   "jmeno": "Jiří Vašulín",
+   "vek": 61,
+   "hlasy": 866,
+   "pct": 9.05,
+   "zvolen": true,
+   "poradi_vysl": 1,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "starosta",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    497,
+    369
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 2,
+   "jmeno": "Ing. Alois Liška",
+   "vek": 60,
+   "hlasy": 625,
+   "pct": 6.53,
+   "zvolen": true,
+   "poradi_vysl": 4,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "KDU-ČSL",
+   "povolani": "ředitel divize lesní výroby",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    374,
+    251
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 3,
+   "jmeno": "Mgr. Robert Ströbinger",
+   "vek": 40,
+   "hlasy": 657,
+   "pct": 6.87,
+   "zvolen": true,
+   "poradi_vysl": 5,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "advokát",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    407,
+    250
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 4,
+   "jmeno": "MUDr. Lucie Drábková",
+   "vek": 46,
+   "hlasy": 733,
+   "pct": 7.66,
+   "zvolen": true,
+   "poradi_vysl": 3,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "lékařka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    431,
+    302
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 5,
+   "jmeno": "Vojtěch Liška",
+   "vek": 56,
+   "hlasy": 690,
+   "pct": 7.21,
+   "zvolen": true,
+   "poradi_vysl": 6,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "KDU-ČSL",
+   "povolani": "vedoucí provozu",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    430,
+    260
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 6,
+   "jmeno": "Jan Dlapka",
+   "vek": 55,
+   "hlasy": 641,
+   "pct": 6.7,
+   "zvolen": true,
+   "poradi_vysl": 7,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "KDU-ČSL",
+   "povolani": "servisní technik",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    377,
+    264
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 7,
+   "jmeno": "Ing. Jakub Vašulín",
+   "vek": 28,
+   "hlasy": 745,
+   "pct": 7.79,
+   "zvolen": true,
+   "poradi_vysl": 2,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "projektant v energetice, středoškolský učitel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    452,
+    293
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 8,
+   "jmeno": "Ing. Pavel Stehno",
+   "vek": 46,
+   "hlasy": 693,
+   "pct": 7.24,
+   "zvolen": false,
+   "poradi_vysl": 1,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "finanční ředitel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    412,
+    281
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 9,
+   "jmeno": "MUDr. Magdalena Bartlová",
+   "vek": 44,
+   "hlasy": 652,
+   "pct": 6.81,
+   "zvolen": false,
+   "poradi_vysl": 2,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "lékařka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    386,
+    266
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 10,
+   "jmeno": "Tomáš Palát",
+   "vek": 46,
+   "hlasy": 576,
+   "pct": 6.02,
+   "zvolen": false,
+   "poradi_vysl": 3,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "truhlář",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    348,
+    228
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 11,
+   "jmeno": "Mgr. Monika Misáková",
+   "vek": 46,
+   "hlasy": 567,
+   "pct": 5.92,
+   "zvolen": false,
+   "poradi_vysl": 4,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "učitelka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    332,
+    235
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 12,
+   "jmeno": "Ing. Jiří Dlapka",
+   "vek": 29,
+   "hlasy": 549,
+   "pct": 5.74,
+   "zvolen": false,
+   "poradi_vysl": 5,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "KDU-ČSL",
+   "povolani": "projektový manažer",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    336,
+    213
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 13,
+   "jmeno": "Lucie Urbánková",
+   "vek": 51,
+   "hlasy": 530,
+   "pct": 5.54,
+   "zvolen": false,
+   "poradi_vysl": 6,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "technik asistent",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    307,
+    223
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 14,
+   "jmeno": "Martin Kavalec",
+   "vek": 22,
+   "hlasy": 558,
+   "pct": 5.83,
+   "zvolen": false,
+   "poradi_vysl": 7,
+   "navrh": "KDU-ČSL",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "student",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    332,
+    226
+   ]
+  },
+  {
+   "strana": 1,
+   "poradi": 15,
+   "jmeno": "Mgr. Jana Zwienerová",
+   "vek": 43,
+   "hlasy": 481,
+   "pct": 5.02,
+   "zvolen": false,
+   "poradi_vysl": 8,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "učitelka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    295,
+    186
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 1,
+   "jmeno": "Mgr. Eva Bartoňová",
+   "vek": 45,
+   "hlasy": 490,
+   "pct": 8.84,
+   "zvolen": true,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "kontrolorka kvality v IT firmě; zastupitelka",
+   "zena": true,
+   "pokracuje": true,
+   "okrsky": [
+    228,
+    262
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 2,
+   "jmeno": "Mgr. Roman Daněk",
+   "vek": 52,
+   "hlasy": 377,
+   "pct": 6.8,
+   "zvolen": true,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "ředitel strojírenské společnosti a krizový manažer",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    182,
+    195
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 3,
+   "jmeno": "Petr Valouch",
+   "vek": 43,
+   "hlasy": 376,
+   "pct": 6.78,
+   "zvolen": true,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "farmaceutický reprezentant; místopředseda FK Střelice, z.s.",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    182,
+    194
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 4,
+   "jmeno": "Radovan Smištík",
+   "vek": 57,
+   "hlasy": 396,
+   "pct": 7.14,
+   "zvolen": true,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "stavař; předseda včelařského spolku; zastupitel",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    198,
+    198
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 5,
+   "jmeno": "Jan Pernikář",
+   "vek": 47,
+   "hlasy": 382,
+   "pct": 6.89,
+   "zvolen": false,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "správce IT infrastruktury ve školství, zastupitel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    185,
+    197
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 6,
+   "jmeno": "David Otoupalík",
+   "vek": 44,
+   "hlasy": 383,
+   "pct": 6.91,
+   "zvolen": false,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "provozní ředitel; předseda Střeličník, z.s.",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    174,
+    209
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 7,
+   "jmeno": "Mgr. Petr Gadas, Ph.D.",
+   "vek": 54,
+   "hlasy": 382,
+   "pct": 6.89,
+   "zvolen": false,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "VŠ učitel na Masarykově Univerzitě v Brně",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    184,
+    198
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 8,
+   "jmeno": "Jiří Novotný",
+   "vek": 41,
+   "hlasy": 393,
+   "pct": 7.09,
+   "zvolen": false,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "podnikatel; předseda FC AB Střelice, z.s.",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    190,
+    203
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 9,
+   "jmeno": "Ing. Martin Škoda",
+   "vek": 36,
+   "hlasy": 385,
+   "pct": 6.94,
+   "zvolen": false,
+   "poradi_vysl": 5,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "stavební inženýr",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    184,
+    201
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 10,
+   "jmeno": "Ing. Mgr. Martina Papulová",
+   "vek": 40,
+   "hlasy": 357,
+   "pct": 6.44,
+   "zvolen": false,
+   "poradi_vysl": 6,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "ředitelka sekce ve státní správě",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    171,
+    186
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 11,
+   "jmeno": "Karel Lochman",
+   "vek": 49,
+   "hlasy": 335,
+   "pct": 6.04,
+   "zvolen": false,
+   "poradi_vysl": 7,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "dispečer v energetice; arborista",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    153,
+    182
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 12,
+   "jmeno": "Jana Smištíková",
+   "vek": 56,
+   "hlasy": 328,
+   "pct": 5.91,
+   "zvolen": false,
+   "poradi_vysl": 8,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "prodavačka; tvůrce digitální ilustrace a obsahu",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    160,
+    168
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 13,
+   "jmeno": "Ing. Martin Záboj",
+   "vek": 36,
+   "hlasy": 326,
+   "pct": 5.88,
+   "zvolen": false,
+   "poradi_vysl": 9,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "IT analytik",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    155,
+    171
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 14,
+   "jmeno": "Mgr. Romana Korbičková",
+   "vek": 28,
+   "hlasy": 309,
+   "pct": 5.57,
+   "zvolen": false,
+   "poradi_vysl": 10,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "dentální hygienistka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    150,
+    159
+   ]
+  },
+  {
+   "strana": 2,
+   "poradi": 15,
+   "jmeno": "Radim Brener",
+   "vek": 42,
+   "hlasy": 323,
+   "pct": 5.82,
+   "zvolen": false,
+   "poradi_vysl": 11,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "datový vývojář, zastupitel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    160,
+    163
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 1,
+   "jmeno": "Josef Tichý",
+   "vek": 57,
+   "hlasy": 483,
+   "pct": 12.47,
+   "zvolen": true,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "místostarosta obce Střelice",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    236,
+    247
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 2,
+   "jmeno": "Petr Rozsíval",
+   "vek": 51,
+   "hlasy": 364,
+   "pct": 9.4,
+   "zvolen": true,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "živnostník",
+   "zena": false,
+   "pokracuje": true,
+   "okrsky": [
+    194,
+    170
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 3,
+   "jmeno": "Petra Vidláková",
+   "vek": 59,
+   "hlasy": 289,
+   "pct": 7.46,
+   "zvolen": false,
+   "poradi_vysl": 1,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "výzkumný pracovník, MU LF",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    120,
+    169
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 4,
+   "jmeno": "Miroslav Sládek",
+   "vek": 47,
+   "hlasy": 306,
+   "pct": 7.9,
+   "zvolen": true,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "hasič",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    161,
+    145
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 5,
+   "jmeno": "Kamil Karafiát",
+   "vek": 39,
+   "hlasy": 238,
+   "pct": 6.14,
+   "zvolen": false,
+   "poradi_vysl": 2,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "policista",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    94,
+    144
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 6,
+   "jmeno": "Jiří Chloupek",
+   "vek": 45,
+   "hlasy": 204,
+   "pct": 5.26,
+   "zvolen": false,
+   "poradi_vysl": 3,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "živnostník",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    83,
+    121
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 7,
+   "jmeno": "Tomáš Svoboda",
+   "vek": 57,
+   "hlasy": 216,
+   "pct": 5.57,
+   "zvolen": false,
+   "poradi_vysl": 4,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "pečující osoba",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    98,
+    118
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 8,
+   "jmeno": "Renata Smutná",
+   "vek": 52,
+   "hlasy": 218,
+   "pct": 5.63,
+   "zvolen": false,
+   "poradi_vysl": 5,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "pracovnice v sociálních službách",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    85,
+    133
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 9,
+   "jmeno": "Pavel Švestka",
+   "vek": 65,
+   "hlasy": 216,
+   "pct": 5.57,
+   "zvolen": false,
+   "poradi_vysl": 6,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "důchodce",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    111,
+    105
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 10,
+   "jmeno": "Jaroslav Štveráček",
+   "vek": 65,
+   "hlasy": 283,
+   "pct": 7.3,
+   "zvolen": false,
+   "poradi_vysl": 7,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "důchodce",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    144,
+    139
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 11,
+   "jmeno": "Radek Tomšů",
+   "vek": 56,
+   "hlasy": 225,
+   "pct": 5.81,
+   "zvolen": false,
+   "poradi_vysl": 8,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "podnikatel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    101,
+    124
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 12,
+   "jmeno": "Josef Holas",
+   "vek": 65,
+   "hlasy": 174,
+   "pct": 4.49,
+   "zvolen": false,
+   "poradi_vysl": 9,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "živnostník",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    71,
+    103
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 13,
+   "jmeno": "Martin Benáček",
+   "vek": 56,
+   "hlasy": 163,
+   "pct": 4.2,
+   "zvolen": false,
+   "poradi_vysl": 10,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "živnostník",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    64,
+    99
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 14,
+   "jmeno": "Zdeněk Stehno",
+   "vek": 68,
+   "hlasy": 219,
+   "pct": 5.65,
+   "zvolen": false,
+   "poradi_vysl": 11,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "technický správce budov KJM",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    90,
+    129
+   ]
+  },
+  {
+   "strana": 3,
+   "poradi": 15,
+   "jmeno": "Zuzana Hloušková",
+   "vek": 62,
+   "hlasy": 274,
+   "pct": 7.07,
+   "zvolen": false,
+   "poradi_vysl": 12,
+   "navrh": "NK",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "učitelka mateřské školy",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    123,
+    151
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 1,
+   "jmeno": "David Marek",
+   "vek": 55,
+   "hlasy": 242,
+   "pct": 13.07,
+   "zvolen": true,
+   "poradi_vysl": 1,
+   "navrh": "STAN",
+   "prislusnost": "STAN",
+   "povolani": "podnikatel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    136,
+    106
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 2,
+   "jmeno": "Jindřich Holešovský",
+   "vek": 46,
+   "hlasy": 223,
+   "pct": 12.04,
+   "zvolen": false,
+   "poradi_vysl": 1,
+   "navrh": "STAN",
+   "prislusnost": "STAN",
+   "povolani": "podnikatel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    126,
+    97
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 3,
+   "jmeno": "Jiří Mazal",
+   "vek": 48,
+   "hlasy": 128,
+   "pct": 6.91,
+   "zvolen": false,
+   "poradi_vysl": 4,
+   "navrh": "STAN",
+   "prislusnost": "STAN",
+   "povolani": "obchodní ředitel pro region CEE",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    58,
+    70
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 4,
+   "jmeno": "Ing. Petr Havel",
+   "vek": 49,
+   "hlasy": 101,
+   "pct": 5.45,
+   "zvolen": false,
+   "poradi_vysl": 5,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "manažer poprodejního servisu",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    50,
+    51
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 5,
+   "jmeno": "Aleš Raitmajer",
+   "vek": 44,
+   "hlasy": 99,
+   "pct": 5.34,
+   "zvolen": false,
+   "poradi_vysl": 6,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "vedoucí biometan, voda",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    53,
+    46
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 6,
+   "jmeno": "Jiří Krejčí",
+   "vek": 47,
+   "hlasy": 106,
+   "pct": 5.72,
+   "zvolen": false,
+   "poradi_vysl": 7,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "OSVČ",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    62,
+    44
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 7,
+   "jmeno": "Ing. Jan Helán",
+   "vek": 51,
+   "hlasy": 143,
+   "pct": 7.72,
+   "zvolen": false,
+   "poradi_vysl": 3,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "OSVČ",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    71,
+    72
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 8,
+   "jmeno": "Ing. Luděk Vostal",
+   "vek": 54,
+   "hlasy": 96,
+   "pct": 5.18,
+   "zvolen": false,
+   "poradi_vysl": 8,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "OSVČ",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    56,
+    40
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 9,
+   "jmeno": "Petr Bartoněk",
+   "vek": 44,
+   "hlasy": 181,
+   "pct": 9.77,
+   "zvolen": false,
+   "poradi_vysl": 2,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "OSVČ",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    96,
+    85
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 10,
+   "jmeno": "Martin Holešovský",
+   "vek": 20,
+   "hlasy": 93,
+   "pct": 5.02,
+   "zvolen": false,
+   "poradi_vysl": 9,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "student",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    47,
+    46
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 11,
+   "jmeno": "Martin Skoupý",
+   "vek": 40,
+   "hlasy": 86,
+   "pct": 4.64,
+   "zvolen": false,
+   "poradi_vysl": 10,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "obchodní ředitel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    45,
+    41
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 12,
+   "jmeno": "Ing. Martin Mrůzek, Ph.D.",
+   "vek": 56,
+   "hlasy": 86,
+   "pct": 4.64,
+   "zvolen": false,
+   "poradi_vysl": 11,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "podnikatel",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    45,
+    41
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 13,
+   "jmeno": "Marika Vykoukalová",
+   "vek": 25,
+   "hlasy": 98,
+   "pct": 5.29,
+   "zvolen": false,
+   "poradi_vysl": 12,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "servírka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    59,
+    39
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 14,
+   "jmeno": "Tereza Pacalová",
+   "vek": 18,
+   "hlasy": 78,
+   "pct": 4.21,
+   "zvolen": false,
+   "poradi_vysl": 13,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "studentka",
+   "zena": true,
+   "pokracuje": false,
+   "okrsky": [
+    42,
+    36
+   ]
+  },
+  {
+   "strana": 4,
+   "poradi": 15,
+   "jmeno": "Jaroslav Vykoukal",
+   "vek": 62,
+   "hlasy": 91,
+   "pct": 4.91,
+   "zvolen": false,
+   "poradi_vysl": 14,
+   "navrh": "STAN",
+   "prislusnost": "bez politické příslušnosti",
+   "povolani": "řidič",
+   "zena": false,
+   "pokracuje": false,
+   "okrsky": [
+    64,
+    27
+   ]
+  }
+ ],
+ "okrsky": [
+  {
+   "c": 1,
+   "volici": 1181,
+   "obalky": 792,
+   "ucast": 67.06,
+   "platne_hlasy": 11157,
+   "strany": {
+    "1": [
+     5716,
+     51.23
+    ],
+    "2": [
+     2656,
+     23.8
+    ],
+    "3": [
+     1775,
+     15.9
+    ],
+    "4": [
+     1010,
+     9.05
+    ]
+   }
+  },
+  {
+   "c": 2,
+   "volici": 1271,
+   "obalky": 709,
+   "ucast": 55.78,
+   "platne_hlasy": 9671,
+   "strany": {
+    "1": [
+     3847,
+     39.77
+    ],
+    "2": [
+     2886,
+     29.84
+    ],
+    "3": [
+     2097,
+     21.68
+    ],
+    "4": [
+     841,
+     8.69
+    ]
+   }
+  }
+ ],
+ "prev": {
+  "rok": 2022,
+  "ucast": 60.8,
+  "strany": [
+   {
+    "nazev": "KDU-ČSL a nestraníci",
+    "zkratka": "KDU-ČSL a nestraníci",
+    "hlasy": 8102,
+    "pct": 40.07,
+    "mandaty": 7,
+    "barva": "--c0"
+   },
+   {
+    "nazev": "Sdružení občanů Střeličník",
+    "zkratka": "Sdružení občanů Střeličník",
+    "hlasy": 4886,
+    "pct": 24.16,
+    "mandaty": 4,
+    "barva": "--c1"
+   },
+   {
+    "nazev": "Sdružení nezávislých kandidátů Střelice",
+    "zkratka": "Sdružení nez. kandid. Střelice",
+    "hlasy": 4178,
+    "pct": 20.66,
+    "mandaty": 3,
+    "barva": "--c2"
+   },
+   {
+    "nazev": "STAROSTOVÉ A NEZÁVISLÍ",
+    "zkratka": "STAROSTOVÉ A NEZÁVISLÍ",
+    "hlasy": 2048,
+    "pct": 10.12,
+    "mandaty": 1,
+    "barva": "--c3"
+   },
+   {
+    "nazev": "Občanská demokratická strana",
+    "zkratka": "Občanská demokratická strana",
+    "hlasy": 1005,
+    "pct": 4.97,
+    "mandaty": 0,
+    "barva": "--c4"
+   }
+  ],
+  "zastupitele": [
+   {
+    "jmeno": "Jiří Vašulín",
+    "hlasy": 721,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Mgr. Petra Zoubková",
+    "hlasy": 604,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Vojtěch Liška",
+    "hlasy": 566,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Jan Dlapka",
+    "hlasy": 548,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Mgr. Helena Fialová",
+    "hlasy": 543,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Mgr. Robert Ströbinger",
+    "hlasy": 535,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Ing. Alois Liška",
+    "hlasy": 520,
+    "strana": "KDU-ČSL a nestraníci"
+   },
+   {
+    "jmeno": "Mgr. Eva Bartoňová",
+    "hlasy": 464,
+    "strana": "Sdružení občanů Střeličník"
+   },
+   {
+    "jmeno": "Ing. Martin Klíma, Ph.D.",
+    "hlasy": 383,
+    "strana": "Sdružení občanů Střeličník"
+   },
+   {
+    "jmeno": "Radim Brener",
+    "hlasy": 348,
+    "strana": "Sdružení občanů Střeličník"
+   },
+   {
+    "jmeno": "Jan Pernikář",
+    "hlasy": 337,
+    "strana": "Sdružení občanů Střeličník"
+   },
+   {
+    "jmeno": "Petr Rozsíval",
+    "hlasy": 358,
+    "strana": "Sdružení nezávislých kandidátů Střelice"
+   },
+   {
+    "jmeno": "Josef Tichý",
+    "hlasy": 348,
+    "strana": "Sdružení nezávislých kandidátů Střelice"
+   },
+   {
+    "jmeno": "Zuzana Hloušková",
+    "hlasy": 322,
+    "strana": "Sdružení nezávislých kandidátů Střelice"
+   },
+   {
+    "jmeno": "Mgr. Ing. David Dvořák",
+    "hlasy": 202,
+    "strana": "STAROSTOVÉ A NEZÁVISLÍ"
+   }
+  ]
+ }
+}

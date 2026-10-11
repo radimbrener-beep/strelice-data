@@ -1,0 +1,17 @@
+{
+ "id": "20261009/navig/okrsky/6203/583910.json",
+ "param": {
+  "typ": "NAVIG_OKRSKY",
+  "datumvoleb": 20261009,
+  "kodzastup": 583910,
+  "cobvodu": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-08T16:40:10",
+ "popis": "Seznam okrsků zastupitelstva obce",
+ "okrsky": [
+  1,
+  2
+ ]
+}

@@ -1,0 +1,80 @@
+{
+ "id": "20261009/prehl/zastup/nstrana/obec/6203/583910.json",
+ "param": {
+  "typ": "ZAST_NS_ZASTUP",
+  "datumvoleb": 20261009,
+  "kodzastup": 583910,
+  "cobvodu": 1,
+  "okres": 6203,
+  "okres_nuts": 6203
+ },
+ "generovano": "2026-10-11T08:38:22",
+ "popis": "Přehled podle navrhující strany - zastupitelstvo obce",
+ "obecNazev": "Střelice",
+ "celkem": [
+  [
+   1,
+   "KDU-ČSL",
+   7,
+   46.67
+  ],
+  [
+   80,
+   "Nezávislý kandidát",
+   7,
+   46.67
+  ],
+  [
+   166,
+   "STAROSTOVÉ A NEZÁVISLÍ",
+   1,
+   6.67
+  ]
+ ],
+ "strany": {
+  "1": {
+   "stranaNazev": "KDU-ČSL a nestraníci",
+   "seznam": [
+    [
+     1,
+     "KDU-ČSL",
+     7,
+     100
+    ]
+   ]
+  },
+  "2": {
+   "stranaNazev": "STŘELIČNÍK A NEZÁVISLÍ KANDIDÁTI",
+   "seznam": [
+    [
+     80,
+     "Nezávislý kandidát",
+     4,
+     57.14
+    ]
+   ]
+  },
+  "3": {
+   "stranaNazev": "Sdružení nezávislých kandidátů Střelice",
+   "seznam": [
+    [
+     80,
+     "Nezávislý kandidát",
+     3,
+     42.86
+    ]
+   ]
+  },
+  "4": {
+   "stranaNazev": "STAROSTOVÉ A NEZÁVISLÍ",
+   "seznam": [
+    [
+     166,
+     "STAROSTOVÉ A NEZÁVISLÍ",
+     1,
+     100
+    ]
+   ]
+  }
+ }
+}

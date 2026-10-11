@@ -38,7 +38,7 @@ NAV_HINT = {"rozpocet.html": "příjmy, výdaje, tok peněz", "srovnani.html": "
             "dotace.html": "komu obec přispívá", "zastupitelstvo.html": "usnesení, hlasování, video",
             "zapisy.html": "zápisy z jednání rady", "obdobi.html": "bilance období, zastupitelé",
             "skolstvi.html": "ZŠ, MŠ, ZUŠ, kapacity", "demografie.html": "počet obyvatel, narození, stěhování",
-            "volby.html": "komunální, sněmovní, prezident"}
+            "volby.html": "komunální volby 2026"}
 
 
 def nav_html(active):
