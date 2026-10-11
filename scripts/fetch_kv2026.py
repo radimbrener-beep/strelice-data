@@ -26,7 +26,7 @@ OUT = os.path.join(ROOT, "data", "volby", "strelice_kv2026.json")
 PREV = os.path.join(ROOT, "data", "volby", "strelice_volby.json")   # komunální 2022
 
 PRE_TITLES = {"Ing.", "Mgr.", "MUDr.", "MVDr.", "JUDr.", "PhDr.", "RNDr.", "Bc.", "BcA.", "MgA.", "doc.",
-              "prof.", "PaedDr.", "PharmDr.", "ThDr.", "Ing.arch.", "akad."}
+              "prof.", "PaedDr.", "PharmDr.", "ThDr.", "Ing.arch.", "akad.", "arch."}   # „Ing. arch." = dva tokeny
 
 
 def get(path):
@@ -51,6 +51,7 @@ def split_name(raw):
 
 
 def key(s):
+    s = s.replace(",", " ")                                           # „Dobšíková, Ph.D."
     s = re.sub(r"\b[\w.]+\.(?=\s|$)", " ", s)                       # tituly pryč
     s = unicodedata.normalize("NFD", s).encode("ascii", "ignore").decode().lower()
     return " ".join(sorted(s.split()))

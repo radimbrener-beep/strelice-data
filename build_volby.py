@@ -15,10 +15,12 @@ kv = json.load(open("data/volby/strelice_kv2026.json", encoding="utf-8"))
 
 # --- strany: krátké názvy, barvy (stejné jako v roce 2022) a protějšek z roku 2022 ---
 PARTY = {
-    1: ("KDU-ČSL a nestraníci", "--c0", "KDU-ČSL a nestraníci"),
-    2: ("Střeličník a nezávislí", "--c1", "Sdružení občanů Střeličník"),
-    3: ("Sdružení nezávislých kandidátů", "--c2", "Sdružení nezávislých kandidátů Střelice"),
-    4: ("Starostové a nezávislí", "--c3", "STAROSTOVÉ A NEZÁVISLÍ"),
+    # barvy kandidátek podle uživatele: KDU žlutá, Střeličník tyrkysová, nezávislí šedá, STAN magenta
+    # (pastelové tóny pro světlý i tmavý režim jsou v CSS níže: --p-kdu, --p-str, --p-snk, --p-stan)
+    1: ("KDU-ČSL a nestraníci", "--p-kdu", "KDU-ČSL a nestraníci"),
+    2: ("Střeličník a nezávislí", "--p-str", "Sdružení občanů Střeličník"),
+    3: ("Sdružení nezávislých kandidátů", "--p-snk", "Sdružení nezávislých kandidátů Střelice"),
+    4: ("Starostové a nezávislí", "--p-stan", "STAROSTOVÉ A NEZÁVISLÍ"),
 }
 prev = {s["nazev"]: s for s in kv["prev"]["strany"]}
 for s in kv["strany"]:
@@ -26,6 +28,7 @@ for s in kv["strany"]:
     s["kratky"], s["barva"] = kr, col
     p = prev.get(prevname)
     s["prev"] = {"pct": p["pct"], "mandaty": p["mandaty"], "nazev": p["nazev"]} if p else None
+kv["strany"].sort(key=lambda s: -s["hlasy"])                 # kandidátky od nejsilnější
 used_prev = {PARTY[c][2] for c in PARTY}
 missing = [s for n, s in prev.items() if n not in used_prev]      # strany z 2022, které nekandidovaly
 
@@ -154,6 +157,8 @@ body = f'''<header class="hero">
 </section>'''
 
 CSS = """<style>
+:root{--p-kdu:#f3c75f;--p-str:#5ec4c6;--p-snk:#adb7bc;--p-stan:#e08ac0}
+html[data-theme="dark"]{--p-kdu:#efc35b;--p-str:#62c8ca;--p-snk:#96a3a9;--p-stan:#e597cb}
 .hemi svg{width:100%;height:auto;display:block;max-width:460px;margin:4px auto 0}
 .hemi .seat{transition:transform .15s;transform-box:fill-box;transform-origin:center;cursor:default}
 .hemi .seat:hover,.hemi .seat.hl{transform:scale(1.18)}
@@ -254,7 +259,8 @@ const pct=v=>f2(v)+' %';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const P={}; K.strany.forEach(s=>P[s.c]=s);
 const pc=c=>'var('+P[c].barva+')';
-const zvol=K.kandidati.filter(k=>k.zvolen).sort((a,b)=>a.strana-b.strana||a.poradi_vysl-b.poradi_vysl);
+const ORD={}; K.strany.forEach((s,i)=>ORD[s.c]=i);   // kandidátky od nejsilnější (pořadí z builderu)
+const zvol=K.kandidati.filter(k=>k.zvolen).sort((a,b)=>ORD[a.strana]-ORD[b.strana]||a.poradi_vysl-b.poradi_vysl);
 
 /* --- půlkruh zastupitelstva: 15 křesel ve 3 řadách, strany zleva doprava --- */
 function hemi(){
@@ -307,7 +313,7 @@ function zvoleni(){
 }
 
 /* --- preferenční hlasy: kandidátka po kandidátce --- */
-let prefSel=1;
+let prefSel=K.strany[0].c;
 function prefSeg(){
   document.getElementById('prefSeg').innerHTML=K.strany.map(s=>
     `<button type="button" class="${s.c===prefSel?'on':''}" data-c="${s.c}">${esc(s.kratky)}</button>`).join('');
@@ -329,7 +335,7 @@ function pref(){
   const byList=list.slice(0,s.mandaty), inn=list.filter(k=>k.zvolen&&k.poradi>s.mandaty), out=byList.filter(k=>!k.zvolen);
   const nm=k=>esc(k.jmeno.split(',')[0]);
   const msg=inn.length
-    ? `Preferenční hlasy změnily složení: ${inn.map(k=>`<b>${nm(k)}</b> (${k.poradi}. na kandidátce)`).join(', ')} ${inn.length>1?'získali':'získal'+(inn[0].zena?'a':'')} mandát místo ${out.map(k=>`<b>${nm(k)}</b> (${k.poradi}.)`).join(', ')}.`
+    ? `Preferenční hlasy změnily složení: ${inn.map(k=>`<b>${nm(k)}</b> (${k.poradi}. na kandidátce)`).join(', ')} ${inn.length>1?'získali':'získal'+(inn[0].zena?'a':'')} mandát. Podle pořadí na kandidátce by ${out.length>1?'mandáty patřily kandidátům':'mandát patřil'} ${out.map(k=>`<b>${nm(k)}</b> (${k.poradi}.)`).join(', ')}.`
     : (s.mandaty>1 && list.some(k=>k.zvolen&&k.poradi_vysl!==k.poradi)
       ? 'Zvoleno bylo prvních '+s.mandaty+' z kandidátky; preferenční hlasy změnily jen pořadí, v jakém mandáty získali (a pořadí náhradníků).'
       : 'Mandát'+(s.mandaty>1?'y získali':' získal')+' kandidáti v pořadí podle kandidátky; preferenční hlasy ovlivnily jen pořadí náhradníků.');
@@ -339,7 +345,7 @@ function pref(){
 
 /* --- d'Hondt --- */
 function dh(){
-  const cols=8, win=new Set(S.win.map(w=>w[1]+'-'+w[2])), last=S.win[S.win.length-1];
+  const cols=Math.max(8,Math.max(...K.strany.map(s=>s.mandaty))+1), win=new Set(S.win.map(w=>w[1]+'-'+w[2])), last=S.win[S.win.length-1];
   let h='<tr><th class="pn"></th>'+Array.from({length:cols},(_,i)=>`<th>÷ ${i+1}</th>`).join('')+'<th>mandátů</th></tr>';
   K.strany.forEach(s=>{
     h+=`<tr style="--pc:${pc(s.c)}"><th class="pn"><i style="background:${pc(s.c)}"></i>${esc(s.kratky)}</th>`;
