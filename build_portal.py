@@ -216,6 +216,12 @@ index_body = f'''<header class="hero">
 <section>
   <div class="tiles">{tile_html}</div>
 </section>
+<section data-push-sec hidden>
+  <div class="panel">
+    <div class="sec-h" style="margin:0 0 10px"><h2 style="font-size:16px">Upozornění na nová jednání</h2></div>
+    {pc.push_box(lead=True)}
+  </div>
+</section>
 <section>
   <div class="panel">
     <div class="sec-h" style="margin:0 0 6px"><h2 style="font-size:16px">O portálu</h2></div>

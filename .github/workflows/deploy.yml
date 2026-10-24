@@ -15,6 +15,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      PUSH_TOKEN: ${{ secrets.PUSH_TOKEN }}   # rozesílání upozornění (push/send.php); bez něj se nerozesílají
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,8 +36,24 @@ jobs:
           cp .htaccess public/ 2>/dev/null || true
           # neveřejný textový soubor s plnými přepisy ZO (jen přes přímý odkaz /prepisy-zo.txt)
           cp prepisy-zo.txt public/ 2>/dev/null || true
+          # upozornění (Web Push): seznam položek k oznámení, PHP backend a service worker
+          python3 build_push.py
+          cp -r push public/push
+          cp sw.js public/
           echo "Nasazované soubory:"
-          ls -la public/
+          ls -la public/ public/push
+
+      - name: Token pro rozesílání upozornění
+        # bez secretu PUSH_TOKEN se upozornění nerozesílají, nasazení ale proběhne
+        if: env.PUSH_TOKEN != ''
+        run: |
+          python3 - <<'PY'
+          import os
+          t = os.environ["PUSH_TOKEN"]
+          assert len(t) >= 20, "PUSH_TOKEN je kratší než 20 znaků"
+          php = "<?php" + chr(10) + "return ['token' => %r];" % t + chr(10)
+          open("public/push/config.local.php", "w").write(php)
+          PY
 
       - name: Sestavit rozcestník jaksemame.cz
         run: |
@@ -51,6 +69,7 @@ jobs:
           # ale návštěvníky přesměruje na strelice.jaksemame.cz
           cp -r public public_old
           cp redirect/jakzijistrelice/.htaccess public_old/.htaccess
+          rm -rf public_old/push public_old/sw.js   # upozornění jen na strelice.jaksemame.cz
 
       # Web se nasazuje jen do podsložky subdomény strelice.jaksemame.cz.
       # Stará adresa jakzijistrelice.cz se přesměrovává (krok níže); data.strelicnik.cz je zrušená.
@@ -66,6 +85,15 @@ jobs:
           local-dir: ./public/
           # pozn.: akce dělá inkrementální sync (stav drží v .ftp-deploy-sync-state.json na serveru);
           # složka musí být vyhrazená jen tomuto webu (sync může mazat cizí soubory).
+          # push/data/ (SQLite s odběrateli) vytváří PHP na serveru — sync ho nezná, takže ho nemaže.
+
+      - name: Rozeslání upozornění na nová jednání
+        if: env.PUSH_TOKEN != ''
+        # web je nasazený i tehdy, když rozeslání selže; chyba je vidět v záznamu
+        continue-on-error: true
+        run: |
+          curl -fsS --max-time 300 -X POST --data "" -H "Authorization: Bearer $PUSH_TOKEN" https://strelice.jaksemame.cz/push/send.php
+          echo
 
       # Rozcestník obcí na hlavní doméně. Doména jaksemame.cz musí mít na Wedosu VLASTNÍ složku
       # (ne alias hlavní domény — ta sdílí kořen s WordPressem strelicnik.cz).

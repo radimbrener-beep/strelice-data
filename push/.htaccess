@@ -1,0 +1,15 @@
+# Knihovny a data upozornění nejsou z webu dostupné; volat se dají jen api.php a send.php.
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(lib|data)(/|$) - [F,L]
+</IfModule>
+Options -Indexes
+
+# Apache bez tohohle nepředá PHP hlavičku Authorization.
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+</IfModule>
+<Files "config.local.php">
+    Require all denied
+</Files>

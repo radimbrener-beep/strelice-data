@@ -40,3 +40,7 @@ Thumbs.db
 .claude/
 brand/_src/
 jaksemame/fonts/
+# upozornění: data odběratelů, token a vygenerovaný seznam položek se do gitu nedávají
+push/data/
+push/config.local.php
+push/feed.json

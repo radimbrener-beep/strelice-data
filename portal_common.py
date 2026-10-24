@@ -100,6 +100,137 @@ EXTRA_PAGES = [("hledat.html", "Hledat")]
 SEARCH_BTN = ('<a class="iconbtn" href="hledat.html" title="Hledat na portálu (usnesení, firmy, dotace, ulice…)" '
               'aria-label="Hledat" style="text-decoration:none">⌕</a>')
 
+# --- upozornění (Web Push): zvonek v hlavičce + panel, karta na úvodu (push_box) ---
+# Backend je v push/ (PHP + SQLite na Wedosu), service worker sw.js, položky k oznámení
+# sestaví build_push.py. Převzato z webu Střeličníku (new.strelicnik.cz).
+PUSH_TOPICS_UI = [("rada", "Nová jednání rady obce"),
+                  ("zastupitelstvo", "Nová jednání zastupitelstva"),
+                  ("portal", "Novinky portálu")]
+try:
+    import hashlib as _hl
+    _SW_VER = _hl.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sw.js"), "rb").read()).hexdigest()[:10]
+except OSError:
+    _SW_VER = "0"
+PUSH_SW = f"/sw.js?v={_SW_VER}"   # otisk v adrese: Wedos by jinak držel starý sw.js v mezipaměti
+BELL_SVG = ('<svg class="ico-bell" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/>'
+            '<path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>')
+
+
+def push_box(lead=False):
+    """Ovládání upozornění. Bez JS a v prohlížeči, který upozornění neumí, se neukáže."""
+    topics = "".join(f'<label><input type="checkbox" value="{k}" checked> {t}</label>' for k, t in PUSH_TOPICS_UI)
+    intro = ('<p class="pt-lead">Chcete vědět o novém jednání rady nebo zastupitelstva hned, jak se objeví jeho zápis? '
+             'Upozornění vám přijde do telefonu nebo počítače, bez registrace a bez e-mailu.</p>') if lead else ''
+    return (f'<div class="push-toggle" hidden>{intro}'
+            f'<fieldset class="pt-topics"><legend>Co chcete dostávat</legend>{topics}</fieldset>'
+            '<button type="button" class="pt-on">Zapnout upozornění</button>'
+            '<p class="pt-state" hidden>Upozornění jsou zapnutá. <button type="button" class="pt-off">Vypnout</button></p>'
+            '<button type="button" class="pt-latest" hidden>Poslat mi zkušební upozornění</button>'
+            '<p class="pt-ios" hidden>Na iPhonu upozornění fungují, když si web přidáte na plochu: v Safari klepněte na Sdílet '
+            'a pak na Přidat na plochu. Web potom otevřete z plochy a upozornění zapněte.</p>'
+            '<p class="pt-msg" role="status"></p></div>')
+
+
+PUSH_BTN = (f'<button type="button" class="iconbtn pushbtn" id="pushBtn" title="Upozornění na nová jednání" '
+            f'aria-label="Upozornění" aria-expanded="false" aria-controls="pushPop" hidden>{BELL_SVG}</button>'
+            f'<div class="pushpop" id="pushPop" hidden><b class="pp-h">Upozornění</b>{push_box()}</div>')
+SEARCH_BTN = SEARCH_BTN + PUSH_BTN
+
+NAV_CSS = NAV_CSS + """
+.pushbtn svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pushbtn.on{color:var(--accent);border-color:var(--accent)}
+.pushpop{position:absolute;top:calc(100% + 6px);right:16px;width:min(360px,calc(100vw - 32px));z-index:80;background:var(--surface);
+  border:1px solid var(--line);border-radius:12px;box-shadow:0 12px 28px rgba(2,8,20,.28);padding:14px 16px}
+.pushpop .pp-h{display:block;font-family:var(--font-d);font-size:15px;color:var(--ink);margin-bottom:6px}
+.push-toggle{display:flex;flex-direction:column;gap:10px;font-size:13.5px}
+.push-toggle[hidden]{display:none}
+.push-toggle .pt-lead{margin:0;color:var(--muted);line-height:1.55}
+.push-toggle .pt-topics{border:0;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.push-toggle .pt-topics legend{font-size:12px;color:var(--muted);margin-bottom:4px;padding:0}
+.push-toggle label{display:flex;gap:8px;align-items:center;cursor:pointer}
+.push-toggle input[type=checkbox]{accent-color:var(--accent);width:16px;height:16px}
+.push-toggle .pt-on,.push-toggle .pt-latest{align-self:flex-start;font:inherit;font-weight:700;font-size:13.5px;border-radius:9px;padding:8px 14px;cursor:pointer}
+.push-toggle .pt-on{background:var(--accent);color:var(--surface);border:1px solid var(--accent)}
+.push-toggle .pt-latest{background:none;color:var(--accent);border:1px solid var(--line)}
+.push-toggle .pt-off{font:inherit;font-size:13px;background:none;border:0;color:var(--accent);text-decoration:underline;cursor:pointer;padding:0}
+.push-toggle .pt-state,.push-toggle .pt-ios,.push-toggle .pt-msg{margin:0;line-height:1.5}
+.push-toggle .pt-msg{color:var(--muted);font-size:12.5px}
+.push-toggle .pt-msg:empty{display:none}
+.push-toggle button:disabled{opacity:.55;cursor:wait}
+"""
+
+NAV_JS = NAV_JS + r"""
+/* upozornění (Web Push) — převzato z new.strelicnik.cz */
+(function(){
+  var boxes=[].slice.call(document.querySelectorAll('.push-toggle')); if(!boxes.length) return;
+  var btn=document.getElementById('pushBtn'), pop=document.getElementById('pushPop');
+  var SW='""" + PUSH_SW + r"""';
+  var ua=navigator.userAgent, standalone=matchMedia('(display-mode: standalone)').matches||navigator.standalone===true;
+  var ios=/iPhone|iPad|iPod/.test(ua)||(/Macintosh/.test(ua)&&(navigator.maxTouchPoints||0)>1);
+  var hasPush='serviceWorker' in navigator&&'PushManager' in window&&'Notification' in window;
+  var support=(ios&&!standalone)?'ios':(hasPush?'ok':'no');
+  if(support==='no') return;
+  var q=function(box,s){return box.querySelector(s);};
+  function b64(t){var s=(t+'='.repeat((4-t.length%4)%4)).replace(/-/g,'+').replace(/_/g,'/');return Uint8Array.from(atob(s),function(c){return c.charCodeAt(0);});}
+  function show(on,msg){boxes.forEach(function(box){q(box,'.pt-on').hidden=on!==false;q(box,'.pt-state').hidden=on!==true;q(box,'.pt-latest').hidden=on!==true;q(box,'.pt-msg').textContent=msg||'';});
+    if(btn) btn.classList.toggle('on',on===true);}
+  function busy(b){boxes.forEach(function(box){box.querySelectorAll('button').forEach(function(x){x.disabled=b;});});}
+  function post(action,body){return fetch('/push/api.php?a='+action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)})
+    .then(function(r){return (r.status===204?Promise.resolve({}):r.json().catch(function(){return {};})).then(function(j){
+      if(!r.ok){var e=new Error(j.error||'Upozornění se nepodařilo zapnout.');e.status=r.status;throw e;}return j;});});}
+  var checks=function(){return boxes.reduce(function(a,box){return a.concat([].slice.call(box.querySelectorAll('.pt-topics input')));},[]);};
+  var chosen=function(){var s={};[].slice.call(boxes[0].querySelectorAll('.pt-topics input:checked')).forEach(function(c){s[c.value]=1;});return Object.keys(s);};
+  var setTopics=function(t){checks().forEach(function(c){c.checked=t.indexOf(c.value)>=0;});};
+  var loadT=function(){try{var t=JSON.parse(localStorage.getItem('pushTopics')||'null');return Array.isArray(t)&&t.length?t:null;}catch(e){return null;}};
+  var confirmed=loadT()||chosen();
+  function confirmT(t){if(!t||!t.length)return;confirmed=t;setTopics(t);try{localStorage.setItem('pushTopics',JSON.stringify(t));}catch(e){}}
+  setTopics(confirmed);
+  function sub(){return navigator.serviceWorker.getRegistration().then(function(reg){return reg?reg.pushManager.getSubscription():null;});}
+  function turnOn(){busy(true);
+    Notification.requestPermission().then(function(p){
+      if(p!=='granted'){show(false,'Prohlížeč upozornění nepovolil. Povolit je můžete v nastavení webu v prohlížeči.');return;}
+      return navigator.serviceWorker.register(SW).then(function(){return navigator.serviceWorker.ready;}).then(function(reg){
+        return fetch('/push/api.php?a=key').then(function(r){if(!r.ok)throw new Error('Upozornění teď nejde zapnout. Zkuste to prosím později.');return r.json();})
+          .then(function(k){return reg.pushManager.getSubscription().then(function(s){return s||reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:b64(k.public_key)});});});
+      }).then(function(s){var body=s.toJSON();body.topics=chosen();
+        return post('subscribe',body).then(function(r){confirmT(r.topics);show(true,'Hotovo. Upozornění vám budou chodit sem.');},
+          function(e){return s.unsubscribe().catch(function(){}).then(function(){throw e;});});});
+    }).catch(function(e){show(false,e&&e.message&&!(e instanceof TypeError)?e.message:'Upozornění se nepodařilo zapnout.');})
+    .then(function(){busy(false);});}
+  function turnOff(){busy(true);sub().then(function(s){if(!s)return;return post('unsubscribe',{endpoint:s.endpoint}).catch(function(){}).then(function(){return s.unsubscribe();});})
+    .then(function(){show(false,'Upozornění jsou vypnutá.');},function(){show(false,'Upozornění se nepodařilo vypnout. Vypnout je můžete i v nastavení webu v prohlížeči.');})
+    .then(function(){busy(false);});}
+  function sendLatest(){busy(true);sub().then(function(s){
+      if(!s||Notification.permission!=='granted'){show(false,'V tomto prohlížeči upozornění zapnutá nejsou. Zapněte je znovu.');return;}
+      return post('latest',{endpoint:s.endpoint}).then(function(){show(true,'Odesláno. Zkušební upozornění by mělo za chvíli přijít, i když stránku zavřete.');});
+    }).catch(function(e){show(e.status===404||e.status===410?false:true,e&&e.message&&!(e instanceof TypeError)?e.message:'Zkoušku se nepodařilo poslat.');})
+    .then(function(){busy(false);});}
+  boxes.forEach(function(box){box.hidden=false;var sec=box.closest('[data-push-sec]');if(sec)sec.hidden=false;});
+  if(btn){btn.hidden=false;btn.addEventListener('click',function(e){e.stopPropagation();var o=pop.hidden;pop.hidden=!o;btn.setAttribute('aria-expanded',o?'true':'false');});
+    document.addEventListener('click',function(e){if(!pop.hidden&&!pop.contains(e.target)){pop.hidden=true;btn.setAttribute('aria-expanded','false');}});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!pop.hidden){pop.hidden=true;btn.setAttribute('aria-expanded','false');btn.focus();}});}
+  if(support==='ios'){boxes.forEach(function(box){q(box,'.pt-on').hidden=true;q(box,'.pt-topics').hidden=true;q(box,'.pt-ios').hidden=false;});return;}
+  checks().forEach(function(c){c.addEventListener('change',function(){
+    var box=c.closest('.push-toggle');
+    var wanted=[].slice.call(box.querySelectorAll('.pt-topics input:checked')).map(function(x){return x.value;});
+    setTopics(wanted);
+    if(q(box,'.pt-state').hidden) return;   // ještě nezapnuto: výběr se pošle při zapnutí
+    sub().then(function(s){if(!s)return;var body=s.toJSON();body.topics=wanted;
+      return post('subscribe',body).then(function(r){confirmT(r.topics);show(true,'Uloženo.');});
+    }).catch(function(e){setTopics(confirmed);show(true,e&&e.message?e.message:'Nepodařilo se uložit.');});});});
+  boxes.forEach(function(box){q(box,'.pt-on').addEventListener('click',turnOn);q(box,'.pt-off').addEventListener('click',turnOff);q(box,'.pt-latest').addEventListener('click',sendLatest);});
+  // stav: ověřit, že zařízení server pořád zná (mohl ho vyřadit); stejné zařízení se jen obnoví
+  navigator.serviceWorker.getRegistration().then(function(reg){
+    return (reg?reg.pushManager.getSubscription():Promise.resolve(null)).then(function(s){
+      if(!s||Notification.permission!=='granted'){show(false);return;}
+      var st=loadT(), body=s.toJSON(); if(st) body.topics=st;
+      return post('subscribe',body).then(function(r){confirmT(r.topics);show(true);
+        navigator.serviceWorker.register(SW).catch(function(){});},function(){show(false);});
+    });
+  }).catch(function(){show(false);});
+})();
+"""
+
 # datum sestavení = datum aktualizace dat (stránky se generují po každé změně dat)
 _d = date.today()
 UPDATED = f"{_d.day}. {_d.month}. {_d.year}"
