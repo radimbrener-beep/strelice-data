@@ -210,26 +210,31 @@ POUTAC_JS = r"""<script>
 # --- průvodce s maskotem (statický, nic nepřekrývá; odkazy jen na existující sekce) ---
 GUIDE_LINKS = [("rozpocet.html", "Kam jdou peníze obce"), ("hledat.html#ulsec", "Co se řešilo v mé ulici"),
                ("zastupitelstvo.html", "Jak hlasovalo zastupitelstvo"), ("investice.html", "Co se staví a opravuje")]
-GUIDE = ('<section class="guide" aria-labelledby="guideH"><span class="g-fig">' + pc.mascot_img("01-uvitani", "msk") + '</span>'
-         '<div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2>'
+GUIDE = ('<section class="guide" aria-labelledby="guideH">' + pc.mascot_img("01-uvitani", "g-bot")
+         + '<div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2>'
          '<p>Všechna čísla tu jsou z veřejných zdrojů a u každého najdete odkaz, odkud pochází. Kde chcete začít?</p>'
-         '<div class="g-links">' + "".join(f'<a href="{h}">{t} <span aria-hidden="true">→</span></a>' for h, t in GUIDE_LINKS)
-         + '</div></div></section>')
+         '<nav class="g-links" aria-label="Kde začít">' + "".join(f'<a href="{h}">{t}<span aria-hidden="true">→</span></a>' for h, t in GUIDE_LINKS)
+         + '</nav></div></section>')
 GUIDE_CSS = """<style>
-.guide{display:flex;align-items:center;gap:22px;margin:22px 0 0}
-.guide .g-fig{flex:none;width:170px;height:170px;border-radius:50%;background:var(--msk-bg);display:grid;place-items:center}
-.guide .g-fig .msk{width:150px;height:150px}
-.g-bub{position:relative;flex:1;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px}
-.g-bub:before{content:"";position:absolute;left:-9px;top:50%;width:16px;height:16px;background:var(--surface);
-  border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateY(-50%) rotate(45deg)}
-.g-bub h2{margin:0;font-size:19px}
-.g-bub p{margin:6px 0 12px;color:var(--muted);font-size:14.5px;line-height:1.55}
-.g-links{display:flex;flex-wrap:wrap;gap:8px}
-.g-links a{font-size:13.5px;font-weight:650;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--bg2)}
-.g-links a:hover{border-color:var(--accent)}
-.g-links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-@media(max-width:640px){.guide{flex-direction:column;gap:12px}.guide .g-fig{width:128px;height:128px}.guide .g-fig .msk{width:112px;height:112px}
-  .g-bub:before{left:50%;top:-9px;transform:translateX(-50%) rotate(135deg)}.g-links a{flex:1 1 100%;text-align:center}}
+.guide{display:flex;align-items:flex-start;gap:4px;margin:26px 0 6px}
+.g-bot{flex:none;width:118px;height:118px;margin-top:-6px}
+html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shadow(-1.5px 0 0 #8FD0D466) drop-shadow(0 1.5px 0 #8FD0D466) drop-shadow(0 -1.5px 0 #8FD0D466)}
+.g-bub{position:relative;flex:1;min-width:0;margin-left:14px;padding:14px 18px 15px;border-radius:20px;
+  background:color-mix(in srgb,var(--accent-soft) 55%,transparent);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
+.g-bub:before{content:"";position:absolute;left:-11px;top:24px;width:20px;height:20px;background:inherit;
+  border:inherit;border-right:0;border-top:0;border-radius:0 0 0 5px;transform:rotate(45deg);
+  clip-path:polygon(0 0,0 100%,100% 100%)}
+.g-bub h2{margin:0;font-size:17px;letter-spacing:-.01em}
+.g-bub p{margin:3px 0 10px;color:var(--muted);font-size:14px;line-height:1.5}
+.g-links{display:flex;flex-wrap:wrap;gap:4px 18px}
+.g-links a{display:inline-flex;gap:5px;align-items:center;font-size:14px;font-weight:650;color:var(--accent);text-decoration:none;padding:3px 0;
+  border-bottom:1px solid transparent}
+.g-links a span{transition:transform .15s}
+.g-links a:hover{border-bottom-color:currentColor}
+.g-links a:hover span{transform:translateX(2px)}
+.g-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
+@media(max-width:640px){.g-bot{width:76px;height:76px;margin-top:0}.g-bub{margin-left:10px;padding:12px 14px}
+  .g-bub:before{top:16px}.g-links{flex-direction:column;gap:2px}}
 </style>"""
 index_body = f'''<header class="hero">
   <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· občanský datový portál</span></h1>
