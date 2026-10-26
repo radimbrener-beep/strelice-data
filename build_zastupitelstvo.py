@@ -364,7 +364,7 @@ body = '''<header class="hero">
 </header>
 
 <section>
-  <div class="sec-h"><h2>Procházení usnesení</h2><span class="hint">klikni na zasedání pro rozbalení · hledání ignoruje diakritiku</span></div>
+  <div class="sec-h"><h2>Procházení usnesení</h2>''' + pc.mascot_help("Procházení usnesení", "<p>Zasedání rozbalíte kliknutím. U každého usnesení je výsledek hlasování: kolik zastupitelů bylo <b>pro</b>, <b>proti</b> a kolik se <b>zdrželo</b>. Pokud někdo hlasoval proti nebo se zdržel, je štítek zvýrazněný; kde výpis uvádí jména, ukáže je kliknutí na štítek.</p><p>Usnesení můžete hledat (bez ohledu na diakritiku), filtrovat podle roku, tématu a výše výdaje. Zdrojem jsou zápisy a výpisy usnesení zveřejněné obcí.</p>", "05-hlasovani") + '''<span class="hint">klikni na zasedání pro rozbalení · hledání ignoruje diakritiku</span></div>
   <div class="panel">
     <div class="ctrlrow">
       <div class="zsearch">

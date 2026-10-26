@@ -29,6 +29,8 @@ jobs:
           find . -maxdepth 1 -name '*.html' ! -name '_*' -exec cp {} public/ \;
           # písma značky (stránky je načítají relativně z fonts/) + favikony a manifest do kořene
           cp -r fonts public/
+          # maskot (robůtek) — obrázky pro nápovědy, úvod a 404 (brand/build_maskot.py)
+          cp -r maskot public/
           cp brand/favicon/* public/
           # sdílecí obrázek pro náhled odkazu (plochý soubor v kořeni, ne podsložka)
           cp og-image.png public/ 2>/dev/null || true

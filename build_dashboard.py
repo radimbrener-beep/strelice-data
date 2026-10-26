@@ -127,7 +127,7 @@ for _y in years:
         _dst.append(("Přebytek (do úspor)", _p - _v))
     SANKEY[_y] = {"s": _src, "d": _dst}
 
-SANKEY_HTML = """<section id="tok"><div class="sec-h"><h2>Tok peněz</h2><span class="hint">odkud obec peníze má a kam jdou · skutečnost · najeďte na pás pro detail</span></div>
+SANKEY_HTML = """<section id="tok"><div class="sec-h"><h2>Tok peněz</h2><!--MH_TOK--><span class="hint">odkud obec peníze má a kam jdou · skutečnost · najeďte na pás pro detail</span></div>
 <div class="panel"><div class="ctrls"><span class="lbl">Rok</span><span class="seg" id="skYear"></span></div>
 <div class="skwrap"><svg id="sankey" viewBox="0 0 900 440" role="img" aria-label="Sankeyův diagram příjmů a výdajů obce"></svg></div>
 <p class="note">Vlevo zdroje příjmů, vpravo oblasti výdajů; šířka pásu odpovídá částce. Když obec utratí víc, než v daném roce vybere, rozdíl kryje z úspor minulých let; když méně, přebytek si uloží.</p></div></section>"""
@@ -391,7 +391,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
   <!--SANKEY-->
 
   <section id="trend-sec">
-    <div class="sec-h"><h2>Vývoj příjmů, výdajů a salda</h2><span class="hint">2013–2025 · klouzni rokem dole</span></div>
+    <div class="sec-h"><h2>Vývoj příjmů, výdajů a salda</h2><!--MH_TREND--><span class="hint">2013–2025 · klouzni rokem dole</span></div>
     <div class="panel">
       <div class="ctrls">
         <span class="lbl">Ukazatel</span>
@@ -417,7 +417,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
   </section>
 
   <section id="prijmy">
-    <div class="sec-h"><h2>Struktura příjmů</h2><span class="hint">podle druhu · skutečnost</span></div>
+    <div class="sec-h"><h2>Struktura příjmů</h2><!--MH_PRIJMY--><span class="hint">podle druhu · skutečnost</span></div>
     <div class="grid2">
       <div class="panel">
         <div class="ctrls"><span class="lbl">Zobrazení</span>
@@ -436,7 +436,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
   </section>
 
   <section id="vydaje">
-    <div class="sec-h"><h2>Kam tečou výdaje</h2><span class="hint">podle oblasti · skutečnost</span></div>
+    <div class="sec-h"><h2>Kam tečou výdaje</h2><!--MH_VYDAJE--><span class="hint">podle oblasti · skutečnost</span></div>
     <div class="panel">
       <div class="ctrls"><span class="lbl">Zobrazení</span>
         <span class="seg" id="vySeg"><button class="on" data-v="abs">mil. Kč</button><button data-v="pct">podíl %</button></span></div>
@@ -448,7 +448,7 @@ tr.subrow td:first-child{padding-left:30px;color:var(--muted)}
 
   <!--SLOVNICEK-->
   <section id="detail">
-    <div class="sec-h"><h2>Detail — rozklikni rozpočet</h2><span class="hint">řaď, hledej, rozbaluj</span></div>
+    <div class="sec-h"><h2>Detail — rozklikni rozpočet</h2><!--MH_DETAIL--><span class="hint">řaď, hledej, rozbaluj</span></div>
     <div class="panel">
       <div class="ctrls">
         <span><span class="lbl">Rok</span><select id="dYear"></select></span>
@@ -795,5 +795,15 @@ HTML = (HTML.replace("/*TOKENS*/", pc.FONTS_CSS + pc.TOKENS_CSS).replace("<!--BR
         .replace("<!--UPDATED-->", updated)
         .replace("<!--SEARCHBTN-->", pc.SEARCH_BTN).replace("/*NAVJS*/", pc.NAV_JS).replace("/*NAVCSS*/", pc.TYPE_CSS + pc.NAV_CSS + pc.SKEL_CSS).replace("<!--KOSTKA-->", KOSTKA).replace("<!--SANKEY-->", SANKEY_HTML).replace("</body>", SANKEY_JS.replace("SANKEY_DATA", json.dumps(SANKEY, ensure_ascii=False)) + "</body>").replace("/*SANKEYCSS*/", SANKEY_CSS).replace("<!--SLOVNICEK-->", SLOVNICEK))
 HTML = pc.inject_chart_font(HTML)
+# nápověda s maskotem u grafů (otevře se jen kliknutím)
+MH = {
+    "<!--MH_TOK-->": pc.mascot_help("Tok peněz", "<p>Pásy vedou zleva od zdrojů příjmů doprava k oblastem, kam peníze šly. Čím širší pás, tím víc peněz. Nahoře vyberete rok, po najetí na pás uvidíte přesnou částku.</p>", "02-rozpocet"),
+    "<!--MH_TREND-->": pc.mascot_help("Vývoj příjmů, výdajů a salda", "<p>Graf ukazuje, kolik obec v každém roce vybrala a utratila. Saldo je rozdíl příjmů a výdajů: přebytek znamená, že obec vybrala víc, než utratila, schodek se hradí z úspor z minulých let.</p><p>Přepínač nahoře volí <b>skutečnost</b>, <b>schválený</b> rozpočet ze začátku roku, nebo <b>upravený</b> rozpočet po změnách během roku. Posuvníkem pod grafem zvolíte rok, který se zvýrazní a podle kterého se přepočítá koláč se skladbou.</p>", "02-rozpocet"),
+    "<!--MH_PRIJMY-->": pc.mascot_help("Struktura příjmů", "<p>Vlevo jsou příjmy obce rozdělené podle druhu tak, jak je člení rozpočtová skladba. Přepínačem zobrazíte částky v milionech korun, nebo podíl v procentech. Kliknutím na položky v legendě necháte v grafu jen vybrané druhy.</p><p>Koláč vpravo ukazuje skladbu příjmů nebo výdajů v roce, který máte vybraný posuvníkem v grafu výše.</p>", "02-rozpocet"),
+    "<!--MH_VYDAJE-->": pc.mascot_help("Kam tečou výdaje", "<p>Výdaje obce podle oblasti, na kterou šly, například školství, doprava nebo bydlení a komunální služby. Jsou to skutečně utracené peníze podle výkazu pro Státní pokladnu. Kliknutím na položky v legendě necháte v grafu jen vybrané oblasti. Přepínač mění zobrazení mezi miliony korun a podílem v procentech.</p>", "02-rozpocet"),
+    "<!--MH_DETAIL-->": pc.mascot_help("Detail rozpočtu", "<p>Tabulka se všemi položkami rozpočtu. Vyberte rok (nebo souhrn všech let) a stranu výdajů či příjmů. Kliknutím na záhlaví sloupce řadíte, políčkem hledáte položku nebo oblast a kliknutím na řádek oblasti či třídy ji rozbalíte na konkrétní položky.</p>", "02-rozpocet"),
+}
+for k, v in MH.items():
+    HTML = HTML.replace(k, v)
 open(OUT, "w", encoding="utf-8").write(HTML)
 print(f"HOTOVO -> {OUT}  ({len(HTML)//1024} kB, {len(rows)} radku, roky {years[0]}-{years[-1]})")

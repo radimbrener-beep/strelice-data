@@ -139,10 +139,11 @@ body = '''<header class="hero">
   </div>
 </section>
 <section id="ulsec">
-  <div class="sec-h"><h2>Moje ulice</h2><span class="hint">co se v ulici řešilo na radě a zastupitelstvu</span></div>
+  <div class="sec-h"><h2>Moje ulice</h2>''' + pc.mascot_help("Moje ulice", "<p>Vyberte ulici a uvidíte usnesení rady a zastupitelstva, ve kterých se její název objevuje, i ve skloňovaném tvaru (třeba „v ulici Brněnské“). Nejnovější jsou nahoře.</p><p>Na mapě je ulice vyznačená kroužkem, body jsou parcely uvedené v usneseních. Přiřazení se dělá podle textu usnesení, takže když se ulice v textu nezmíní jménem, v seznamu chybí.</p>", "03-moje-ulice") + '''<span class="hint">co se v ulici řešilo na radě a zastupitelstvu</span></div>
   <div class="panel">
     <div class="ulpick"><label for="ulSel" class="lbl">Ulice</label><select id="ulSel"><option value="">— vyberte ulici —</option></select>
       <span class="hint" id="ulMeta"></span></div>
+    <div id="ulIntro">''' + pc.mascot_note("03-moje-ulice", "<b>Vyberte svou ulici v seznamu.</b> Ukážu vám, co se o ní psalo v usneseních rady a zastupitelstva, a místa z usnesení na mapě.") + '''</div>
     <div class="ulgrid" id="ulGrid" hidden>
       <div id="ulMap" class="ulmap"></div>
       <div id="ulList" class="ullist"></div>
@@ -177,9 +178,11 @@ CSS = '''<style>''' + LEAFLET_CSS + '''
 .htype{font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:999px;color:#fff}
 .hamt{margin-left:auto;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
 .more{display:block;margin:10px auto;font:inherit;padding:9px 18px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+.more[hidden]{display:none}
 .ulpick{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .ulpick select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--inset);color:var(--text);min-width:220px}
 .ulgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;margin-top:14px}
+.ulgrid[hidden]{display:none}
 .ulmap{height:420px;border-radius:12px;border:1px solid var(--line);z-index:0}
 .ullist{max-height:420px;overflow:auto;padding-right:4px}
 .ullist .hres{padding:10px 12px}
@@ -261,7 +264,7 @@ function draw(toks,raw){
   document.getElementById('resH').textContent=list.length?('Nalezeno '+nf.format(list.length)+' výsledků'):'Nic nenalezeno';
   document.getElementById('resHint').textContent=list.length?'klikněte pro detail v příslušné sekci':'';
   document.getElementById('resList').innerHTML=list.length?list.slice(0,shown).map(i=>card(i,toks,raw)).join(''):
-    '<div class="empty">Zkuste jiné nebo méně slov — třeba jen kořen slova („chodník" → „chodn").</div>';
+    EMPTY_NOTE;
   const m=document.getElementById('resMore'); m.hidden=list.length<=shown;
   m.onclick=()=>{shown+=PAGE;draw(toks,raw);};
 }
@@ -276,6 +279,7 @@ Object.keys(UL).forEach(nm=>{const o=document.createElement('option');o.value=nm
 let map,layer;
 function showStreet(nm){
   const grid=document.getElementById('ulGrid'), meta=document.getElementById('ulMeta');
+  document.getElementById('ulIntro').hidden=!!nm;
   if(!nm){grid.hidden=true;meta.textContent='';return;}
   const u=UL[nm]; grid.hidden=false;
   const ids=u.i.slice().sort((a,b)=>(IDX[b][3]||'').localeCompare(IDX[a][3]||''));
@@ -297,9 +301,10 @@ sel.onchange=()=>showStreet(sel.value);
 (function(){const u=new URLSearchParams(location.search);
   if(u.get('q')){hq.value=u.get('q');search(hq.value);}
   else if(u.get('ulice')&&UL[u.get('ulice')]){sel.value=u.get('ulice');showStreet(sel.value);document.getElementById('ulsec').scrollIntoView();}
+  else if(location.hash==='#ulsec')sel.focus({preventScroll:true});
   else hq.focus();})();
 bindTheme();
-</script>'''.replace("DATA_JSON", data_json).replace("/*TEMAJS*/", pc.TEMA_JS)
+</script>'''.replace("DATA_JSON", data_json).replace("EMPTY_NOTE", json.dumps(pc.mascot_note("04-zadne-vysledky", "<b>Tady jsem nic nenašel.</b> Zkuste jiné nebo méně slov, třeba jen kořen slova („chodník“ → „chodn“). Hledání nerozlišuje diakritiku ani velikost písmen.", "msk-empty"), ensure_ascii=False)).replace("/*TEMAJS*/", pc.TEMA_JS)
 
 html = pc.page("Hledat", "Hledat — Jak žijí Střelice", body, head_scripts=CSS, body_scripts=JS)
 open("hledat.html", "w", encoding="utf-8").write(html)

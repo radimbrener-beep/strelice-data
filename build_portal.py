@@ -204,14 +204,40 @@ POUTAC_JS = r"""<script>
    setTimeout(function(){el.textContent=fmt(t,d);},dur+120);}
  if(!('IntersectionObserver' in window)){els.forEach(run);return;}
  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);io.unobserve(x.target);}});},{threshold:.4});
- els.forEach(function(el){io.observe(el);});   // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět})();
+ // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět
+ els.forEach(function(el){io.observe(el);});})();
 </script>"""
+# --- průvodce s maskotem (statický, nic nepřekrývá; odkazy jen na existující sekce) ---
+GUIDE_LINKS = [("rozpocet.html", "Kam jdou peníze obce"), ("hledat.html#ulsec", "Co se řešilo v mé ulici"),
+               ("zastupitelstvo.html", "Jak hlasovalo zastupitelstvo"), ("investice.html", "Co se staví a opravuje")]
+GUIDE = ('<section class="guide" aria-labelledby="guideH"><span class="g-fig">' + pc.mascot_img("01-uvitani", "msk") + '</span>'
+         '<div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2>'
+         '<p>Všechna čísla tu jsou z veřejných zdrojů a u každého najdete odkaz, odkud pochází. Kde chcete začít?</p>'
+         '<div class="g-links">' + "".join(f'<a href="{h}">{t} <span aria-hidden="true">→</span></a>' for h, t in GUIDE_LINKS)
+         + '</div></div></section>')
+GUIDE_CSS = """<style>
+.guide{display:flex;align-items:center;gap:22px;margin:22px 0 0}
+.guide .g-fig{flex:none;width:170px;height:170px;border-radius:50%;background:var(--msk-bg);display:grid;place-items:center}
+.guide .g-fig .msk{width:150px;height:150px}
+.g-bub{position:relative;flex:1;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px}
+.g-bub:before{content:"";position:absolute;left:-9px;top:50%;width:16px;height:16px;background:var(--surface);
+  border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateY(-50%) rotate(45deg)}
+.g-bub h2{margin:0;font-size:19px}
+.g-bub p{margin:6px 0 12px;color:var(--muted);font-size:14.5px;line-height:1.55}
+.g-links{display:flex;flex-wrap:wrap;gap:8px}
+.g-links a{font-size:13.5px;font-weight:650;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--bg2)}
+.g-links a:hover{border-color:var(--accent)}
+.g-links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:640px){.guide{flex-direction:column;gap:12px}.guide .g-fig{width:128px;height:128px}.guide .g-fig .msk{width:112px;height:112px}
+  .g-bub:before{left:50%;top:-9px;transform:translateX(-50%) rotate(135deg)}.g-links a{flex:1 1 100%;text-align:center}}
+</style>"""
 index_body = f'''<header class="hero">
   <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· občanský datový portál</span></h1>
   <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ {pop_fmt} obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
   {POUTAC}
 </header>
+{GUIDE}
 {upd_panel}
 {pc.fb_card()}
 <section>
@@ -232,7 +258,7 @@ index_body = f'''<header class="hero">
 </section>'''
 
 open("index.html", "w", encoding="utf-8").write(
-    pc.page("Přehled", "Jak žijí Střelice — data obce", index_body, head_scripts=UPD_CSS + POUTAC_CSS,
+    pc.page("Přehled", "Jak žijí Střelice — data obce", index_body, head_scripts=UPD_CSS + POUTAC_CSS + GUIDE_CSS,
             body_scripts='<script>bindTheme();</script>' + POUTAC_JS))
 
 # ================= ŠKOLSTVÍ =================

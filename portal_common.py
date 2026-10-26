@@ -505,6 +505,85 @@ OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, inve
            "dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.")
 
 
+# --- maskot (robůtek s hlavou-grafem, maskot/*.svg z brand/build_maskot.py) ---
+# Nikdy nevyskakuje sám: nápověda u grafu se otevře až kliknutím (tlačítko s hlavou robota)
+# a rozbalí se v toku stránky pod nadpisem, takže nezakrývá data. Texty jen vysvětlují,
+# co graf ukazuje a jak ho číst — nehodnotí.
+MASCOT_DIR = "maskot/"
+_mh_n = [0]
+
+
+def mascot_img(name, cls="msk", alt=""):
+    return f'<img class="{cls}" src="{MASCOT_DIR}{name}.svg" alt="{alt}" loading="lazy" decoding="async">'
+
+
+def mascot_help(title, text, img="10-hlava-mini"):
+    """Tlačítko nápovědy do .sec-h (za <h2>) + panel, který se rozbalí pod nadpisem."""
+    _mh_n[0] += 1
+    i = f"mh{_mh_n[0]}"
+    return (f'<button type="button" class="mh-btn" aria-expanded="false" aria-controls="{i}" '
+            f'title="Nápověda: {title}"><img src="{MASCOT_DIR}10-hlava-mini.svg" alt="">'
+            f'<span class="sr">Nápověda: {title}</span></button>'
+            f'<div class="mh-pop" id="{i}" role="region" aria-label="Nápověda: {title}" hidden>'
+            f'<span class="mh-fig">{mascot_img(img)}</span><div class="mh-tx"><b class="mh-t">{title}</b>{text}</div>'
+            f'<button type="button" class="mh-x" aria-label="Zavřít nápovědu">✕</button></div>')
+
+
+def mascot_note(img, html, cls=""):
+    """Statická bublina s robotem (prázdný stav, úvod sekce). Bez interakce, nic nepřekrývá."""
+    return (f'<div class="msk-note {cls}"><span class="mh-fig">{mascot_img(img)}</span>'
+            f'<div class="msk-say">{html}</div></div>')
+
+
+NAV_CSS = NAV_CSS + """
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sec-h:has(.mh-btn){flex-wrap:wrap;align-items:center}
+.mh-btn{flex:none;width:34px;height:34px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--msk-bg);
+  cursor:pointer;display:grid;place-items:center;transition:transform .15s,border-color .15s;align-self:center}
+.mh-btn img{width:24px;height:auto;display:block}
+.mh-btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+.mh-btn:focus-visible,.mh-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mh-btn[aria-expanded="true"]{border-color:var(--amber);box-shadow:0 0 0 3px color-mix(in srgb,var(--amber) 25%,transparent)}
+.mh-pop{flex-basis:100%;order:9;display:flex;gap:14px;align-items:flex-start;position:relative;margin-top:4px;
+  padding:14px 44px 14px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);
+  font-family:var(--font-b);font-size:14px;line-height:1.55;color:var(--text);font-weight:400;letter-spacing:0}
+.mh-pop[hidden]{display:none}
+.mh-tx .mh-t{display:block;font-family:var(--font-d);font-size:15px;margin-bottom:2px;color:var(--ink)}
+.mh-tx p{margin:4px 0 0}
+.mh-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:8px;border:0;background:none;color:var(--muted);cursor:pointer;font-size:15px}
+.mh-x:hover{color:var(--text);background:var(--inset)}
+.mh-fig{flex:none;width:76px;height:76px;border-radius:18px;background:var(--msk-bg);display:grid;place-items:center;overflow:hidden}
+.mh-fig .msk{width:88%;height:88%;object-fit:contain}
+.msk-note{display:flex;gap:16px;align-items:center;padding:16px;border-radius:14px;background:var(--inset);border:1px dashed var(--line);color:var(--muted);font-size:14px;line-height:1.55}
+.msk-note .mh-fig{width:96px;height:96px}
+.msk-say b{color:var(--text)}
+:root{--msk-bg:#e3eeec}
+html[data-theme="dark"]{--msk-bg:#dbe7e5}
+@media(max-width:560px){.mh-pop{padding:12px 40px 12px 12px;gap:10px}.mh-fig{width:56px;height:56px;border-radius:14px}
+  .msk-note{padding:12px;gap:12px}.msk-note .mh-fig{width:72px;height:72px}}
+"""
+
+NAV_JS = NAV_JS + r"""
+/* nápověda s maskotem: otevře se jen kliknutím, Esc / ✕ zavře a vrátí fokus na tlačítko */
+(function(){
+  function set(btn,open){var p=document.getElementById(btn.getAttribute('aria-controls'));if(!p)return;
+    btn.setAttribute('aria-expanded',open?'true':'false');p.hidden=!open;}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.mh-btn');
+    if(b){set(b,b.getAttribute('aria-expanded')!=='true');return;}
+    var x=e.target.closest&&e.target.closest('.mh-x');
+    if(x){var p=x.closest('.mh-pop'),bt=document.querySelector('.mh-btn[aria-controls="'+p.id+'"]');if(bt){set(bt,false);bt.focus();}}
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    var p=document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.mh-pop');
+    var bt=p?document.querySelector('.mh-btn[aria-controls="'+p.id+'"]'):(document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.mh-btn'));
+    if(bt&&bt.getAttribute('aria-expanded')==='true'){set(bt,false);bt.focus();}
+  });
+})();
+"""
+
+
 def og_meta(active, title):
     """Meta značky pro hezký náhled při sdílení (obrázek og-image.png je plochý soubor v kořeni)."""
     fn = next((f for f, n in SECTIONS + EXTRA_PAGES if n == active), "index.html")

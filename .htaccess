@@ -1,2 +1,4 @@
-# Záměrně prázdné — Wedos nepodporoval interní přepis na čisté URL (vracelo 500).
-# Web běží na .html adresách. Tento prázdný soubor přepíše dřívější chybové pravidlo.
+# Záměrně bez mod_rewrite — Wedos nepodporoval interní přepis na čisté URL (vracelo 500).
+# Web běží na .html adresách.
+# Neexistující adresy → stránka 404 s maskotem (build_404.py); cesta musí být absolutní.
+ErrorDocument 404 /404.html

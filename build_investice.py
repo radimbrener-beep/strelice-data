@@ -184,7 +184,7 @@ body = f'''<header class="hero">
 </div>
 
 <section>
-  <div class="sec-h"><h2>Vývoj investic v čase</h2><span class="hint">kapitálové výdaje · mil. Kč · klikni na rok pro detail</span></div>
+  <div class="sec-h"><h2>Vývoj investic v čase</h2>{pc.mascot_help("Vývoj investic v čase", "<p>Investice jsou kapitálové výdaje: peníze na pořízení nebo zhodnocení majetku obce, třeba stavby, rekonstrukce, pozemky a vybavení. Graf ukazuje skutečně utracené částky v každém roce podle výkazu pro Státní pokladnu. Kliknutím na rok zobrazíte jeho detail.</p>", "02-rozpocet")}<span class="hint">kapitálové výdaje · mil. Kč · klikni na rok pro detail</span></div>
   <div class="panel">
     <div class="chartbox sm"><canvas id="yearChart"></canvas></div>
     <p class="note">Po letech stabilních investic (~15–20 mil Kč ročně) přišly rekordní roky <b>2023</b> a <b>2024</b> — přístavba mateřské školy, rekonstrukce ulic a chodníků a další velké stavby. Kapitálové (investiční) výdaje jdou na pořízení a zhodnocení majetku obce, na rozdíl od běžných provozních výdajů.</p>
@@ -192,7 +192,7 @@ body = f'''<header class="hero">
 </section>
 
 <section>
-  <div class="sec-h"><h2>Mapa investic</h2><span class="hint">kde se stavělo a opravovalo · klikni na bod</span></div>
+  <div class="sec-h"><h2>Mapa investic</h2>{pc.mascot_help("Mapa investic", "<p>Body ukazují, kde obec stavěla nebo opravovala. Velikost bodu odpovídá částce, po kliknutí na bod uvidíte detail akce. Nahoře vyberete rok.</p><p>Poloha se určuje automaticky z čísla parcely v usnesení, názvu ulice nebo známého místa (škola, úřad, hřbitov), takže akce bez takového údaje na mapě chybí.</p>", "06-investice")}<span class="hint">kde se stavělo a opravovalo · klikni na bod</span></div>
   <div class="ctrls">
     <span class="lbl">Rok</span><span class="seg" id="mapYrSeg"></span>
   </div>

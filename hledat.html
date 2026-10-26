@@ -203,6 +203,32 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
 .push-toggle .pt-stats a{color:var(--muted)}
 .push-toggle button:disabled{opacity:.55;cursor:wait}
 
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sec-h:has(.mh-btn){flex-wrap:wrap;align-items:center}
+.mh-btn{flex:none;width:34px;height:34px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--msk-bg);
+  cursor:pointer;display:grid;place-items:center;transition:transform .15s,border-color .15s;align-self:center}
+.mh-btn img{width:24px;height:auto;display:block}
+.mh-btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+.mh-btn:focus-visible,.mh-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mh-btn[aria-expanded="true"]{border-color:var(--amber);box-shadow:0 0 0 3px color-mix(in srgb,var(--amber) 25%,transparent)}
+.mh-pop{flex-basis:100%;order:9;display:flex;gap:14px;align-items:flex-start;position:relative;margin-top:4px;
+  padding:14px 44px 14px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);
+  font-family:var(--font-b);font-size:14px;line-height:1.55;color:var(--text);font-weight:400;letter-spacing:0}
+.mh-pop[hidden]{display:none}
+.mh-tx .mh-t{display:block;font-family:var(--font-d);font-size:15px;margin-bottom:2px;color:var(--ink)}
+.mh-tx p{margin:4px 0 0}
+.mh-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:8px;border:0;background:none;color:var(--muted);cursor:pointer;font-size:15px}
+.mh-x:hover{color:var(--text);background:var(--inset)}
+.mh-fig{flex:none;width:76px;height:76px;border-radius:18px;background:var(--msk-bg);display:grid;place-items:center;overflow:hidden}
+.mh-fig .msk{width:88%;height:88%;object-fit:contain}
+.msk-note{display:flex;gap:16px;align-items:center;padding:16px;border-radius:14px;background:var(--inset);border:1px dashed var(--line);color:var(--muted);font-size:14px;line-height:1.55}
+.msk-note .mh-fig{width:96px;height:96px}
+.msk-say b{color:var(--text)}
+:root{--msk-bg:#e3eeec}
+html[data-theme="dark"]{--msk-bg:#dbe7e5}
+@media(max-width:560px){.mh-pop{padding:12px 40px 12px 12px;gap:10px}.mh-fig{width:56px;height:56px;border-radius:14px}
+  .msk-note{padding:12px;gap:12px}.msk-note .mh-fig{width:72px;height:72px}}
+
 @keyframes skel{0%{background-position:-400px 0}100%{background-position:400px 0}}
 .skel{border-radius:10px;background:linear-gradient(90deg,var(--inset) 0,var(--line) 40%,var(--inset) 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
 .skel-row{height:54px;margin:0 0 10px}
@@ -892,9 +918,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
 .htype{font-size:11px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:999px;color:#fff}
 .hamt{margin-left:auto;font-weight:600;color:var(--text);font-variant-numeric:tabular-nums}
 .more{display:block;margin:10px auto;font:inherit;padding:9px 18px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer}
+.more[hidden]{display:none}
 .ulpick{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
 .ulpick select{font:inherit;padding:8px 10px;border-radius:10px;border:1px solid var(--line);background:var(--inset);color:var(--text);min-width:220px}
 .ulgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:16px;margin-top:14px}
+.ulgrid[hidden]{display:none}
 .ulmap{height:420px;border-radius:12px;border:1px solid var(--line);z-index:0}
 .ullist{max-height:420px;overflow:auto;padding-right:4px}
 .ullist .hres{padding:10px 12px}
@@ -924,10 +952,11 @@ svg.leaflet-image-layer.leaflet-interactive path {
   </div>
 </section>
 <section id="ulsec">
-  <div class="sec-h"><h2>Moje ulice</h2><span class="hint">co se v ulici řešilo na radě a zastupitelstvu</span></div>
+  <div class="sec-h"><h2>Moje ulice</h2><button type="button" class="mh-btn" aria-expanded="false" aria-controls="mh1" title="Nápověda: Moje ulice"><img src="maskot/10-hlava-mini.svg" alt=""><span class="sr">Nápověda: Moje ulice</span></button><div class="mh-pop" id="mh1" role="region" aria-label="Nápověda: Moje ulice" hidden><span class="mh-fig"><img class="msk" src="maskot/03-moje-ulice.svg" alt="" loading="lazy" decoding="async"></span><div class="mh-tx"><b class="mh-t">Moje ulice</b><p>Vyberte ulici a uvidíte usnesení rady a zastupitelstva, ve kterých se její název objevuje, i ve skloňovaném tvaru (třeba „v ulici Brněnské“). Nejnovější jsou nahoře.</p><p>Na mapě je ulice vyznačená kroužkem, body jsou parcely uvedené v usneseních. Přiřazení se dělá podle textu usnesení, takže když se ulice v textu nezmíní jménem, v seznamu chybí.</p></div><button type="button" class="mh-x" aria-label="Zavřít nápovědu">✕</button></div><span class="hint">co se v ulici řešilo na radě a zastupitelstvu</span></div>
   <div class="panel">
     <div class="ulpick"><label for="ulSel" class="lbl">Ulice</label><select id="ulSel"><option value="">— vyberte ulici —</option></select>
       <span class="hint" id="ulMeta"></span></div>
+    <div id="ulIntro"><div class="msk-note "><span class="mh-fig"><img class="msk" src="maskot/03-moje-ulice.svg" alt="" loading="lazy" decoding="async"></span><div class="msk-say"><b>Vyberte svou ulici v seznamu.</b> Ukážu vám, co se o ní psalo v usneseních rady a zastupitelstva, a místa z usnesení na mapě.</div></div></div>
     <div class="ulgrid" id="ulGrid" hidden>
       <div id="ulMap" class="ulmap"></div>
       <div id="ulList" class="ullist"></div>
@@ -941,7 +970,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
   <button class="more" id="resMore" hidden>Zobrazit další</button>
 </section>
 <div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:12px">Občanský datový portál obce Střelice · data z veřejných zdrojů</div>
-<footer class="footer">Data aktualizována k <b style="color:var(--muted)">24. 10. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a> &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
+<footer class="footer">Data aktualizována k <b style="color:var(--muted)">26. 10. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a> &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a> &nbsp;·&nbsp; <a href="https://www.facebook.com/jaksemame" rel="noopener">Facebook</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
 </div>
 <script>
 function bindTheme(after){var b=document.getElementById('themeBtn');if(!b)return;
@@ -1042,6 +1071,24 @@ function dlCSV(name,header,rows){
     });
   }).catch(function(){show(false);});
 })();
+
+/* nápověda s maskotem: otevře se jen kliknutím, Esc / ✕ zavře a vrátí fokus na tlačítko */
+(function(){
+  function set(btn,open){var p=document.getElementById(btn.getAttribute('aria-controls'));if(!p)return;
+    btn.setAttribute('aria-expanded',open?'true':'false');p.hidden=!open;}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.mh-btn');
+    if(b){set(b,b.getAttribute('aria-expanded')!=='true');return;}
+    var x=e.target.closest&&e.target.closest('.mh-x');
+    if(x){var p=x.closest('.mh-pop'),bt=document.querySelector('.mh-btn[aria-controls="'+p.id+'"]');if(bt){set(bt,false);bt.focus();}}
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    var p=document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.mh-pop');
+    var bt=p?document.querySelector('.mh-btn[aria-controls="'+p.id+'"]'):(document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.mh-btn'));
+    if(bt&&bt.getAttribute('aria-expanded')==='true'){set(bt,false);bt.focus();}
+  });
+})();
 </script>
 <script>/* @preserve
  * Leaflet 1.9.4, a JS library for interactive maps. https://leafletjs.com
@@ -1122,7 +1169,7 @@ function draw(toks,raw){
   document.getElementById('resH').textContent=list.length?('Nalezeno '+nf.format(list.length)+' výsledků'):'Nic nenalezeno';
   document.getElementById('resHint').textContent=list.length?'klikněte pro detail v příslušné sekci':'';
   document.getElementById('resList').innerHTML=list.length?list.slice(0,shown).map(i=>card(i,toks,raw)).join(''):
-    '<div class="empty">Zkuste jiné nebo méně slov — třeba jen kořen slova („chodník" → „chodn").</div>';
+    "<div class=\"msk-note msk-empty\"><span class=\"mh-fig\"><img class=\"msk\" src=\"maskot/04-zadne-vysledky.svg\" alt=\"\" loading=\"lazy\" decoding=\"async\"></span><div class=\"msk-say\"><b>Tady jsem nic nenašel.</b> Zkuste jiné nebo méně slov, třeba jen kořen slova („chodník“ → „chodn“). Hledání nerozlišuje diakritiku ani velikost písmen.</div></div>";
   const m=document.getElementById('resMore'); m.hidden=list.length<=shown;
   m.onclick=()=>{shown+=PAGE;draw(toks,raw);};
 }
@@ -1137,6 +1184,7 @@ Object.keys(UL).forEach(nm=>{const o=document.createElement('option');o.value=nm
 let map,layer;
 function showStreet(nm){
   const grid=document.getElementById('ulGrid'), meta=document.getElementById('ulMeta');
+  document.getElementById('ulIntro').hidden=!!nm;
   if(!nm){grid.hidden=true;meta.textContent='';return;}
   const u=UL[nm]; grid.hidden=false;
   const ids=u.i.slice().sort((a,b)=>(IDX[b][3]||'').localeCompare(IDX[a][3]||''));
@@ -1158,6 +1206,7 @@ sel.onchange=()=>showStreet(sel.value);
 (function(){const u=new URLSearchParams(location.search);
   if(u.get('q')){hq.value=u.get('q');search(hq.value);}
   else if(u.get('ulice')&&UL[u.get('ulice')]){sel.value=u.get('ulice');showStreet(sel.value);document.getElementById('ulsec').scrollIntoView();}
+  else if(location.hash==='#ulsec')sel.focus({preventScroll:true});
   else hq.focus();})();
 bindTheme();
 </script>

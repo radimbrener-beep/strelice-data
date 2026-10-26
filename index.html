@@ -203,6 +203,32 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
 .push-toggle .pt-stats a{color:var(--muted)}
 .push-toggle button:disabled{opacity:.55;cursor:wait}
 
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.sec-h:has(.mh-btn){flex-wrap:wrap;align-items:center}
+.mh-btn{flex:none;width:34px;height:34px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--msk-bg);
+  cursor:pointer;display:grid;place-items:center;transition:transform .15s,border-color .15s;align-self:center}
+.mh-btn img{width:24px;height:auto;display:block}
+.mh-btn:hover{transform:translateY(-1px);border-color:var(--accent)}
+.mh-btn:focus-visible,.mh-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.mh-btn[aria-expanded="true"]{border-color:var(--amber);box-shadow:0 0 0 3px color-mix(in srgb,var(--amber) 25%,transparent)}
+.mh-pop{flex-basis:100%;order:9;display:flex;gap:14px;align-items:flex-start;position:relative;margin-top:4px;
+  padding:14px 44px 14px 14px;border-radius:14px;background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber);
+  font-family:var(--font-b);font-size:14px;line-height:1.55;color:var(--text);font-weight:400;letter-spacing:0}
+.mh-pop[hidden]{display:none}
+.mh-tx .mh-t{display:block;font-family:var(--font-d);font-size:15px;margin-bottom:2px;color:var(--ink)}
+.mh-tx p{margin:4px 0 0}
+.mh-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:8px;border:0;background:none;color:var(--muted);cursor:pointer;font-size:15px}
+.mh-x:hover{color:var(--text);background:var(--inset)}
+.mh-fig{flex:none;width:76px;height:76px;border-radius:18px;background:var(--msk-bg);display:grid;place-items:center;overflow:hidden}
+.mh-fig .msk{width:88%;height:88%;object-fit:contain}
+.msk-note{display:flex;gap:16px;align-items:center;padding:16px;border-radius:14px;background:var(--inset);border:1px dashed var(--line);color:var(--muted);font-size:14px;line-height:1.55}
+.msk-note .mh-fig{width:96px;height:96px}
+.msk-say b{color:var(--text)}
+:root{--msk-bg:#e3eeec}
+html[data-theme="dark"]{--msk-bg:#dbe7e5}
+@media(max-width:560px){.mh-pop{padding:12px 40px 12px 12px;gap:10px}.mh-fig{width:56px;height:56px;border-radius:14px}
+  .msk-note{padding:12px;gap:12px}.msk-note .mh-fig{width:72px;height:72px}}
+
 @keyframes skel{0%{background-position:-400px 0}100%{background-position:400px 0}}
 .skel{border-radius:10px;background:linear-gradient(90deg,var(--inset) 0,var(--line) 40%,var(--inset) 80%);background-size:800px 100%;animation:skel 1.3s linear infinite}
 .skel-row{height:54px;margin:0 0 10px}
@@ -232,6 +258,21 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
 .poutac .cnt{font-size:22px;font-weight:720;color:var(--accent);font-variant-numeric:tabular-nums;letter-spacing:-.01em}
 .poutac .pg{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
 @media(max-width:560px){.poutac .pl{font-size:15.5px}.poutac .cnt{font-size:19px}}
+</style><style>
+.guide{display:flex;align-items:center;gap:22px;margin:22px 0 0}
+.guide .g-fig{flex:none;width:170px;height:170px;border-radius:50%;background:var(--msk-bg);display:grid;place-items:center}
+.guide .g-fig .msk{width:150px;height:150px}
+.g-bub{position:relative;flex:1;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px 22px}
+.g-bub:before{content:"";position:absolute;left:-9px;top:50%;width:16px;height:16px;background:var(--surface);
+  border-left:1px solid var(--line);border-bottom:1px solid var(--line);transform:translateY(-50%) rotate(45deg)}
+.g-bub h2{margin:0;font-size:19px}
+.g-bub p{margin:6px 0 12px;color:var(--muted);font-size:14.5px;line-height:1.55}
+.g-links{display:flex;flex-wrap:wrap;gap:8px}
+.g-links a{font-size:13.5px;font-weight:650;color:var(--accent);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 14px;background:var(--bg2)}
+.g-links a:hover{border-color:var(--accent)}
+.g-links a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media(max-width:640px){.guide{flex-direction:column;gap:12px}.guide .g-fig{width:128px;height:128px}.guide .g-fig .msk{width:112px;height:112px}
+  .g-bub:before{left:50%;top:-9px;transform:translateX(-50%) rotate(135deg)}.g-links a{flex:1 1 100%;text-align:center}}
 </style>
 </head>
 <body>
@@ -249,6 +290,7 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ 3 283 obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
   <a class="poutac" href="obdobi.html"><span class="pt">Volební období 2022–2026 v číslech</span><span class="pl">Rada a zastupitelstvo projednaly <b class="cnt" data-v="2728" data-d="0">2 728</b> bodů na <b class="cnt" data-v="132" data-d="0">132</b> jednáních, obec proinvestovala <b class="cnt" data-v="177.2" data-d="1">177,2</b> mil. Kč a spolkům přispěla <b class="cnt" data-v="10.6" data-d="1">10,6</b> mil. Kč.</span><span class="pg">Celá bilance období a aktivita zastupitelů →</span></a>
 </header>
+<section class="guide" aria-labelledby="guideH"><span class="g-fig"><img class="msk" src="maskot/01-uvitani.svg" alt="" loading="lazy" decoding="async"></span><div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2><p>Všechna čísla tu jsou z veřejných zdrojů a u každého najdete odkaz, odkud pochází. Kde chcete začít?</p><div class="g-links"><a href="rozpocet.html">Kam jdou peníze obce <span aria-hidden="true">→</span></a><a href="hledat.html#ulsec">Co se řešilo v mé ulici <span aria-hidden="true">→</span></a><a href="zastupitelstvo.html">Jak hlasovalo zastupitelstvo <span aria-hidden="true">→</span></a><a href="investice.html">Co se staví a opravuje <span aria-hidden="true">→</span></a></div></div></section>
 <section><div class="panel"><div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2><span class="hint">poslední zápis z každé sekce · datum = kdy přibyl na portál</span></div><div class="updlist"><a class="updrow" href="zapisy.html?ro=103"><span class="upddate"><small>přidáno</small>23. 10. 2026</span><span class="updsec"><i style="background:#85b7eb"></i>Rada obce</span><span class="updtxt">Zápis z 103. jednání rady obce <span class="updmd">· jednání 14. 10. 2026</span></span><span class="updarr">&#8594;</span></a><a class="updrow" href="zastupitelstvo.html?zo=29"><span class="upddate"><small>přidáno</small>30. 9. 2026</span><span class="updsec"><i style="background:#e0a458"></i>Zastupitelstvo</span><span class="updtxt">Zápis z 29. zasedání zastupitelstva <span class="updmd">· zasedání 17. 9. 2026</span></span><span class="updarr">&#8594;</span></a></div></div></section>
 <style>
 .fbcard{display:flex;align-items:center;gap:18px;margin:18px 0 0;padding:18px 22px;border-radius:var(--radius);text-decoration:none;
@@ -396,6 +438,24 @@ function dlCSV(name,header,rows){
     });
   }).catch(function(){show(false);});
 })();
+
+/* nápověda s maskotem: otevře se jen kliknutím, Esc / ✕ zavře a vrátí fokus na tlačítko */
+(function(){
+  function set(btn,open){var p=document.getElementById(btn.getAttribute('aria-controls'));if(!p)return;
+    btn.setAttribute('aria-expanded',open?'true':'false');p.hidden=!open;}
+  document.addEventListener('click',function(e){
+    var b=e.target.closest&&e.target.closest('.mh-btn');
+    if(b){set(b,b.getAttribute('aria-expanded')!=='true');return;}
+    var x=e.target.closest&&e.target.closest('.mh-x');
+    if(x){var p=x.closest('.mh-pop'),bt=document.querySelector('.mh-btn[aria-controls="'+p.id+'"]');if(bt){set(bt,false);bt.focus();}}
+  });
+  document.addEventListener('keydown',function(e){
+    if(e.key!=='Escape')return;
+    var p=document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.mh-pop');
+    var bt=p?document.querySelector('.mh-btn[aria-controls="'+p.id+'"]'):(document.activeElement&&document.activeElement.closest&&document.activeElement.closest('.mh-btn'));
+    if(bt&&bt.getAttribute('aria-expanded')==='true'){set(bt,false);bt.focus();}
+  });
+})();
 </script>
 <script>bindTheme();</script><script>
 (function(){var els=document.querySelectorAll('.cnt');if(!els.length)return;
@@ -408,7 +468,8 @@ function dlCSV(name,header,rows){
    setTimeout(function(){el.textContent=fmt(t,d);},dur+120);}
  if(!('IntersectionObserver' in window)){els.forEach(run);return;}
  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);io.unobserve(x.target);}});},{threshold:.4});
- els.forEach(function(el){io.observe(el);});   // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět})();
+ // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět
+ els.forEach(function(el){io.observe(el);});})();
 </script>
 </body>
 </html>

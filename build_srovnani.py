@@ -85,7 +85,7 @@ body = f'''<header class="hero">
 </section>
 
 <section>
-  <div class="sec-h"><h2>Střelice vs. sousedé</h2><span class="hint">na obyvatele i celkem · přepínač platí pro grafy i tabulku</span></div>
+  <div class="sec-h"><h2>Střelice vs. sousedé</h2>{pc.mascot_help("Střelice vs. sousedé", "<p>Graf porovnává Střelice s okolními obcemi ve vybraném ukazateli. Všechny obce mají data ze stejného zdroje (MONITOR Státní pokladny) a počítají se stejně.</p><p>Přepínači zvolíte ukazatel, poslední rok nebo průměr za pět let a hodnoty <b>na obyvatele</b> nebo <b>celkem</b>. Přepočet na obyvatele umožňuje srovnat různě velké obce; u malých obcí ale jedna velká akce přepočet hodně rozhoupe.</p>", "07-srovnani-obci")}<span class="hint">na obyvatele i celkem · přepínač platí pro grafy i tabulku</span></div>
   <div class="ctrls">
     <span class="lbl">Ukazatel</span><span class="seg" id="metSeg"></span>
     <span class="lbl" style="margin-left:8px">Období</span>
