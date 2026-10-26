@@ -1,4 +1,6 @@
 # Záměrně bez mod_rewrite — Wedos nepodporoval interní přepis na čisté URL (vracelo 500).
 # Web běží na .html adresách.
-# Neexistující adresy → stránka 404 s maskotem (build_404.py); cesta musí být absolutní.
-ErrorDocument 404 /404.html
+# Neexistující adresy → stránka 404 s maskotem (build_404.py). Wedos subdoménu interně
+# mapuje do /subdom/strelice/, cesta k chybové stránce proto musí obsahovat tuto předponu
+# (samotné /404.html vracelo 500, stejně jako u přesměrování s /domains/…).
+ErrorDocument 404 /subdom/strelice/404.html
