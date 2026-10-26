@@ -213,6 +213,7 @@ index_body = f'''<header class="hero">
   {POUTAC}
 </header>
 {upd_panel}
+{pc.fb_card()}
 <section>
   <div class="tiles">{tile_html}</div>
 </section>

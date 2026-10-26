@@ -250,6 +250,22 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
   <a class="poutac" href="obdobi.html"><span class="pt">Volební období 2022–2026 v číslech</span><span class="pl">Rada a zastupitelstvo projednaly <b class="cnt" data-v="2728" data-d="0">2 728</b> bodů na <b class="cnt" data-v="132" data-d="0">132</b> jednáních, obec proinvestovala <b class="cnt" data-v="177.2" data-d="1">177,2</b> mil. Kč a spolkům přispěla <b class="cnt" data-v="10.6" data-d="1">10,6</b> mil. Kč.</span><span class="pg">Celá bilance období a aktivita zastupitelů →</span></a>
 </header>
 <section><div class="panel"><div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2><span class="hint">poslední zápis z každé sekce · datum = kdy přibyl na portál</span></div><div class="updlist"><a class="updrow" href="zapisy.html?ro=103"><span class="upddate"><small>přidáno</small>23. 10. 2026</span><span class="updsec"><i style="background:#85b7eb"></i>Rada obce</span><span class="updtxt">Zápis z 103. jednání rady obce <span class="updmd">· jednání 14. 10. 2026</span></span><span class="updarr">&#8594;</span></a><a class="updrow" href="zastupitelstvo.html?zo=29"><span class="upddate"><small>přidáno</small>30. 9. 2026</span><span class="updsec"><i style="background:#e0a458"></i>Zastupitelstvo</span><span class="updtxt">Zápis z 29. zasedání zastupitelstva <span class="updmd">· zasedání 17. 9. 2026</span></span><span class="updarr">&#8594;</span></a></div></div></section>
+<style>
+.fbcard{display:flex;align-items:center;gap:18px;margin:18px 0 0;padding:18px 22px;border-radius:var(--radius);text-decoration:none;
+  color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;
+  background:radial-gradient(420px 160px at 0% 0%,color-mix(in srgb,var(--amber) 16%,transparent),transparent 70%),var(--surface)}
+.fbcard:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+.fbcard .fb-ic{flex:none;width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:var(--amber);color:var(--ink)}
+.fbcard .fb-ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fbcard .fb-tx{flex:1;min-width:0}
+.fbcard .fb-k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber-ink);margin-bottom:3px}
+.fbcard .fb-h{display:block;font-family:var(--font-d);font-size:18px;font-weight:720;line-height:1.3}
+.fbcard .fb-p{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.fbcard .fb-go{flex:none;font-weight:700;font-size:13.5px;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:8px 16px;white-space:nowrap}
+.fbcard:hover .fb-go{border-color:var(--accent)}
+@media(max-width:560px){.fbcard{flex-wrap:wrap;align-items:flex-start;gap:12px 14px;padding:16px}.fbcard .fb-ic{width:44px;height:44px;border-radius:12px}
+  .fbcard .fb-tx{flex-basis:calc(100% - 60px)}.fbcard .fb-h{font-size:16px}.fbcard .fb-go{margin-left:58px}}
+</style><a class="fbcard" href="https://www.facebook.com/jaksemame" target="_blank" rel="noopener"><span class="fb-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></span><span class="fb-tx"><span class="fb-k">Nově na Facebooku</span><b class="fb-h">Novinky z portálu teď i na Facebooku</b><span class="fb-p">Na stránce Jak se máme dám vědět o každé novince na portálu, o nových jednáních a o zajímavostech, které z dat obce vypadnou.</span></span><span class="fb-go">Sledovat stránku →</span></a>
 <section>
   <div class="tiles"><a class="tile" href="obdobi.html"><span class="badge">nové</span>
       <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M7 16v-4M12 16V8M17 16V5"/></svg></span><h3>Bilance období 2022–2026</h3><p>Co zastupitelstvo a rada za čtyři roky rozhodly, kolik se proinvestovalo, časová osa klíčových rozhodnutí — a docházka, hlasování a vystoupení jednotlivých zastupitelů.</p><span class="go">Otevřít bilanci →</span></a><a class="tile" href="hledat.html"><span class="badge">nové</span>
@@ -279,7 +295,7 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
   </div>
 </section>
 <div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:12px">Občanský datový portál obce Střelice · data z veřejných zdrojů</div>
-<footer class="footer">Data aktualizována k <b style="color:var(--muted)">24. 10. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a> &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
+<footer class="footer">Data aktualizována k <b style="color:var(--muted)">26. 10. 2026</b> &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a> &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a> &nbsp;·&nbsp; <a href="https://www.facebook.com/jaksemame" rel="noopener">Facebook</a><br>Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>
 </div>
 <script>
 function bindTheme(after){var b=document.getElementById('themeBtn');if(!b)return;

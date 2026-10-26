@@ -469,6 +469,38 @@ function dlCSV(name,header,rows){
 
 # --- Open Graph / náhled odkazu na sociálních sítích (FB apod.) ---
 SITE = "https://strelice.jaksemame.cz"
+FB_URL = "https://www.facebook.com/jaksemame"  # FB stránka projektu (odkaz v patičce)
+
+# --- karta „Nově na Facebooku" na úvodu (fb_card) ---
+FB_ICON = ('<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7'
+           'a1 1 0 0 1 1-1h3z"/></svg>')
+FB_CARD_CSS = """<style>
+.fbcard{display:flex;align-items:center;gap:18px;margin:18px 0 0;padding:18px 22px;border-radius:var(--radius);text-decoration:none;
+  color:var(--text);border:1px solid var(--line);box-shadow:var(--shadow);transition:transform .2s,box-shadow .2s;
+  background:radial-gradient(420px 160px at 0% 0%,color-mix(in srgb,var(--amber) 16%,transparent),transparent 70%),var(--surface)}
+.fbcard:hover{transform:translateY(-2px);box-shadow:var(--shadow-h)}
+.fbcard .fb-ic{flex:none;width:54px;height:54px;border-radius:15px;display:grid;place-items:center;background:var(--amber);color:var(--ink)}
+.fbcard .fb-ic svg{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fbcard .fb-tx{flex:1;min-width:0}
+.fbcard .fb-k{display:block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--amber-ink);margin-bottom:3px}
+.fbcard .fb-h{display:block;font-family:var(--font-d);font-size:18px;font-weight:720;line-height:1.3}
+.fbcard .fb-p{display:block;margin-top:4px;font-size:13.5px;line-height:1.55;color:var(--muted)}
+.fbcard .fb-go{flex:none;font-weight:700;font-size:13.5px;color:var(--accent);border:1px solid var(--line);border-radius:999px;padding:8px 16px;white-space:nowrap}
+.fbcard:hover .fb-go{border-color:var(--accent)}
+@media(max-width:560px){.fbcard{flex-wrap:wrap;align-items:flex-start;gap:12px 14px;padding:16px}.fbcard .fb-ic{width:44px;height:44px;border-radius:12px}
+  .fbcard .fb-tx{flex-basis:calc(100% - 60px)}.fbcard .fb-h{font-size:16px}.fbcard .fb-go{margin-left:58px}}
+</style>"""
+
+
+def fb_card():
+    """Upoutávka na FB stránku projektu (úvod portálu); CSS je součástí, stačí vložit do těla."""
+    return (FB_CARD_CSS + f'<a class="fbcard" href="{FB_URL}" target="_blank" rel="noopener">'
+            f'<span class="fb-ic">{FB_ICON}</span><span class="fb-tx"><span class="fb-k">Nově na Facebooku</span>'
+            '<b class="fb-h">Novinky z portálu teď i na Facebooku</b>'
+            '<span class="fb-p">Na stránce Jak se máme dám vědět o každé novince na portálu, o nových jednáních '
+            'a o zajímavostech, které z dat obce vypadnou.</span></span>'
+            '<span class="fb-go">Sledovat stránku →</span></a>')
+
 OG_DESC = ("Otevřená data obce Střelice u Brna srozumitelně: rozpočet, investice, "
            "dotace spolkům, školství a usnesení zastupitelstva — interaktivně a pro každého.")
 
@@ -503,7 +535,8 @@ def page(active, title, body, head_scripts="", body_scripts=""):
     head_scripts, body_scripts = inject_chart_font(head_scripts), inject_chart_font(body_scripts)
     footer = ('<footer class="footer">Data aktualizována k <b style="color:var(--muted)">' + UPDATED + '</b>'
               ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a>'
-              ' &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a><br>'
+              ' &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a>'
+              ' &nbsp;·&nbsp; <a href="' + FB_URL + '" rel="noopener">Facebook</a><br>'
               'Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>')
     return f'''<!DOCTYPE html>
 <html lang="cs" data-theme="dark">

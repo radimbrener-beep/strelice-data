@@ -67,6 +67,7 @@ html[data-theme="dark"] .night{background:linear-gradient(#0d191e00,#0d191e 60%)
 html[data-theme="dark"] footer{background:""" + NIGHT["hill2"] + """;color:#a8bec0}
 """ + scene_css() + """
 footer p{max-width:880px;margin:0 auto}
+footer a{color:inherit;text-underline-offset:2px}
 @media (prefers-reduced-motion: reduce){.obec{transition:none}.obec:hover{transform:none}}
 """
 
@@ -106,7 +107,8 @@ HTML = f"""<!DOCTYPE html>
 </div>
 <div class="night">{scene(wide=True, preserve="xMidYMax slice", themed=True)}</div>
 <footer><p>Nezávislý občanský projekt, není oficiálním webem žádné obce · data z veřejných zdrojů
-  (MONITOR Státní pokladny, ČSÚ, zápisy obcí) · Radim Brener</p></footer>
+  (MONITOR Státní pokladny, ČSÚ, zápisy obcí) · Radim Brener
+  · <a href="https://www.facebook.com/jaksemame" rel="noopener">Facebook</a></p></footer>
 <script>{THEME_JS}</script>
 </body>
 </html>
