@@ -1,6 +1,2 @@
-# Záměrně bez mod_rewrite — Wedos nepodporoval interní přepis na čisté URL (vracelo 500).
-# Web běží na .html adresách.
-# Neexistující adresy → stránka 404 s maskotem (build_404.py). Wedos subdoménu interně
-# mapuje do /subdom/strelice/, cesta k chybové stránce proto musí obsahovat tuto předponu
-# (/404.html i /subdom/strelice/404.html vracely 500) → plná adresa = přesměrování na 404.html.
-ErrorDocument 404 https://strelice.jaksemame.cz/404.html
+# Záměrně prázdné — Wedos nepodporoval interní přepis na čisté URL (vracelo 500).
+# Web běží na .html adresách. Tento prázdný soubor přepíše dřívější chybové pravidlo.
