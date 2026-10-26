@@ -214,12 +214,25 @@ GUIDE = ('<section class="guide" aria-labelledby="guideH">' + pc.mascot_img("01-
          + '<div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2>'
          '<p>Všechna čísla tu jsou z veřejných zdrojů a u každého najdete odkaz, odkud pochází. Kde chcete začít?</p>'
          '<nav class="g-links" aria-label="Kde začít">' + "".join(f'<a href="{h}">{t}<span aria-hidden="true">→</span></a>' for h, t in GUIDE_LINKS)
-         + '</nav></div></section>')
+         + '</nav><button type="button" class="g-x" id="guideX" aria-label="Zavřít průvodce" title="Zavřít průvodce">✕</button>'
+         '</div></section>'
+         # zavření si pamatuje prohlížeč návštěvníka; skrytí hned za prvkem = bez probliknutí
+         "<script>try{if(localStorage.getItem('strelice-guide')==='off')document.querySelector('.guide').hidden=true}catch(e){}</script>")
+GUIDE_JS = r"""<script>
+(function(){var g=document.querySelector('.guide'),x=document.getElementById('guideX'),r=document.getElementById('guideBack');
+ if(!g||!x||!r)return;
+ function sync(){r.hidden=!g.hidden;}
+ x.onclick=function(){g.hidden=true;try{localStorage.setItem('strelice-guide','off')}catch(e){}sync();r.focus();};
+ r.onclick=function(){g.hidden=false;try{localStorage.removeItem('strelice-guide')}catch(e){}sync();
+   g.scrollIntoView({behavior:'smooth',block:'center'});x.focus({preventScroll:true});};
+ sync();})();
+</script>"""
 GUIDE_CSS = """<style>
-.guide{display:flex;align-items:flex-start;gap:4px;margin:26px 0 6px}
+.guide{display:flex;align-items:flex-start;gap:4px;margin:20px 0 0}
 .g-bot{flex:none;width:118px;height:118px;margin-top:-6px}
 html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shadow(-1.5px 0 0 #8FD0D466) drop-shadow(0 1.5px 0 #8FD0D466) drop-shadow(0 -1.5px 0 #8FD0D466)}
-.g-bub{position:relative;flex:1;min-width:0;margin-left:14px;padding:14px 18px 15px;border-radius:20px;
+.guide[hidden]{display:none}
+.g-bub{position:relative;flex:1;min-width:0;margin-left:14px;padding:14px 44px 15px 18px;border-radius:20px;
   background:color-mix(in srgb,var(--accent-soft) 55%,transparent);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
 .g-bub:before{content:"";position:absolute;left:-11px;top:24px;width:20px;height:20px;background:inherit;
   border:inherit;border-right:0;border-top:0;border-radius:0 0 0 5px;transform:rotate(45deg);
@@ -232,17 +245,23 @@ html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shad
 .g-links a span{transition:transform .15s}
 .g-links a:hover{border-bottom-color:currentColor}
 .g-links a:hover span{transform:translateX(2px)}
+.g-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;border-radius:8px;background:none;color:var(--muted);
+  font-size:14px;cursor:pointer;display:grid;place-items:center}
+.g-x:hover{color:var(--text);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.g-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.g-back{margin:10px 0 0;padding:0;border:0;background:none;font:inherit;font-size:13.5px;font-weight:650;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.g-back[hidden]{display:none}
 .g-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-@media(max-width:640px){.g-bot{width:76px;height:76px;margin-top:0}.g-bub{margin-left:10px;padding:12px 14px}
-  .g-bub:before{top:16px}.g-links{flex-direction:column;gap:2px}}
+@media(max-width:640px){.g-bot{width:76px;height:76px;margin-top:0}.g-bub{margin-left:10px;padding:12px 40px 12px 14px}.g-x{top:6px;right:6px}
+  .g-bub:before{top:16px}.g-links{flex-direction:column;align-items:flex-start;gap:2px}}
 </style>"""
 index_body = f'''<header class="hero">
   <h1>Jak žijí Střelice <span style="font-size:17px;font-weight:500;color:var(--muted)">· občanský datový portál</span></h1>
   <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ {pop_fmt} obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
+  {GUIDE}
   {POUTAC}
 </header>
-{GUIDE}
 {upd_panel}
 {pc.fb_card()}
 <section>
@@ -259,12 +278,13 @@ index_body = f'''<header class="hero">
     <div class="sec-h" style="margin:0 0 6px"><h2 style="font-size:16px">O portálu</h2></div>
     <p style="color:var(--muted);font-size:13.5px;margin:0;line-height:1.6">Portál zpracovává <b>veřejná data</b> o obci do přehledných interaktivních vizualizací. Hodnoty pocházejí z oficiálních zdrojů (MONITOR Státní pokladny, Český statistický úřad, MŠMT) a z webu obce <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">streliceubrna.cz</a> (zápisy rady a zastupitelstva, smlouvy o dotacích). Zdroj je u každé sekce uveden.</p>
     <p style="color:var(--muted);font-size:13.5px;margin:10px 0 0;line-height:1.6"><b>Kontakt:</b> Radim Brener · ''' + pc.MAIL_LINK + ''' — připomínky, náměty i upozornění na chyby vítány.</p>
+    <button type="button" class="g-back" id="guideBack" hidden>Zobrazit průvodce portálem</button>
   </div>
 </section>'''
 
 open("index.html", "w", encoding="utf-8").write(
     pc.page("Přehled", "Jak žijí Střelice — data obce", index_body, head_scripts=UPD_CSS + POUTAC_CSS + GUIDE_CSS,
-            body_scripts='<script>bindTheme();</script>' + POUTAC_JS))
+            body_scripts='<script>bindTheme();</script>' + POUTAC_JS + GUIDE_JS))
 
 # ================= ŠKOLSTVÍ =================
 DATA = {"obec": "Střelice", "dem": dem,

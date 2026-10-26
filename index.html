@@ -259,10 +259,11 @@ html[data-theme="dark"]{--msk-bg:#dbe7e5}
 .poutac .pg{display:block;margin-top:8px;font-size:13px;color:var(--muted)}
 @media(max-width:560px){.poutac .pl{font-size:15.5px}.poutac .cnt{font-size:19px}}
 </style><style>
-.guide{display:flex;align-items:flex-start;gap:4px;margin:26px 0 6px}
+.guide{display:flex;align-items:flex-start;gap:4px;margin:20px 0 0}
 .g-bot{flex:none;width:118px;height:118px;margin-top:-6px}
 html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shadow(-1.5px 0 0 #8FD0D466) drop-shadow(0 1.5px 0 #8FD0D466) drop-shadow(0 -1.5px 0 #8FD0D466)}
-.g-bub{position:relative;flex:1;min-width:0;margin-left:14px;padding:14px 18px 15px;border-radius:20px;
+.guide[hidden]{display:none}
+.g-bub{position:relative;flex:1;min-width:0;margin-left:14px;padding:14px 44px 15px 18px;border-radius:20px;
   background:color-mix(in srgb,var(--accent-soft) 55%,transparent);border:1px solid color-mix(in srgb,var(--accent) 22%,transparent)}
 .g-bub:before{content:"";position:absolute;left:-11px;top:24px;width:20px;height:20px;background:inherit;
   border:inherit;border-right:0;border-top:0;border-radius:0 0 0 5px;transform:rotate(45deg);
@@ -275,9 +276,15 @@ html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shad
 .g-links a span{transition:transform .15s}
 .g-links a:hover{border-bottom-color:currentColor}
 .g-links a:hover span{transform:translateX(2px)}
+.g-x{position:absolute;top:8px;right:8px;width:30px;height:30px;border:0;border-radius:8px;background:none;color:var(--muted);
+  font-size:14px;cursor:pointer;display:grid;place-items:center}
+.g-x:hover{color:var(--text);background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.g-x:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.g-back{margin:10px 0 0;padding:0;border:0;background:none;font:inherit;font-size:13.5px;font-weight:650;color:var(--accent);cursor:pointer;text-decoration:underline;text-underline-offset:2px}
+.g-back[hidden]{display:none}
 .g-links a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
-@media(max-width:640px){.g-bot{width:76px;height:76px;margin-top:0}.g-bub{margin-left:10px;padding:12px 14px}
-  .g-bub:before{top:16px}.g-links{flex-direction:column;gap:2px}}
+@media(max-width:640px){.g-bot{width:76px;height:76px;margin-top:0}.g-bub{margin-left:10px;padding:12px 40px 12px 14px}.g-x{top:6px;right:6px}
+  .g-bub:before{top:16px}.g-links{flex-direction:column;align-items:flex-start;gap:2px}}
 </style>
 </head>
 <body>
@@ -293,9 +300,9 @@ html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shad
   <h1>Jak se máme, Střelice? <span style="font-size:17px;font-weight:500;color:var(--muted)">· občanský datový portál</span></h1>
   <p>Datový portál obce Střelice (okres Brno-venkov) — jak obec hospodaří, roste a žije, srozumitelně v číslech. Hospodaření, školství a další oblasti přehledně a pro každého.</p>
   <div class="chips"><span class="chip">obec Střelice · IČO 00282618</span><span class="chip">≈ 3 283 obyvatel</span><span class="chip">zdroje: MONITOR SP · ČSÚ · MŠMT · streliceubrna.cz</span></div>
+  <section class="guide" aria-labelledby="guideH"><img class="g-bot" src="maskot/01-uvitani.svg" alt="" loading="lazy" decoding="async"><div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2><p>Všechna čísla tu jsou z veřejných zdrojů a u každého najdete odkaz, odkud pochází. Kde chcete začít?</p><nav class="g-links" aria-label="Kde začít"><a href="rozpocet.html">Kam jdou peníze obce<span aria-hidden="true">→</span></a><a href="hledat.html#ulsec">Co se řešilo v mé ulici<span aria-hidden="true">→</span></a><a href="zastupitelstvo.html">Jak hlasovalo zastupitelstvo<span aria-hidden="true">→</span></a><a href="investice.html">Co se staví a opravuje<span aria-hidden="true">→</span></a></nav><button type="button" class="g-x" id="guideX" aria-label="Zavřít průvodce" title="Zavřít průvodce">✕</button></div></section><script>try{if(localStorage.getItem('strelice-guide')==='off')document.querySelector('.guide').hidden=true}catch(e){}</script>
   <a class="poutac" href="obdobi.html"><span class="pt">Volební období 2022–2026 v číslech</span><span class="pl">Rada a zastupitelstvo projednaly <b class="cnt" data-v="2728" data-d="0">2 728</b> bodů na <b class="cnt" data-v="132" data-d="0">132</b> jednáních, obec proinvestovala <b class="cnt" data-v="177.2" data-d="1">177,2</b> mil. Kč a spolkům přispěla <b class="cnt" data-v="10.6" data-d="1">10,6</b> mil. Kč.</span><span class="pg">Celá bilance období a aktivita zastupitelů →</span></a>
 </header>
-<section class="guide" aria-labelledby="guideH"><img class="g-bot" src="maskot/01-uvitani.svg" alt="" loading="lazy" decoding="async"><div class="g-bub"><h2 id="guideH">Ahoj, provedu vás portálem</h2><p>Všechna čísla tu jsou z veřejných zdrojů a u každého najdete odkaz, odkud pochází. Kde chcete začít?</p><nav class="g-links" aria-label="Kde začít"><a href="rozpocet.html">Kam jdou peníze obce<span aria-hidden="true">→</span></a><a href="hledat.html#ulsec">Co se řešilo v mé ulici<span aria-hidden="true">→</span></a><a href="zastupitelstvo.html">Jak hlasovalo zastupitelstvo<span aria-hidden="true">→</span></a><a href="investice.html">Co se staví a opravuje<span aria-hidden="true">→</span></a></nav></div></section>
 <section><div class="panel"><div class="sec-h" style="margin:0 0 8px"><h2 style="font-size:16px">Co je nového</h2><span class="hint">poslední zápis z každé sekce · datum = kdy přibyl na portál</span></div><div class="updlist"><a class="updrow" href="zapisy.html?ro=103"><span class="upddate"><small>přidáno</small>23. 10. 2026</span><span class="updsec"><i style="background:#85b7eb"></i>Rada obce</span><span class="updtxt">Zápis z 103. jednání rady obce <span class="updmd">· jednání 14. 10. 2026</span></span><span class="updarr">&#8594;</span></a><a class="updrow" href="zastupitelstvo.html?zo=29"><span class="upddate"><small>přidáno</small>30. 9. 2026</span><span class="updsec"><i style="background:#e0a458"></i>Zastupitelstvo</span><span class="updtxt">Zápis z 29. zasedání zastupitelstva <span class="updmd">· zasedání 17. 9. 2026</span></span><span class="updarr">&#8594;</span></a></div></div></section>
 <style>
 .fbcard{display:flex;align-items:center;gap:18px;margin:18px 0 0;padding:18px 22px;border-radius:var(--radius);text-decoration:none;
@@ -339,6 +346,7 @@ html[data-theme="dark"] .g-bot{filter:drop-shadow(1.5px 0 0 #8FD0D466) drop-shad
     <div class="sec-h" style="margin:0 0 6px"><h2 style="font-size:16px">O portálu</h2></div>
     <p style="color:var(--muted);font-size:13.5px;margin:0;line-height:1.6">Portál zpracovává <b>veřejná data</b> o obci do přehledných interaktivních vizualizací. Hodnoty pocházejí z oficiálních zdrojů (MONITOR Státní pokladny, Český statistický úřad, MŠMT) a z webu obce <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">streliceubrna.cz</a> (zápisy rady a zastupitelstva, smlouvy o dotacích). Zdroj je u každé sekce uveden.</p>
     <p style="color:var(--muted);font-size:13.5px;margin:10px 0 0;line-height:1.6"><b>Kontakt:</b> Radim Brener · <a class="mailme" data-m="emMubWFuemVzQHJlbmVyYg==" style="color:var(--accent)">e-mail (zapněte si JavaScript)</a> — připomínky, náměty i upozornění na chyby vítány.</p>
+    <button type="button" class="g-back" id="guideBack" hidden>Zobrazit průvodce portálem</button>
   </div>
 </section>
 <div style="margin-top:34px;padding-top:20px;border-top:1px solid var(--line);text-align:center;color:var(--faint);font-size:12px">Občanský datový portál obce Střelice · data z veřejných zdrojů</div>
@@ -475,6 +483,14 @@ function dlCSV(name,header,rows){
  var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){run(x.target);io.unobserve(x.target);}});},{threshold:.4});
  // v HTML jsou vždy skutečná čísla; animace jen když je poutač vidět
  els.forEach(function(el){io.observe(el);});})();
+</script><script>
+(function(){var g=document.querySelector('.guide'),x=document.getElementById('guideX'),r=document.getElementById('guideBack');
+ if(!g||!x||!r)return;
+ function sync(){r.hidden=!g.hidden;}
+ x.onclick=function(){g.hidden=true;try{localStorage.setItem('strelice-guide','off')}catch(e){}sync();r.focus();};
+ r.onclick=function(){g.hidden=false;try{localStorage.removeItem('strelice-guide')}catch(e){}sync();
+   g.scrollIntoView({behavior:'smooth',block:'center'});x.focus({preventScroll:true});};
+ sync();})();
 </script>
 </body>
 </html>
