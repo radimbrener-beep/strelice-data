@@ -104,7 +104,8 @@ def trees(xs, base, rng, p):
 
 def scene(wide=False, preserve="xMidYMax meet", themed=False, villages="both"):
     """SVG scény. Základ má viewBox 680×360; `wide` ho rozšíří na -300…980.
-    `villages="ostopovice"` = jen Ostopovice uprostřed (bez Střelic s kostelem)."""
+    `villages="ostopovice"` = jen Ostopovice uprostřed (bez Střelic s kostelem),
+    `villages="strelice"` = jen Střelice s kostelem uprostřed."""
     p = _Paint(themed)
     rng = random.Random(7)
     x0, x1 = (-300, 980) if wide else (0, 680)
@@ -136,6 +137,9 @@ def scene(wide=False, preserve="xMidYMax meet", themed=False, villages="both"):
     if villages == "ostopovice":
         s += trees([40, 72, 110, 590, 625, 660], 214, rng, p)
         s += village(250, 205, rng, p, school=True, n=8)  # Ostopovice (škola s praporkem), vycentrováno
+    elif villages == "strelice":
+        s += trees([40, 72, 110, 590, 625, 660], 214, rng, p)
+        s += village(250, 205, rng, p, church=True, n=8)  # Střelice (kostel), vycentrováno
     else:
         s += trees([40, 66, 262, 300, 420, 640], 214, rng, p)
         if wide:
