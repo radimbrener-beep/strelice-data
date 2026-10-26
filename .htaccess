@@ -2,5 +2,5 @@
 # Web běží na .html adresách.
 # Neexistující adresy → stránka 404 s maskotem (build_404.py). Wedos subdoménu interně
 # mapuje do /subdom/strelice/, cesta k chybové stránce proto musí obsahovat tuto předponu
-# (samotné /404.html vracelo 500, stejně jako u přesměrování s /domains/…).
-ErrorDocument 404 /subdom/strelice/404.html
+# (/404.html i /subdom/strelice/404.html vracely 500) → plná adresa = přesměrování na 404.html.
+ErrorDocument 404 https://strelice.jaksemame.cz/404.html
