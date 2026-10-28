@@ -22,6 +22,7 @@ jobs:
     permissions:
       contents: write   # pro git push
       issues: write     # pro vytvoření GitHub Issue
+      actions: write    # spuštění deploy.yml (push přes GITHUB_TOKEN ho sám nespustí)
 
     steps:
       - name: Checkout
@@ -70,6 +71,15 @@ jobs:
           fi
         id: push
 
+      # Push přes GITHUB_TOKEN jiné workflow nespouští (ochrana GitHubu proti smyčkám),
+      # ruční spuštění (workflow_dispatch) ano — jinak by se změny nasadily až s dalším
+      # ručním pushem a nerozeslala by se upozornění.
+      - name: Spustit nasazení
+        if: steps.push.outputs.new == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
+
       - name: Zkontrolovat jestli bylo něco přidáno
         id: check
         run: |
@@ -102,9 +112,7 @@ jobs:
               body: body + '\n\n---\n_Workflow: check_web.yml_',
             });
 
-      # ── Trigger deploy (push už proběhl v update_portal.py) ───────────────
-      # Deploy workflow (deploy.yml) se spustí automaticky při push do main.
-      # Zde jen logujeme výsledek.
+      # Nasazení spouští krok „Spustit nasazení" výše; tady jen výpis výsledku.
       - name: Souhrn
         if: always()
         run: |

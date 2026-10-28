@@ -105,7 +105,8 @@ SEARCH_BTN = ('<a class="iconbtn" href="hledat.html" title="Hledat na portálu (
 # sestaví build_push.py. Převzato z webu Střeličníku (new.strelicnik.cz).
 PUSH_TOPICS_UI = [("rada", "Nová jednání rady obce"),
                   ("zastupitelstvo", "Nová jednání zastupitelstva"),
-                  ("portal", "Novinky portálu")]
+                  ("portal", "Novinky portálu"),
+                  ("zakazky", "Nově vypsané zakázky obce")]
 try:
     import hashlib as _hl
     _SW_VER = _hl.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sw.js"), "rb").read()).hexdigest()[:10]

@@ -100,10 +100,13 @@ function push_group_message(string $topic, array $list, int $now): array
         'rada' => ['Rada obce', '/zapisy.html'],
         'zastupitelstvo' => ['Zastupitelstvo', '/zastupitelstvo.html'],
         'portal' => ['Novinky portálu', '/'],
+        'zakazky' => ['Zakázky obce', '/zakazky.html#vypsane'],
     ][$topic] ?? ['Novinky', '/'];
-    $title = $what[0] . ': ' . ($topic === 'portal'
-        ? ($n < 5 ? "$n novinky" : "$n novinek")
-        : ($n < 5 ? "$n nová jednání" : "$n nových jednání"));
+    $title = $what[0] . ': ' . match ($topic) {
+        'portal' => $n < 5 ? "$n novinky" : "$n novinek",
+        'zakazky' => $n < 5 ? "$n nově vypsané zakázky" : "$n nově vypsaných zakázek",
+        default => $n < 5 ? "$n nová jednání" : "$n nových jednání",
+    };
     $body = mb_substr(implode(' · ', array_column($list, 'title')), 0, 240);
     return ['title' => $title, 'body' => $body, 'url' => $what[1], 'tag' => $topic . '-souhrn-' . $now];
 }
