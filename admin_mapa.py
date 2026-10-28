@@ -163,7 +163,7 @@ function geoOf(text){
 
 const nf=new Intl.NumberFormat('cs-CZ');
 function castka(v){return v>=1e6?(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:2})+' mil':nf.format(Math.round(v/1000))+' tis.';}
-function fmtD(iso){if(!iso)return '—';const p=iso.split('-');return p[2]+'. '+(+p[1])+'. '+p[0];}
+function fmtD(iso){if(!iso)return '—';const p=iso.split('-');return (+p[2])+'. '+(+p[1])+'. '+p[0];}
 function manual(t){return D.ageo.find(o=>t.includes(o.match));}
 
 function renderList(){

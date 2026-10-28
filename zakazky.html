@@ -511,7 +511,7 @@ const charts={};
 function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
 function castka(v){return v>=1e6?(v/1e6).toLocaleString('cs-CZ',{maximumFractionDigits:2})+' mil. Kč':nf.format(Math.round(v/1000))+' tis. Kč';}
-function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return p[2]+'. '+(+p[1])+'. '+p[0];}
+function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return (+p[2])+'. '+(+p[1])+'. '+p[0];}
 let year='vse', shown=15;
 const PAGE=15;
 function sel(){return year==='vse'?R:R.filter(r=>r[0]===+year);}

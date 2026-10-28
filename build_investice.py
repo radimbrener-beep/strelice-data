@@ -355,7 +355,7 @@ function filtered(){
 }
 function updAr(){document.querySelectorAll('#tbl thead .thsort').forEach(th=>{
   th.querySelector('.ar').textContent=th.dataset.k===sortC?(sortDesc?'▼':'▲'):'↕';});}
-function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return p[2]+'. '+(+p[1])+'. '+p[0];}
+function fmtDate(iso){if(!iso)return '—';const p=iso.split('-');return (+p[2])+'. '+(+p[1])+'. '+p[0];}
 function fmtT(s){return Math.floor(s/60)+':'+String(s%60).padStart(2,'0');}
 function renderTbl(){
   const a=filtered(), slice=a.slice(0,shown);
