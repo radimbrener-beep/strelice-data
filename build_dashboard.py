@@ -265,7 +265,7 @@ section{margin-top:30px;scroll-margin-top:74px}
   padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1.55fr 1fr;gap:18px}
 @media(max-width:820px){.grid2{grid-template-columns:1fr}}
-@media(max-width:820px){
+@media(max-width:1000px){
   .navtoggle{display:grid}
   .nav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
     background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}

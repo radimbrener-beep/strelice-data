@@ -24,13 +24,12 @@ SECTIONS = [
 ]
 # hlavní menu: položka = (href, název) nebo skupina (název, [(href, název), ...]) → rozbalovací
 NAV = [
-    ("index.html", "Přehled"),
     ("Peníze", [("rozpocet.html", "Rozpočet"), ("srovnani.html", "Srovnání"),
                 ("investice.html", "Investice"), ("zakazky.html", "Zakázky"),
                 ("dotace.html", "Dotace spolkům")]),
     ("zastupitelstvo.html", "Zastupitelstvo"),
     ("zapisy.html", "Rada obce"),
-    ("obdobi.html", "Bilance 2022–26"),
+    ("obdobi.html", "Bilance"),
     ("Obec", [("skolstvi.html", "Školství"), ("demografie.html", "Demografie"), ("volby.html", "Volby")]),
     ("ai.html", "Ptejte se AI"),
 ]
@@ -74,8 +73,8 @@ NAV_CSS = """
 .ndd a small{display:block;color:var(--faint);font-size:11.5px;font-weight:400}
 .ndd a:hover{background:var(--inset)}
 .ndd a.active{color:var(--accent);background:var(--accent-soft)}
-@media(min-width:821px){.ngrp:hover .ndd{display:block}.ngrp:hover .ndd::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}}
-@media(max-width:820px){
+@media(min-width:1001px){.ngrp:hover .ndd{display:block}.ngrp:hover .ndd::before{content:"";position:absolute;left:0;right:0;top:-8px;height:8px}}
+@media(max-width:1000px){
   .ngrp{width:100%}
   .nbtn{display:block;width:100%;text-align:left;padding:10px 12px 4px;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--faint);pointer-events:none;background:none!important}
   .nbtn .car{display:none}
@@ -288,7 +287,7 @@ h1,.hero h1,.sec-h h2,.tile h3{color:var(--ink)}
 .brand{display:flex;align-items:center;text-decoration:none;color:var(--ink);flex:none;border-radius:8px}
 .brand svg{height:30px;width:auto;display:block}
 .brand .tagline{margin-left:12px;padding-left:12px;border-left:1px solid var(--line);font-size:12px;line-height:1.25;color:var(--muted);white-space:nowrap}
-@media(max-width:1100px){.brand .tagline{display:none}}
+@media(max-width:1180px){.brand .tagline{display:none}}
 .lg-i{fill:var(--ink)}.lg-o{fill:var(--accent)}.lg-a{fill:var(--amber)}.lg-q{fill:var(--muted)}
 :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .tile .ic svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
@@ -343,7 +342,7 @@ section{margin-top:30px;scroll-margin-top:74px}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;box-shadow:var(--shadow)}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 @media(max-width:820px){.grid2{grid-template-columns:1fr}}
-@media(max-width:820px){
+@media(max-width:1000px){
   .navtoggle{display:grid}
   .pnav{position:absolute;top:100%;left:0;right:0;display:none;flex-direction:column;gap:4px;margin:0;
     background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 10px 22px rgba(2,8,20,.28);padding:8px 16px 14px;z-index:60}
