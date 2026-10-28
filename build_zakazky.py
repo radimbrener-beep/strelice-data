@@ -51,7 +51,30 @@ rows = [[int(it[0][:4]) if it[0] else 0, it[6], it[1], it[0], it[2], it[3], it[5
         for it in items if it[0]]
 rows.sort(key=lambda r: -r[2])
 
-DATA = {"years": years, "rows": rows}
+# vypsané zakázky z profilu zadavatele (scripts/fetch_profil_zakazky.py)
+try:
+    _pz = json.load(open("data/profil_zakazky.json", encoding="utf-8"))
+except FileNotFoundError:
+    _pz = {"profil": "", "zakazky": []}
+PROFIL_URL = _pz["profil"]
+# názvy firem tak, jak jsou na profilu (aliasy z usnesení by mohly sloučit různé firmy)
+# [datum, název, url, stav, druh, dodavatel, cena, předpokl. hodnota, lhůta, nabídky[[firma, cena, vyloučen, vítěz]]]
+pz = []
+for z in _pz["zakazky"]:
+    nab = [[n["firma"], n["cena"], 1 if n["vyloucen"] else 0,
+            1 if z["dodavatel_ico"] and n["ico"] == z["dodavatel_ico"] else 0] for n in z["nabidky"]]
+    nab.sort(key=lambda n: (n[1] is None, n[1] or 0))
+    pz.append([z["datum"], z["nazev"], z["url"], z["stav"], z["druh"],
+               z["dodavatel"], z["cena"],
+               z["predpokladana_hodnota"], z["lhuta"], nab])
+pz_nab = [len(z[9]) for z in pz if z[3] == "zadáno" and z[9]]
+pz_od = min((z[0][:4] for z in pz), default="")
+pz_lead = ""
+if pz_nab:
+    pz_lead = (f"Do zadaných zakázek přišlo v průměru <b>{sum(pz_nab) / len(pz_nab):.1f}</b> nabídky, "
+               f"<b>{sum(1 for n in pz_nab if n == 1)}</b> z nich mělo jedinou nabídku.").replace(".", ",", 1)
+
+DATA = {"years": years, "rows": rows, "pz": pz}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":"))
 
 n_firem = len({r[1] for r in rows})
@@ -60,9 +83,11 @@ total = sum(r[2] for r in rows)
 
 body = '''<header class="hero">
   <h1>Zakázky obce <span style="font-size:17px;font-weight:500;color:var(--muted)">· komu obec platí</span></h1>
-  <p>Firmy, které od obce Střelice získávají zakázky — stavby, opravy, projekty, dodávky i služby. Vytaženo z usnesení rady a zastupitelstva ''' + f"{years[0]}–{years[-1]}" + ''': kdo, kolik a za co. Doplňuje sekci <a href="investice.html" style="color:var(--accent)">Investice</a> (jen stavby) o kompletní pohled podle dodavatelů.</p>
+  <p>Firmy, které od obce Střelice získávají zakázky — stavby, opravy, projekty, dodávky i služby. Vytaženo z usnesení rady a zastupitelstva ''' + f"{years[0]}–{years[-1]}" + ''': kdo, kolik a za co. Doplňuje sekci <a href="investice.html" style="color:var(--accent)">Investice</a> (jen stavby) o kompletní pohled podle dodavatelů. Níže jsou i <a href="#vypsane" style="color:var(--accent)">zakázky vypsané na profilu zadavatele</a> — kdo podal nabídku a za kolik.</p>
   <div class="chips"><span class="chip">''' + str(n_zak) + ''' zakázek</span><span class="chip">''' + str(n_firem) + ''' firem</span><span class="chip">zdroj: usnesení RO a ZO</span><span class="chip">částky orientační z textů usnesení</span></div>
 </header>
+
+<div id="pzLive"></div>
 
 <div class="cards" id="kpis"></div>
 
@@ -88,6 +113,17 @@ body = '''<header class="hero">
     <div class="tablewrap"><table id="tbl"><thead></thead><tbody>''' + pc.skel_tr(8) + '''</tbody></table></div>
     <div id="moreWrap"></div>
     <p class="note">Řazeno podle celkové částky za období. <b>Klikni na řádek firmy</b> — rozbalí se její jednotlivé zakázky. Zachyceny jsou jen zakázky, kde usnesení uvádí firmu (s.r.o., a.s., …) i částku — drobné nákupy bez usnesení, platby fyzickým osobám a faktury tu nejsou. Tatáž zakázka schválená radou i zastupitelstvem se počítá jednou. Plné texty najdete v sekcích <a href="zapisy.html" style="color:var(--accent)">Rada obce</a> a <a href="zastupitelstvo.html" style="color:var(--accent)">Zastupitelstvo</a>.</p>
+  </div>
+</section>
+
+<section id="vypsane">
+  <div class="sec-h"><h2>Vypsané zakázky</h2><span class="hint">profil zadavatele · ''' + f"{len(pz)} zakázek od roku {pz_od}" + '''</span></div>
+  <div class="panel">
+    <p class="pz-lead">Zakázky, které obec vypsala na svém <a href="''' + PROFIL_URL + '''" target="_blank" rel="noopener" style="color:var(--accent)">profilu zadavatele</a> — od výzvy přes nabídky až po vybranou firmu. ''' + pz_lead + '''</p>
+    <div class="pz-ctrl"><span class="seg" id="pzSeg"></span><input id="pzQ" type="text" placeholder="hledat zakázku / firmu…"></div>
+    <div class="tablewrap"><table id="pzTbl"><thead><tr><th>Vypsáno</th><th>Zakázka</th><th>Stav</th><th class="r">Nabídky</th><th>Vybraná firma</th><th class="r">Cena bez DPH</th></tr></thead><tbody></tbody></table></div>
+    <div id="pzMore"></div>
+    <p class="note"><b>Klikni na řádek</b> — rozbalí se všechny nabídky s cenami. Ceny jsou bez DPH tak, jak je obec uvedla na profilu; když smluvní cena chybí, je uvedena vítězná nabídka. „Předpokládaná hodnota" je odhad obce před soutěží. Na profilu jsou zakázky, které obec soutěžila elektronicky — menší nákupy a zakázky zadané napřímo tu nejsou (najdete je v tabulce dodavatelů výše podle usnesení). Nové zakázky se kontrolují automaticky třikrát denně.</p>
   </div>
 </section>
 
@@ -122,6 +158,33 @@ tr.grow.open .car{transform:rotate(90deg)}
 .zsrc:hover{color:var(--accent);border-color:var(--accent)}
 .srccell{display:flex;flex-direction:column;gap:4px;align-items:flex-start}
 .tablewrap{overflow-x:auto}
+#pzTbl{width:100%;border-collapse:collapse;font-size:13.5px}
+#pzTbl thead th{text-align:left;color:var(--muted);font-weight:600;font-size:11.5px;padding:8px 12px 8px 0;border-bottom:1px solid var(--line)}
+#pzTbl th.r,#pzTbl td.r{text-align:right}
+#pzTbl tbody td{padding:10px 12px 10px 0;border-bottom:1px solid var(--line);vertical-align:top}
+#pzTbl td.r{white-space:nowrap;font-variant-numeric:tabular-nums}
+#pzTbl td.dt{white-space:nowrap;color:var(--muted);font-size:12.5px}
+#pzTbl tr.prow{cursor:pointer;transition:background .12s}
+#pzTbl tr.prow:hover{background:var(--inset)}
+#pzTbl tr.prow .car{display:inline-block;width:16px;color:var(--faint);font-size:11px;transition:transform .15s}
+#pzTbl tr.prow.open .car{transform:rotate(90deg)}
+#pzTbl .pzn{font-weight:600;margin-right:6px}
+.pzsub{font-size:11.5px;color:var(--faint);margin-top:2px}
+#pzTbl tr.nab td{background:var(--surface2);font-size:12.5px;padding-top:7px;padding-bottom:7px}
+#pzTbl tr.nab td.zn{padding-left:16px}
+#pzTbl tr.nab.win td{color:var(--text);font-weight:600}
+#pzTbl tr.nab .vyl{color:var(--faint);text-decoration:line-through}
+.pst{display:inline-block;font-size:11px;font-weight:600;padding:2px 9px;border-radius:999px;border:1px solid var(--line);white-space:nowrap}
+.pst.zad{color:var(--c0);background:color-mix(in srgb,var(--c0) 12%,transparent)}
+.pst.zru,.pst.bez{color:var(--muted);background:var(--inset)}
+.pst.pro{color:var(--amber);background:color-mix(in srgb,var(--amber) 14%,transparent);border-color:color-mix(in srgb,var(--amber) 40%,transparent)}
+.pz-lead{margin:0 0 12px;line-height:1.6}
+.pz-ctrl{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:8px}
+#pzQ{font:inherit;font-size:13px;padding:7px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);outline:none;min-width:220px;margin-left:auto}
+#pzQ:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.pzlive{margin:18px 0 0;padding:14px 16px;border-radius:var(--radius);background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--amber)}
+.pzlive b{font-family:var(--font-d)}
+.pzlive ul{margin:6px 0 0;padding-left:18px;line-height:1.6}
 .morebtn{margin:14px auto 0;display:block;background:var(--inset);border:1px solid var(--line);color:var(--text);
   font:inherit;font-size:13px;font-weight:500;padding:9px 20px;border-radius:10px;cursor:pointer;transition:.16s}
 .morebtn:hover{border-color:var(--accent);color:var(--accent)}
@@ -131,6 +194,13 @@ tr.grow.open .car{transform:rotate(90deg)}
   #tbl tbody tr{display:block;padding:12px 4px;border-bottom:1px solid var(--line)}
   #tbl tbody td{display:block;padding:2px 0;border:none;text-align:left}
   #tbl td.dt,#tbl td.firma,#tbl td.r{display:inline-block;vertical-align:middle;margin-right:8px}
+  #pzTbl thead{display:none}
+  #pzTbl,#pzTbl tbody{display:block}
+  #pzTbl tbody tr{display:block;padding:10px 4px;border-bottom:1px solid var(--line)}
+  #pzTbl tbody td{display:inline-block;padding:2px 10px 2px 0;border:none;text-align:left}
+  #pzTbl tbody td:empty{display:none}
+  #pzTbl tr.prow td.zn{display:block}
+  #pzQ{margin-left:0;min-width:0;flex:1}
 }
 </style>'''
 
@@ -284,6 +354,44 @@ document.getElementById('dlBtn').onclick=()=>dlCSV('strelice_zakazky_firmy.csv',
 document.getElementById('modalX').onclick=()=>document.getElementById('modal').hidden=true;
 document.getElementById('modalBd').onclick=()=>document.getElementById('modal').hidden=true;
 document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('modal').hidden=true;});
+// --- vypsané zakázky (profil zadavatele) ---
+const PZ=D.pz, PZST={'zadáno':'zad','zrušeno':'zru','probíhá':'pro','bez výsledku':'bez'};
+let pzStav='vse', pzQ='', pzShown=PAGE; const pzOpen=new Set();
+function kc(v){return v?nf.format(v)+'&nbsp;Kč':'—';}
+function lhuta(l){if(!l)return '';const [d,t]=l.split('T');return fmtDate(d)+(t?' '+t:'');}
+function pzTable(){
+  const nq=norm(pzQ);
+  let rr=PZ.filter(z=>pzStav==='vse'||z[3]===pzStav);
+  if(nq)rr=rr.filter(z=>norm(z[1]).includes(nq)||z[9].some(n=>norm(n[0]).includes(nq)));
+  document.querySelector('#pzTbl tbody').innerHTML=rr.length?rr.slice(0,pzShown).map(z=>{
+    const id=z[2], open=pzOpen.has(id);
+    const sub=[z[4], z[7]?'předpokládaná hodnota '+kc(z[7]):'', z[3]==='probíhá'&&z[8]?'nabídky do '+lhuta(z[8]):''].filter(Boolean).join(' · ');
+    let h=`<tr class="prow${open?' open':''}" data-id="${id}"><td class="dt">${fmtDate(z[0])}</td>
+      <td class="zn"><span class="car">${z[9].length?'▶':''}</span><span class="pzn">${z[1]}</span><a class="zsrc" href="${z[2]}" target="_blank" rel="noopener" onclick="event.stopPropagation()" title="Detail na profilu zadavatele">profil&nbsp;&#8599;</a>
+        <div class="pzsub">${sub}</div></td>
+      <td><span class="pst ${PZST[z[3]]}">${z[3]}</span></td>
+      <td class="r">${z[9].length?z[9].length+'<span class="pzsub" style="display:inline"> nab.</span>':'—'}</td><td>${z[5]||'—'}</td><td class="r"><b>${kc(z[6])}</b></td></tr>`;
+    if(open)h+=z[9].map(n=>`<tr class="nab${n[3]?' win':''}"><td></td><td class="zn"><span class="${n[2]?'vyl':''}">${n[0]}</span>${n[3]?' ✓ vybrána':''}${n[2]?' <span class="pzsub" style="display:inline">vyloučen / odstoupil</span>':''}</td><td></td><td></td><td></td><td class="r">${kc(n[1])}</td></tr>`).join('');
+    return h;}).join(''):'<tr><td colspan="6" style="color:var(--faint);text-align:center;padding:22px">Nic nenalezeno.</td></tr>';
+  document.getElementById('pzMore').innerHTML=rr.length>pzShown?`<button class="morebtn" id="pzMoreB">Zobrazit další zakázky (${rr.length-pzShown})</button>`:'';
+  const mb=document.getElementById('pzMoreB'); if(mb)mb.onclick=()=>{pzShown+=PAGE;pzTable();};
+}
+if(PZ.length){
+  const cnt=s=>PZ.filter(z=>z[3]===s).length;
+  document.getElementById('pzSeg').innerHTML=[['vse','Vše ('+PZ.length+')'],...['probíhá','zadáno','zrušeno','bez výsledku'].filter(cnt).map(s=>[s,s[0].toUpperCase()+s.slice(1)+' ('+cnt(s)+')'])]
+    .map(([k,l])=>`<button data-s="${k}"${k==='vse'?' class="on"':''}>${l}</button>`).join('');
+  document.querySelectorAll('#pzSeg button').forEach(b=>b.onclick=()=>{pzStav=b.dataset.s;pzShown=PAGE;
+    document.querySelectorAll('#pzSeg button').forEach(x=>x.classList.toggle('on',x===b));pzTable();});
+  document.getElementById('pzQ').oninput=e=>{pzQ=e.target.value.trim();pzShown=PAGE;pzTable();};
+  document.querySelector('#pzTbl tbody').addEventListener('click',e=>{const tr=e.target.closest('tr.prow');
+    if(tr){const id=tr.dataset.id;pzOpen.has(id)?pzOpen.delete(id):pzOpen.add(id);pzTable();}});
+  pzTable();
+  const live=PZ.filter(z=>z[3]==='probíhá');
+  if(live.length)document.getElementById('pzLive').innerHTML=`<div class="pzlive"><b>Právě vypsané zakázky</b>
+    <ul>${live.map(z=>`<li><a href="${z[2]}" target="_blank" rel="noopener" style="color:var(--accent)">${z[1]}</a>${z[8]?' — nabídky do '+lhuta(z[8]):''}</li>`).join('')}</ul>
+    <div class="pzsub">Podrobnosti v sekci <a href="#vypsane" style="color:var(--accent)">Vypsané zakázky</a>.</div></div>`;
+} else document.getElementById('vypsane').hidden=true;
+
 render();
 // proklik z celostránkového hledání: ?firma=Název (otevře historii) nebo ?q=text
 (function(){const u=new URLSearchParams(location.search),f=u.get('firma'),qq=u.get('q');

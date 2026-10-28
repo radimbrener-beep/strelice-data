@@ -1,0 +1,3228 @@
+{
+ "profil": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2",
+ "zakazky": [
+  {
+   "id": "P26V00000010",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000010",
+   "nazev": "III/3945 STŘELICE, UL. ANT. SMUTNÉHO, UL.TETČICKÁ",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-09-03",
+   "nabidky": [
+    {
+     "firma": "IMOS Brno, a.s.",
+     "ico": "25322257",
+     "cena": 2286462,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "IMOS Brno, a.s.",
+   "dodavatel_ico": "25322257",
+   "cena": 2286462,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-09-25",
+   "predpokladana_hodnota": 23011000,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000009",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000009",
+   "nazev": "V 00923 – Skatepark",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2026-08-28",
+   "nabidky": [
+    {
+     "firma": "Zdeněk Kotyza",
+     "ico": "73582107",
+     "cena": 1948000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Zdeněk Kotyza",
+   "dodavatel_ico": "73582107",
+   "cena": 1948000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-10-12",
+   "predpokladana_hodnota": 1950000,
+   "lhuta": "2026-09-09T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000008",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000008",
+   "nazev": "V 00921 - ZŠ Střelice - rozšíření jídelny",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2026-08-14",
+   "nabidky": [
+    {
+     "firma": "Plancraft s.r.o.",
+     "ico": "10856587",
+     "cena": 1893000,
+     "vyloucen": false
+    },
+    {
+     "firma": "Dimense architects s.r.o.",
+     "ico": "29051525",
+     "cena": 2255000,
+     "vyloucen": false
+    },
+    {
+     "firma": "SMART PROJEKT s.r.o.",
+     "ico": "05377269",
+     "cena": 1899000,
+     "vyloucen": false
+    },
+    {
+     "firma": "MERU atelier s.r.o.",
+     "ico": "17807514",
+     "cena": 2773000,
+     "vyloucen": false
+    },
+    {
+     "firma": "MAZOK s.r.o.",
+     "ico": "11920360",
+     "cena": 2077300,
+     "vyloucen": false
+    },
+    {
+     "firma": "LAPLAN a.s.",
+     "ico": "29201691",
+     "cena": 2980000,
+     "vyloucen": false
+    },
+    {
+     "firma": "GARANT projekt s.r.o.",
+     "ico": "06722865",
+     "cena": 2070000,
+     "vyloucen": false
+    },
+    {
+     "firma": "INVENTE, s.r.o.",
+     "ico": "25171232",
+     "cena": null,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "INVENTE, s.r.o.",
+   "dodavatel_ico": "25171232",
+   "cena": null,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-10-12",
+   "predpokladana_hodnota": 2300000,
+   "lhuta": "2026-09-02T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000007",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000007",
+   "nazev": "Rekonstrukce podlahy v objektu ZŠ Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-07-02",
+   "nabidky": [
+    {
+     "firma": "Tomáš Lízal",
+     "ico": "87149010",
+     "cena": 622074,
+     "vyloucen": false
+    },
+    {
+     "firma": "ProInterier s.r.o.",
+     "ico": "47122374",
+     "cena": 619800,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "ProInterier s.r.o.",
+   "dodavatel_ico": "47122374",
+   "cena": 619800,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-07-02",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000004",
+   "nazev": "V 00903 – Střelice, Restaurace U Nádraží – rekonstrukce střechy – nové vyhlášení",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-05-27",
+   "nabidky": [
+    {
+     "firma": "HT střechy a stavby s.r.o",
+     "ico": "26966484",
+     "cena": 2980571,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavby a konstrukce, s.r.o.",
+     "ico": "25595750",
+     "cena": 1393408,
+     "vyloucen": false
+    },
+    {
+     "firma": "HV stavby a práce s.r.o.",
+     "ico": "04395255",
+     "cena": 1656574,
+     "vyloucen": false
+    },
+    {
+     "firma": "GrandBudMarko s.r.o",
+     "ico": "21705496",
+     "cena": 1389721,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Stavby a konstrukce, s.r.o.",
+   "dodavatel_ico": "25595750",
+   "cena": 1393408,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-06-30",
+   "predpokladana_hodnota": 1600000,
+   "lhuta": "2026-06-09T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000005",
+   "nazev": "V 00913 – Protierozní opatření PUPFL, k.ú. Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-05-27",
+   "nabidky": [
+    {
+     "firma": "AQUASYS spol. s r.o.",
+     "ico": "25344447",
+     "cena": 2644600,
+     "vyloucen": false
+    },
+    {
+     "firma": "Jubocar spol. s.r.o.",
+     "ico": "63492954",
+     "cena": 2726771,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "AQUASYS spol. s r.o.",
+   "dodavatel_ico": "25344447",
+   "cena": 2644600,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-07-02",
+   "predpokladana_hodnota": 3400000,
+   "lhuta": "2026-06-09T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000006",
+   "nazev": "V 00914 – zemní práce na zhotovení pomníků dvojhrob 52 kusů",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-05-27",
+   "nabidky": [
+    {
+     "firma": "HOLÍK stav, s.r.o.",
+     "ico": "28344804",
+     "cena": 1993121,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavby a konstrukce, s.r.o.",
+     "ico": "25595750",
+     "cena": 2191790,
+     "vyloucen": false
+    },
+    {
+     "firma": "Jubocar spol. s.r.o.",
+     "ico": "63492954",
+     "cena": 1860003,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Jubocar spol. s.r.o.",
+   "dodavatel_ico": "63492954",
+   "cena": 1860003,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-07-01",
+   "predpokladana_hodnota": 2300000,
+   "lhuta": "2026-06-09T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P26V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000003",
+   "nazev": "V 00903 – Střelice, Restaurace U Nádraží – rekonstrukce střechy",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-05-07",
+   "nabidky": [
+    {
+     "firma": "HV stavby a práce s.r.o.",
+     "ico": "04395255",
+     "cena": 1744824,
+     "vyloucen": false
+    },
+    {
+     "firma": "SEŽEV facility s.r.o.",
+     "ico": "29244960",
+     "cena": 1548026,
+     "vyloucen": false
+    },
+    {
+     "firma": "LKS, s.r.o.",
+     "ico": "07177992",
+     "cena": 1578138,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2026-05-26",
+   "predpokladana_hodnota": 1600000,
+   "lhuta": "2026-05-22T10:00",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P26V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000002",
+   "nazev": "V 00901 – ZŠ Střelice - vybavení šaten",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2026-03-25",
+   "nabidky": [
+    {
+     "firma": "KOVONA a.s.",
+     "ico": "14801884",
+     "cena": 371157,
+     "vyloucen": false
+    },
+    {
+     "firma": "Desmex s.r.o.",
+     "ico": "14155419",
+     "cena": 517950,
+     "vyloucen": false
+    },
+    {
+     "firma": "ALEX kovový a školní nábytek, s.r.o.",
+     "ico": "26943344",
+     "cena": 398000,
+     "vyloucen": false
+    },
+    {
+     "firma": "ENPRAG, s.r.o.",
+     "ico": "62743741",
+     "cena": 314396,
+     "vyloucen": false
+    },
+    {
+     "firma": "IN SPACE s.r.o.",
+     "ico": "05529581",
+     "cena": 478700,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-04-30",
+   "predpokladana_hodnota": 560000,
+   "lhuta": "2026-04-08T10:00",
+   "stav": "bez výsledku"
+  },
+  {
+   "id": "P26V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P26V00000001",
+   "nazev": "V 00893 – Chodník na ul. Antonína Smutného včetně části ulice Na Hrázi",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2026-02-27",
+   "nabidky": [
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 9483953,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 8423111,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 10609798,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 9939764,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "BS - IMEX, spol. s r.o.",
+   "dodavatel_ico": "63476711",
+   "cena": 8423111,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2026-09-29",
+   "predpokladana_hodnota": 8800000,
+   "lhuta": "2026-03-11T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P25V00000005",
+   "nazev": "Vozidlo s alternativním pohonem – obec Střelice u Brna",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2025-09-18",
+   "nabidky": [
+    {
+     "firma": "EUROGREEN CZ s.r.o.",
+     "ico": "64651959",
+     "cena": 2180000,
+     "vyloucen": false
+    },
+    {
+     "firma": "SYNPRO, s.r.o.",
+     "ico": "29228298",
+     "cena": 1380000,
+     "vyloucen": false
+    },
+    {
+     "firma": "AUTO VINKLER, s.r.o.",
+     "ico": "28083831",
+     "cena": 1447425,
+     "vyloucen": false
+    },
+    {
+     "firma": "MEVA-TEC s.r.o.",
+     "ico": "62742051",
+     "cena": 1420000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "SYNPRO, s.r.o.",
+   "dodavatel_ico": "29228298",
+   "cena": 1380000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2025-10-30",
+   "predpokladana_hodnota": null,
+   "lhuta": "2025-10-09",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00000004/1",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P25V00000004",
+   "nazev": "Kompostéry a nádoby na tříděné odpady pro obec Střelice - nádoby",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2025-08-05",
+   "nabidky": [
+    {
+     "firma": "MEVA-TEC s.r.o.",
+     "ico": "62742051",
+     "cena": 1396875,
+     "vyloucen": false
+    },
+    {
+     "firma": "MEVA-TEC s.r.o.",
+     "ico": "62742051",
+     "cena": 2240000,
+     "vyloucen": false
+    },
+    {
+     "firma": "Recovera Využití zdrojů a.s.",
+     "ico": "25638955",
+     "cena": 1608750,
+     "vyloucen": false
+    },
+    {
+     "firma": "CONTENUR Česká republika s.r.o.",
+     "ico": "05454824",
+     "cena": 1593750,
+     "vyloucen": false
+    },
+    {
+     "firma": "NAODPAD s.r.o.",
+     "ico": "05822726",
+     "cena": 1383750,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "NAODPAD s.r.o.",
+   "dodavatel_ico": "05822726",
+   "cena": 1383750,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2025-10-07",
+   "predpokladana_hodnota": 3900000,
+   "lhuta": "2025-08-21",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00000004/2",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P25V00000004",
+   "nazev": "Kompostéry a nádoby na tříděné odpady pro obec Střelice – kompostéry",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2025-08-05",
+   "nabidky": [
+    {
+     "firma": "MEVA-TEC s.r.o.",
+     "ico": "62742051",
+     "cena": 1396875,
+     "vyloucen": false
+    },
+    {
+     "firma": "MEVA-TEC s.r.o.",
+     "ico": "62742051",
+     "cena": 2240000,
+     "vyloucen": false
+    },
+    {
+     "firma": "Recovera Využití zdrojů a.s.",
+     "ico": "25638955",
+     "cena": 1608750,
+     "vyloucen": false
+    },
+    {
+     "firma": "CONTENUR Česká republika s.r.o.",
+     "ico": "05454824",
+     "cena": 1593750,
+     "vyloucen": false
+    },
+    {
+     "firma": "NAODPAD s.r.o.",
+     "ico": "05822726",
+     "cena": 1383750,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "NAODPAD s.r.o.",
+   "dodavatel_ico": "05822726",
+   "cena": 1383750,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2025-10-07",
+   "predpokladana_hodnota": 3900000,
+   "lhuta": "2025-08-21",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P25V00000003",
+   "nazev": "V 00855 – Polní cesta C20, Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2025-05-26",
+   "nabidky": [
+    {
+     "firma": "STRABAG a.s.",
+     "ico": "60838744",
+     "cena": 5597724,
+     "vyloucen": false
+    },
+    {
+     "firma": "COLAS CZ, a.s.",
+     "ico": "26177005",
+     "cena": 5299788,
+     "vyloucen": false
+    },
+    {
+     "firma": "Jakub Havel",
+     "ico": "75857227",
+     "cena": 6747905,
+     "vyloucen": false
+    },
+    {
+     "firma": "EUROVIA CZ a.s.",
+     "ico": "45274924",
+     "cena": 6473563,
+     "vyloucen": false
+    },
+    {
+     "firma": "AQUASYS spol. s r.o.",
+     "ico": "25344447",
+     "cena": 5450000,
+     "vyloucen": false
+    },
+    {
+     "firma": "TD LKW s.r.o.",
+     "ico": "29380421",
+     "cena": 6227595,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": null,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 7258980,
+     "vyloucen": false
+    },
+    {
+     "firma": "SWIETELSKY stavební s.r.o.",
+     "ico": "48035599",
+     "cena": 5945498,
+     "vyloucen": false
+    },
+    {
+     "firma": "FIRESTA-Fišer, rekonstrukce, stavby a.s.",
+     "ico": "25317628",
+     "cena": 6199309,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "PORR a.s.",
+   "dodavatel_ico": "43005560",
+   "cena": 4964081,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2025-06-27",
+   "predpokladana_hodnota": 8700000,
+   "lhuta": "2025-06-11T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P25V00000001",
+   "nazev": "V 00796 – Střelice, rekonstrukce ulice Školní",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2025-01-29",
+   "nabidky": [
+    {
+     "firma": "STAVOS PROFESSIONAL s.r.o.",
+     "ico": "11790041",
+     "cena": 8347829,
+     "vyloucen": false
+    },
+    {
+     "firma": "SIMOST, s.r.o.",
+     "ico": "46995803",
+     "cena": 9955123,
+     "vyloucen": false
+    },
+    {
+     "firma": "M - SILNICE a.s.",
+     "ico": "42196868",
+     "cena": 7887722,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 7728343,
+     "vyloucen": false
+    },
+    {
+     "firma": "BoBaStav s.r.o.",
+     "ico": "03330494",
+     "cena": 7986728,
+     "vyloucen": false
+    },
+    {
+     "firma": "COLAS CZ, a.s.",
+     "ico": "26177005",
+     "cena": 9661327,
+     "vyloucen": false
+    },
+    {
+     "firma": "Inženýrské stavby Brno, spol. s r.o.",
+     "ico": "41601645",
+     "cena": 8435088,
+     "vyloucen": false
+    },
+    {
+     "firma": "SWIETELSKY stavební s.r.o.",
+     "ico": "48035599",
+     "cena": 8944150,
+     "vyloucen": false
+    },
+    {
+     "firma": "DS DUMA s.r.o.",
+     "ico": "09358641",
+     "cena": 9513762,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 8280000,
+     "vyloucen": false
+    },
+    {
+     "firma": "RONYTRANS, s.r.o.",
+     "ico": "27703568",
+     "cena": 9287789,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "ZEMAKO, s.r.o.",
+   "dodavatel_ico": "25504011",
+   "cena": 8627902,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2025-06-30",
+   "predpokladana_hodnota": 9890000,
+   "lhuta": "2025-02-24T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P25V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P25V00000002",
+   "nazev": "V 00831 – Chodník ul. Brněnská, autobusová zastávka u Čepra",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2025-01-29",
+   "nabidky": [
+    {
+     "firma": "STAVOS PROFESSIONAL s.r.o.",
+     "ico": "11790041",
+     "cena": 1887236,
+     "vyloucen": false
+    },
+    {
+     "firma": "SWIETELSKY stavební s.r.o.",
+     "ico": "48035599",
+     "cena": 2554997,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 1990000,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 1999737,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 2463714,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 2428661,
+     "vyloucen": false
+    },
+    {
+     "firma": "BoBaStav s.r.o.",
+     "ico": "03330494",
+     "cena": 1991512,
+     "vyloucen": false
+    },
+    {
+     "firma": "DW STAVBY BRNO s.r.o.",
+     "ico": "09619801",
+     "cena": 2495295,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "STAVOS PROFESSIONAL s.r.o.",
+   "dodavatel_ico": "11790041",
+   "cena": 2166014,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2025-07-02",
+   "predpokladana_hodnota": 2500000,
+   "lhuta": "2025-02-13T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000012",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000012",
+   "nazev": "V 00797 – dodávka a montáž výtahu",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2024-09-03",
+   "nabidky": [
+    {
+     "firma": "VYMYSLICKÝ - VÝTAHY spol. s r.o.",
+     "ico": "44962185",
+     "cena": null,
+     "vyloucen": false
+    },
+    {
+     "firma": "Beta Control s.r.o.",
+     "ico": "60696052",
+     "cena": 2207444,
+     "vyloucen": false
+    },
+    {
+     "firma": "VÝTAHY BRNO s.r.o.",
+     "ico": "25585819",
+     "cena": 1970000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "VÝTAHY BRNO s.r.o.",
+   "dodavatel_ico": "25585819",
+   "cena": 1970000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-10-09",
+   "predpokladana_hodnota": 1998000,
+   "lhuta": "2024-09-16T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000011",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000011",
+   "nazev": "Úsekové měření, ul. Tetčická, Ant. Smutného, Střelice – dodávka technologie",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2024-06-28",
+   "nabidky": [
+    {
+     "firma": "DOSIP Servis s.r.o.",
+     "ico": "27720713",
+     "cena": 1549000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "DOSIP Servis s.r.o.",
+   "dodavatel_ico": "27720713",
+   "cena": 1549000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-06-28",
+   "predpokladana_hodnota": 1900000,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000010",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000010",
+   "nazev": "V 00775 – výstavba FVE na objektech obce",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2024-06-24",
+   "nabidky": [
+    {
+     "firma": "MORAVIAPOWER s.r.o.",
+     "ico": "14348969",
+     "cena": 3084635,
+     "vyloucen": false
+    },
+    {
+     "firma": "ENERG-SERVIS a.s.",
+     "ico": "25551132",
+     "cena": 4701000,
+     "vyloucen": false
+    },
+    {
+     "firma": "SILVER PLANET a.s.",
+     "ico": "03541690",
+     "cena": 5306987,
+     "vyloucen": false
+    },
+    {
+     "firma": "WATT-GURU s.r.o.",
+     "ico": "09781781",
+     "cena": 3916452,
+     "vyloucen": false
+    },
+    {
+     "firma": "Sunsmart Construction a.s.",
+     "ico": "28203135",
+     "cena": 4072997,
+     "vyloucen": false
+    },
+    {
+     "firma": "SOLAR BRYKA s.r.o.",
+     "ico": "14201674",
+     "cena": 4952000,
+     "vyloucen": false
+    },
+    {
+     "firma": "Agro NWT s.r.o.",
+     "ico": "08216878",
+     "cena": 2937201,
+     "vyloucen": false
+    },
+    {
+     "firma": "LUNEK, s.r.o.",
+     "ico": "27684849",
+     "cena": 3324970,
+     "vyloucen": false
+    },
+    {
+     "firma": "All4fve s.r.o.",
+     "ico": "09238140",
+     "cena": 4588900,
+     "vyloucen": false
+    },
+    {
+     "firma": "MOBIS, spol. s r.o.",
+     "ico": "49452690",
+     "cena": 4596147,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Agro NWT s.r.o.",
+   "dodavatel_ico": "08216878",
+   "cena": 2937201,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-10-24",
+   "predpokladana_hodnota": 6200000,
+   "lhuta": "2024-07-23T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000009",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000009",
+   "nazev": "V 00777 – Lesní cyklotrasa Lotrůvka",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2024-05-30",
+   "nabidky": [
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 3000333,
+     "vyloucen": false
+    },
+    {
+     "firma": "AQUASYS spol. s r.o.",
+     "ico": "25344447",
+     "cena": 2550000,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 3147088,
+     "vyloucen": false
+    },
+    {
+     "firma": "JV Dalistav s.r.o.",
+     "ico": "02758725",
+     "cena": 3033626,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 2800397,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 2780811,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "AQUASYS spol. s r.o.",
+   "dodavatel_ico": "25344447",
+   "cena": 2550000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-07-01",
+   "predpokladana_hodnota": 3600000,
+   "lhuta": "2024-06-13T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000008",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000008",
+   "nazev": "V 00776 – Venkovní úpravy u hasičské zbrojnice - III. etapa – dokončení",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2024-05-28",
+   "nabidky": [
+    {
+     "firma": "JV Dalistav s.r.o.",
+     "ico": "02758725",
+     "cena": 2710909,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 1832139,
+     "vyloucen": false
+    },
+    {
+     "firma": "INGVIS, s.r.o.",
+     "ico": "07669178",
+     "cena": 2906335,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 2400000,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 2699219,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 1832139,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-08-23",
+   "predpokladana_hodnota": 3000000,
+   "lhuta": "2024-06-12T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000007",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000007",
+   "nazev": "V 00769 – dodávka vybavení ZUŠ – nové vyhlášení",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2024-05-15",
+   "nabidky": [
+    {
+     "firma": "MTINTERIER - nábytek na míru s.r.o",
+     "ico": "01419331",
+     "cena": 673838,
+     "vyloucen": false
+    },
+    {
+     "firma": "Potrusil s.r.o.",
+     "ico": "25310119",
+     "cena": 944408,
+     "vyloucen": false
+    },
+    {
+     "firma": "CONSULTA BÜROTECHNIK, s.r.o.",
+     "ico": "25327101",
+     "cena": 717540,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "MTINTERIER - nábytek na míru s.r.o",
+   "dodavatel_ico": "01419331",
+   "cena": 673838,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-06-07",
+   "predpokladana_hodnota": 720000,
+   "lhuta": "2024-05-27T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000006",
+   "nazev": "V 00769 – dodávka vybavení ZUŠ",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2024-04-24",
+   "nabidky": [
+    {
+     "firma": "minimalistic s.r.o.",
+     "ico": "03055159",
+     "cena": null,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2024-05-15",
+   "predpokladana_hodnota": 720000,
+   "lhuta": "2024-05-10T10:00",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P24V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000005",
+   "nazev": "V 00760 – Stavební úpravy a půdní vestavba budovy ZUŠ Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2024-03-20",
+   "nabidky": [
+    {
+     "firma": "BRINGSTAV, s.r.o.",
+     "ico": "25512111",
+     "cena": 8230359,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavební firma MATYÁŠ s.r.o.",
+     "ico": "29298113",
+     "cena": 9743900,
+     "vyloucen": false
+    },
+    {
+     "firma": "QuickBuilding, s.r.o.",
+     "ico": "04924991",
+     "cena": 7581504,
+     "vyloucen": false
+    },
+    {
+     "firma": "QDS Group a.s.",
+     "ico": "28265971",
+     "cena": 7979708,
+     "vyloucen": false
+    },
+    {
+     "firma": "QuickBuilding s.r.o.",
+     "ico": "04924991",
+     "cena": 7954590,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "QuickBuilding, s.r.o.",
+   "dodavatel_ico": "04924991",
+   "cena": 7954590,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-09-29",
+   "predpokladana_hodnota": 8250000,
+   "lhuta": "2024-04-10T14:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000004",
+   "nazev": "V 00682C – Novostavba MŠ Střelice – dodávka vybavení MŠ",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2024-02-28",
+   "nabidky": [
+    {
+     "firma": "DINA central s.r.o.",
+     "ico": "26802511",
+     "cena": 1527320,
+     "vyloucen": false
+    },
+    {
+     "firma": "AMBRA - Group, s.r.o.",
+     "ico": "25379887",
+     "cena": 1416201,
+     "vyloucen": false
+    },
+    {
+     "firma": "CONSULTA BÜROTECHNIK, s.r.o.",
+     "ico": "25327101",
+     "cena": 2198560,
+     "vyloucen": false
+    },
+    {
+     "firma": "OSS Brno, s.r.o.",
+     "ico": "46901850",
+     "cena": 2335356,
+     "vyloucen": false
+    },
+    {
+     "firma": "KANONA a.s.",
+     "ico": "04163664",
+     "cena": 1550020,
+     "vyloucen": false
+    },
+    {
+     "firma": "ELNAR spol. s r.o.",
+     "ico": "45790604",
+     "cena": 1829490,
+     "vyloucen": false
+    },
+    {
+     "firma": "minimalistic s.r.o.",
+     "ico": "03055159",
+     "cena": 1667490,
+     "vyloucen": false
+    },
+    {
+     "firma": "Prosto interiér s.r.o.",
+     "ico": "03171906",
+     "cena": 1680674,
+     "vyloucen": false
+    },
+    {
+     "firma": "MAKRA DIDAKTA s.r.o.",
+     "ico": "27916758",
+     "cena": 1372040,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-04-26",
+   "predpokladana_hodnota": 1960000,
+   "lhuta": "2024-03-15T10:00",
+   "stav": "bez výsledku"
+  },
+  {
+   "id": "P24V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000003",
+   "nazev": "V 00752 – Oprava chodníku nám. Svobody, ul. Brněnská, Střelice – TDI a BOZP",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2024-02-03",
+   "nabidky": [
+    {
+     "firma": "SONDEO s.r.o.",
+     "ico": "02870819",
+     "cena": 133200,
+     "vyloucen": false
+    },
+    {
+     "firma": "B-KOMFORT, s.r.o.",
+     "ico": "46961348",
+     "cena": 350,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "B-KOMFORT, s.r.o.",
+   "dodavatel_ico": "46961348",
+   "cena": 350,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-04-09",
+   "predpokladana_hodnota": 110000,
+   "lhuta": "2024-02-19T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000002",
+   "nazev": "V 00750 – Obnova zpevněné plochy koupaliště včetně odvodnění",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2024-01-30",
+   "nabidky": [
+    {
+     "firma": "Benpra servis s.r.o.",
+     "ico": "05249643",
+     "cena": 2398408,
+     "vyloucen": false
+    },
+    {
+     "firma": "ALDYCO - stavby a konstrukce, s.r.o.",
+     "ico": "03262871",
+     "cena": 2353167,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 1980000,
+     "vyloucen": false
+    },
+    {
+     "firma": "JV Dalistav s.r.o.",
+     "ico": "02758725",
+     "cena": 1790280,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "JV Dalistav s.r.o.",
+   "dodavatel_ico": "02758725",
+   "cena": 1790280,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-03-15",
+   "predpokladana_hodnota": 2390000,
+   "lhuta": "2024-02-12T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P24V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P24V00000001",
+   "nazev": "V 00749 – Oprava chodníku nám. Svobody, ul. Brněnská, Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2024-01-23",
+   "nabidky": [
+    {
+     "firma": "VS-build, s.r.o.",
+     "ico": "28312015",
+     "cena": 6675773,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 8867597,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 7452972,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 7700973,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 6300000,
+     "vyloucen": false
+    },
+    {
+     "firma": "RONYTRANS, s.r.o.",
+     "ico": "27703568",
+     "cena": 7174445,
+     "vyloucen": false
+    },
+    {
+     "firma": "SIMOST, s.r.o.",
+     "ico": "46995803",
+     "cena": 7387123,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "BS - IMEX, spol. s r.o.",
+   "dodavatel_ico": "63476711",
+   "cena": 8175092,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-12-19",
+   "predpokladana_hodnota": 10500000,
+   "lhuta": "2024-02-13T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000012",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000012",
+   "nazev": "Autobusové přístřešky ve Střelicích",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2023-11-21",
+   "nabidky": [
+    {
+     "firma": "mmcité a.s.",
+     "ico": "27670864",
+     "cena": 1387731,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "mmcité a.s.",
+   "dodavatel_ico": "27670864",
+   "cena": 1387731,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-11-21",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000011",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000011",
+   "nazev": "Zpracování projektové dokumentace ve společném stupni DUR + DSP : Rekonstrukce ulice Na Hrázi, Nová ulice, Úvoz, obec Střelice",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2023-10-06",
+   "nabidky": [
+    {
+     "firma": "NiTraM-projekt, s.r.o.",
+     "ico": "06964796",
+     "cena": 795900,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ateliér DPK, s.r.o.",
+     "ico": "25348817",
+     "cena": 989998,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "NiTraM-projekt, s.r.o.",
+   "dodavatel_ico": "06964796",
+   "cena": 795900,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-12-21",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000010",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000010",
+   "nazev": "V 00720 – Střelice, chodník ke škole a přesun dětského hřiště",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-08-22",
+   "nabidky": [
+    {
+     "firma": "Brixton Group, s.r.o.",
+     "ico": "25550586",
+     "cena": 2077936,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 2298128,
+     "vyloucen": false
+    },
+    {
+     "firma": "SPORTOVNÍ PODLAHY ZLÍN, s.r.o.",
+     "ico": "25560191",
+     "cena": 2634302,
+     "vyloucen": false
+    },
+    {
+     "firma": "SAMPROS-STAV s.r.o.",
+     "ico": "11932422",
+     "cena": 2539731,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Brixton Group, s.r.o.",
+   "dodavatel_ico": "25550586",
+   "cena": 2246933,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-01-12",
+   "predpokladana_hodnota": 2300000,
+   "lhuta": "2023-09-04T14:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000009",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000009",
+   "nazev": "V 00682B – Novostavba MŠ Střelice – dodávka gastro – třetí vyhlášení",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2023-06-14",
+   "nabidky": [
+    {
+     "firma": "GASTROART CZ, spol. s r.o.",
+     "ico": "27148378",
+     "cena": null,
+     "vyloucen": false
+    },
+    {
+     "firma": "GOZ GASTRO s.r.o.",
+     "ico": "28302672",
+     "cena": 4300200,
+     "vyloucen": false
+    },
+    {
+     "firma": "GASTROFORM, s.r.o.",
+     "ico": "01637801",
+     "cena": 5464340,
+     "vyloucen": false
+    },
+    {
+     "firma": "GAST-PROFIT s.r.o.",
+     "ico": "01769863",
+     "cena": 6118808,
+     "vyloucen": false
+    },
+    {
+     "firma": "HRASPO spol. s r.o.",
+     "ico": "25323610",
+     "cena": 6461452,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "GOZ GASTRO s.r.o.",
+   "dodavatel_ico": "28302672",
+   "cena": 4295452,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-10-23",
+   "predpokladana_hodnota": 5469000,
+   "lhuta": "2023-07-03T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000008",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000008",
+   "nazev": "V 00698 – učebna – stavební úpravy",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-05-25",
+   "nabidky": [
+    {
+     "firma": "Stavby a konstrukce, s.r.o.",
+     "ico": "25595750",
+     "cena": 688271,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Stavby a konstrukce, s.r.o.",
+   "dodavatel_ico": "25595750",
+   "cena": 688271,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-07-02",
+   "predpokladana_hodnota": 650000,
+   "lhuta": "2023-06-12T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000006",
+   "nazev": "V 00695 – Modernizace povrchu cyklotrasy údolím Bobravy, III. etapa",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-05-11",
+   "nabidky": [
+    {
+     "firma": "TD LKW s.r.o.",
+     "ico": "29380421",
+     "cena": 3602745,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 3999698,
+     "vyloucen": false
+    },
+    {
+     "firma": "Inženýrské stavby Brno, spol. s r.o.",
+     "ico": "41601645",
+     "cena": 2886047,
+     "vyloucen": false
+    },
+    {
+     "firma": "FIRESTA-Fišer, rekonstrukce, stavby a.s.",
+     "ico": "25317628",
+     "cena": 4210125,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 3567683,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 2306016,
+     "vyloucen": false
+    },
+    {
+     "firma": "JIS - Sta s.r.o.",
+     "ico": "02672537",
+     "cena": 5397775,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 3306672,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "PORR a.s.",
+   "dodavatel_ico": "43005560",
+   "cena": 2471813,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-10-08",
+   "predpokladana_hodnota": 5600000,
+   "lhuta": "2023-05-30T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000007",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000007",
+   "nazev": "V 00682B – Novostavba MŠ Střelice – dodávka gastro – nové vyhlášení",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2023-05-11",
+   "nabidky": [
+    {
+     "firma": "GASTROART CZ, spol. s r.o.",
+     "ico": "27148378",
+     "cena": 5811787,
+     "vyloucen": false
+    },
+    {
+     "firma": "GAST-PROFIT s.r.o.",
+     "ico": "01769863",
+     "cena": 5180660,
+     "vyloucen": false
+    },
+    {
+     "firma": "GASTROFORM, s.r.o.",
+     "ico": "01637801",
+     "cena": 5464340,
+     "vyloucen": false
+    },
+    {
+     "firma": "HRASPO spol. s r.o.",
+     "ico": "25323610",
+     "cena": 6461452,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2023-06-14",
+   "predpokladana_hodnota": 5469000,
+   "lhuta": "2023-05-30T10:00",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P23V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000004",
+   "nazev": "V 00682B – Novostavba MŠ Střelice – dodávka gastro",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2023-04-11",
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2023-05-04",
+   "predpokladana_hodnota": 5469000,
+   "lhuta": "2023-05-09T10:00",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P23V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000005",
+   "nazev": "V 00682A – Novostavba MŠ Střelice – stavební práce",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-04-11",
+   "nabidky": [
+    {
+     "firma": "Brixton Group, s.r.o.",
+     "ico": "25550586",
+     "cena": 27512045,
+     "vyloucen": false
+    },
+    {
+     "firma": "Moravská stavební unie - MSU s.r.o.",
+     "ico": "48529303",
+     "cena": 32810000,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavební firma MATYÁŠ s.r.o.",
+     "ico": "29298113",
+     "cena": 27240000,
+     "vyloucen": false
+    },
+    {
+     "firma": "DEST Morava s.r.o.",
+     "ico": "09036547",
+     "cena": 28278000,
+     "vyloucen": false
+    },
+    {
+     "firma": "Navláčil stavební firma, s.r.o.",
+     "ico": "25301144",
+     "cena": 30164107,
+     "vyloucen": false
+    },
+    {
+     "firma": "S-A-S STAVBY spol. s r.o.",
+     "ico": "46980318",
+     "cena": 31775532,
+     "vyloucen": false
+    },
+    {
+     "firma": "STAVOS Brno, a.s.",
+     "ico": "65277911",
+     "cena": 29396187,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Stavební firma MATYÁŠ s.r.o.",
+   "dodavatel_ico": "29298113",
+   "cena": 27509129,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2024-03-06",
+   "predpokladana_hodnota": 31250000,
+   "lhuta": "2023-05-04T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000001",
+   "nazev": "V 00666A – komunikace ul. Vršovická",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-02-01",
+   "nabidky": [
+    {
+     "firma": "TVM stavby s.r.o.",
+     "ico": "06331807",
+     "cena": 4059425,
+     "vyloucen": false
+    },
+    {
+     "firma": "VS-build, s.r.o.",
+     "ico": "28312015",
+     "cena": 3834606,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 4914976,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 3905010,
+     "vyloucen": false
+    },
+    {
+     "firma": "COLAS CZ, a.s.",
+     "ico": "26177005",
+     "cena": 5050085,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 5254178,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 4370000,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 4640000,
+     "vyloucen": false
+    },
+    {
+     "firma": "EUROVIA CS, a.s.",
+     "ico": "45274924",
+     "cena": 5091049,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 5159972,
+     "vyloucen": false
+    },
+    {
+     "firma": "DIRS Brno s.r.o.",
+     "ico": "26255618",
+     "cena": 4724075,
+     "vyloucen": false
+    },
+    {
+     "firma": "STAVBY SR group s.r.o.",
+     "ico": "09224289",
+     "cena": 4746000,
+     "vyloucen": false
+    },
+    {
+     "firma": "I. Vyškovská stavební společnost, s.r.o.",
+     "ico": "25588176",
+     "cena": 5541966,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "VS-build, s.r.o.",
+   "dodavatel_ico": "28312015",
+   "cena": 3834606,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-03-24",
+   "predpokladana_hodnota": 5275000,
+   "lhuta": "2023-02-15T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000002",
+   "nazev": "V 00666B – chodník ul. Nebovidská",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-02-01",
+   "nabidky": [
+    {
+     "firma": "SAMPROS-STAV s.r.o.",
+     "ico": "11932422",
+     "cena": 724853,
+     "vyloucen": false
+    },
+    {
+     "firma": "COLAS CZ, a.s.",
+     "ico": "26177005",
+     "cena": 1238500,
+     "vyloucen": false
+    },
+    {
+     "firma": "TVM stavby s.r.o.",
+     "ico": "06331807",
+     "cena": 1069842,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 1121663,
+     "vyloucen": false
+    },
+    {
+     "firma": "VS-build, s.r.o.",
+     "ico": "28312015",
+     "cena": 948317,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 921564,
+     "vyloucen": false
+    },
+    {
+     "firma": "DIRS Brno s.r.o.",
+     "ico": "26255618",
+     "cena": 1098966,
+     "vyloucen": false
+    },
+    {
+     "firma": "I. Vyškovská stavební společnost, s.r.o.",
+     "ico": "25588176",
+     "cena": 1518751,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 1024708,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 1425057,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "PORR a.s.",
+   "dodavatel_ico": "43005560",
+   "cena": 921564,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-10-08",
+   "predpokladana_hodnota": 1100000,
+   "lhuta": "2023-02-15T14:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P23V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P23V00000003",
+   "nazev": "V 00666C – chodník k přechodové lávce ul. Tetčická",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2023-02-01",
+   "nabidky": [
+    {
+     "firma": "COLAS CZ, a.s.",
+     "ico": "26177005",
+     "cena": null,
+     "vyloucen": false
+    },
+    {
+     "firma": "TVM stavby s.r.o.",
+     "ico": "06331807",
+     "cena": 2034740,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 2332616,
+     "vyloucen": false
+    },
+    {
+     "firma": "VS-build, s.r.o.",
+     "ico": "28312015",
+     "cena": 1969855,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 2244421,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, spol. s r.o.",
+     "ico": "63476711",
+     "cena": 1744000,
+     "vyloucen": false
+    },
+    {
+     "firma": "ZEMAKO, s.r.o.",
+     "ico": "25504011",
+     "cena": 3448583,
+     "vyloucen": false
+    },
+    {
+     "firma": "DIRS Brno s.r.o.",
+     "ico": "26255618",
+     "cena": 2151457,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 2224934,
+     "vyloucen": false
+    },
+    {
+     "firma": "I. Vyškovská stavební společnost, s.r.o.",
+     "ico": "25588176",
+     "cena": 2658181,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "BS - IMEX, spol. s r.o.",
+   "dodavatel_ico": "63476711",
+   "cena": 1744000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2023-11-28",
+   "predpokladana_hodnota": 2650000,
+   "lhuta": "2023-02-15T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P22V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P22V00000006",
+   "nazev": "Dodávka a montáž měřícího zařízení pro úsekové měření rychlosti vozidel v obci Střelice na ul. Nebovidská",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2022-05-13",
+   "nabidky": [
+    {
+     "firma": "Gemos Dopravní Systémy, a.s. Praha",
+     "ico": "24132098",
+     "cena": 1518000,
+     "vyloucen": false
+    },
+    {
+     "firma": "DOSIP Servis, s.r.o.",
+     "ico": "27720713",
+     "cena": 1510000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "DOSIP Servis, s.r.o.",
+   "dodavatel_ico": "27720713",
+   "cena": 1510000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-06-10",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P22V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P22V00000005",
+   "nazev": "Stavební úprava sociálního zařízení v MŠ Střelice, ul. V Cihelně",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2022-05-09",
+   "nabidky": [
+    {
+     "firma": "SEKANINA - SEVUD s.r.o.",
+     "ico": "29197007",
+     "cena": 896047,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavby a konstrukce s.r.o.",
+     "ico": "25595750",
+     "cena": 1040443,
+     "vyloucen": false
+    },
+    {
+     "firma": "Radek Minařík, stavební práce",
+     "ico": "13029436",
+     "cena": 1008496,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "SEKANINA - SEVUD s.r.o.",
+   "dodavatel_ico": "29197007",
+   "cena": 896047,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-06-23",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P22V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P22V00000004",
+   "nazev": "Oprava části chodníku na ul. Tetčické a chodníků vedoucích k lávce ČD",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2022-05-05",
+   "nabidky": [
+    {
+     "firma": "CREATIVE BUILDINGS, a.s.",
+     "ico": "29301793",
+     "cena": 524311,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 2987616,
+     "vyloucen": false
+    },
+    {
+     "firma": "Remastav s.r.o.",
+     "ico": "29249295",
+     "cena": 712156,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, a.s.",
+   "dodavatel_ico": "29301793",
+   "cena": 524311,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-09-26",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P22V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P22V00000003",
+   "nazev": "Dodávka a montáž prvků na hřiště v areálu koupaliště ve Střelicích",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2022-02-18",
+   "nabidky": [
+    {
+     "firma": "Bonita Group Service s.r.o.",
+     "ico": "27738795",
+     "cena": 628768,
+     "vyloucen": false
+    },
+    {
+     "firma": "COLMEX s.r.o.",
+     "ico": "29037221",
+     "cena": 678655,
+     "vyloucen": false
+    },
+    {
+     "firma": "FITNEMA s.r.o.",
+     "ico": "03554104",
+     "cena": 619620,
+     "vyloucen": false
+    },
+    {
+     "firma": "Hřiště 8D s.r.o.",
+     "ico": "04436857",
+     "cena": 939496,
+     "vyloucen": false
+    },
+    {
+     "firma": "MONOTREND s.r.o",
+     "ico": "29320313",
+     "cena": 607116,
+     "vyloucen": false
+    },
+    {
+     "firma": "ALESTRA s.r.o.",
+     "ico": "29196485",
+     "cena": 640839,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "MONOTREND s.r.o",
+   "dodavatel_ico": "29320313",
+   "cena": 607116,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-04-01",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P22V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P22V00000001",
+   "nazev": "Dodávka měřícího zařízení pro úsekové měření rychlosti vozidel v obci Střelice",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2022-02-10",
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2022-03-16",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P22V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P22V00000002",
+   "nazev": "Zpevněná plocha u obecního úřadu před muzeem ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2022-02-10",
+   "nabidky": [
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 565285,
+     "vyloucen": false
+    },
+    {
+     "firma": "SEKANINA - SEVUD s.r.o.",
+     "ico": "294197007",
+     "cena": 1738853,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavby a konstrukce, s.r.o.",
+     "ico": "25595750",
+     "cena": 1650708,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 565285,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-23",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000011",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000011",
+   "nazev": "Výsadba listnatých stromů v části ul. Ant. Smutného a výsadba okrasných keřů a cibulovin, ul. Tetčická ve Střelicích",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2021-07-30",
+   "nabidky": [
+    {
+     "firma": "A + K úpravy zeleně s.r.o.",
+     "ico": "06903606",
+     "cena": 724456,
+     "vyloucen": false
+    },
+    {
+     "firma": "Dohnálek Jiří",
+     "ico": "42314658",
+     "cena": 825938,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "A + K úpravy zeleně s.r.o.",
+   "dodavatel_ico": "06903606",
+   "cena": 671238,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000012",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000012",
+   "nazev": "Obec Střelice - informačně orientační značení ulic a místních cílů",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2021-07-30",
+   "nabidky": [
+    {
+     "firma": "GS PLUS s.r.o.",
+     "ico": "26234912",
+     "cena": 137188,
+     "vyloucen": false
+    },
+    {
+     "firma": "HICON-dopravní značení, s.r.o.",
+     "ico": "26270331",
+     "cena": 111590,
+     "vyloucen": false
+    },
+    {
+     "firma": "GS PLUS CS s.r.o.",
+     "ico": "41602901",
+     "cena": 211549,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "HICON-dopravní značení, s.r.o.",
+   "dodavatel_ico": "26270331",
+   "cena": 119226,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-01-05",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000009",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000009",
+   "nazev": "Oprava chodníků na ulici Antonína Smutného, Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-07-26",
+   "nabidky": [
+    {
+     "firma": "Creative Buildings, s.r.o.",
+     "ico": "29301793",
+     "cena": 1919011,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Creative Buildings, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 1998753,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-06-15",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000010",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000010",
+   "nazev": "Stavební úprava komunikace v ulici K Myslivně - obytný soubor Kopaniny, Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-07-26",
+   "nabidky": [
+    {
+     "firma": "Creative Buildings, s.r.o.",
+     "ico": "29301793",
+     "cena": 403900,
+     "vyloucen": false
+    },
+    {
+     "firma": "agriKomp Bohemia s.r.o.",
+     "ico": "27676030",
+     "cena": 610000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Creative Buildings, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 403900,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000008",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000008",
+   "nazev": "FZŠ - Střelice - Cisternová automobilová stříkačka",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2021-05-31",
+   "nabidky": [
+    {
+     "firma": "THT Polička, s.r.o.",
+     "ico": "46508147",
+     "cena": 6038000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "THT Polička, s.r.o.",
+   "dodavatel_ico": "46508147",
+   "cena": 6038000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-06-21",
+   "predpokladana_hodnota": 7000000,
+   "lhuta": "2021-06-29T10:00",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000007",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000007",
+   "nazev": "Střelice, ZUŠ - rekonstrukce sociálního zařízení",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-05-20",
+   "nabidky": [
+    {
+     "firma": "Stavby a konstrukce, s.r.o.",
+     "ico": "25595750",
+     "cena": 1703563,
+     "vyloucen": false
+    },
+    {
+     "firma": "Radek Minařík",
+     "ico": "13029436",
+     "cena": 1745398,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Stavby a konstrukce, s.r.o.",
+   "dodavatel_ico": "25595750",
+   "cena": 1703563,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2021-06-18",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000005",
+   "nazev": "Prodloužení komunikace ulice Pod Lesem",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-05-07",
+   "nabidky": [
+    {
+     "firma": "COLAS CZ, a.s.",
+     "ico": "26177005",
+     "cena": 3179022,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 3901737,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 3052056,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 3052056,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000006",
+   "nazev": "Střelice, místo pro přecházení ul. Nebovidská",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-05-07",
+   "nabidky": [
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 1606781,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 1071761,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 1071761,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000003",
+   "nazev": "Střelice, chodník k zastávce",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-05-06",
+   "nabidky": [
+    {
+     "firma": "MIKO Neslovice s.r.o.",
+     "ico": "07662157",
+     "cena": 338688,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 359425,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 190092,
+     "vyloucen": false
+    },
+    {
+     "firma": "REMASTAV, s.r.o.",
+     "ico": "29249295",
+     "cena": 300000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 190092,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000004",
+   "nazev": "Střelice ulice Příční",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-05-06",
+   "nabidky": [
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 1723927,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 1230991,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "CREATIVE BUILDINGS, s.r.o.",
+   "dodavatel_ico": "29301793",
+   "cena": 1230991,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2022-03-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000002",
+   "nazev": "Revitalizace veřejného osvětlení obce Střelice v dotačním programu EFEKT 2021",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-04-22",
+   "nabidky": [
+    {
+     "firma": "Antonín Švejkar",
+     "ico": "67032761",
+     "cena": 1388470,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Antonín Švejkar",
+   "dodavatel_ico": "67032761",
+   "cena": 1388470,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2021-04-22",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P21V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P21V00000001",
+   "nazev": "Parkovací stání u budovy mateřské školy v ul. V Cihelně ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2021-02-19",
+   "nabidky": [
+    {
+     "firma": "agriKomp Bohemia s.r.o",
+     "ico": "27676030",
+     "cena": 588692,
+     "vyloucen": false
+    },
+    {
+     "firma": "MIKO Neslovice s.r.o.",
+     "ico": "07662157",
+     "cena": 461851,
+     "vyloucen": false
+    },
+    {
+     "firma": "JIS - Stav s.r.o.",
+     "ico": "02672537",
+     "cena": 489160,
+     "vyloucen": false
+    },
+    {
+     "firma": "REMASTAV s.r.o.",
+     "ico": "29249295",
+     "cena": 463314,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 489246,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "MIKO Neslovice s.r.o.",
+   "dodavatel_ico": "07662157",
+   "cena": 596663,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2021-06-28",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000010",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000010",
+   "nazev": "Dodávka a montáž měřícího zařízení pro úsekové měření rychlosti vozidel v obci Střelice formou nájemní smlouvy",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2020-10-05",
+   "nabidky": [
+    {
+     "firma": "CAMEA Technology, a.s.",
+     "ico": "06230831",
+     "cena": 3328632,
+     "vyloucen": false
+    },
+    {
+     "firma": "GEMOS DOPRAVNÍ SYSTÉMY, a.s.",
+     "ico": "24132098",
+     "cena": 2232000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2021-02-10",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P20V00000009",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000009",
+   "nazev": "Vypracování projektové dokumentace na akci Novostavba MŠ Střelice",
+   "druh": "služby",
+   "maly_rozsah": true,
+   "datum": "2020-08-06",
+   "nabidky": [
+    {
+     "firma": "Dimense v.o.s.",
+     "ico": "27753379",
+     "cena": 579000,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Dimense v.o.s.",
+   "dodavatel_ico": "27753379",
+   "cena": 579000,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2021-05-20",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000007",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000007",
+   "nazev": "Realizace dodávky elektrotechnických zařízení včetně montážních prací v budově Základní umělecké školy ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-06-26",
+   "nabidky": [
+    {
+     "firma": "Antonín Švejkar",
+     "ico": "67032761",
+     "cena": 2106150,
+     "vyloucen": false
+    },
+    {
+     "firma": "Petr Vidlák",
+     "ico": "64504948",
+     "cena": 1957398,
+     "vyloucen": false
+    },
+    {
+     "firma": "Pavel Geršl",
+     "ico": "41537904",
+     "cena": 2030522,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Petr Vidlák",
+   "dodavatel_ico": "64504948",
+   "cena": 2214684,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-09-21",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000008",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000008",
+   "nazev": "Realizace ústředního vytapění v Základní umělecké škole ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-06-26",
+   "nabidky": [
+    {
+     "firma": "REGO s.r.o.",
+     "ico": "15546497",
+     "cena": 1139108,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOVOPTERM s.r.o.",
+     "ico": "26956748",
+     "cena": 1044957,
+     "vyloucen": false
+    },
+    {
+     "firma": "INSTALPROFI spol. s.r.o.",
+     "ico": "25523228",
+     "cena": 1096819,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "TOVOPTERM s.r.o.",
+   "dodavatel_ico": "26956748",
+   "cena": 1355186,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-09-21",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000006",
+   "nazev": "Realizace tepelných čerpadel pro Základní uměleckou školu a Obecní úřad ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-06-25",
+   "nabidky": [
+    {
+     "firma": "Mikita Kaplan - ELEKTRO",
+     "ico": "13677063",
+     "cena": 1941120,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOP HEAT s.r.o.",
+     "ico": "29214467",
+     "cena": 1999597,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Mikita Kaplan - ELEKTRO",
+   "dodavatel_ico": "13677063",
+   "cena": 2442487,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-09-24",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000005",
+   "nazev": "Chodník z vlakové zastávky Střelice Dolní, ul. Brněnská",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-05-15",
+   "nabidky": [
+    {
+     "firma": "Dušan Hort",
+     "ico": "41549015",
+     "cena": 2799626,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 2947213,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 2672411,
+     "vyloucen": false
+    },
+    {
+     "firma": "REMAT PLUS Zlín s.r.o.",
+     "ico": "25304259",
+     "cena": 2699484,
+     "vyloucen": false
+    },
+    {
+     "firma": "agriKomp Bohemia s.r.o.",
+     "ico": "27676030",
+     "cena": 2289494,
+     "vyloucen": false
+    },
+    {
+     "firma": "PORR a.s.",
+     "ico": "43005560",
+     "cena": 2758816,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "agriKomp Bohemia s.r.o.",
+   "dodavatel_ico": "27676030",
+   "cena": 2931345,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-09-23",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000002",
+   "nazev": "Přístavba učebny mateřské školy, ul. V Cihelně,Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-03-18",
+   "nabidky": [
+    {
+     "firma": "DOK STAV UH s.r.o.",
+     "ico": "06918867",
+     "cena": 6213445,
+     "vyloucen": false
+    },
+    {
+     "firma": "REPOS-ING s.r.o.",
+     "ico": "05791171",
+     "cena": 6413566,
+     "vyloucen": false
+    },
+    {
+     "firma": "Eko modular s.r.o.",
+     "ico": "06902944",
+     "cena": 5997035,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Eko modular s.r.o.",
+   "dodavatel_ico": "06902944",
+   "cena": 6505989,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-09-21",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000003",
+   "nazev": "Revitalizaceveřejného osvětlení obce Střelice v dotačním programu EFEKT 2020",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-03-18",
+   "nabidky": [
+    {
+     "firma": "Antonín Švejkar",
+     "ico": "67032761",
+     "cena": 3333960,
+     "vyloucen": false
+    },
+    {
+     "firma": "Petr Capyk",
+     "ico": "60364807",
+     "cena": 3352365,
+     "vyloucen": false
+    },
+    {
+     "firma": "Petr Vidlák",
+     "ico": "64504948",
+     "cena": 3342489,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Antonín Švejkar",
+   "dodavatel_ico": "67032761",
+   "cena": 3333960,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-03-18",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000004",
+   "nazev": "Stavební úpravy a změna dokončené stavby - Koupaliště Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-03-18",
+   "nabidky": [
+    {
+     "firma": "Triv interiér s.r.o.",
+     "ico": "03199843",
+     "cena": 2573527,
+     "vyloucen": false
+    },
+    {
+     "firma": "Hydrofilter s.r.o.",
+     "ico": "29279038",
+     "cena": 2856331,
+     "vyloucen": false
+    },
+    {
+     "firma": "JaTo stav s.r.o.",
+     "ico": "29352789",
+     "cena": 3064425,
+     "vyloucen": false
+    },
+    {
+     "firma": "Jiří Vamazal",
+     "ico": "06759572",
+     "cena": 2890320,
+     "vyloucen": false
+    },
+    {
+     "firma": "TR stav s.r.o.",
+     "ico": "28309910",
+     "cena": 2760876,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Triv interiér s.r.o.",
+   "dodavatel_ico": "03199843",
+   "cena": 3071789,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-06-26",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P20V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P20V00000001",
+   "nazev": "Stavební úpravy - Koupaliště Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2020-02-07",
+   "nabidky": [
+    {
+     "firma": "Triv interiér s.r.o.",
+     "ico": "03199843",
+     "cena": 2573527,
+     "vyloucen": false
+    },
+    {
+     "firma": "Hydrofilter s.r.o",
+     "ico": "29279038",
+     "cena": 2856331,
+     "vyloucen": false
+    },
+    {
+     "firma": "JaTo stav s.r.o.",
+     "ico": "29352789",
+     "cena": 3064425,
+     "vyloucen": false
+    },
+    {
+     "firma": "Jiří Vymazal",
+     "ico": "06759572",
+     "cena": 2890320,
+     "vyloucen": false
+    },
+    {
+     "firma": "TR stav s.r.o.",
+     "ico": "28309910",
+     "cena": 2760876,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Triv interiér s.r.o.",
+   "dodavatel_ico": "03199843",
+   "cena": 3071789,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-07-10",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000008",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000008",
+   "nazev": "Stavební úpravy střechy - přístavba restaurace Na nádraží, Střelice",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2019-12-19",
+   "nabidky": [
+    {
+     "firma": "SEKANINA - SEVUD s.r.o. Měnín",
+     "ico": "29197007",
+     "cena": 873702,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "SEKANINA - SEVUD s.r.o. Měnín",
+   "dodavatel_ico": "29197007",
+   "cena": 873702,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2019-12-20",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000006",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000006",
+   "nazev": "Dodávka kompletní bezpečnostní technologie pro kontrolu provozu měřením ryclosti projíždějících vozidel v obci Střelice u Brna",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2019-12-03",
+   "nabidky": [],
+   "dodavatel": "",
+   "dodavatel_ico": "",
+   "cena": null,
+   "zruseno": true,
+   "smlouva": false,
+   "posledni_dokument": "2019-12-12",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zrušeno"
+  },
+  {
+   "id": "P19V00000007",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000007",
+   "nazev": "Výstavba mostu přes Střelický potok, ul. Na Hrázi, Střelice u Brna",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2019-12-03",
+   "nabidky": [
+    {
+     "firma": "Mitrenga - stavby, spol. s.r.o.",
+     "ico": "26944022",
+     "cena": 6751910,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV, s.r.o.",
+     "ico": "46977660",
+     "cena": 5935885,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ekostavby Brno, a.s.",
+     "ico": "46974687",
+     "cena": 6345958,
+     "vyloucen": false
+    },
+    {
+     "firma": "REMAT Plus Zlín, s.r.o.",
+     "ico": "25304259",
+     "cena": 5494164,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 6189092,
+     "vyloucen": false
+    },
+    {
+     "firma": "ING-CZECH s.r.o.",
+     "ico": "28303474",
+     "cena": 5983929,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "REMAT Plus Zlín, s.r.o.",
+   "dodavatel_ico": "25304259",
+   "cena": 5494167,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2020-03-27",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000005",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000005",
+   "nazev": "Nákup komunálního traktoru",
+   "druh": "dodávky",
+   "maly_rozsah": true,
+   "datum": "2019-11-19",
+   "nabidky": [
+    {
+     "firma": "HITL, s.r.o.",
+     "ico": "25321765",
+     "cena": 822314,
+     "vyloucen": false
+    },
+    {
+     "firma": "STROM PRAHA a.s.",
+     "ico": "25751069",
+     "cena": 809917,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "STROM PRAHA a.s.",
+   "dodavatel_ico": "25751069",
+   "cena": 809917,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2019-11-19",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000003",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000003",
+   "nazev": "Celková oprava ordinace a čekárny zubních lékařů na zdravotním středisku ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2019-07-10",
+   "nabidky": [
+    {
+     "firma": "Stavby a konstrukce s.r.o.",
+     "ico": "25595750",
+     "cena": 2334333,
+     "vyloucen": false
+    },
+    {
+     "firma": "OSS Brno, s.r.o.",
+     "ico": "46901850",
+     "cena": 3060519,
+     "vyloucen": false
+    },
+    {
+     "firma": "SEKANINA-SEVUD s.r.o.",
+     "ico": "29197007",
+     "cena": 2890139,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Stavby a konstrukce s.r.o.",
+   "dodavatel_ico": "25595750",
+   "cena": 2334333,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2019-07-10",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000004",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000004",
+   "nazev": "Zhotovení základů pod pomníky+zhotovení chodníku na hřbitově ve Střelicích",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2019-07-10",
+   "nabidky": [
+    {
+     "firma": "Valusta s.r.o.",
+     "ico": "05157731",
+     "cena": 525118,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stavby a konstrukce, s.r.o.",
+     "ico": "25595750",
+     "cena": 397969,
+     "vyloucen": false
+    },
+    {
+     "firma": "Ladislav Podhradský",
+     "ico": "15537196",
+     "cena": 473678,
+     "vyloucen": false
+    },
+    {
+     "firma": "Stanislav Gabriel",
+     "ico": "66587107",
+     "cena": 540000,
+     "vyloucen": false
+    },
+    {
+     "firma": "BS - IMEX, s.r.o.",
+     "ico": "63476711",
+     "cena": 661186,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "Stavby a konstrukce, s.r.o.",
+   "dodavatel_ico": "25595750",
+   "cena": 397969,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2019-07-10",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000002",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000002",
+   "nazev": "Střelice u Brna - oprava chodníků na ulici Tetčická",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2019-06-27",
+   "nabidky": [
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 2688475,
+     "vyloucen": false
+    },
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 2426386,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "TOPSTAV s.r.o.",
+   "dodavatel_ico": "46977660",
+   "cena": 2777199,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2019-10-07",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  },
+  {
+   "id": "P19V00000001",
+   "url": "https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2/Zakazka/P19V00000001",
+   "nazev": "Střelice - rekonstrukce chodníku na ul. Antonína Smutného - II.etapa",
+   "druh": "stavební práce",
+   "maly_rozsah": true,
+   "datum": "2019-03-27",
+   "nabidky": [
+    {
+     "firma": "TOPSTAV s.r.o.",
+     "ico": "46977660",
+     "cena": 4050906,
+     "vyloucen": false
+    },
+    {
+     "firma": "SWIETELSKY stavební s.r.o.",
+     "ico": "48035599",
+     "cena": 4345812,
+     "vyloucen": false
+    },
+    {
+     "firma": "CREATIVE BUILDINGS, s.r.o.",
+     "ico": "29301793",
+     "cena": 4508997,
+     "vyloucen": false
+    }
+   ],
+   "dodavatel": "TOPSTAV s.r.o.",
+   "dodavatel_ico": "46977660",
+   "cena": 4318405,
+   "zruseno": false,
+   "smlouva": true,
+   "posledni_dokument": "2019-06-27",
+   "predpokladana_hodnota": null,
+   "lhuta": "",
+   "stav": "zadáno"
+  }
+ ]
+}

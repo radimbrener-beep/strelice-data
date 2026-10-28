@@ -277,6 +277,25 @@ def check_missing_videos(dry_run=False, videos=None):
 
 
 # ──────────────────────────────────────────────
+# Vypsané zakázky (profil zadavatele)
+# ──────────────────────────────────────────────
+
+def check_profil_zakazky():
+    """Stáhne profil zadavatele (scripts/fetch_profil_zakazky.py). Vrací (nové zakázky,
+    změnilo se něco). Výpadek profilu nevadí — zůstanou předchozí data."""
+    path = ROOT / 'data' / 'profil_zakazky.json'
+    before = path.read_text(encoding='utf-8') if path.exists() else ''
+    old_ids = {z['id'] for z in json.loads(before)['zakazky']} if before else set()
+    r = run([sys.executable, 'scripts/fetch_profil_zakazky.py'], check=False)
+    if r.returncode:
+        print("  Profil zadavatele nedostupný — ponechávám předchozí data.")
+        return [], False
+    after = path.read_text(encoding='utf-8')
+    new = [z for z in json.loads(after)['zakazky'] if z['id'] not in old_ids]
+    return new, after != before
+
+
+# ──────────────────────────────────────────────
 # Rebuild HTML stránek
 # ──────────────────────────────────────────────
 
@@ -406,8 +425,13 @@ def main():
     for cislo, vid in new_videos:
         summary_lines.append(f"- **Video ZO {cislo}**: přidáno {vid} → timestamps přegenerovány")
 
-    if not new_zo and not new_ro and not new_videos:
-        print("\nŽádné nové dokumenty ani videa.")
+    # ── Vypsané zakázky z profilu zadavatele ─────
+    new_pz, pz_changed = ([], False) if args.dry_run else check_profil_zakazky()
+    for z in new_pz:
+        summary_lines.append(f"- **Vypsaná zakázka** ({z['datum']}): {z['nazev']} · [profil]({z['url']})")
+
+    if not new_zo and not new_ro and not new_videos and not pz_changed:
+        print("\nŽádné nové dokumenty, videa ani zakázky.")
         Path(ROOT / '.no_update').write_text('ok')
         return
 
@@ -437,6 +461,8 @@ def main():
         to_rebuild.append('build_hledat.py')    # hledání + Moje ulice
         to_rebuild.append('build_obdobi.py')    # bilance období + aktivita zastupitelů
         to_rebuild.append('build_aktualizace.py')   # nejnovější RO/ZO na stránce o aktualizaci
+    if pz_changed:
+        to_rebuild.append('build_zakazky.py')      # sekce Vypsané zakázky
 
     to_rebuild.append('build_portal.py')
     seen = set()
@@ -452,6 +478,8 @@ def main():
         parts.append("RO " + ', '.join(str(c) for c, *_ in new_ro))
     if new_videos:
         parts.append("video ZO " + ', '.join(str(c) for c, _ in new_videos))
+    if pz_changed:
+        parts.append(f"zakázky z profilu ({len(new_pz)} nových)" if new_pz else "zakázky z profilu (změny)")
     msg = f"Auto: {', '.join(parts)}\n\nAutomaticky zpracováno scriptem update_portal.py.\n"
     committed = git_commit(msg)
 

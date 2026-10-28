@@ -329,6 +329,12 @@ html[data-theme="dark"]{--msk-bg:#dbe7e5}
       <tr><td><b>Co v přehledu není</b></td><td>faktury a drobné nákupy bez usnesení, platby fyzickým osobám, dary, a platby směrem K obci (např. developerské příspěvky a plánovací smlouvy)</td></tr>
       <tr><td><b>Názvy firem</b></td><td>varianty zápisu téže firmy (překlepy, diakritika, právní forma) se slučují; kanonické názvy ověřeny v ARES</td></tr>
     </tbody></table>
+    <p><b>Vypsané zakázky</b> pocházejí z <a href="https://www.e-zakazky.cz/Profil-Zadavatele/c62ff3fd-035b-4804-850e-f63264638ee2" target="_blank" rel="noopener" style="color:var(--accent)">profilu zadavatele</a> obce (strojově čitelný export ve formátu MMR): název, podané nabídky s cenami, vybraná firma a smluvní cena. Předpokládanou hodnotu a lhůtu pro nabídky export neobsahuje, proto se berou z detailu zakázky na profilu. Ceny jsou bez DPH a firmy jsou uvedeny tak, jak je obec zapsala.</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Stav zakázky</b></td><td>obec stav na profilu neaktualizuje, proto se odvozuje: <b>zadáno</b> = je uvedena vybraná firma; <b>zrušeno</b> = na profilu je rozhodnutí o zrušení; <b>probíhá</b> = běží lhůta pro nabídky nebo od jejího konce uplynulo méně než 120 dní; <b>bez výsledku</b> = starší zakázka, u níž profil výsledek neuvádí</td></tr>
+      <tr><td><b>Cena</b></td><td>smluvní cena z profilu; když ji obec nevyplnila, je uvedena nabídková cena vybrané firmy</td></tr>
+      <tr><td><b>Co na profilu není</b></td><td>menší zakázky zadané napřímo a nákupy bez výběrového řízení — ty jsou jen v přehledu z usnesení</td></tr>
+    </tbody></table>
   </div>
 </section>
 
