@@ -64,7 +64,8 @@ if ($msg === null && trim($raw) !== 'null') {
 }
 $client = mb_substr((string) ($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 80) ?: null;
 
-if (is_array($msg) && array_is_list($msg) && $msg) {  // dávka (starší verze protokolu)
+// dávka (starší verze protokolu); array_is_list() až od PHP 8.1, Wedos má 8.0
+if (is_array($msg) && $msg && array_keys($msg) === range(0, count($msg) - 1)) {
     $out = array_values(array_filter(array_map(fn($m) => Mcp::handle($m, $client), array_slice($msg, 0, 20))));
     if (!$out) {
         http_response_code(202);

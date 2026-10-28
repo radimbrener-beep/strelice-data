@@ -2,7 +2,7 @@
 
 Server pro AI asistenty (Claude, ChatGPT…) nad daty všech obcí na jaksemame.cz. Jen čte.
 Protokol MCP přes Streamable HTTP **bez stavu**: POST s JSON-RPC → JSON odpověď, bez sezení a bez SSE.
-PHP 8.1+ a PDO SQLite, stejně jako `push/` (Wedos NoLimit).
+PHP 8.0+ (Wedos má 8.0, takže nic z 8.1 jako `array_is_list`) a PDO SQLite, stejně jako `push/`.
 
 ## Jak to funguje
 
