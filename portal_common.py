@@ -560,8 +560,7 @@ NAV_CSS = NAV_CSS + """
 .msk-note{display:flex;gap:16px;align-items:center;padding:16px;border-radius:14px;background:var(--inset);border:1px dashed var(--line);color:var(--muted);font-size:14px;line-height:1.55}
 .msk-note .mh-fig{width:96px;height:96px}
 .msk-say b{color:var(--text)}
-:root{--msk-bg:#e3eeec}
-html[data-theme="dark"]{--msk-bg:#dbe7e5}
+:root{--msk-bg:transparent}   /* robot všude na průhledném pozadí */
 @media(max-width:560px){.mh-pop{padding:12px 40px 12px 12px;gap:10px}.mh-fig{width:56px;height:56px;border-radius:14px}
   .msk-note{padding:12px;gap:12px}.msk-note .mh-fig{width:72px;height:72px}}
 """

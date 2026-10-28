@@ -129,7 +129,7 @@ body = f'''<header class="hero ai-hero">
 CSS = '''<style>
 .ai-hero{display:flex;gap:24px;align-items:center}
 .ai-hero-tx{flex:1;min-width:0}
-.ai-hero-fig{flex:none;width:170px;height:170px;border-radius:28px;background:var(--msk-bg,#e3eeec);display:grid;place-items:center}
+.ai-hero-fig{flex:none;width:170px;height:170px;border-radius:28px;display:grid;place-items:center}
 .ai-hero-fig svg{width:88%;height:88%}
 .ai-ico{display:inline-grid;place-items:center;width:46px;height:46px;border-radius:14px;background:color-mix(in srgb,var(--accent) 14%,transparent);color:var(--accent)}
 .ai-ico svg{width:24px;height:24px}
