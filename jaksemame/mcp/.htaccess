@@ -7,4 +7,4 @@ Options -Indexes
     Require all denied
   </FilesMatch>
 </IfModule>
-RedirectMatch 403 ^(?:/domains/[^/]+)?/mcp/(lib|data|log)/
+RedirectMatch 403 ^(?:/domains/[^/]+)?/mcp(?:-server)?/(lib|data|log)/

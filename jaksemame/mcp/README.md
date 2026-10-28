@@ -31,12 +31,13 @@ python mcp-tests/call.py hledat '{"dotaz":"skatepark"}'
 
 ## Nasazení
 
-- **Kód serveru** nasazuje `deploy.yml` repa Střelic spolu s rozcestníkem do `/www/domains/jaksemame.cz/mcp/`
+- **Kód serveru** nasazuje `deploy.yml` repa Střelic spolu s rozcestníkem do `/www/domains/jaksemame.cz/mcp-server/`
   (jen `index.php`, `info.html`, `obce.json`, `.htaccess`, `lib/`; ne `config.local.php` ani `log/`).
-- **Data:** každé repo v CI spustí `build_mcp.py` a nahraje svůj `mcp/<obec>.sqlite` do `…/jaksemame.cz/mcp/data/`
+- **Data:** každé repo v CI spustí `build_mcp.py` a nahraje svůj `mcp/<obec>.sqlite` do `…/jaksemame.cz/mcp-server/data/`
   (Střelice s rozcestníkem, Ostopovice vlastním krokem jen se svým souborem, aby sync nesmazal cizí data).
   Automatické kontroly obou rep po změně spouštějí `deploy.yml`, takže data MCP jsou stejně čerstvá jako web.
-- **Adresa bez lomítka:** kořenový `jaksemame/.htaccess` (`DirectorySlash Off` + rewrite `^mcp/?$` → `mcp/index.php`),
-  jinak by Apache POST na `/mcp` přesměroval na `/mcp/` a klienti MCP přesměrování POSTu nenásledují.
+- **Adresa `/mcp`:** kořenový `jaksemame/.htaccess` ji přepisuje na `mcp-server/index.php`. Složka na webu se **nesmí
+  jmenovat `mcp`**: Wedos u složky bez lomítka vrací 302 ještě před `.htaccess` a klienti MCP přesměrování POSTu
+  nenásledují (ověřeno 28. 10. 2026). `index.php` jednorázově smaže starou `mcp/` z prvního nasazení.
 - **Nečitelné z webu:** `data/` a `log/` mají `Require all denied`, `mcp/.htaccess` blokuje `lib/`, `*.sqlite`, `*.json`.
 - Co server ukládá, popisuje `info.html` a sekce „AI asistenti (MCP server)“ v metodice obou portálů.

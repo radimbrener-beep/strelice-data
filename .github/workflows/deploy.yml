@@ -62,12 +62,12 @@ jobs:
           mkdir -p public_hub
           cp jaksemame/index.html jaksemame/.htaccess public_hub/
           # MCP server jaksemame.cz/mcp (jaksemame/mcp/README.md): kód + data Střelic;
-          # data Ostopovic nahrává do mcp/data/ jejich repo, deník log/ si vytváří PHP na serveru
+          # data Ostopovic nahrává do mcp-server/data/ jejich repo; adresa /mcp viz jaksemame/.htaccess, deník log/ si vytváří PHP na serveru
           python3 build_mcp.py
-          mkdir -p public_hub/mcp/data
-          cp -r jaksemame/mcp/index.php jaksemame/mcp/info.html jaksemame/mcp/obce.json jaksemame/mcp/.htaccess jaksemame/mcp/lib public_hub/mcp/
-          cp mcp/strelice.sqlite public_hub/mcp/data/
-          echo 'Require all denied' > public_hub/mcp/data/.htaccess
+          mkdir -p public_hub/mcp-server/data
+          cp -r jaksemame/mcp/index.php jaksemame/mcp/info.html jaksemame/mcp/obce.json jaksemame/mcp/.htaccess jaksemame/mcp/lib public_hub/mcp-server/
+          cp mcp/strelice.sqlite public_hub/mcp-server/data/
+          echo 'Require all denied' > public_hub/mcp-server/data/.htaccess
           cp -r fonts public_hub/
           cp brand/favicon/* public_hub/
           ls -la public_hub/
