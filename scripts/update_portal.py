@@ -436,6 +436,7 @@ def main():
         # čtou data z investice.html / zakazky.html → až po nich
         to_rebuild.append('build_hledat.py')    # hledání + Moje ulice
         to_rebuild.append('build_obdobi.py')    # bilance období + aktivita zastupitelů
+        to_rebuild.append('build_aktualizace.py')   # nejnovější RO/ZO na stránce o aktualizaci
 
     to_rebuild.append('build_portal.py')
     seen = set()

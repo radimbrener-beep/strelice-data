@@ -96,7 +96,7 @@ NAV_JS = r"""
 """
 
 # stránky mimo hlavní navigaci (kvůli canonical/og:url)
-EXTRA_PAGES = [("hledat.html", "Hledat"), ("odbery.html", "Odběry")]
+EXTRA_PAGES = [("hledat.html", "Hledat"), ("odbery.html", "Odběry"), ("aktualizace.html", "Aktualizace")]
 SEARCH_BTN = ('<a class="iconbtn" href="hledat.html" title="Hledat na portálu (usnesení, firmy, dotace, ulice…)" '
               'aria-label="Hledat" style="text-decoration:none">⌕</a>')
 
@@ -614,6 +614,7 @@ def page(active, title, body, head_scripts="", body_scripts=""):
     head_scripts, body_scripts = inject_chart_font(head_scripts), inject_chart_font(body_scripts)
     footer = ('<footer class="footer">Data aktualizována k <b style="color:var(--muted)">' + UPDATED + '</b>'
               ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a>'
+              ' &nbsp;·&nbsp; <a href="aktualizace.html">Jak často se data kontrolují</a>'
               ' &nbsp;·&nbsp; <a href="odbery.html">Odběry upozornění</a>'
               ' &nbsp;·&nbsp; <a href="' + FB_URL + '" rel="noopener">Facebook</a><br>'
               'Sestavil <b style="color:var(--muted)">Radim Brener</b> ze surových CSV souborů, jednoho terminálu a hluboké víry, že veřejná data jsou vždy konzistentní 🙃 &nbsp;·&nbsp; Python &thinsp;·&thinsp; Chart.js &thinsp;·&thinsp; MONITOR SP &thinsp;·&thinsp; ČSÚ &thinsp;·&thinsp; 2025–2026</footer>')

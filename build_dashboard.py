@@ -787,7 +787,8 @@ document.addEventListener('keydown',e=>{if(e.key=='Escape')closeModal();});
 
 nav_links = pc.nav_html("Rozpočet")
 updated = ('Data aktualizována k <b style="color:var(--muted)">' + pc.UPDATED + '</b>'
-           ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a><br>')
+           ' &nbsp;·&nbsp; <a href="metodika.html">Metodika a zdroje dat</a>'
+           ' &nbsp;·&nbsp; <a href="aktualizace.html">Jak často se data kontrolují</a><br>')
 HTML = (HTML.replace("/*TOKENS*/", pc.FONTS_CSS + pc.TOKENS_CSS).replace("<!--BRAND-->", pc.BRAND_HTML)
         .replace("/*BRANDNAME*/", pc.BRAND).replace("/*CHARTJS*/", chartjs).replace("/*DATA*/", data_json)
         .replace("/*FAVICON*/", pc.og_meta("Rozpočet", "Rozpočet — " + pc.BRAND) + "\n" + pc.FAVICON_LINK).replace("<!--NAV-->", nav_links)

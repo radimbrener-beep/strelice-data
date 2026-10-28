@@ -27,10 +27,11 @@ body = '''<header class="hero">
     <p>Datum poslední aktualizace je v patičce každé stránky. Jednotlivé sekce se obnovují různým tempem podle toho, kdy jejich zdroj zveřejní nová data:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Rozpočet, Investice, Srovnání</b></td><td>ročně — MONITOR zveřejňuje roční výkazy zpravidla v&nbsp;březnu–dubnu následujícího roku</td></tr>
-      <tr><td><b>Zápisy rady, Zastupitelstvo</b></td><td>průběžně — automatická kontrola nových zápisů na webu obce několikrát denně</td></tr>
+      <tr><td><b>Zápisy rady, Zastupitelstvo</b></td><td>průběžně — automatická kontrola nových zápisů na webu obce 3× denně</td></tr>
       <tr><td><b>Dotace spolkům</b></td><td>průběžně — po zveřejnění veřejnoprávních smluv obcí</td></tr>
       <tr><td><b>Školství</b></td><td>ročně — po zveřejnění výročních zpráv škol a dat ČSÚ</td></tr>
     </tbody></table>
+    <p class="note">Podrobně po jednotlivých zdrojích, včetně toho, co se kontroluje automaticky a co ručně: <a href="aktualizace.html" style="color:var(--accent)">Jak často se data kontrolují</a>.</p>
   </div>
 </section>
 
