@@ -31,7 +31,7 @@ body = f'''<header class="hero">
 </header>
 
 <div class="cards">
-  <div class="kpi" style="--bar:var(--accent)"><div class="lab">Automatická kontrola webu obce</div><div class="val">3× denně</div><div class="delta" style="color:var(--muted)">kolem 7:00, 12:00 a 15:00</div></div>
+  <div class="kpi" style="--bar:var(--accent)"><div class="lab">Automatická kontrola webu obce</div><div class="val">3× denně</div><div class="delta" style="color:var(--muted)">orientačně kolem 7, 12 a 15 h</div></div>
   <div class="kpi" style="--bar:var(--c0)"><div class="lab">Nejnovější zastupitelstvo</div><div class="val">{zo_d.day}.&nbsp;{zo_d.month}.</div><div class="delta" style="color:var(--muted)">{zo["cislo_zasedani"]}. zasedání, {zo_d.year}</div></div>
   <div class="kpi" style="--bar:var(--c2)"><div class="lab">Nejnovější rada</div><div class="val">{ro_d.day}.&nbsp;{ro_d.month}.</div><div class="delta" style="color:var(--muted)">{ro["cislo_zasedani"]}. zasedání, {ro_d.year}</div></div>
   <div class="kpi" style="--bar:var(--c3)"><div class="lab">Plnění rozpočtu 2026</div><div class="val">k {MESICE[fin_m - 1]}</div><div class="delta" style="color:var(--muted)">poslední měsíc v MONITORu</div></div>
@@ -42,10 +42,10 @@ body = f'''<header class="hero">
   <div class="panel"><div class="tw"><table class="mtab ak">
     <thead><tr><th>Sekce</th><th>Zdroj</th><th>Jak často</th><th>Jak</th></tr></thead>
     <tbody>
-      <tr><td><b>Rada obce</b><br><span class="sub">zápisy, usnesení</span></td><td><a href="https://www.streliceubrna.cz/obec/samosprava/rada-obce-strelice" {A}>zápisy rady na webu obce</a></td><td>3× denně<br><span class="sub">7:00 · 12:00 · 15:00</span></td><td><span class="tag auto">automaticky</span> nový zápis se stáhne, rozebere a do pár minut je na portálu</td></tr>
-      <tr><td><b>Zastupitelstvo</b><br><span class="sub">usnesení, hlasování</span></td><td><a href="https://www.streliceubrna.cz/obec/samosprava/zastupitelstvo-obce-strelice" {A}>usnesení ZO na webu obce</a></td><td>3× denně<br><span class="sub">7:00 · 12:00 · 15:00</span></td><td><span class="tag auto">automaticky</span> včetně jmenovitého hlasování a upozornění odběratelům</td></tr>
-      <tr><td><b>Videozáznamy zasedání</b></td><td><a href="https://www.youtube.com/@tvstreliceubrna/videos" {A}>YouTube kanál TV Střelice</a></td><td>3× denně<br><span class="sub">7:00 · 12:00 · 15:00</span></td><td><span class="tag auto">automaticky</span> video se přiřadí k zasedání a body programu k časům ve videu</td></tr>
-      <tr><td><b>Zakázky, Investice (akce), Moje ulice, Bilance období</b></td><td>odvozeno z usnesení rady a zastupitelstva</td><td>s každým novým zápisem<br><span class="sub">7:00 · 12:00 · 15:00</span></td><td><span class="tag auto">automaticky</span> přepočítá se spolu s novým zápisem</td></tr>
+      <tr><td><b>Rada obce</b><br><span class="sub">zápisy, usnesení</span></td><td><a href="https://www.streliceubrna.cz/obec/samosprava/rada-obce-strelice" {A}>zápisy rady na webu obce</a></td><td>3× denně<br><span class="sub">kolem 7 · 12 · 15 h</span></td><td><span class="tag auto">automaticky</span> nový zápis se stáhne, rozebere a do pár minut je na portálu</td></tr>
+      <tr><td><b>Zastupitelstvo</b><br><span class="sub">usnesení, hlasování</span></td><td><a href="https://www.streliceubrna.cz/obec/samosprava/zastupitelstvo-obce-strelice" {A}>usnesení ZO na webu obce</a></td><td>3× denně<br><span class="sub">kolem 7 · 12 · 15 h</span></td><td><span class="tag auto">automaticky</span> včetně jmenovitého hlasování a upozornění odběratelům</td></tr>
+      <tr><td><b>Videozáznamy zasedání</b></td><td><a href="https://www.youtube.com/@tvstreliceubrna/videos" {A}>YouTube kanál TV Střelice</a></td><td>3× denně<br><span class="sub">kolem 7 · 12 · 15 h</span></td><td><span class="tag auto">automaticky</span> video se přiřadí k zasedání a body programu k časům ve videu</td></tr>
+      <tr><td><b>Zakázky, Investice (akce), Moje ulice, Bilance období</b></td><td>odvozeno z usnesení rady a zastupitelstva</td><td>s každým novým zápisem<br><span class="sub">kolem 7 · 12 · 15 h</span></td><td><span class="tag auto">automaticky</span> přepočítá se spolu s novým zápisem</td></tr>
       <tr><td><b>Diskuze ze zastupitelstva</b></td><td>titulky videozáznamu</td><td>po každém zasedání se záznamem</td><td><span class="tag ruc">ručně</span> přepis se rozdělí k bodům a redakčně učeše po zveřejnění videa</td></tr>
       <tr><td><b>Plnění rozpočtu letos</b></td><td><a href="https://monitor.statnipokladna.gov.cz" {A}>MONITOR Státní pokladny</a>, FIN 2-12 M</td><td>měsíčně</td><td><span class="tag ruc">ručně</span> MONITOR zveřejňuje měsíční výkazy obcí s odstupem několika týdnů</td></tr>
       <tr><td><b>Rozpočet, Investice (grafy), Srovnání</b></td><td><a href="https://monitor.statnipokladna.gov.cz" {A}>MONITOR Státní pokladny</a></td><td>ročně</td><td><span class="tag ruc">ručně</span> uzavřený rok bývá v MONITORu v březnu–dubnu následujícího roku</td></tr>
@@ -59,9 +59,9 @@ body = f'''<header class="hero">
 <section>
   <div class="sec-h"><h2>Jak automatická kontrola funguje</h2></div>
   <div class="panel">
-    <p>Třikrát denně — kolem 7:00, 12:00 a 15:00 — se spustí skript, který projde seznamy zápisů rady a usnesení zastupitelstva na webu obce a porovná je s tím, co už portál zná. Když najde nový dokument, stáhne PDF, vytáhne z něj jednotlivá usnesení a hlasování, dohledá k zasedání videozáznam, přegeneruje dotčené stránky a portál se sám nasadí. Odběratelům upozornění pak přijde zpráva o novém jednání.</p>
+    <p>Třikrát denně — orientačně kolem 7, 12 a 15 hodin — se spustí skript, který projde seznamy zápisů rady a usnesení zastupitelstva na webu obce a porovná je s tím, co už portál zná. Když najde nový dokument, stáhne PDF, vytáhne z něj jednotlivá usnesení a hlasování, dohledá k zasedání videozáznam, přegeneruje dotčené stránky a portál se sám nasadí. Odběratelům upozornění pak přijde zpráva o novém jednání.</p>
     <p>Když se nic nového neobjeví, nic se nemění — datum v patičce tedy ukazuje poslední skutečnou změnu, ne poslední kontrolu.</p>
-    <p class="note">Časy jsou orientační: plánovač na GitHubu, kde kontrola běží, se v rušných chvílích může opozdit i o desítky minut. V letním čase běží kontrola o hodinu později (8:00, 13:00, 16:00).</p>
+    <p class="note">Časy jsou orientační: kontrola běží na GitHubu, který naplánované úlohy spouští s proměnlivým, často několikahodinovým zpožděním. Kontrola je proto naplánovaná s předstihem a skutečný čas se může o hodinu i víc lišit oběma směry. V letním čase běží zhruba o hodinu později.</p>
   </div>
 </section>
 
