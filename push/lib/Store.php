@@ -88,12 +88,13 @@ final class Store
             }
         }
         // jednou: nový druh „zakazky" (10/2026) dostanou zařízení, která odebírala všechny
-        // dosavadní druhy (nic si neodškrtla); ostatní si ho mohou zapnout sama
+        // dosavadní druhy obce (nic si neodškrtla); ostatní si ho mohou zapnout sama
         if (in_array('zakazky', PUSH_TOPICS, true)
             && !$db->query("SELECT 1 FROM push_meta WHERE key = 'topic_zakazky_added'")->fetchColumn()) {
+            $all = implode(' AND ', array_map(fn(string $t): string => "',' || topics || ',' LIKE '%,$t,%'",
+                array_diff(PUSH_TOPICS, ['zakazky'])));
             $db->exec("UPDATE push_subscriptions SET topics = topics || ',zakazky'
-                WHERE ',' || topics || ',' LIKE '%,rada,%' AND ',' || topics || ',' LIKE '%,zastupitelstvo,%'
-                  AND ',' || topics || ',' LIKE '%,portal,%' AND ',' || topics || ',' NOT LIKE '%,zakazky,%'");
+                WHERE $all AND ',' || topics || ',' NOT LIKE '%,zakazky,%'");
             $db->prepare("INSERT OR REPLACE INTO push_meta (key, value) VALUES ('topic_zakazky_added', ?)")->execute([gmdate('c')]);
         }
         return $db;
