@@ -2,7 +2,9 @@
 
 # MCP server na adrese bez lomítka: /mcp je složka a Apache by POST přesměroval na /mcp/
 # (301) — klienti MCP přesměrování POSTu nenásledují. Proto bez automatického lomítka
-# a /mcp rovnou na index.php serveru.
+# a /mcp rovnou na index.php serveru. Wedos vede doménu interně přes /domains/<doména>/,
+# proto pravidlo bere cestu z REQUEST_URI s volitelnou předponou (jako mcp/.htaccess).
 DirectorySlash Off
 RewriteEngine On
-RewriteRule ^mcp/?$ mcp/index.php [L]
+RewriteCond %{REQUEST_URI} ^(/domains/[^/]+)?/mcp/?$
+RewriteRule ^ %1/mcp/index.php [L]
