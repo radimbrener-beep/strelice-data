@@ -1,8 +1,0 @@
-# Rozcestník jaksemame.cz (nasazuje deploy.yml z repa Střelic).
-
-# MCP server: adresa /mcp, kód ve složce mcp-server/. Složka se nesmí jmenovat mcp —
-# Wedos u složky bez lomítka vrací 302 ještě před .htaccess a klienti MCP přesměrování
-# POSTu nenásledují. Cíl je relativní ke složce tohoto souboru — absolutní cesta (i s interní
-# předponou /domains/<doména>/) na Wedosu vede na 500.
-RewriteEngine On
-RewriteRule (^|/)mcp/?$ mcp-server/index.php [L]

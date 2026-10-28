@@ -8,23 +8,6 @@ define('MCP_ROOT', __DIR__);
 if (is_file(__DIR__ . '/config.local.php')) {
     require __DIR__ . '/config.local.php';
 }
-
-// Jednorázově (10/2026): na webu server leží v mcp-server/ a adresa /mcp se na něj přepisuje.
-// Složka mcp/ z prvního nasazení nesmí zůstat — Wedos by /mcp jako složku přesměroval (302).
-// Zbyl v ní jen deník, který vytvořilo PHP: převzít ho a složku smazat.
-$old = dirname(__DIR__) . '/mcp';
-if (is_dir($old) && realpath($old) !== realpath(__DIR__) && basename(__DIR__) === 'mcp-server') {
-    if (is_file("$old/log/mcp.sqlite") && !is_file(__DIR__ . '/log/mcp.sqlite')) {
-        @mkdir(__DIR__ . '/log', 0700, true);
-        @rename("$old/log/mcp.sqlite", __DIR__ . '/log/mcp.sqlite');
-    }
-    $it = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($old, FilesystemIterator::SKIP_DOTS),
-        RecursiveIteratorIterator::CHILD_FIRST);
-    foreach ($it as $f) {
-        $f->isDir() ? @rmdir($f->getPathname()) : @unlink($f->getPathname());
-    }
-    @rmdir($old);
-}
 require_once __DIR__ . '/lib/Text.php';
 require_once __DIR__ . '/lib/Data.php';
 require_once __DIR__ . '/lib/Log.php';

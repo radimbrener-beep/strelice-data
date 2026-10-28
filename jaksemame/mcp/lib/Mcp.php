@@ -57,7 +57,7 @@ final class Mcp
                     'protocolVersion' => in_array($want, self::VERSIONS, true) ? $want : self::VERSIONS[0],
                     'capabilities' => ['tools' => ['listChanged' => false], 'prompts' => ['listChanged' => false]],
                     'serverInfo' => ['name' => 'jaksemame', 'title' => 'Jak se máme — data obcí', 'version' => '1.0.0',
-                        'websiteUrl' => 'https://jaksemame.cz/mcp'],
+                        'websiteUrl' => 'https://jaksemame.cz/mcp/'],
                     'instructions' => self::INSTRUCTIONS,
                 ]);
             case 'ping':

@@ -151,7 +151,7 @@ body = '''<header class="hero">
 <section>
   <div class="sec-h"><h2>AI asistenti (MCP server)</h2></div>
   <div class="panel">
-    <p>Data portálu jsou dostupná i pro AI asistenty (Claude, ChatGPT a další) přes MCP server na adrese <b>https://jaksemame.cz/mcp</b>. Po připojení se asistenta můžete ptát třeba na to, co se řešilo na zastupitelstvu, kdo co říkal, kolik obec utratila nebo kdo se přihlásil do které zakázky a za kolik. Návod k připojení je na <a href="https://jaksemame.cz/mcp" target="_blank" rel="noopener" style="color:var(--accent)">jaksemame.cz/mcp</a>. Server data jen čte — jsou stejná jako na tomto portálu a aktualizují se spolu s ním.</p>
+    <p>Data portálu jsou dostupná i pro AI asistenty (Claude, ChatGPT a další) přes MCP server na adrese <b>https://jaksemame.cz/mcp/</b> (i s lomítkem na konci). Po připojení se asistenta můžete ptát třeba na to, co se řešilo na zastupitelstvu, kdo co říkal, kolik obec utratila nebo kdo se přihlásil do které zakázky a za kolik. Návod k připojení je na <a href="https://jaksemame.cz/mcp/" target="_blank" rel="noopener" style="color:var(--accent)">jaksemame.cz/mcp/</a>. Server data jen čte — jsou stejná jako na tomto portálu a aktualizují se spolu s ním.</p>
     <table class="mtab"><tbody>
       <tr><td><b>Co server ukládá</b></td><td>který nástroj asistent zavolal a s jakými parametry (např. hledané slovo), kolik vrátil výsledků, jak dlouho to trvalo a typ aplikace — aby bylo vidět, co lidi zajímá</td></tr>
       <tr><td><b>Co neukládá</b></td><td>otázku, kterou píšete asistentovi (server ji nevidí, jen to, co si u něj asistent vyhledá), ani IP adresu; limit dotazů za minutu se počítá z otisku adresy, který se denně mění</td></tr>

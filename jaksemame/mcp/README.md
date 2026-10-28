@@ -1,4 +1,4 @@
-# MCP server jaksemame.cz/mcp
+# MCP server jaksemame.cz/mcp/
 
 Server pro AI asistenty (Claude, ChatGPT…) nad daty všech obcí na jaksemame.cz. Jen čte.
 Protokol MCP přes Streamable HTTP **bez stavu**: POST s JSON-RPC → JSON odpověď, bez sezení a bez SSE.
@@ -31,13 +31,13 @@ python mcp-tests/call.py hledat '{"dotaz":"skatepark"}'
 
 ## Nasazení
 
-- **Kód serveru** nasazuje `deploy.yml` repa Střelic spolu s rozcestníkem do `/www/domains/jaksemame.cz/mcp-server/`
+- **Kód serveru** nasazuje `deploy.yml` repa Střelic spolu s rozcestníkem do `/www/domains/jaksemame.cz/mcp/`
   (jen `index.php`, `info.html`, `obce.json`, `.htaccess`, `lib/`; ne `config.local.php` ani `log/`).
-- **Data:** každé repo v CI spustí `build_mcp.py` a nahraje svůj `mcp/<obec>.sqlite` do `…/jaksemame.cz/mcp-server/data/`
+- **Data:** každé repo v CI spustí `build_mcp.py` a nahraje svůj `mcp/<obec>.sqlite` do `…/jaksemame.cz/mcp/data/`
   (Střelice s rozcestníkem, Ostopovice vlastním krokem jen se svým souborem, aby sync nesmazal cizí data).
   Automatické kontroly obou rep po změně spouštějí `deploy.yml`, takže data MCP jsou stejně čerstvá jako web.
-- **Adresa `/mcp`:** kořenový `jaksemame/.htaccess` ji přepisuje na `mcp-server/index.php`. Složka na webu se **nesmí
-  jmenovat `mcp`**: Wedos u složky bez lomítka vrací 302 ještě před `.htaccess` a klienti MCP přesměrování POSTu
-  nenásledují (ověřeno 28. 10. 2026). `index.php` jednorázově smaže starou `mcp/` z prvního nasazení.
+- **Adresa je `https://jaksemame.cz/mcp/` s lomítkem.** Bez lomítka to na Wedosu nejde (ověřeno 28. 10. 2026):
+  složku bez lomítka přesměruje 302 s prázdnou adresou ještě před `.htaccess` a interní přepis (`RewriteRule`)
+  vrací 500 — stejně jako dřív u čistých URL portálu. Klienti MCP přesměrování POSTu nenásledují.
 - **Nečitelné z webu:** `data/` a `log/` mají `Require all denied`, `mcp/.htaccess` blokuje `lib/`, `*.sqlite`, `*.json`.
 - Co server ukládá, popisuje `info.html` a sekce „AI asistenti (MCP server)“ v metodice obou portálů.
