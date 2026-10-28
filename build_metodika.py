@@ -149,6 +149,19 @@ body = '''<header class="hero">
 </section>
 
 <section>
+  <div class="sec-h"><h2>AI asistenti (MCP server)</h2></div>
+  <div class="panel">
+    <p>Data portálu jsou dostupná i pro AI asistenty (Claude, ChatGPT a další) přes MCP server na adrese <b>https://jaksemame.cz/mcp</b>. Po připojení se asistenta můžete ptát třeba na to, co se řešilo na zastupitelstvu, kdo co říkal, kolik obec utratila nebo kdo se přihlásil do které zakázky a za kolik. Návod k připojení je na <a href="https://jaksemame.cz/mcp" target="_blank" rel="noopener" style="color:var(--accent)">jaksemame.cz/mcp</a>. Server data jen čte — jsou stejná jako na tomto portálu a aktualizují se spolu s ním.</p>
+    <table class="mtab"><tbody>
+      <tr><td><b>Co server ukládá</b></td><td>který nástroj asistent zavolal a s jakými parametry (např. hledané slovo), kolik vrátil výsledků, jak dlouho to trvalo a typ aplikace — aby bylo vidět, co lidi zajímá</td></tr>
+      <tr><td><b>Co neukládá</b></td><td>otázku, kterou píšete asistentovi (server ji nevidí, jen to, co si u něj asistent vyhledá), ani IP adresu; limit dotazů za minutu se počítá z otisku adresy, který se denně mění</td></tr>
+      <tr><td><b>Jak dlouho</b></td><td>záznamy se mažou po 90 dnech</td></tr>
+      <tr><td><b>Odpovědi asistenta</b></td><td>formuluje asistent, ne portál — u důležitých věcí si ověřte zdroj, na který odkáže (zápis, video, stránku portálu)</td></tr>
+    </tbody></table>
+  </div>
+</section>
+
+<section>
   <div class="sec-h"><h2>Stažení dat</h2></div>
   <div class="panel">
     <p>U hlavních tabulek najdete tlačítko <span class="dlbtn" style="cursor:default">⬇ Stáhnout CSV</span> — stáhne právě zobrazená data (oddělovač středník, kódování UTF-8, otevře se přímo v Excelu). Surová zdrojová data jsou k dispozici v původních zdrojích: <a href="https://monitor.statnipokladna.gov.cz/datovy-katalog/open-data" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR open data</a>, <a href="https://data.csu.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">ČSÚ</a>, <a href="https://www.streliceubrna.cz" target="_blank" rel="noopener" style="color:var(--accent)">web obce</a>.</p>

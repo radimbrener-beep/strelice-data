@@ -1,0 +1,8 @@
+# Rozcestník jaksemame.cz (nasazuje deploy.yml z repa Střelic).
+
+# MCP server na adrese bez lomítka: /mcp je složka a Apache by POST přesměroval na /mcp/
+# (301) — klienti MCP přesměrování POSTu nenásledují. Proto bez automatického lomítka
+# a /mcp rovnou na index.php serveru.
+DirectorySlash Off
+RewriteEngine On
+RewriteRule ^mcp/?$ mcp/index.php [L]

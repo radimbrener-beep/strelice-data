@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>MCP server — jak se máme</title>
+<style>
+  :root { --ink: #142F3A; --petrol: #1D6B73; --amber: #EFA42A; --paper: #F2F5F4; --muted: #5b6f75; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #E4EEEC; --petrol: #8FD0D4; --paper: #0D191E; --muted: #9db3b6; } }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.55 system-ui, sans-serif; }
+  main { max-width: 680px; margin: 0 auto; padding: 40px 16px 64px; }
+  h1 { font-size: 1.6rem; margin: 0 0 .3em; } h1 span { color: var(--petrol); }
+  code { background: rgba(29,107,115,.12); padding: .15em .4em; border-radius: 6px; font-size: .95em; word-break: break-all; }
+  li { margin: .35em 0; } .muted { color: var(--muted); font-size: .92rem; }
+  a { color: var(--petrol); }
+</style>
+</head>
+<body>
+<main>
+  <h1>jak se máme <span>· MCP server</span></h1>
+  <p>Tahle adresa je pro AI asistenty (Claude, ChatGPT a další), ne pro prohlížeč. Po připojení se asistenta
+     můžete ptát na data obcí z <a href="https://jaksemame.cz">jaksemame.cz</a>: co se řešilo na zastupitelstvu
+     a radě, kdo co říkal, rozpočet, investice, zakázky a dotace spolkům.</p>
+  <p>Adresa serveru: <code>https://jaksemame.cz/mcp</code></p>
+  <h2>Jak ho připojit</h2>
+  <ul>
+    <li><b>Claude</b> (web i aplikace): Nastavení → Konektory → Přidat vlastní konektor → vložte adresu výše.</li>
+    <li><b>ChatGPT</b>: v nastavení aplikací a konektorů přidejte vlastní MCP server s touto adresou (dostupnost závisí na tarifu).</li>
+    <li>Ostatní klienti: „Streamable HTTP“ server s touto adresou, bez přihlášení.</li>
+  </ul>
+  <h2>Co se ukládá</h2>
+  <p class="muted">Server si zapisuje, které nástroje se volaly a s jakými parametry (např. hledané slovo),
+     kolik vrátily výsledků a typ aplikace — aby bylo vidět, co lidi zajímá. Otázku, kterou píšete asistentovi,
+     server nevidí, jen to, co si u něj asistent vyhledá. IP adresa se neukládá. Záznamy se mažou po 90 dnech.</p>
+  <p class="muted">Portál provozuje soukromá osoba, ne obec. Data pocházejí z veřejných zápisů a výkazů; podrobnosti
+     v metodice na webu každé obce.</p>
+</main>
+</body>
+</html>

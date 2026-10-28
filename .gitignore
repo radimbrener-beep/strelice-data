@@ -44,3 +44,8 @@ jaksemame/fonts/
 push/data/
 push/config.local.php
 push/feed.json
+# MCP server: data z build_mcp.py, deník volání a lokální nastavení se do gitu nedávají
+/mcp/
+jaksemame/mcp/data/
+jaksemame/mcp/log/
+jaksemame/mcp/config.local.php

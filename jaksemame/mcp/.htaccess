@@ -1,0 +1,10 @@
+DirectoryIndex index.php
+Options -Indexes
+
+# data, deník a knihovny nejsou z webu přístupné (data/ a log/ mají i vlastní .htaccess)
+<IfModule mod_authz_core.c>
+  <FilesMatch "\.(sqlite|json|md|tmp)$|^config\.local\.php$">
+    Require all denied
+  </FilesMatch>
+</IfModule>
+RedirectMatch 403 ^(?:/domains/[^/]+)?/mcp/(lib|data|log)/
