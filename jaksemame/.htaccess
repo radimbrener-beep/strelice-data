@@ -2,8 +2,7 @@
 
 # MCP server: adresa /mcp, kód ve složce mcp-server/. Složka se nesmí jmenovat mcp —
 # Wedos u složky bez lomítka vrací 302 ještě před .htaccess a klienti MCP přesměrování
-# POSTu nenásledují. Wedos vede doménu interně přes /domains/<doména>/, proto pravidlo
-# bere cestu z REQUEST_URI s volitelnou předponou (jako mcp-server/.htaccess).
+# POSTu nenásledují. Cíl je relativní ke složce tohoto souboru — absolutní cesta (i s interní
+# předponou /domains/<doména>/) na Wedosu vede na 500.
 RewriteEngine On
-RewriteCond %{REQUEST_URI} ^(/domains/[^/]+)?/mcp/?$
-RewriteRule ^ %1/mcp-server/index.php [L]
+RewriteRule (^|/)mcp/?$ mcp-server/index.php [L]
