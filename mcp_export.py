@@ -90,8 +90,10 @@ def clean(text):
 def num(v):
     if v in (None, "", "None"):
         return None
+    s = str(v).strip().replace(",", ".")
     try:
-        return float(str(v).replace(",", "."))
+        # MONITOR píše záporná čísla se znaménkem na konci („611.00-“)
+        return -float(s[:-1]) if s.endswith("-") else float(s)
     except ValueError:
         return None
 

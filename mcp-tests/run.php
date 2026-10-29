@@ -79,7 +79,8 @@ $r = call('rozpocet', ['obec' => 'strelice', 'rok' => 2025, 'cleneni' => 'celkem
 ok(abs($r['celkem']['2025']['skutecnost'] - 92874207) < 10, 'výdaje Střelic 2025 sedí s investice.html');
 $r = call('rozpocet', ['obec' => 'ostopovice', 'rok' => 2025, 'cleneni' => 'celkem'])['structuredContent'];
 ok($r['celkem']['2025']['skutecnost'] === 140052799, 'výdaje Ostopovic 2025');
-ok(call('rozpocet', ['obec' => 'ostopovice', 'cleneni' => 'paragraf'])['isError'] ?? false, 'Ostopovice nemají paragrafy');
+$r = call('rozpocet', ['obec' => 'ostopovice', 'rok' => 2025, 'cleneni' => 'paragraf'])['structuredContent'];
+ok(str_starts_with($r['polozky'][0]['nazev'], '3119') && $r['celkem']['2025']['skutecnost'] === 140052799, 'Ostopovice: detail po paragrafech, součet = souhrn');
 $z = call('zakazky', ['obec' => 'strelice'])['structuredContent'];
 ok($z['zebricek'][0]['dodavatel'] === 'MATYÁŠ s.r.o.', 'největší dodavatel Střelic');
 // výběrová řízení z profilu zadavatele
