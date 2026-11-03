@@ -108,6 +108,10 @@ for y in YEARS:
         for c in r:
             if len(c) < 13 or c[4] not in OBCE:
                 continue
+            # převody mezi vlastními účty obce se nepočítají (konsolidace jako souhrny MONITORu,
+            # stejné pravidlo jako build_strelice.py): příjmy 4134/4138/4139, výdaje § 6330
+            if c[9] in ("4134", "4138", "4139") or (c[8] == "6330" and c[9][:1] == "5"):
+                continue
             t = trida(c[9], y)
             skut = num(c[12])
             a = agg[c[4]]

@@ -38,7 +38,7 @@ body = '''<header class="hero">
 <section>
   <div class="sec-h"><h2>Rozpočet</h2><span class="hint">sekce Rozpočet a Srovnání</span></div>
   <div class="panel">
-    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618. Na stránce Bilance je rok 2026 zobrazen podle upraveného rozpočtu (plán) z extraktu FIN 2-12 M 2026.</p>
+    <p><b>Zdroj:</b> <a href="https://monitor.statnipokladna.gov.cz" target="_blank" rel="noopener" style="color:var(--accent)">MONITOR Státní pokladny</a> (Ministerstvo financí), výkaz <b>FIN 2-12 M</b> — plnění rozpočtu územních samosprávných celků, detail FINM201 v granularitě paragraf&nbsp;×&nbsp;položka. Roční stav k&nbsp;31.&nbsp;12., roky 2013–2025, IČO obce 00282618. Na stránce Bilance je rok 2026 zobrazen podle upraveného rozpočtu (plán) z extraktu FIN 2-12 M 2026. Převody mezi vlastními účty obce (příjmové položky 4134, 4138 a 4139, výdajový paragraf 6330) se nepočítají — jinak by se tytéž peníze započítaly v příjmech i výdajích dvakrát. Součty proto sedí s oficiálními konsolidovanými souhrny MONITORu na korunu.</p>
     <p><b>Tři varianty čísel</b>, které v grafech přepínáte:</p>
     <table class="mtab"><tbody>
       <tr><td><b>Schválený rozpočet</b></td><td>plán, který zastupitelstvo schválilo na začátku roku</td></tr>
@@ -53,7 +53,7 @@ body = '''<header class="hero">
 <section>
   <div class="sec-h"><h2>Srovnání s okolními obcemi</h2></div>
   <div class="panel">
-    <p>Finanční data všech obcí pocházejí ze stejného zdroje (MONITOR, FIN 2-12 M) a stejného výpočtu jako data Střelic — čísla jsou tedy plně srovnatelná. Počty obyvatel pro přepočet na hlavu jsou z ČSÚ. Vybrány jsou sousední a blízké obce okresu Brno-venkov; menší obec může mít přepočet na obyvatele „rozkmitaný" jednou velkou investicí — proto grafy ukazují i víceleté průměry.</p>
+    <p>Finanční data všech obcí pocházejí ze stejného zdroje (MONITOR, FIN 2-12 M) a stejného výpočtu jako data Střelic — čísla jsou tedy plně srovnatelná. Počty obyvatel pro přepočet na hlavu jsou z ČSÚ. Vybrány jsou sousední a blízké obce okresu Brno-venkov; menší obec může mít přepočet na obyvatele „rozkmitaný" jednou velkou investicí — proto grafy ukazují i víceleté průměry. Převody mezi vlastními účty obcí se nepočítají, takže příjmy a výdaje odpovídají oficiálním souhrnům MONITORu.</p>
     <p><b>Ukazatele finančního zdraví</b> vycházejí z metodiky monitoringu MF ČR (tzv. fiskální pravidlo): dlouhodobě záporné saldo, vysoký dluh vůči průměru příjmů (limit 60&nbsp;%) nebo nízká likvidita signalizují riziko. Podrobná metodika: <a href="https://monitor.statnipokladna.gov.cz/metodika" target="_blank" rel="noopener" style="color:var(--accent)">monitor.statnipokladna.gov.cz/metodika</a>.</p>
   </div>
 </section>

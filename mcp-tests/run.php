@@ -76,7 +76,7 @@ ok(isset(call('diskuze', ['obec' => 'ostopovice', 'jednani' => 'posledni'])['str
 
 // peníze
 $r = call('rozpocet', ['obec' => 'strelice', 'rok' => 2025, 'cleneni' => 'celkem'])['structuredContent'];
-ok(abs($r['celkem']['2025']['skutecnost'] - 92874207) < 10, 'výdaje Střelic 2025 sedí s investice.html');
+ok($r['celkem']['2025']['skutecnost'] === 90760864, 'výdaje Střelic 2025 = konsolidovaný souhrn MONITORu');
 $r = call('rozpocet', ['obec' => 'ostopovice', 'rok' => 2025, 'cleneni' => 'celkem'])['structuredContent'];
 ok($r['celkem']['2025']['skutecnost'] === 140052799, 'výdaje Ostopovic 2025');
 $r = call('rozpocet', ['obec' => 'ostopovice', 'rok' => 2025, 'cleneni' => 'paragraf'])['structuredContent'];

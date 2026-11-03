@@ -30,6 +30,17 @@ def dl(url, dest):
         print(f"  !! selhalo: {url}")
     return ok
 
+# Konsolidace jako souhrny MONITORu: převody mezi vlastními účty obce se nepočítají, jinak by
+# tytéž peníze byly v příjmech i výdajích dvakrát (příjmy pol. 4134 převody z rozpočtových účtů,
+# 4138 z vlastní pokladny, 4139 ostatní z vlastních fondů; výdaje § 6330). Ověřeno proti API
+# MONITORu na korunu: Střelice i Ostopovice 2013–2025, skutečnost i schválený a upravený rozpočet.
+KONS_POL = {"4134", "4138", "4139"}
+
+
+def konsolidace(par, pol, druh):
+    return pol in KONS_POL or (druh == "Výdaje" and par == "6330")
+
+
 # ---- číselníky ----------------------------------------------------------
 def load_codelist(path, code_field):
     """vrátí list záznamů (dict) s parsovanými start/end daty"""
@@ -85,6 +96,8 @@ for y in YEARS:
             schv = c[10].strip(); uprav = c[11].strip(); skut = c[12].strip()
             pinfo = lookup(POL, pol, y, ["nazev", "druh", "trida", "seskupeni", "podseskupeni"])
             ainfo = lookup(PAR, par, y, ["nazev", "skupina", "oddil"])
+            if konsolidace(par, pol, pinfo["druh"]):
+                continue
             rows.append({
                 "rok": y,
                 "ico": ICO,

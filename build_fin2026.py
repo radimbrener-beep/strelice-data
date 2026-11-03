@@ -23,6 +23,23 @@ OUT = "data/strelice_fin_2026.csv"
 os.makedirs(RAW, exist_ok=True)
 
 
+# Konsolidace jako souhrny MONITORu: převody mezi vlastními účty obce se nepočítají, jinak by
+# tytéž peníze byly v příjmech i výdajích dvakrát (příjmy pol. 4134 převody z rozpočtových účtů,
+# 4138 z vlastní pokladny, 4139 ostatní z vlastních fondů; výdaje § 6330). Ověřeno proti API
+# MONITORu na korunu: Střelice i Ostopovice 2013–2025, skutečnost i schválený a upravený rozpočet.
+KONS_POL = {"4134", "4138", "4139"}
+
+
+def konsolidace(par, pol, druh):
+    return pol in KONS_POL or (druh == "Výdaje" and par == "6330")
+
+
+def castka(s):
+    """MONITOR píše záporná čísla se znaménkem na konci („611.00-“)."""
+    s = (s or "").strip()
+    return -float(s[:-1]) if s.endswith("-") else float(s or 0)
+
+
 def dl(url, dest):
     if os.path.exists(dest) and os.path.getsize(dest) > 1000:
         return True
@@ -96,7 +113,7 @@ with z.open(member) as f:
         a = agg.setdefault(key, [0.0, 0.0, 0.0])
         for i, col in enumerate((15, 16, 17)):
             try:
-                a[i] += float(c[col].strip() or 0)
+                a[i] += castka(c[col])
             except ValueError:
                 pass
 for (ci, par, pol), (schv, upr, skut) in sorted(agg.items()):
@@ -104,6 +121,8 @@ for (ci, par, pol), (schv, upr, skut) in sorted(agg.items()):
         continue
     pi = lookup(POL, pol, ["nazev", "druh", "trida", "seskupeni", "podseskupeni"])
     ai = lookup(PAR, par, ["nazev", "skupina", "oddil"])
+    if konsolidace(par, pol, pi["druh"]):
+        continue
     rows.append({"rok": YEAR, "obdobi": month, "ico": ICO, "ci_type": ci, "paragraf": par,
                  "paragraf_nazev": ai["nazev"], "par_skupina": ai["skupina"], "par_oddil": ai["oddil"],
                  "polozka": pol, "polozka_nazev": pi["nazev"], "druh": pi["druh"], "trida": pi["trida"],
