@@ -16,6 +16,7 @@ Spuštění:
   python scripts/update_portal.py [--dry-run]
 """
 import sys, os, json, re, subprocess, argparse
+from datetime import date
 from pathlib import Path
 from urllib.parse import unquote
 import requests
@@ -183,17 +184,24 @@ def match_video_for_zo(cislo, datum_iso, videos):
     day, month, year = datum_iso[8:10], datum_iso[5:7], datum_iso[:4]
     date_cz = f"{int(day)}.{int(month)}.{year}"
 
+    # Datum musí sedět vždy: číslo zasedání se v každém volebním období počítá znovu od 1,
+    # takže „1. ustavující zasedání“ z 11/2026 by jinak padlo k ZO 1 z 10/2022 (stalo se 6. 11. 2026).
+    # Ověří ho datum v názvu videa, nebo nahrání do 60 dnů po zasedání (--flat-playlist ho často nedá).
+    zas = date.fromisoformat(datum_iso)
     candidates = []
     for vid_id, title, upload in videos:
-        score = 0
-        if re.search(r'\bzastupitelstvo\b', title, re.I):
+        try:
+            up_ok = 0 <= (date(int(upload[:4]), int(upload[4:6]), int(upload[6:8])) - zas).days <= 60
+        except (ValueError, IndexError):
+            up_ok = False
+        if date_cz not in title.replace(' ', '') and not up_ok:
+            continue
+        score = 4
+        if re.search(r'\bzastupitelstv', title, re.I):
             score += 2
         if re.search(rf'\b{cislo}\b', title):
             score += 3
-        if date_cz in title or date_nodash == upload:
-            score += 4
-        if score > 0:
-            candidates.append((score, vid_id, title))
+        candidates.append((score, vid_id, title))
 
     if not candidates:
         return None

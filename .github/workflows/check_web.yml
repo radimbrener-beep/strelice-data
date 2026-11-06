@@ -1,15 +1,15 @@
 name: Automatická aktualizace portálu (nové ZO/RO)
 
 # Cíl: kontrola zhruba v 7:00, 12:00 a 15:00 SEČ (v SELČ o hodinu později).
-# GitHub plánované běhy spouští se zpožděním ~4–6 h (měřeno 10/2026), proto je cron
+# GitHub plánované běhy spouští se zpožděním ~4–7 h (měřeno 10–11/2026: 11/2026 kolem 7 h), proto je cron
 # posunutý dřív a mimo celou hodinu. Při změně uprav i texty v build_aktualizace.py.
 # Lze spustit ručně přes GitHub UI (workflow_dispatch).
 
 on:
   schedule:
-    - cron: '17 2 * * *'
+    - cron: '17 23 * * *'
+    - cron: '17 4 * * *'
     - cron: '17 7 * * *'
-    - cron: '17 10 * * *'
   workflow_dispatch:
 
 concurrency:
