@@ -10,12 +10,14 @@ Výstup (regenerovatelné, proto v gitignorovaném data/):
   data/prepisy/zo{N}_raw.json          – surový přepis po bodech
 
 Čištění (fáze 2) čte tyto _raw.json a produkuje committed prepisy/{N}.json.
+{N} = klíč zasedání ze zasedani.py: „29“ (období 2022–2026), „2026-1“ (další období).
 """
 import json, sys, re, subprocess, os
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding='utf-8')
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 VTT_DIR = ROOT / 'data' / 'prepisy' / 'vtt'
 RAW_DIR = ROOT / 'data' / 'prepisy'
 VTT_DIR.mkdir(parents=True, exist_ok=True)
@@ -92,9 +94,11 @@ def slice_by_bod(segs, bodytimes, body):
 
 def main():
     vc = json.load(open(ROOT / 'video_casy.json', encoding='utf-8'))
-    zo = {x['cislo_zasedani']: x for x in json.load(open(ROOT / 'dataset_ZO.json', encoding='utf-8'))}
+    import zasedani as zs
+    zo = {zs.key(x): x for x in json.load(open(ROOT / 'dataset_ZO.json', encoding='utf-8'))}
 
-    todo = sorted((int(k), v) for k, v in vc.items() if (v.get('bodytimes') and v.get('vid')))
+    todo = sorted(((k, v) for k, v in vc.items() if (v.get('bodytimes') and v.get('vid'))),
+                  key=lambda kv: zs.key_sort(kv[0]))
     print(f'Zasedání s videem i časy bodů: {len(todo)}')
     grand = 0
     done, skipped = [], []
@@ -110,7 +114,7 @@ def main():
         sliced = slice_by_bod(segs, v['bodytimes'], body)
         words = sum(b['slov'] for b in sliced)
         grand += words
-        out = {'cislo_zasedani': cislo, 'vid': vid,
+        out = {'cislo_zasedani': zo.get(cislo, {}).get('cislo_zasedani', cislo), 'vid': vid,
                'datum': zo.get(cislo, {}).get('datum', ''),
                'datum_text': zo.get(cislo, {}).get('datum_text', ''),
                'body': sliced}

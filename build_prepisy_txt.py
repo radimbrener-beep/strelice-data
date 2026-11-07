@@ -6,9 +6,10 @@ všech zasedání zastupitelstva (ze záznamů). Nasazuje se jako statický soub
 odnikud neodkazovaný). UTF-8 s BOM, ať se diakritika správně zobrazí i při
 otevření přímo v prohlížeči / Poznámkovém bloku."""
 import sys, json, glob, os, datetime
+import zasedani as zs
 sys.stdout.reconfigure(encoding="utf-8")
 
-zo = {m["cislo_zasedani"]: m for m in json.load(open("dataset_ZO.json", encoding="utf-8"))}
+zo = {zs.key(m): m for m in json.load(open("dataset_ZO.json", encoding="utf-8"))}
 
 def fmt_d(iso):
     p = (iso or "").split("-")
@@ -28,7 +29,9 @@ def build_text(cislo, pj):
     body_ds = m.get("body", [])
     vid = pj.get("vid")
     L = ["PŘEPIS JEDNÁNÍ ZASTUPITELSTVA OBCE STŘELICE",
-         f"{cislo}. zasedání — {fmt_d(m.get('datum',''))}"]
+         f"{m.get('cislo_zasedani', cislo)}. zasedání"
+         + (f" (období {zs.label(zs.obdobi(m))})" if m and zs.obdobi(m) != zs.LEGACY else "")
+         + f" — {fmt_d(m.get('datum',''))}"]
     if vid:
         L.append(f"Videozáznam: https://youtu.be/{vid}")
     L += ["", DISCLAIMER, ""]
@@ -58,11 +61,11 @@ for fp in glob.glob("prepisy/*.json"):
     if base.startswith("_"):
         continue
     pj = json.load(open(fp, encoding="utf-8"))
-    c = pj.get("cislo_zasedani")
-    if c is None:
+    if pj.get("cislo_zasedani") is None:
         continue
+    c = base[:-5]   # klíč zasedání: 29.json, 2026-1.json
     meetings.append((c, build_text(c, pj), sum(len(b.get("turns", [])) for b in pj.get("body", []))))
-meetings.sort(key=lambda x: x[0])
+meetings.sort(key=lambda x: zs.key_sort(x[0]))
 
 today = datetime.date.today()
 head = ("PŘEPISY JEDNÁNÍ ZASTUPITELSTVA OBCE STŘELICE\n"

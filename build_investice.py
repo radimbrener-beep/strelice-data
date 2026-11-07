@@ -5,6 +5,7 @@ Kapitálové výdaje obce z FIN 2-12 M (vývoj v čase, podle oblasti) propojen�
 s konkrétními investičními rozhodnutími z usnesení Rady obce a Zastupitelstva
 (téma Stavby/investice a Doprava, s uvedenou částkou)."""
 import sys, csv, json, re, os
+import zasedani as zs
 from datetime import date
 import portal_common as pc
 from firmy import firm as _firm, canon_name, dedup_projects, INCOME_RE
@@ -61,12 +62,12 @@ MIN_AKCE = 100_000   # práh: investiční akce, ne drobné nákupy
 ro = json.load(open("dataset_RO.json", encoding="utf-8"))
 zo = json.load(open("dataset_ZO.json", encoding="utf-8"))
 
-# časy v záznamu jednání (jen ZO mají video): {číslo_ZO: {text_usnesení: čas_s}}, {číslo_ZO: video_id}
+# časy v záznamu jednání (jen ZO mají video): {klíč_ZO: {text_usnesení: čas_s}}, {klíč_ZO: video_id}
 VCAS = json.load(open("video_casy.json", encoding="utf-8")) if os.path.exists("video_casy.json") else {}
 zo_text_time, zo_vid = {}, {}
 for _m in zo:
-    _c = _m.get("cislo_zasedani")
-    _vc = VCAS.get(str(_c))
+    _c = zs.key(_m)
+    _vc = VCAS.get(_c)
     if not _vc:
         continue
     zo_vid[_c] = _vc.get("vid")
@@ -91,7 +92,7 @@ for src, mid in (("RO", ro), ("ZO", zo)):
         for b in m["body"]:
             if is_invest(b):
                 akce.append([m.get("datum") or "", b["castka"], src,
-                             m.get("cislo_zasedani"), b["text"], m.get("url") or ""])
+                             zs.key(m), b["text"], m.get("url") or ""])
 
 
 # _firm a dedup_projects sdílené v firmy.py (používá i build_zakazky.py)

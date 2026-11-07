@@ -12,8 +12,18 @@ prepisy/N.json (vystoupení v diskuzi; jen zasedání se záznamem).
 Výstup: funkce build() → dict pro stránku (build_obdobi.py). Spuštěno samostatně
 vypíše kontrolní přehled."""
 import json, re, glob, os, unicodedata
+import zasedani
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+# Složení, mandáty a čísla zasedání níže platí jen pro toto volební období; zasedání
+# dalších období (číslovaná znovu od 1, klíč „2026-1“) se do přehledu nezapočítávají.
+OBDOBI = "2022-2026"
+
+
+def dataset():
+    """Zasedání ZO období OBDOBI."""
+    ds = json.load(open(os.path.join(ROOT, "dataset_ZO.json"), encoding="utf-8"))
+    return [z for z in ds if zasedani.obdobi(z) == OBDOBI]
 
 # Členové zastupitelstva 2022–2026 (plná jména bez titulů; klíč = krátké jméno
 # používané ve výpisech hlasování). Klíma rezignoval po ZO 22, od ZO 23 náhradník Smištík.
@@ -123,8 +133,7 @@ def override_votes(n, present):
     ov = json.load(open(os.path.join(ROOT, "zo_votes_override.json"), encoding="utf-8")).get(str(n))
     if not ov:
         return None
-    ds = json.load(open(os.path.join(ROOT, "dataset_ZO.json"), encoding="utf-8"))
-    z = next(x for x in ds if x["cislo_zasedani"] == n)
+    z = next(x for x in dataset() if x["cislo_zasedani"] == n)
     out = []
     for b in z["body"]:
         if not b.get("hlasovani"):
@@ -144,6 +153,8 @@ def speaking():
     res = {k: {"turns": 0, "words": 0, "body": 0, "zasedani": 0} for k in KEYS}
     meetings = []
     for f in sorted(glob.glob(os.path.join(ROOT, "prepisy", "[0-9]*.json"))):
+        if zasedani.parse_key(os.path.basename(f)[:-5])[0] != OBDOBI:
+            continue
         j = json.load(open(f, encoding="utf-8"))
         meetings.append(j["cislo_zasedani"])
         seen_m = set()
@@ -212,7 +223,7 @@ def roles(z, vs):
 
 
 def build():
-    ds = json.load(open(os.path.join(ROOT, "dataset_ZO.json"), encoding="utf-8"))
+    ds = dataset()
     per = {k: {"key": k, "name": FULL[k], "funkce": dict((m[0], m[2]) for m in MEMBERS)[k],
                "mozno": 0, "pritomen": 0, "omluven": 0,
                "hl_mozno": 0, "pro": 0, "proti": 0, "zdrzel": 0, "nehlasoval": 0,

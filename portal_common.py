@@ -110,7 +110,8 @@ PUSH_TOPICS_UI = [("rada", "Nová jednání rady obce"),
                   ("zakazky", "Nově vypsané zakázky obce")]
 try:
     import hashlib as _hl
-    _SW_VER = _hl.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sw.js"), "rb").read()).hexdigest()[:10]
+    _SW_VER = _hl.sha1(open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "sw.js"), "rb").read()
+                      .replace(b"\r\n", b"\n")).hexdigest()[:10]   # stejný otisk na Windows (CRLF) i v CI
 except OSError:
     _SW_VER = "0"
 PUSH_SW = f"/sw.js?v={_SW_VER}"   # otisk v adrese: Wedos by jinak držel starý sw.js v mezipaměti

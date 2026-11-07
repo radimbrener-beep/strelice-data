@@ -9,12 +9,14 @@ Pro každé zasedání, které má na kanálu @tvstreliceubrna záznam:
    čímž odfiltruje úvodní rekapitulaci programu i ojedinělé přeřeky,
  - každý přechod napáruje na text usnesení daného zasedání (kvůli čistému
    popisku) podle překryvu slov; jinak použije přepsaná slova předsedajícího,
- - výstup: video_casy.json { "<čísloZO>": {vid, dur, has_caps, chapters:[...]} }.
+ - výstup: video_casy.json { "<klíčZO>": {vid, dur, has_caps, chapters:[...]} }.
 
 Zasedání s videem bez titulků (starší) dostanou jen odkaz na celé video.
-Mapa číslo->video se bere z data/video/map.txt (řádky: "<číslo> <videoId>").
+Mapa zasedání->video se bere z data/video/map.txt (řádky: "<klíč> <videoId>", klíč
+„29“ pro období 2022–2026, „2026-1“ pro další — viz zasedani.py).
 """
 import sys, os, re, json, bisect, unicodedata
+import zasedani as zs
 sys.stdout.reconfigure(encoding="utf-8")
 
 CAPS = "data/video/caps"
@@ -329,12 +331,12 @@ def build_chapters(W, groups):
 
 def main():
     src = json.load(open("dataset_ZO.json", encoding="utf-8"))
-    by_cislo = {z["cislo_zasedani"]: z for z in src}
+    by_cislo = {zs.key(z): z for z in src}
     themap = {}
     for ln in open(MAP, encoding="utf-8"):
         ln = ln.split()
         if len(ln) == 2:
-            themap[int(ln[0])] = ln[1]
+            themap[ln[0]] = ln[1]
 
     # existující výstup — chybí-li lokální titulky (CI má čistý checkout bez
     # data/video/caps/), NESMÍME zahodit dřív spočtené kapitoly/bodytimes
@@ -345,7 +347,7 @@ def main():
 
     out = {}
     report = []
-    for cislo in sorted(themap, reverse=True):
+    for cislo in sorted(themap, key=zs.key_sort, reverse=True):
         vid = themap[cislo]
         cap = os.path.join(CAPS, f"cap_{vid}.cs-orig.vtt")
         z = by_cislo.get(cislo)

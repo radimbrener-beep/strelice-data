@@ -10,6 +10,7 @@ import os
 import sys
 
 import mcp_export as mx
+import zasedani
 import zastupitele as zs
 
 OUT = "mcp/strelice.sqlite"
@@ -34,7 +35,7 @@ def counts(b):
 def named_votes(z, present):
     """Jmenovitá hlasování ze zápisu přiřazená k usnesením: hlasy jdou ve stejném pořadí,
     takže stačí posouvat ukazatel a párovat podle počtů pro/proti/zdržel."""
-    vs = (zs.override_votes(z["cislo_zasedani"], present) if z["cislo_zasedani"] == 27
+    vs = (zs.override_votes(z["cislo_zasedani"], present) if zasedani.key(z) == "27"
           else zs.votes(z, present)) or []
     out, j = {}, 0
     for i, b in enumerate(z["body"]):
@@ -84,23 +85,27 @@ def main():
         ex.osoba(k, jmeno, funkce, od, None if do == 999 else do)
 
     video = load("video_casy.json", {})
-    zo_texty = {}  # číslo ZO → texty usnesení (k nim se váží přepisy)
+    zo_texty = {}  # klíč ZO („29“, „2026-1“) → texty usnesení (k nim se váží přepisy)
     for organ, fn, shr in (("ZO", "dataset_ZO.json", "data/shrnuti/zo.json"),
                            ("RO", "dataset_RO.json", "data/shrnuti/ro.json")):
         shrnuti = load(shr, {})
         for z in json.load(open(fn, encoding="utf-8")):
             n = z["cislo_zasedani"]
-            jid = f"{organ}-{n}"
+            k = zasedani.key(z)            # „29“ (2022–2026) nebo „2026-1“ → id ZO-29 / ZO-2026-1
+            ob = zasedani.obdobi(z)
+            jid = f"{organ}-{k}"
             pres, omluv, hl = [], [], {}
             if organ == "ZO":
-                pres, _ = zs.attendance(z)
-                omluv = [zs.FULL[k] for k in zs.KEYS if zs.is_member(k, n) and k not in pres]
-                hl = named_votes(z, pres)
-                zo_texty[n] = [b["text"] for b in z["body"]]
+                if ob == zs.OBDOBI:        # docházka a jmenovité hlasování: členové jen pro toto období
+                    pres, _ = zs.attendance(z)
+                    omluv = [zs.FULL[m] for m in zs.KEYS if zs.is_member(m, n) and m not in pres]
+                    hl = named_votes(z, pres)
+                zo_texty[k] = [b["text"] for b in z["body"]]
             ex.jednani(jid, organ, cislo=n, rok=z["rok"], datum=z["datum"],
-                       nazev=f"{n}. zasedání {'zastupitelstva' if organ == 'ZO' else 'rady'} obce Střelice",
-                       url_pdf=z["url"], video=(video.get(str(n)) or {}).get("vid") if organ == "ZO" else None,
-                       shrnuti=shrnuti.get(str(n)), pritomno=z.get("pritomno") or (len(pres) or None),
+                       nazev=f"{n}. zasedání {'zastupitelstva' if organ == 'ZO' else 'rady'} obce Střelice"
+                             + ("" if ob == zasedani.LEGACY else f" (volební období {zasedani.label(ob)})"),
+                       url_pdf=z["url"], video=(video.get(k) or {}).get("vid") if organ == "ZO" else None,
+                       shrnuti=shrnuti.get(k), pritomno=z.get("pritomno") or (len(pres) or None),
                        omluveni=omluv or None, pocet_usneseni=len(z["body"]))
             for i, b in enumerate(z["body"]):
                 c = counts(b) or [None] * 3
@@ -108,9 +113,9 @@ def main():
                             tema=b.get("tema"), castka=mx.num(b.get("castka")),
                             pro=c[0], proti=c[1], zdrzel=c[2])
 
-    for f in sorted(glob.glob("prepisy/[0-9]*.json"), key=lambda p: int(os.path.basename(p)[:-5])):
+    for f in sorted(glob.glob("prepisy/[0-9]*.json"), key=lambda p: zasedani.key_sort(os.path.basename(p)[:-5])):
         p = json.load(open(f, encoding="utf-8"))
-        n = p["cislo_zasedani"]
+        n = os.path.basename(f)[:-5]   # klíč zasedání
         texty = zo_texty.get(n, [])
         poradi = 0
         for b in p["body"]:
@@ -123,7 +128,9 @@ def main():
                 poradi += 1
                 who = t["who"]
                 ex.promluva(f"ZO-{n}", poradi, who, t["text"], bod=i + 1, bod_nazev=nazev,
-                            role=t.get("role"), osoba=zs.SPEAKER.get(who) if t.get("role") != "o" else None,
+                            role=t.get("role"),
+                            # mluvčí → člen ZO jen u období, pro které zastupitele.py zná složení
+                            osoba=zs.SPEAKER.get(who) if t.get("role") != "o" and zasedani.parse_key(n)[0] == zs.OBDOBI else None,
                             cas=b.get("start"))
 
     for fn in ("data/strelice_finm201_2013_2025.csv", "data/strelice_fin_2026.csv"):

@@ -8,7 +8,7 @@ shrnutí **„co se rozhodlo"** pro běžného občana, zobrazené nad seznamem 
 - RO: `dataset_RO.json` (stejná struktura, bez hlasování)
 
 ## Výstup
-JSON soubor `{ "<číslo zasedání>": "<shrnutí>", ... }` (UTF-8, klíče jako řetězce).
+JSON soubor `{ "<klíč zasedání>": "<shrnutí>", ... }` (UTF-8). Klíč = číslo zasedání v období 2022–2026 („29“), v dalších obdobích „<rok začátku>-<číslo>“ („2026-1“), viz `zasedani.py`.
 
 ## Pravidla
 1. **2–4 věty, cca 35–70 slov.** Česky, srozumitelně, bez úředního žargonu

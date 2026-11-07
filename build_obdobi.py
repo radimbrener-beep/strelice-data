@@ -12,6 +12,7 @@ import sys, json, csv, os
 from collections import defaultdict, Counter
 import portal_common as pc
 import zastupitele
+import zasedani as zs
 
 sys.stdout.reconfigure(encoding="utf-8")
 CHARTJS = open("data/vendor/chart.umd.js", encoding="utf-8").read()
@@ -32,8 +33,11 @@ def mil(v):
     return f"{v/1e6:.1f}".replace(".", ",")
 
 
-ro = json.load(open("dataset_RO.json", encoding="utf-8"))
-zo = json.load(open("dataset_ZO.json", encoding="utf-8"))
+# Stránka bilancuje jen období 2022–2026; zasedání dalšího období (číslovaná znovu
+# od 1) jsou v sekcích Zastupitelstvo a Rada obce s filtrem období.
+OB = zastupitele.OBDOBI
+ro = [m for m in json.load(open("dataset_RO.json", encoding="utf-8")) if zs.obdobi(m) == OB]
+zo = [m for m in json.load(open("dataset_ZO.json", encoding="utf-8")) if zs.obdobi(m) == OB]
 Y0, Y1 = 2022, 2026
 
 # --- hospodaření po letech (2022–2025 skutečnost, 2026 upravený rozpočet + stav k pololetí) ---
@@ -59,7 +63,7 @@ vy_done = sum(h["vy"] for h in hosp if not h["plan"])
 
 # --- největší akce období (data stránky Investice) ---
 inv = embedded("investice.html")
-akce = [a for a in inv["akce"] if a[0] and a[0][:4] >= str(Y0)]
+akce = [a for a in inv["akce"] if zs.v_obdobi(a[0], OB)]
 # srozumitelné názvy největších akcí (text usnesení je dlouhý a obsahuje iniciály osob)
 import re
 AKCE_LBL = [
@@ -104,6 +108,8 @@ for a in sorted(akce, key=lambda a: -a[1]):
 zak = embedded("zakazky.html")
 firms = defaultdict(lambda: [0, 0])
 for r in zak["rows"]:
+    if not zs.v_obdobi(r[3], OB):
+        continue
     firms[r[1]][0] += r[2]
     firms[r[1]][1] += 0 if r[8] else 1
 top_firms = sorted(firms.items(), key=lambda x: -x[1][0])[:8]
@@ -145,16 +151,16 @@ TIMELINE = [
 Z = zastupitele.build()
 n_meet = len(zo)
 n_ro = len(ro)
-n_zo_items = sum(len(m["b"]) for m in embedded("zastupitelstvo.html")["meet"])   # stejně jako sekce Zastupitelstvo (vč. doplnění ZO 27)
+n_zo_items = sum(len(m["b"]) for m in embedded("zastupitelstvo.html")["meet"] if m.get("o", OB) == OB)   # stejně jako sekce Zastupitelstvo (vč. doplnění ZO 27)
 n_ro_items = sum(len(m["body"]) for m in ro)
 
 # vystoupení v diskuzi po zastupitelích: [zo, datum, text bodu, čas ve videu, video id, [texty]]
 import glob
-_zmeet = {m["n"]: m for m in embedded("zastupitelstvo.html")["meet"]}
+_zmeet = {str(m["n"]): m for m in embedded("zastupitelstvo.html")["meet"] if m.get("o", OB) == OB}
 SP = defaultdict(list)
-for _f in sorted(glob.glob("prepisy/[0-9]*.json"), key=lambda x: int(os.path.basename(x)[:-5])):
+for _f in sorted(glob.glob("prepisy/[0-9]*.json"), key=lambda x: zs.key_sort(os.path.basename(x)[:-5])):
     _j = json.load(open(_f, encoding="utf-8"))
-    _n = _j["cislo_zasedani"]; _m = _zmeet.get(_n)
+    _n = os.path.basename(_f)[:-5]; _m = _zmeet.get(_n)
     if not _m:
         continue
     for _b in _j["body"]:
@@ -198,6 +204,12 @@ tl_html = "".join(
     f'<div class="tlb"><b>{esc(t)}</b><p>{esc(x)}</p><a href="zastupitelstvo.html?zo={n}">ZO {n} →</a></div></div>'
     for d, n, t, x in TIMELINE)
 
+# odkaz na další období, jakmile má první zasedání (bilance zůstává za 2022–2026)
+_nove = sorted({zs.obdobi(m) for f in ("dataset_ZO.json", "dataset_RO.json")
+                for m in json.load(open(f, encoding="utf-8"))} - {OB})
+NOVE = (f'<p class="note" style="margin:-6px 0 18px">Od 6. 11. 2026 běží nové volební období {zs.label(_nove[-1])} '
+        'a zasedání se číslují znovu od 1. Jeho jednání najdete v sekcích <a href="zastupitelstvo.html">Zastupitelstvo</a> '
+        'a <a href="zapisy.html">Rada obce</a>; tato stránka shrnuje jen období 2022–2026.</p>') if _nove else ""
 unan = Z["n_unanimous"] / Z["n_votes"] * 100
 body = f'''<header class="hero">
   <h1>Volební období 2022–2026 v datech</h1>
@@ -205,6 +217,7 @@ body = f'''<header class="hero">
   <div class="chips"><span class="chip">říjen 2022 – září 2026</span><span class="chip">zdroje: zápisy RO a ZO · MONITOR SP · přepisy záznamů ZO</span></div>
   <nav class="jump"><a href="#bilance">Bilance období</a><a href="#osa">Časová osa</a><a href="#zastupitele">Zastupitelé</a></nav>
 </header>
+{NOVE}
 
 <div class="cards">
   <div class="kpi"><div class="lab">Zasedání zastupitelstva</div><div class="val">{n_meet}</div><div class="delta" style="color:var(--muted)">{n_zo_items} usnesení</div></div>

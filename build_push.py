@@ -10,6 +10,7 @@ Novinka portálu = záznam v data/push_novinky.json:
     {"id": "volby-2026", "title": "…", "body": "…", "url": "/volby.html", "date": "2026-10-24"}
 """
 import json
+import zasedani as zs
 import os
 import sys
 
@@ -29,11 +30,13 @@ def meetings(dataset, shrnuti_path, topic, label, url):
     shrnuti = load(shrnuti_path, {})
     out = []
     for m in sorted(data, key=lambda m: m["datum"], reverse=True)[:PER_TOPIC]:
-        c = m["cislo_zasedani"]
-        body = shrnuti.get(str(c)) or f"Zápis z jednání: {len(m.get('body', []))} usnesení."
+        # klíč „29“ / „2026-1“ (zasedani.py): id „rada-103“ z období 2022–2026 se nemění,
+        # server je má v seznamu oznámených a znovu je neposílá
+        c = zs.key(m)
+        body = shrnuti.get(c) or f"Zápis z jednání: {len(m.get('body', []))} usnesení."
         out.append({
             "id": f"{topic}-{c}", "topic": topic,
-            "title": f"{label} č. {c} · {m['datum_text']}",
+            "title": f"{label} č. {m['cislo_zasedani']} · {m['datum_text']}",
             "body": body if len(body) <= 240 else body[:237].rsplit(" ", 1)[0] + "…",
             "url": url.format(c=c), "date": m["datum"],
         })

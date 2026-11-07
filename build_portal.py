@@ -3,6 +3,7 @@
 """Generuje rozcestník (index.html) a sekci Školství (skolstvi.html)
 portálu obce Střelice. Sdílené prvky z portal_common.py."""
 import sys, csv, json
+import zasedani as zs
 import portal_common as pc
 sys.stdout.reconfigure(encoding="utf-8")
 
@@ -47,10 +48,10 @@ tiles = [
      "Demografický vývoj obce a poptávka po vzdělávání — mateřská a základní škola, ZUŠ, kapacity.",
      "Otevřít školství →", None),
     ("zapisy.html", "Rada obce", "ra", True,
-     "Zápisy z jednání Rady obce 2022–2026 — u každého jednání krátké shrnutí, fulltextové hledání v usneseních, filtr podle roku a tématu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.",
+     "Zápisy z jednání Rady obce od roku 2022 — u každého jednání krátké shrnutí, fulltextové hledání v usneseních, filtr podle roku a tématu, odkaz na originální PDF a u parcelních čísel proklik přímo do katastrální mapy.",
      "Procházet zápisy →", None),
     ("zastupitelstvo.html", "Zastupitelstvo", "zo", True,
-     "Usnesení zastupitelstva 2022–2026 — shrnutí každého zasedání, výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
+     "Usnesení zastupitelstva od roku 2022 — shrnutí každého zasedání, výsledky hlasování, témata, výdaje, účast i prokliky parcel do katastru. U zasedání se záznamem na YouTube navíc proklik na přesný čas ve videu u jednotlivých bodů jednání.",
      "Procházet usnesení →", None),
     ("demografie.html", "Demografie", "de", True,
      "Jak Střelice rostou — počet obyvatel od roku 1971, narození a úmrtí, kolik lidí se přistěhovalo a odstěhovalo.",
@@ -112,14 +113,14 @@ def _pubdate(grp, cislo):
 
 _feed = []
 for _m in json.load(open("dataset_ZO.json", encoding="utf-8")):
-    _c = _m["cislo_zasedani"]
+    _c = zs.key(_m)   # „29“ / „2026-1“ (published.json i ?zo=)
     _feed.append((_pubdate("ZO", _c), _m["datum"], "Zastupitelstvo", "#e0a458",
-                  f'Zápis z {_c}. zasedání zastupitelstva <span class="updmd">· zasedání {_fmt_d(_m["datum"])}</span>',
+                  f'Zápis z {_m["cislo_zasedani"]}. zasedání zastupitelstva <span class="updmd">· zasedání {_fmt_d(_m["datum"])}</span>',
                   f'zastupitelstvo.html?zo={_c}'))
 for _m in json.load(open("dataset_RO.json", encoding="utf-8")):
-    _c = _m["cislo_zasedani"]
+    _c = zs.key(_m)
     _feed.append((_pubdate("RO", _c), _m["datum"], "Rada obce", "#85b7eb",
-                  f'Zápis z {_c}. jednání rady obce <span class="updmd">· jednání {_fmt_d(_m["datum"])}</span>',
+                  f'Zápis z {_m["cislo_zasedani"]}. jednání rady obce <span class="updmd">· jednání {_fmt_d(_m["datum"])}</span>',
                   f'zapisy.html?ro={_c}'))
 if _dirty:
     json.dump(_pub, open(_PUB_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)

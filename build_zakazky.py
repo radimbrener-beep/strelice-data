@@ -5,6 +5,7 @@ Všechna usnesení RO+ZO s určitelnou firmou (zhotovitelem/dodavatelem)
 a částkou — žebříček dodavatelů, vývoj po letech, tabulka zakázek.
 Stejný styl jako dotace.html (Komu obec přispívá)."""
 import sys, json, re
+import zasedani as zs
 import portal_common as pc
 from firmy import firm, firm_key, canon_name, dedup_projects, INCOME_RE, GIFT_RE, is_dodatek
 sys.stdout.reconfigure(encoding="utf-8")
@@ -27,7 +28,7 @@ for src, mid in (("RO", ro), ("ZO", zo)):
             f = firm(b["text"])
             if not f:
                 continue
-            items.append([m.get("datum") or "", c, src, m.get("cislo_zasedani"),
+            items.append([m.get("datum") or "", c, src, zs.key(m),
                           b["text"], m.get("url") or "", f])
 
 items = dedup_projects(items)   # RO vyhodnocení ↔ ZO smlouva = jedna zakázka
@@ -45,7 +46,7 @@ for it in items:
     it[6] = canon[firm_key(it[6])]
 
 years = sorted({int(it[0][:4]) for it in items if it[0]})
-# řádky pro JS: [rok, firma, castka, datum, zdroj, cislo, url, text, is_dodatek]
+# řádky pro JS: [rok, firma, castka, datum, zdroj, klíč jednání („29“/„2026-1“), url, text, is_dodatek]
 rows = [[int(it[0][:4]) if it[0] else 0, it[6], it[1], it[0], it[2], it[3], it[5],
          it[4][:300] + ("…" if len(it[4]) > 300 else ""), 1 if is_dodatek(it[4]) else 0]
         for it in items if it[0]]

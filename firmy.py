@@ -160,7 +160,7 @@ def dedup_projects(items):
     90 dnů, nebo c) velká specifická částka ≥ 4 mil (tatáž stavba/nemovitost napříč
     časem). Ponechá se nejvýstižnější záznam (_score). Různé projekty s náhodně
     shodnou menší částkou z různých jednání zůstanou oba.
-    Formát položky: [datum_iso, castka, zdroj RO/ZO, cislo_zasedani, text, url, ...]
+    Formát položky: [datum_iso, castka, zdroj RO/ZO, klíč zasedání (zasedani.py), text, url, ...]
     (indexy 0–5 jsou povinné, další sloupce se zachovají)."""
     kept = []
     for it in sorted(items, key=lambda x: x[0]):

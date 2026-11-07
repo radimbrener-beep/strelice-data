@@ -8,6 +8,7 @@ z automatických YouTube titulků, rozsekaný po bodech, se jmény mluvčích.
   `usneseni` (OFICIÁLNÍ ověřené znění), `hlasovani` ([pro,proti,zdržel] nebo null),
   `raw` (surový auto-přepis diskuze — obsahuje chyby přepisu).
 - VZOR kvality a schéma: `prepisy/_styl_vzor.json` (hotové kvalitní zasedání).
+- `{N}` = klíč zasedání ze `zasedani.py`: „29“ pro období 2022–2026, „2026-1“ pro další období (číslování ZO začíná v každém období od 1).
 - VÝSTUP: `prepisy/{N}.json`, striktní JSON UTF-8, schéma:
 ```
 {"cislo_zasedani": N, "vid": "…", "body": [

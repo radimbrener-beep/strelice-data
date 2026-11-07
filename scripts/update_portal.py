@@ -39,15 +39,19 @@ sys.stderr.reconfigure(encoding='utf-8')
 
 ROOT = Path(__file__).parent.parent
 sys.path.insert(0, str(ROOT))
+import zasedani as zs
 
-ZO_LIST_URL = (
-    "https://www.streliceubrna.cz/obec/samosprava/zastupitelstvo-obce-strelice"
-    "/usneseni/usneseni-ze-zasedani-zastupitelstva-obce-strelice-2022-2026"
-)
-RO_LIST_URL = (
-    "https://www.streliceubrna.cz/obec/samosprava/rada-obce-strelice"
-    "/zapisy-rady-obce-strelice/zapisy-rady-obce-strelice-2022-2026"
-)
+MIN_OBDOBI = zs.LEGACY
+
+# Nadřazené stránky: obec pro každé volební období zakládá podstránku s příponou
+# „-2022-2026“, „-2026-2030“ … Scraper je najde sám a projde všechna období od
+# MIN_OBDOBI (starší portál nemá a nenačítá). Staré období se prochází dál,
+# ať se nic neztratí, když obec pozdní zápis přidá ještě tam.
+ZO_PARENT_URL = "https://www.streliceubrna.cz/obec/samosprava/zastupitelstvo-obce-strelice/usneseni"
+RO_PARENT_URL = "https://www.streliceubrna.cz/obec/samosprava/rada-obce-strelice/zapisy-rady-obce-strelice"
+# záloha, kdyby nadřazená stránka nešla načíst
+ZO_FALLBACK = {"2022-2026": ZO_PARENT_URL + "/usneseni-ze-zasedani-zastupitelstva-obce-strelice-2022-2026"}
+RO_FALLBACK = {"2022-2026": RO_PARENT_URL + "/zapisy-rady-obce-strelice-2022-2026"}
 YT_CHANNEL = "https://www.youtube.com/@tvstreliceubrna/videos"
 BASE_OBEC = "https://www.streliceubrna.cz"
 
@@ -81,61 +85,71 @@ def run(cmd, cwd=ROOT, check=True, capture=False):
 # Detekce nových dokumentů
 # ──────────────────────────────────────────────
 
-def scrape_zo_links():
-    """Vrátí seznam (cislo, title, pdf_url) pro ZO usnesení na webu obce."""
-    results = []
+def period_pages(parent_url, fallback):
+    """{obdobi: url} podstránek volebních období odkazovaných z nadřazené stránky.
+    Bere jen odkazy pod `parent_url` končící „-RRRR-RRRR“ (menu webu odkazuje i jinam)."""
+    path = parent_url.replace(BASE_OBEC, '')
+    pages = {}
     try:
-        s = soup(ZO_LIST_URL)
+        s = soup(parent_url)
+        for a in s.find_all('a', href=True):
+            rel = a['href'].split('?')[0].split('#')[0].rstrip('/').replace(BASE_OBEC, '')
+            m = re.search(r'-(\d{4})-(\d{4})$', rel)
+            if not rel.startswith(path + '/') or not m:
+                continue
+            ob = f"{m.group(1)}-{m.group(2)}"
+            if ob >= MIN_OBDOBI:
+                pages[ob] = BASE_OBEC + rel
     except Exception as e:
-        print(f"WARN: nelze načíst ZO stránku: {e}")
-        return results
+        print(f"WARN: nelze načíst {parent_url}: {e}")
+    for ob, url in fallback.items():
+        pages.setdefault(ob, url)
+    return dict(sorted(pages.items()))
 
-    for a in s.find_all('a', href=True):
-        href = a['href']
-        title = a.get_text(strip=True)
-        # hledáme PDF soubory s usnesením
-        if '.pdf' not in href.lower():
-            continue
-        if not re.search(r'usnesení|usnesen', href + title, re.I):
-            continue
-        url = href if href.startswith('http') else BASE_OBEC + href
-        cislo = _extract_cislo(title, href)
-        if cislo:
-            results.append((cislo, title, url))
 
+def scrape_links(parent_url, fallback, doc_re):
+    """[(klíč, číslo, období, title, pdf_url)] ze všech podstránek období."""
+    results, seen = [], set()
+    for ob, page in period_pages(parent_url, fallback).items():
+        try:
+            s = soup(page)
+        except Exception as e:
+            # nové období může mít podstránku až s prvním zápisem (do té doby 404)
+            print(f"WARN: nelze načíst stránku období {ob}: {e}")
+            continue
+        for a in s.find_all('a', href=True):
+            href = a['href']
+            title = a.get_text(strip=True)
+            if '.pdf' not in href.lower():
+                continue
+            if not re.search(doc_re, href + title, re.I):
+                continue
+            url = href if href.startswith('http') else BASE_OBEC + href
+            cislo = _extract_cislo(title, href)
+            k = zs.key_for(cislo, ob) if cislo else None
+            if k and k not in seen:
+                seen.add(k)
+                results.append((k, cislo, ob, title, url))
     return results
+
+
+def scrape_zo_links():
+    """ZO usnesení na webu obce (všechna období od MIN_OBDOBI)."""
+    return scrape_links(ZO_PARENT_URL, ZO_FALLBACK, r'usnesení|usnesen')
+
 
 def scrape_ro_links():
-    """Vrátí seznam (cislo, title, pdf_url) pro RO zápisy na webu obce."""
-    results = []
-    try:
-        s = soup(RO_LIST_URL)
-    except Exception as e:
-        print(f"WARN: nelze načíst RO stránku: {e}")
-        return results
-
-    for a in s.find_all('a', href=True):
-        href = a['href']
-        title = a.get_text(strip=True)
-        if '.pdf' not in href.lower():
-            continue
-        if not re.search(r'zápis|zapis|RO', href + title, re.I):
-            continue
-        url = href if href.startswith('http') else BASE_OBEC + href
-        cislo = _extract_cislo(title, href)
-        if cislo:
-            results.append((cislo, title, url))
-
-    return results
+    """RO zápisy na webu obce (všechna období od MIN_OBDOBI)."""
+    return scrape_links(RO_PARENT_URL, RO_FALLBACK, r'zápis|zapis|RO')
 
 
 def known_zo():
     data = json.loads((ROOT / 'dataset_ZO.json').read_text(encoding='utf-8'))
-    return {m['cislo_zasedani'] for m in data}
+    return {zs.key(m) for m in data}
 
 def known_ro():
     data = json.loads((ROOT / 'dataset_RO.json').read_text(encoding='utf-8'))
-    return {m['cislo_zasedani'] for m in data}
+    return {zs.key(m) for m in data}
 
 
 # ──────────────────────────────────────────────
@@ -176,8 +190,9 @@ def fetch_yt_channel_videos():
     return videos
 
 
-def match_video_for_zo(cislo, datum_iso, videos):
-    """Vybere nejlepší video ze seznamu `videos` pro ZO zasedání číslo `cislo`."""
+def match_video_for_zo(cislo, datum_iso, videos, label=None):
+    """Vybere nejlepší video ze seznamu `videos` pro ZO zasedání číslo `cislo`
+    (`label` = klíč zasedání do výpisu)."""
     if not datum_iso:
         return None
     date_nodash = datum_iso.replace('-', '')
@@ -207,7 +222,7 @@ def match_video_for_zo(cislo, datum_iso, videos):
         return None
     candidates.sort(reverse=True)
     best_score, best_id, best_title = candidates[0]
-    print(f"  ZO {cislo}: video {best_id} – {best_title!r} (skóre {best_score})")
+    print(f"  ZO {label or cislo}: video {best_id} – {best_title!r} (skóre {best_score})")
     return best_id
 
 
@@ -218,20 +233,21 @@ def match_video_for_zo(cislo, datum_iso, videos):
 def append_to_dataset(path, new_entry):
     data = json.loads(path.read_text(encoding='utf-8'))
     data.append(new_entry)
-    data.sort(key=lambda m: m['cislo_zasedani'])
+    data.sort(key=zs.sort_key)
     path.write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding='utf-8')
 
 
-def add_video_to_map(cislo, video_id):
+def add_video_to_map(key, video_id):
+    """Řádek „<klíč zasedání> <videoId>“ (klíč „29“ / „2026-1“, viz zasedani.py)."""
     map_path = ROOT / 'data' / 'video' / 'map.txt'
-    lines = map_path.read_text(encoding='utf-8').splitlines()
+    lines = [l for l in map_path.read_text(encoding='utf-8').splitlines() if l.split()]
     # zkontroluj zda už existuje
-    if any(line.startswith(str(cislo) + ' ') for line in lines):
+    if any(line.split()[0] == str(key) for line in lines):
         return
-    lines.append(f"{cislo} {video_id}")
-    lines.sort(key=lambda l: int(l.split()[0]) if l.split() else 0, reverse=True)
+    lines.append(f"{key} {video_id}")
+    lines.sort(key=lambda l: zs.key_sort(l.split()[0]), reverse=True)
     map_path.write_text('\n'.join(lines) + '\n', encoding='utf-8')
-    print(f"  map.txt: přidáno ZO {cislo} → {video_id}")
+    print(f"  map.txt: přidáno ZO {key} → {video_id}")
 
 
 # ──────────────────────────────────────────────
@@ -239,7 +255,7 @@ def add_video_to_map(cislo, video_id):
 # ──────────────────────────────────────────────
 
 def mapped_videos():
-    """Vrátí set čísel ZO zasedání, která už mají video v map.txt."""
+    """Vrátí set klíčů ZO zasedání („29“, „2026-1“), která už mají video v map.txt."""
     map_path = ROOT / 'data' / 'video' / 'map.txt'
     if not map_path.exists():
         return set()
@@ -247,10 +263,7 @@ def mapped_videos():
     for line in map_path.read_text(encoding='utf-8').splitlines():
         parts = line.strip().split()
         if parts:
-            try:
-                mapped.add(int(parts[0]))
-            except ValueError:
-                pass
+            mapped.add(parts[0])
     return mapped
 
 def check_missing_videos(dry_run=False, videos=None):
@@ -258,28 +271,28 @@ def check_missing_videos(dry_run=False, videos=None):
     Pro ZO zasedání v datasetu, která ještě nemají video v map.txt,
     zkusí najít video na YouTube kanálu.
     `videos` – předvyplněný seznam z fetch_yt_channel_videos() (sdílíme fetch z main).
-    Vrátí seznam (cislo, video_id) nově nalezených videí.
+    Vrátí seznam (klíč zasedání, video_id) nově nalezených videí.
     """
     print("\n[VIDEO] Kontrola chybějících videí pro ZO...")
     zo_data = json.loads((ROOT / 'dataset_ZO.json').read_text(encoding='utf-8'))
     mapped = mapped_videos()
-    without_video = [m for m in zo_data if m['cislo_zasedani'] not in mapped]
+    without_video = [m for m in zo_data if zs.key(m) not in mapped]
 
     if not without_video:
         print("  Všechna ZO zasedání mají video.")
         return []
 
-    print(f"  ZO bez videa: {[m['cislo_zasedani'] for m in without_video]}")
+    print(f"  ZO bez videa: {[zs.key(m) for m in without_video]}")
     if videos is None:
         videos = fetch_yt_channel_videos()
     found = []
     for m in without_video:
-        vid = match_video_for_zo(m['cislo_zasedani'], m.get('datum', ''), videos)
+        k = zs.key(m)
+        vid = match_video_for_zo(m['cislo_zasedani'], m.get('datum', ''), videos, label=k)
         if vid and not dry_run:
-            add_video_to_map(m['cislo_zasedani'], vid)
-            found.append((m['cislo_zasedani'], vid))
-        elif vid:
-            found.append((m['cislo_zasedani'], vid))
+            add_video_to_map(k, vid)
+        if vid:
+            found.append((k, vid))
 
     return found
 
@@ -358,12 +371,12 @@ def main():
     # ── ZO ──────────────────────────────────────
     print("\n[ZO] Kontrola usnesení...")
     already_zo = known_zo()
-    for cislo, title, url in scrape_zo_links():
-        if cislo in already_zo:
+    for key, cislo, obd, title, url in scrape_zo_links():
+        if key in already_zo:
             continue
-        print(f"  Nové ZO: {cislo} – {title}")
+        print(f"  Nové ZO: {key} – {title}")
         if args.dry_run:
-            summary_lines.append(f"- ZO {cislo}: {title} ({url})")
+            summary_lines.append(f"- ZO {key}: {title} ({url})")
             continue
 
         # parsuj
@@ -377,20 +390,25 @@ def main():
         try:
             entry = parse_zo(url, cislo_hint=cislo)
         except Exception as e:
-            print(f"  CHYBA parsování ZO {cislo}: {e}")
-            summary_lines.append(f"- ZO {cislo}: chyba parsování — {e}")
+            print(f"  CHYBA parsování ZO {key}: {e}")
+            summary_lines.append(f"- ZO {key}: chyba parsování — {e}")
             continue
+        entry['obdobi'] = obd
+        key = zs.key(entry)        # číslo z PDF má přednost před číslem z odkazu
+        if key in already_zo:
+            continue
+        already_zo.add(key)
 
         # video
-        video_id = match_video_for_zo(cislo, entry.get('datum', ''), yt_videos())
+        video_id = match_video_for_zo(entry['cislo_zasedani'], entry.get('datum', ''), yt_videos(), label=key)
         if video_id:
-            add_video_to_map(cislo, video_id)
+            add_video_to_map(key, video_id)
 
         # dataset
         append_to_dataset(ROOT / 'dataset_ZO.json', entry)
-        new_zo.append((cislo, title, url, video_id))
+        new_zo.append((key, title, url, video_id))
         summary_lines.append(
-            f"- **ZO {cislo}** ({entry.get('datum_text', '')}): "
+            f"- **ZO {key}** ({entry.get('datum_text', '')}): "
             f"{entry.get('pocet_bodu', 0)} usnesení"
             + (f", video {video_id}" if video_id else ", video nenalezeno")
         )
@@ -398,12 +416,12 @@ def main():
     # ── RO ──────────────────────────────────────
     print("\n[RO] Kontrola zápisů...")
     already_ro = known_ro()
-    for cislo, title, url in scrape_ro_links():
-        if cislo in already_ro:
+    for key, cislo, obd, title, url in scrape_ro_links():
+        if key in already_ro:
             continue
-        print(f"  Nové RO: {cislo} – {title}")
+        print(f"  Nové RO: {key} – {title}")
         if args.dry_run:
-            summary_lines.append(f"- RO {cislo}: {title} ({url})")
+            summary_lines.append(f"- RO {key}: {title} ({url})")
             continue
 
         try:
@@ -416,22 +434,27 @@ def main():
         try:
             entry = parse_ro(url, cislo_hint=cislo)
         except Exception as e:
-            print(f"  CHYBA parsování RO {cislo}: {e}")
-            summary_lines.append(f"- RO {cislo}: chyba parsování — {e}")
+            print(f"  CHYBA parsování RO {key}: {e}")
+            summary_lines.append(f"- RO {key}: chyba parsování — {e}")
             continue
+        entry['obdobi'] = obd
+        key = zs.key(entry)
+        if key in already_ro:
+            continue
+        already_ro.add(key)
 
         append_to_dataset(ROOT / 'dataset_RO.json', entry)
-        new_ro.append((cislo, title, url))
+        new_ro.append((key, title, url))
         summary_lines.append(
-            f"- **RO {cislo}** ({entry.get('datum_text', '')}): "
+            f"- **RO {key}** ({entry.get('datum_text', '')}): "
             f"{entry.get('pocet_bodu', 0)} usnesení"
         )
 
     # ── Chybějící videa pro existující ZO ────────
     # Předáme sdílený seznam videí — kanál se stáhne max. jednou za běh.
     new_videos = check_missing_videos(dry_run=args.dry_run, videos=yt_videos() if not args.dry_run else None)
-    for cislo, vid in new_videos:
-        summary_lines.append(f"- **Video ZO {cislo}**: přidáno {vid} → timestamps přegenerovány")
+    for key, vid in new_videos:
+        summary_lines.append(f"- **Video ZO {key}**: přidáno {vid} → timestamps přegenerovány")
 
     # ── Vypsané zakázky z profilu zadavatele ─────
     new_pz, pz_changed = ([], False) if args.dry_run else check_profil_zakazky()

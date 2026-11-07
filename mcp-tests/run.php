@@ -66,7 +66,8 @@ ok(count($j['usneseni']) === 31, 'ZO 29 má 31 usnesení');
 $hl = $j['usneseni'][0]['hlasovani'];
 ok($hl['pro'] === 3 && count($hl['proti_jmenovite']) === 11 && in_array('Radim Brener', $hl['proti_jmenovite'], true), 'jmenovité hlasování u ZO 29');
 $j = call('jednani', ['obec' => 'ostopovice', 'id' => 'posledni'])['structuredContent'];
-ok($j['id'] === 'ZO-2026-2' && str_ends_with($j['portal'], '?zo=2026-2'), 'poslední ZO Ostopovic + odkaz na portál');
+// id „rok-číslo“ (jako nové období Střelic), odkaz na portál nese totéž; konkrétní číslo se s daty mění
+ok(preg_match('/^ZO-(\d{4}-\d+)$/', $j['id'], $mm) === 1 && str_ends_with($j['portal'], '?zo=' . $mm[1]), 'poslední ZO Ostopovic + odkaz na portál');
 ok(call('jednani', ['obec' => 'strelice', 'id' => 'RO-103'])['structuredContent']['organ'] === 'rada', 'rada obce');
 
 // diskuze: váže se k usnesení

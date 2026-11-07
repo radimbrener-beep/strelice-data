@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """Generuje sekci 'Zastupitelstvo' portálu (zastupitelstvo.html) — procházení
-usnesení Zastupitelstva obce Střelice 2022–2026. Stejné jako sekce Rada obce:
+usnesení Zastupitelstva obce Střelice od volebního období 2022–2026 (filtr období). Stejné jako sekce Rada obce:
 hledání, filtr roku/tématu/objemu výdaje, témata, částky, prokliky parcel do
 katastru. Navíc u každého usnesení VÝSLEDEK HLASOVÁNÍ (pro–proti–zdržel) a
 účast na zasedání. Data z dataset_ZO.json, vše inlinované → funguje offline."""
 import sys, json, os, re, unicodedata
 import portal_common as pc
+import zasedani as zs
 import temata
 import vydaje
 sys.stdout.reconfigure(encoding="utf-8")
@@ -101,8 +102,8 @@ VCAS = json.load(open("video_casy.json", encoding="utf-8")) if os.path.exists("v
 # doplnění hlasování tam, kde je obecní výpis nečitelný sken (zdroj: Zpravodaj)
 VOTE_OVR = json.load(open("zo_votes_override.json", encoding="utf-8")) if os.path.exists("zo_votes_override.json") else {}
 
-# vyčištěné přepisy jednání z videa (prepisy/{N}.json) — kolik jich existuje.
-# PREP[cislo][index_bodu] = [{"who","role","text"}, ...]
+# vyčištěné přepisy jednání z videa (prepisy/{klíč}.json, klíč „29“ / „2026-1“).
+# PREP[klíč][index_bodu] = [{"who","role","text"}, ...]
 import glob
 PREP = {}
 for _fp in glob.glob("prepisy/*.json"):
@@ -110,9 +111,9 @@ for _fp in glob.glob("prepisy/*.json"):
         _pj = json.load(open(_fp, encoding="utf-8"))
     except Exception:
         continue
-    _c = _pj.get("cislo_zasedani")
-    if _c is None:
+    if _pj.get("cislo_zasedani") is None:
         continue
+    _c = os.path.basename(_fp)[:-5]
     PREP[_c] = {b["index"]: b.get("turns", []) for b in _pj.get("body", []) if b.get("turns")}
 
 cats = []
@@ -131,8 +132,9 @@ meet = []
 # procedurální "pověřuje ... podpisem (smlouvy)" = jen přívažek k předchozímu
 # věcnému usnesení; nezobrazujeme jako samostatný řádek, jen jako štítek u rodiče.
 SIGN_RE = re.compile(r'pověřuje\b.*\bpodpis', re.I)
-for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
-    vc = VCAS.get(str(r["cislo_zasedani"]))
+for r in sorted(src, key=zs.sort_key):
+    K = zs.key(r)
+    vc = VCAS.get(K)
     bt = (vc.get("bodytimes") or {}) if vc else {}
     blocks = parse_votes(r.get("raw_text", ""))
     bt_toks = [(_vt(bk["text"]), bk) for bk in blocks]
@@ -163,7 +165,7 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
         hl = b.get("hlasovani")
         dis = dissent_for(b["text"], hl)
         if not hl:   # chybí počty (nečitelný sken výpisu) → doplň z Zpravodaje
-            ov_vote, ov_dis = override_vote(r["cislo_zasedani"], b["text"])
+            ov_vote, ov_dis = override_vote(K, b["text"])
             if ov_vote:
                 hl = ov_vote
                 if ov_dis:
@@ -194,13 +196,14 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
 
     # zasedání s nečitelným skenem (ZO27) nemají úvodní procedurální body vůbec —
     # doplň je na začátek z override (zdroj: Zpravodaj)
-    _ovr = VOTE_OVR.get(str(r["cislo_zasedani"]))
+    _ovr = VOTE_OVR.get(K)
     if _ovr and _ovr.get("prepend") and not any("zvolilo" in it[4].lower() for it in items):
         pre = [[ci(p["kat"]), ti_index.get(temata.classify(p["text"]), 0), None, p.get("vote"), p["text"], 0, None, None, None]
                for p in _ovr["prepend"]]
         items = pre + items
     meet.append({
-        "n": r["cislo_zasedani"], "s": SHRNUTI.get(str(r["cislo_zasedani"]), ""), "d": r["datum"], "y": r["rok"],
+        # n = klíč zasedání (?zo=…), c = číslo v rámci období, o = období
+        "n": K, "c": r["cislo_zasedani"], "o": zs.obdobi(r), "s": SHRNUTI.get(K, ""), "d": r["datum"], "y": r["rok"],
         "u": r["url"] or "", "p": r.get("pritomno"),
         "b": items,
         # záznam jednání: video id + kapitoly [čas_s, čísloBodu, popisek]
@@ -209,7 +212,8 @@ for r in sorted(src, key=lambda r: r["cislo_zasedani"]):
     })
 
 DATA = {"cats": cats, "temata": tlist, "vbuckets": vydaje.ORDER, "meet": meet, "pgeo": parcely_geo,
-        "prep": {str(k): {str(i): t for i, t in v.items()} for k, v in PREP.items()}}
+        "prep": {str(k): {str(i): t for i, t in v.items()} for k, v in PREP.items()},
+        "obd": sorted({m["o"] for m in meet})}
 data_json = json.dumps(DATA, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
 
 n_m = len(meet)
@@ -244,6 +248,8 @@ PAGE_CSS = r"""<style>
 .zmt:hover{border-color:var(--accent)}
 .zmt-h{width:100%;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;gap:14px;
   padding:13px 16px;text-align:left;font:inherit;color:var(--text)}
+.zmt-ob{font-size:11px;font-weight:600;color:var(--muted);background:var(--inset);border:1px solid var(--line);
+  border-radius:999px;padding:1px 8px;white-space:nowrap}
 .zmt-num{font-weight:700;font-size:14.5px;letter-spacing:-.01em;min-width:60px;color:var(--accent)}
 .zmt-date{color:var(--text);font-size:13.5px;min-width:104px;font-variant-numeric:tabular-nums}
 .zmt-count{color:var(--faint);font-size:12.5px;white-space:nowrap}
@@ -348,12 +354,10 @@ html[data-theme="dark"] .zitem mark{background:rgba(250,204,21,.30)}
 .prep .pdisc{font-size:11px;color:var(--faint);margin:2px 0 2px;line-height:1.5}
 </style>"""
 
-year_btns = '<button class="on" data-k="all">Vše</button>' + "".join(
-    f'<button data-k="{y}">{y}</button>' for y in yrs)
 
 body = '''<header class="hero">
   <h1>Usnesení zastupitelstva</h1>
-  <p>Procházejte usnesení Zastupitelstva obce Střelice z volebního období 2022–2026. U každého usnesení najdete výsledek hlasování, téma, případnou částku i prokliky parcel do katastrální mapy.</p>
+  <p>Procházejte usnesení Zastupitelstva obce Střelice ''' + zs.obdobi_text(DATA["obd"]) + '''. U každého usnesení najdete výsledek hlasování, téma, případnou částku i prokliky parcel do katastrální mapy.</p>
   <div class="chips">
     <span class="chip">''' + f"{yrs[0]}–{yrs[-1]}" + '''</span>
     <span class="chip">''' + f"{sp(n_m)} zasedání" + '''</span>
@@ -373,8 +377,9 @@ body = '''<header class="hero">
         <button class="clr" id="clr" title="Vymazat">&#10005;</button>
       </div>
     </div>
+    <div class="ctrlrow" id="obdRow"></div>
     <div class="ctrlrow">
-      <span class="lbl">Rok</span><span class="seg" id="yearSeg">''' + year_btns + '''</span>
+      <span class="lbl">Rok</span><span class="seg" id="yearSeg"></span>
       <span class="lbl" style="margin-left:8px">Řadit</span>
       <span class="seg" id="sortSeg"><button class="on" data-k="new">Nejnovější</button><button data-k="old">Nejstarší</button></span>
     </div>
@@ -402,7 +407,7 @@ body = '''<header class="hero">
 </section>
 
 <div class="footer">
-  Data sestavena z výpisů usnesení zveřejněných na <b>streliceubrna.cz</b> · sekce Zastupitelstvo obce Střelice 2022–2026.<br>
+  Data sestavena z výpisů usnesení zveřejněných na <b>streliceubrna.cz</b> · sekce Zastupitelstvo obce Střelice ''' + ", ".join(zs.label(o) for o in DATA["obd"]) + '''.<br>
   Část portálu <b>Jak žijí Střelice</b> — otevřená data obce. Texty usnesení jsou přepisem oficiálních zápisů.
 </div>'''
 
@@ -472,11 +477,38 @@ function linkifyParc(html, allow){
 
 function axis(){return {grid:{color:cssv('--line')},ticks:{color:cssv('--muted')}};}
 function mk(id,cfg){if(charts[id])charts[id].destroy();charts[id]=new Chart(document.getElementById(id),cfg);}
-const _yset=[...new Set(MEET.map(m=>m.y))].sort((a,b)=>a-b);
+// ---- volební období: číslování zasedání začíná v každém období od 1 ----
+const OBD=D.obd||[];
+let obd=OBD.length>1?OBD[OBD.length-1]:'all';   // výchozí = aktuální období
+function obdL(o){return o.replace('-','–');}
+function PM(){return obd==='all'?MEET:MEET.filter(m=>m.o===obd);}
+function buildObdRow(){
+  const row=document.getElementById('obdRow');
+  if(OBD.length<2){row.style.display='none';return;}
+  let html='<span class="lbl">Volební období</span>';
+  for(const o of OBD.slice().reverse())
+    html+=`<button class="chipbtn${obd===o?' on':''}" data-o="${o}">${obdL(o)} <b>${MEET.filter(m=>m.o===o).length}</b></button>`;
+  html+=`<button class="chipbtn${obd==='all'?' on':''}" data-o="all">Vše <b>${MEET.length}</b></button>`;
+  row.innerHTML=html;
+  row.querySelectorAll('.chipbtn').forEach(b=>b.onclick=()=>setObd(b.dataset.o));
+}
+function buildYearSeg(){
+  const ys=[...new Set(PM().map(m=>m.y))].sort((a,b)=>a-b);
+  if(year!=='all' && !ys.includes(+year)) year='all';
+  const seg=document.getElementById('yearSeg');
+  seg.innerHTML=`<button class="${year==='all'?'on':''}" data-k="all">Vše</button>`+ys.map(y=>`<button class="${year===String(y)?'on':''}" data-k="${y}">${y}</button>`).join('');
+  seg.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    seg.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+    year=b.dataset.k; shown=PAGE; render();});
+}
+function setObd(o){
+  obd=o; shown=PAGE; buildObdRow(); buildYearSeg(); buildTemaChips(); buildVydChips(); render(); temaChart(); vydChart();
+}
+function obdTag(m){return (OBD.length>1 && obd==='all')?`<span class="zmt-ob">${obdL(m.o)}</span>`:'';}
 
 function buildTemaChips(){
   const counts={}; let tot=0;
-  for(const m of MEET) for(const it of m.b){const t=TEMATA[it[1]];counts[t]=(counts[t]||0)+1;tot++;}
+  for(const m of PM()) for(const it of m.b){const t=TEMATA[it[1]];counts[t]=(counts[t]||0)+1;tot++;}
   let html=`<span class="lbl">Téma</span><button class="chipbtn${tema==='all'?' on':''}" data-t="all">Vše <b>${nf.format(tot)}</b></button>`;
   for(const t of TEMATA){
     if(!counts[t]) continue;
@@ -488,7 +520,7 @@ function buildTemaChips(){
 
 function buildVydChips(){
   const counts={};
-  for(const m of MEET) for(const it of m.b){const b=vbucket(it[2]);counts[b]=(counts[b]||0)+1;}
+  for(const m of PM()) for(const it of m.b){const b=vbucket(it[2]);counts[b]=(counts[b]||0)+1;}
   let html=`<span class="lbl">Hodnota</span><button class="chipbtn${vyd==='all'?' on':''}" data-v="all">Vše</button>`;
   for(const b of VBUCKETS){
     if(!counts[b] || b===VNONE) continue;
@@ -503,6 +535,7 @@ function filtered(){
   const itemMode = qf!=='' || tema!=='all' || vyd!=='all';
   const res=[];
   for(const m of MEET){
+    if(obd!=='all' && m.o!==obd) continue;
     if(year!=='all' && m.y!=+year) continue;
     let items=m.b;
     if(tema!=='all') items=items.filter(it=>TEMATA[it[1]]===tema);
@@ -590,7 +623,7 @@ function cardHTML(m,items,open,qf){
   const pres=m.p?` · ${m.p} přít.`:'';
   return `<div class="zmt${open?' open':''}">
     <button class="zmt-h" data-n="${m.n}">
-      <span class="zmt-num">ZO ${m.n}</span>
+      <span class="zmt-num">ZO ${m.c}</span>${obdTag(m)}
       <span class="zmt-date">${fmtDate(m.d)}</span>
       <span class="zmt-count">${cnt} ${plurBod(cnt)}${pres}</span>
       <span class="zmt-sp"></span>
@@ -612,7 +645,7 @@ function render(){
   more.style.display = res.length>shown ? 'block':'none';
   more.textContent = 'Zobrazit další zasedání ('+(res.length-shown)+')';
   feed.querySelectorAll('.zmt-h,.zsum').forEach(h=>h.onclick=()=>{
-    const n=+h.dataset.n;
+    const n=h.dataset.n;
     if(openSet.has(n)) openSet.delete(n); else openSet.add(n);
     render();
   });
@@ -645,7 +678,7 @@ function render(){
 }
 
 function temaChart(){
-  const counts=TEMATA.map(t=>MEET.reduce((a,m)=>a+m.b.filter(it=>TEMATA[it[1]]===t).length,0));
+  const counts=TEMATA.map(t=>PM().reduce((a,m)=>a+m.b.filter(it=>TEMATA[it[1]]===t).length,0));
   const pairs=TEMATA.map((t,i)=>[t,counts[i]]).sort((a,b)=>b[1]-a[1]);
   mk('temaChart',{type:'bar',data:{labels:pairs.map(p=>p[0]),datasets:[{
       data:pairs.map(p=>p[1]),backgroundColor:pairs.map(p=>temaRGB(p[0])),borderRadius:4,maxBarThickness:26}]},
@@ -659,7 +692,7 @@ function temaChart(){
 
 function vydChart(){
   const labels=VB.map(x=>x[0]);
-  const counts=labels.map(b=>MEET.reduce((a,m)=>a+m.b.filter(it=>vbucket(it[2])===b).length,0));
+  const counts=labels.map(b=>PM().reduce((a,m)=>a+m.b.filter(it=>vbucket(it[2])===b).length,0));
   mk('vydChart',{type:'bar',data:{labels,datasets:[{data:counts,
       backgroundColor:labels.map(b=>vbRGB(b)),borderRadius:5,maxBarThickness:54}]},
     options:{responsive:true,maintainAspectRatio:false,animation:{duration:500},
@@ -670,11 +703,6 @@ function vydChart(){
               y:Object.assign(axis(),{beginAtZero:true})}}});
 }
 
-function setYear(y){
-  year=String(y); shown=PAGE;
-  document.querySelectorAll('#yearSeg button').forEach(b=>b.classList.toggle('on', b.dataset.k===year));
-  render();
-}
 function setTema(t){
   tema=String(t); shown=PAGE; buildTemaChips(); render();
   document.getElementById('feed').scrollIntoView({behavior:'smooth',block:'start'});
@@ -686,9 +714,6 @@ function setVyd(v){
 const qIn=document.getElementById('q'), clr=document.getElementById('clr');
 qIn.addEventListener('input',()=>{q=qIn.value; shown=PAGE; clr.style.display=q?'block':'none'; render();});
 clr.onclick=()=>{q=''; qIn.value=''; clr.style.display='none'; qIn.focus(); shown=PAGE; render();};
-document.querySelectorAll('#yearSeg button').forEach(b=>b.onclick=()=>{
-  document.querySelectorAll('#yearSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
-  year=b.dataset.k; shown=PAGE; render();});
 document.querySelectorAll('#sortSeg button').forEach(b=>b.onclick=()=>{
   document.querySelectorAll('#sortSeg button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
   sort=b.dataset.k; render();});
@@ -697,14 +722,14 @@ document.getElementById('more').onclick=()=>{shown+=PAGE; render();};
 function redraw(){temaChart(); vydChart();}
 {const uq=new URLSearchParams(location.search).get('q'); if(uq) qIn.value=uq;}   // ?q= z celostránkového hledání
 q=qIn.value||''; clr.style.display=q?'block':'none';
-buildTemaChips(); buildVydChips(); render(); temaChart(); vydChart();
+buildObdRow(); buildYearSeg(); buildTemaChips(); buildVydChips(); render(); temaChart(); vydChart();
 // otevření konkrétního zasedání přes URL (?zo=N) — proklik z jiných sekcí (Investice)
 (function openFromUrl(){
-  const p=new URLSearchParams(location.search).get('zo'); if(!p) return;
-  const n=+p; if(!MEET.some(m=>m.n===n)) return;
-  openSet.add(n); year='all'; shown=MEET.length;
-  document.querySelectorAll('#yearSeg button').forEach(b=>b.classList.toggle('on',b.dataset.k==='all'));
-  render();
+  const n=new URLSearchParams(location.search).get('zo'); if(!n) return;
+  const m=MEET.find(x=>x.n===n); if(!m) return;
+  openSet.add(n); year='all';
+  if(OBD.length>1) setObd(m.o);
+  shown=MEET.length; buildYearSeg(); render();
   setTimeout(()=>{const h=document.querySelector('.zmt-h[data-n="'+n+'"]'); if(!h) return;
     const c=h.closest('.zmt'); c.scrollIntoView({behavior:'smooth',block:'center'});
     c.style.transition='box-shadow .3s'; c.style.boxShadow='0 0 0 2px var(--accent)';

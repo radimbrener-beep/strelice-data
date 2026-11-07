@@ -10,6 +10,7 @@ na zastupitelstvu, dodavatelé (zakázky), příjemci dotací a rozpočtové obl
 
 Spouštět PO build_zakazky.py (čte data vložená do zakazky.html)."""
 import sys, json, re, os, csv, glob
+import zasedani as zs
 from collections import defaultdict
 import portal_common as pc
 
@@ -34,8 +35,8 @@ ugeo = json.load(open("data/ulice_geo.json", encoding="utf-8"))
 IDX = []
 for src, mid, page, key in (("RO", ro, "zapisy.html", "ro"), ("ZO", zo, "zastupitelstvo.html", "zo")):
     for m in mid:
-        n = m["cislo_zasedani"]
-        lbl = f'{"Rada obce" if src == "RO" else "Zastupitelstvo"} č. {n}'
+        n = zs.key(m)
+        lbl = f'{"Rada obce" if src == "RO" else "Zastupitelstvo"} č. {zs.nazev(m, "").strip()}'
         for b in m["body"]:
             IDX.append([src, lbl, b["text"], m.get("datum") or "", f"{page}?{key}={n}",
                         b.get("castka"), b.get("tema") or ""])
@@ -43,13 +44,13 @@ for src, mid, page, key in (("RO", ro, "zapisy.html", "ro"), ("ZO", zo, "zastupi
 # přepisy diskuzí na zastupitelstvu (jen zasedání se záznamem)
 for f in sorted(glob.glob("prepisy/[0-9]*.json")):
     j = json.load(open(f, encoding="utf-8"))
-    n = j["cislo_zasedani"]
-    m = next((x for x in zo if x["cislo_zasedani"] == n), None)
+    n = os.path.basename(f)[:-5]            # klíč zasedání: prepisy/29.json, prepisy/2026-1.json
+    m = next((x for x in zo if zs.key(x) == n), None)
     for b in j["body"]:
         for t in b["turns"]:
             if len(t["text"]) < 40:
                 continue
-            IDX.append(["DIS", f'Diskuze · ZO č. {n}', t["text"], (m or {}).get("datum") or "",
+            IDX.append(["DIS", f'Diskuze · ZO č. {zs.nazev(m, "").strip() if m else n}', t["text"], (m or {}).get("datum") or "",
                         f"zastupitelstvo.html?zo={n}", None, t["who"]])
 
 # dodavatelé (agregace po firmách z dat stránky Zakázky)
