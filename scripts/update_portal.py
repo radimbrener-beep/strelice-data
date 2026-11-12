@@ -156,6 +156,49 @@ def known_ro():
 # YouTube – hledání videa pro ZO zasedání
 # ──────────────────────────────────────────────
 
+def ytdlp(args):
+    """Spustí yt-dlp (binárku, jinak modul — Windows Store Python ji nemá v PATH)."""
+    try:
+        return run(['yt-dlp'] + args, capture=True, check=False)
+    except FileNotFoundError:
+        return run([sys.executable, '-m', 'yt_dlp'] + args, capture=True, check=False)
+
+
+_UPLOAD = {}
+
+
+def video_upload_date(vid):
+    """Datum nahrání videa „RRRRMMDD“ (seznam kanálu přes --flat-playlist ho nedává → dotaz na video)."""
+    if vid not in _UPLOAD:
+        try:
+            r = ytdlp(['--skip-download', '--no-warnings', '--print', '%(upload_date)s',
+                       f'https://www.youtube.com/watch?v={vid}'])
+            out = (r.stdout or '').strip().splitlines()
+            _UPLOAD[vid] = out[-1] if out and re.fullmatch(r'\d{8}', out[-1]) else ''
+        except Exception as e:
+            print(f"  WARN: datum nahrání {vid}: {e}")
+            _UPLOAD[vid] = ''
+    return _UPLOAD[vid]
+
+
+def download_caps(vid):
+    """Stáhne české automatické titulky videa do data/video/caps/ (z nich build_video_casy.py
+    počítá časy jednotlivých bodů). Nepovinné: když YouTube titulky nedá, zůstane jen video."""
+    caps = ROOT / 'data' / 'video' / 'caps'
+    dest = caps / f'cap_{vid}.cs-orig.vtt'
+    if dest.exists() and dest.stat().st_size > 500:
+        return True
+    caps.mkdir(parents=True, exist_ok=True)
+    try:
+        ytdlp(['--write-auto-subs', '--sub-langs', 'cs-orig', '--sub-format', 'vtt', '--skip-download',
+               '--no-warnings', '-o', str(caps / f'cap_{vid}.%(ext)s'), f'https://www.youtube.com/watch?v={vid}'])
+    except Exception as e:
+        print(f"  WARN: titulky {vid}: {e}")
+    ok = dest.exists() and dest.stat().st_size > 500
+    print(f"  Titulky {vid}: {'staženy' if ok else 'nedostupné (časy bodů se nespočítají)'}")
+    return ok
+
+
 def fetch_yt_channel_videos():
     """
     Stáhne seznam videí z kanálu @tvstreliceubrna (jednou, výsledek cachujeme v paměti).
@@ -168,11 +211,7 @@ def fetch_yt_channel_videos():
             '--no-warnings',
             YT_CHANNEL]
     try:
-        try:
-            result = run(['yt-dlp'] + args, capture=True, check=False)
-        except FileNotFoundError:
-            # binárka není v PATH (Windows Store Python) — zkus modul
-            result = run([sys.executable, '-m', 'yt_dlp'] + args, capture=True, check=False)
+        result = ytdlp(args)
         lines = (result.stdout or '').strip().splitlines()
     except FileNotFoundError:
         print("  WARN: yt-dlp není nainstalováno")
@@ -201,16 +240,24 @@ def match_video_for_zo(cislo, datum_iso, videos, label=None):
 
     # Datum musí sedět vždy: číslo zasedání se v každém volebním období počítá znovu od 1,
     # takže „1. ustavující zasedání“ z 11/2026 by jinak padlo k ZO 1 z 10/2022 (stalo se 6. 11. 2026).
-    # Ověří ho datum v názvu videa, nebo nahrání do 60 dnů po zasedání (--flat-playlist ho často nedá).
+    # Ověří ho datum v názvu videa, nebo — u videa zastupitelstva — nahrání do 60 dnů po zasedání.
+    # Názvy videí obce datum obvykle nemají a --flat-playlist datum nahrání nedává („NA“),
+    # proto se u takového kandidáta zjistí dotazem na video (stalo se u ustavujícího 5. 11. 2026).
     zas = date.fromisoformat(datum_iso)
     candidates = []
     for vid_id, title, upload in videos:
-        try:
-            up_ok = 0 <= (date(int(upload[:4]), int(upload[4:6]), int(upload[6:8])) - zas).days <= 60
-        except (ValueError, IndexError):
-            up_ok = False
-        if date_cz not in title.replace(' ', '') and not up_ok:
-            continue
+        if date_cz not in title.replace(' ', ''):
+            # bez data v názvu jen video zastupitelstva s číslem zasedání v názvu
+            if not (re.search(r'zastupitel', title, re.I) and re.search(rf'(?<!\d){cislo}\.', title)):
+                continue
+            if not re.fullmatch(r'\d{8}', upload or ''):
+                upload = video_upload_date(vid_id)
+            try:
+                up_ok = 0 <= (date(int(upload[:4]), int(upload[4:6]), int(upload[6:8])) - zas).days <= 60
+            except (ValueError, IndexError):
+                up_ok = False
+            if not up_ok:
+                continue
         score = 4
         if re.search(r'\bzastupitelstv', title, re.I):
             score += 2
@@ -291,6 +338,7 @@ def check_missing_videos(dry_run=False, videos=None):
         vid = match_video_for_zo(m['cislo_zasedani'], m.get('datum', ''), videos, label=k)
         if vid and not dry_run:
             add_video_to_map(k, vid)
+            download_caps(vid)
         if vid:
             found.append((k, vid))
 
@@ -403,6 +451,7 @@ def main():
         video_id = match_video_for_zo(entry['cislo_zasedani'], entry.get('datum', ''), yt_videos(), label=key)
         if video_id:
             add_video_to_map(key, video_id)
+            download_caps(video_id)
 
         # dataset
         append_to_dataset(ROOT / 'dataset_ZO.json', entry)

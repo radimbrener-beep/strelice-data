@@ -1,4 +1,147 @@
 {
+ "2026-1": {
+  "vid": "TG8KKVx_APM",
+  "dur": 4174,
+  "has_caps": true,
+  "chapters": [
+   {
+    "t": 92,
+    "bod": null,
+    "label": "Volba ověřovatelů a návrhové komise",
+    "src": "fix"
+   },
+   {
+    "t": 187,
+    "bod": 2,
+    "label": "Schválení programu",
+    "src": "fix"
+   },
+   {
+    "t": 222,
+    "bod": 3,
+    "label": "Ověřilo platnost volby 15 členů Zastupitelstva obce Střelice a konstatovalo, že…",
+    "src": "fill",
+    "gi": 0
+   },
+   {
+    "t": 786,
+    "bod": 4,
+    "label": "Jako stálé zapisovatelky na volební období 2026–2030 paní Ing. Magdalénu…",
+    "src": "fill",
+    "gi": 1
+   },
+   {
+    "t": 936,
+    "bod": 5,
+    "label": "Mandátovou a volební komisi ve složení: Martin Kavalec, Mgr. Ing. David Dvořák,…",
+    "src": "fill",
+    "gi": 2
+   },
+   {
+    "t": 1018,
+    "bod": null,
+    "src": "snip",
+    "label": "A to schválení volebního řádu. řád přečtu, aby ho všichni prvé,…"
+   },
+   {
+    "t": 1243,
+    "bod": 6,
+    "label": "Volební řád ustavujícího zasedání zastupitelstva obce",
+    "src": "fill",
+    "gi": 3
+   },
+   {
+    "t": 1346,
+    "bod": 7,
+    "label": "Obce Střelice schválilo tajnou volbu starosty, místostarosty a tří členů rady obce",
+    "src": "fill",
+    "gi": 4
+   },
+   {
+    "t": 1369,
+    "bod": 8,
+    "label": "Tajnou volbou starostou obce Jiřího Vašulína. Starosta obce bude pracovat jako…",
+    "src": "prog",
+    "gi": 5
+   },
+   {
+    "t": 1791,
+    "bod": 9,
+    "src": "snip",
+    "label": "A je je to volba Je to vlastně obdobné, vyzývám subjekty z řad…"
+   },
+   {
+    "t": 2121,
+    "bod": 10,
+    "label": "Tajnou volbou místostarostou obce Josefa Tichého. Místostarosta obce bude…",
+    "src": "prog",
+    "gi": 6
+   },
+   {
+    "t": 2143,
+    "bod": null,
+    "label": "Tajnou volbou členem rady obce Mgr. Roberta Ströbingera, členem rady obce Ing.…",
+    "src": "fill",
+    "gi": 7
+   },
+   {
+    "t": 2449,
+    "bod": 11,
+    "label": "Obsazení finančního výboru: Předseda: Vojtěch Liška Členové: Ing. Pavel Stehno,…",
+    "src": "prog",
+    "gi": 8
+   },
+   {
+    "t": 2569,
+    "bod": 12,
+    "label": "Obsazení kontrolního výboru: Předseda: Mgr. Roman Daněk Členové: Mgr. Eva…",
+    "src": "prog",
+    "gi": 9
+   },
+   {
+    "t": 2653,
+    "bod": 13,
+    "label": "Výši měsíčních odměn neuvolněným členům ZO. Částky jsou navrženy ve výši, která…",
+    "src": "prog",
+    "gi": 10
+   },
+   {
+    "t": 2793,
+    "bod": 14,
+    "label": "Zástupcem ve Svazku vodovodů a kanalizací Ivančice starostu obce Jiřího Vašulína.…",
+    "src": "prog",
+    "gi": 11
+   },
+   {
+    "t": 2929,
+    "bod": 15,
+    "label": "Zástupcem v MAS Bobrava, starostu obce Jiřího Vašulína. Jeho zástupcem bude…",
+    "src": "fill",
+    "gi": 12
+   },
+   {
+    "t": 2954,
+    "bod": 16,
+    "src": "snip",
+    "label": "Dovolíte, tak já bych si hnedka slovo. občané, dámy a pánové, chci za…"
+   }
+  ],
+  "bodytimes": {
+   "0": 222,
+   "2": 786,
+   "5": 936,
+   "6": 1243,
+   "7": 1346,
+   "8": 1369,
+   "9": 2121,
+   "10": 2143,
+   "11": 2449,
+   "12": 2569,
+   "13": 2653,
+   "14": 2793,
+   "15": 2929
+  }
+ },
  "29": {
   "vid": "JXdZGd0tuyM",
   "dur": 8016,
