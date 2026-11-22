@@ -124,11 +124,12 @@ for _m in json.load(open("dataset_RO.json", encoding="utf-8")):
                   f'zapisy.html?ro={_c}'))
 if _dirty:
     json.dump(_pub, open(_PUB_PATH, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-# jen nejnovejsi zaznam z kazde sekce (jeden ZO + jeden RO)
+# jen nejnovejsi jednani z kazde sekce (jeden ZO + jeden RO) — podle data jednani, ne pridani:
+# pozde zverejneny starsi zapis (RO 104 pridany az po RO 2026-1) nesmi vytlacit novejsi jednani
 _best = {}
 for _row in _feed:
     _s = _row[2]
-    if _s not in _best or (_row[0], _row[1]) > (_best[_s][0], _best[_s][1]):
+    if _s not in _best or (_row[1], _row[0]) > (_best[_s][1], _best[_s][0]):
         _best[_s] = _row
 # vysledne radky razeny podle data publikace (pri shode podle data zasedani), sestupne
 _shown = sorted(_best.values(), key=lambda x: (x[0], x[1]), reverse=True)
@@ -164,11 +165,13 @@ import os
 def _emb(path):
     t = open(path, encoding="utf-8").read(); i = t.index("const D=") + 8
     return json.JSONDecoder().raw_decode(t[i:])[0]
-_ro = json.load(open("dataset_RO.json", encoding="utf-8"))
-_zo_n = len(json.load(open("dataset_ZO.json", encoding="utf-8")))
+# jen jednání období 2022–2026 (nové období má vlastní čísla až po čase)
+_ro = [m for m in json.load(open("dataset_RO.json", encoding="utf-8")) if zs.obdobi(m) == zs.LEGACY]
+_zo = [m for m in json.load(open("dataset_ZO.json", encoding="utf-8")) if zs.obdobi(m) == zs.LEGACY]
+_zo_n = len(_zo)
 # počet usnesení ZO stejně jako sekce Zastupitelstvo (vč. doplnění nečitelného ZO 27)
-_zo_b = (sum(len(m["b"]) for m in _emb("zastupitelstvo.html")["meet"]) if os.path.exists("zastupitelstvo.html")
-         else sum(len(m["body"]) for m in json.load(open("dataset_ZO.json", encoding="utf-8"))))
+_zo_b = (sum(len(m["b"]) for m in _emb("zastupitelstvo.html")["meet"] if m.get("o", zs.LEGACY) == zs.LEGACY)
+         if os.path.exists("zastupitelstvo.html") else sum(len(m["body"]) for m in _zo))
 _body = sum(len(m["body"]) for m in _ro) + _zo_b
 _jed = len(_ro) + _zo_n
 _fin = list(csv.DictReader(open("data/strelice_finm201_2013_2025.csv", encoding="utf-8-sig"), delimiter=";"))
